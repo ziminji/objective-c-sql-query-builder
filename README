@@ -1,7 +1,7 @@
 Objective-C SQL Query Builder
 
-These classes provide a simple way to construct SQL statements for Sqlite using a set of convenience methods
-similar to those in Linq.
+These classes provide a simple way to construct well-formed SQL statements for Sqlite using a set of convenience
+methods similar to those in Linq.
 
 Below are a few example of how these classes are used:
 
@@ -11,12 +11,13 @@ Below are a few example of how these classes are used:
 ZIMSqlInsertStatement *insert = [[ZIMSqlInsertStatement alloc] init];
 [insert table: @"Customer"];
 [insert column: @"name" value: @"Ziminji"];
+[insert column: @"phone" value: @"555-555-5555"];
 NSLog(@"%@", [insert statement]);
 [insert release];
 
 ZIMSqlSelectStatement *select = [[ZIMSqlSelectStatement alloc] init];
-[select column: @"lname"];
+[select column: @"name"];
 [select from: @"Customer"];
-[select orderBy: @"lname"];
+[select orderBy: @"name"];
 NSLog(@"%@", [select statement]);
 [select release];

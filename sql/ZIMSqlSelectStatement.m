@@ -136,6 +136,9 @@
 }
 
 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector {
+	if (!([brace isEqualToString: ZIMSqlBlockOpeningBrace] || [brace isEqualToString: ZIMSqlBlockClosingBrace])) {
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid brace token." userInfo: nil];
+	}
 	[_where addObject: [NSArray arrayWithObjects: connector, brace, nil]];
 }
 
@@ -177,6 +180,9 @@
 
 - (void) groupByHavingBlock: (NSString *)brace connector: (NSString *)connector {
 	if ([_groupBy count] > 0) {
+		if (!([brace isEqualToString: ZIMSqlBlockOpeningBrace] || [brace isEqualToString: ZIMSqlBlockClosingBrace])) {
+			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid brace token." userInfo: nil];
+		}
 		[_having addObject: [NSArray arrayWithObjects: connector, brace, nil]];
 	}
 	else {

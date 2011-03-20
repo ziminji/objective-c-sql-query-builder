@@ -67,6 +67,9 @@
 }
 
 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector {
+	if (!([brace isEqualToString: ZIMSqlBlockOpeningBrace] || [brace isEqualToString: ZIMSqlBlockClosingBrace])) {
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid brace token." userInfo: nil];
+	}
 	[_where addObject: [NSArray arrayWithObjects: connector, brace, nil]];
 }
 

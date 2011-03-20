@@ -135,7 +135,7 @@
  @discussion		This method will start or end a block.
  @param brace		The brace to be used; it is either an opening or closing brace.
  @param connector	The connector to be used.
- @updated			2011-03-13
+ @updated			2011-03-20
  */
 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector;
 /*!
