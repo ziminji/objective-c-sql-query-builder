@@ -139,6 +139,19 @@
 		}
 	}
 	
+	
+	if ([_orderBy count] > 0) {
+		[sql appendFormat: @" ORDER BY %@", [_orderBy componentsJoinedByString: @", "]];
+	}
+	
+	if (_limit > 0) {
+		[sql appendFormat: @" LIMIT %d", _limit];
+	}
+	
+	if (_offset > 0) {
+		[sql appendFormat: @" OFFSET %d", _offset];
+	}
+
 	[sql appendString: @";"];
 	
 	return sql;

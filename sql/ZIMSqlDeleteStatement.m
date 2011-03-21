@@ -114,7 +114,7 @@
 - (NSString *) statement {
 	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
 	
-	[sql appendFormat: @"DELETE FROM %@ ", _table];
+	[sql appendFormat: @"DELETE FROM %@", _table];
 
 	if ([_where count] > 0) {
 		BOOL doAppendConnector = NO;
@@ -127,6 +127,19 @@
 			[sql appendString: whereClause];
 			doAppendConnector = (![whereClause isEqualToString: ZIMSqlBlockOpeningBrace]);
 		}
+	}
+
+	
+	if ([_orderBy count] > 0) {
+		[sql appendFormat: @" ORDER BY %@", [_orderBy componentsJoinedByString: @", "]];
+	}
+	
+	if (_limit > 0) {
+		[sql appendFormat: @" LIMIT %d", _limit];
+	}
+	
+	if (_offset > 0) {
+		[sql appendFormat: @" OFFSET %d", _offset];
 	}
 
 	[sql appendString: @";"];
