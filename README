@@ -1,12 +1,27 @@
 Objective-C SQL Query Builder
 
-These classes provide a simple way to construct well-formed SQL statements for Sqlite using a set of convenience
-methods similar to those in LINQ.
+These classes provide a simple way to construct well-formed SQL statements for SQLite using a set of convenience
+methods similar to those in LINQ, and which can be used in iPhone/iOS applications.
 
-Below are a few examples of how these classes are used:
+Below are a few examples of how these classes are used in Xcode:
+
+#import "ZIMSqlDropTableStatement.h"
+
+ZIMSqlDropTableStatement *drop = [[ZIMSqlDropTableStatement alloc] init];
+[drop table: @"Customer"];
+NSLog(@"%@", [drop statement]);
+[drop release];
+
+#import "ZIMSqlDeleteStatement.h"
+
+ZIMSqlDeleteStatement *delete = [[ZIMSqlDeleteStatement alloc] init];
+[delete table: @"Customer"];
+[delete where: @"name" operator: ZIMSqlOperatorEqualTo value: @"Ziminji"];
+[delete limit: 1];
+NSLog(@"%@", [delete statement]);
+[delete release];
 
 #import "ZIMSqlInsertStatement.h"
-#import "ZIMSqlSelectStatement.h"
 
 ZIMSqlInsertStatement *insert = [[ZIMSqlInsertStatement alloc] init];
 [insert table: @"Customer"];
@@ -15,9 +30,23 @@ ZIMSqlInsertStatement *insert = [[ZIMSqlInsertStatement alloc] init];
 NSLog(@"%@", [insert statement]);
 [insert release];
 
+#import "ZIMSqlSelectStatement.h"
+
 ZIMSqlSelectStatement *select = [[ZIMSqlSelectStatement alloc] init];
 [select column: @"name"];
 [select from: @"Customer"];
+[select where: @"name" operator: ZIMSqlOperatorEqualTo value: @"Ziminji"];
+[select where: @"phone" operator: ZIMSqlOperatorEqualTo value: @"555-555-5555" connector: ZIMSqlConnectorAnd];
 [select orderBy: @"name"];
+[select groupBy: @"name"];
 NSLog(@"%@", [select statement]);
 [select release];
+
+#import "ZIMSqlUpdateStatement.h"
+
+ZIMSqlUpdateStatement *update = [[ZIMSqlUpdateStatement alloc] init];
+[update table: @"Customer"];
+[update column: @"phone" value: @"5555555555"];
+[update where: @"name" operator: ZIMSqlOperatorEqualTo value: @"Ziminji"];
+NSLog(@"%@", [update statement]);
+[update release];
