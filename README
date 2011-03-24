@@ -104,8 +104,8 @@ ZIMSqlSelectStatement *select = [[ZIMSqlSelectStatement alloc] init];
 NSString *statement = [select statement];
 NSLog(@"%@", statement);
 
-// Executes the SQL statement
-[connection execute: statement];
+// Queries using the SQL statement
+[connection query: statement];
 
 // Closes database connection and releases allocated memory
 [select release];
