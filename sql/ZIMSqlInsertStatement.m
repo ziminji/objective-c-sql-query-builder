@@ -28,7 +28,7 @@
  @discussion		This method will prepare a value for an SQL statement.
  @param value		The value to be prepared.
  @return			The prepared value.
- @updated			2011-03-17
+ @updated			2011-03-24
  */
 - (NSString *) prepareValue: (id)value;
 @end
@@ -88,6 +88,9 @@
 	}
 	else if ([value isKindOfClass: [NSString class]]) {
 		return [NSString stringWithFormat: @"'%@'", [[(NSString *)value stringByReplacingOccurrencesOfString: @"\\" withString: @"\\\\"] stringByReplacingOccurrencesOfString: @"\'" withString: @"\\\'"]];
+	}
+	else if ([value isKindOfClass: [NSNull class]]) {
+		return @"null";
 	}
 	else if ([value isKindOfClass: [NSDate class]]) {
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
