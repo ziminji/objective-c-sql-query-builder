@@ -52,8 +52,19 @@
 
 - (id) initWithDataSource: (NSString *)dataSource {
 	if (self = [super init]) {
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		_dataSource = [[[paths objectAtIndex: 0] stringByAppendingPathComponent: dataSource] retain];
+		NSFileManager *fileManager = [NSFileManager defaultManager];
+		NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], dataSource, nil]];
+		if (![fileManager fileExistsAtPath: workingPath]) {
+			NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: dataSource];
+			if (![fileManager fileExistsAtPath: resourcePath]) {
+				NSError *error;
+				if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
+					@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
+				}
+			}
+		}
+		_dataSource = [workingPath copy];
+		[fileManager release];
 		[self open];
 	}
 	return self;

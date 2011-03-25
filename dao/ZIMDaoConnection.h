@@ -19,21 +19,25 @@
 /*!
  @class				ZIMDaoConnection
  @discussion		This class represents an SQL statements.
- @updated			2011-03-23
+ @updated			2011-03-25
  */
 @interface ZIMDaoConnection : NSObject {
 	
-@private
-	NSString *_dataSource;
-	sqlite3 *_database;
-	BOOL _isConnected;
-	
+	@private
+		NSString *_dataSource;
+		sqlite3 *_database;
+		BOOL _isConnected;
+
 }
 /*!
  @method			initWithDataSource:
- @discussion		This constructor creates an instance of this class with the specified data source.
+ @discussion		This constructor creates an instance of this class with the specified data source
+					and will attempt to open a database connection.  If the data source does not already
+					exist in the working directoy, an attempt will be made to copy the data source from
+					the resource directory to the working directory; otherwise, the data source will be
+					created in the working directory.
  @param dataSource	The file name to the database.
- @updated			2011-03-23
+ @updated			2011-03-25
  */
 - (id) initWithDataSource: (NSString *)dataSource;
 /*!
