@@ -28,7 +28,7 @@
  @discussion		This method will prepare a value for an SQL statement.
  @param value		The value to be prepared.
  @return			The prepared value.
- @updated			2011-03-24
+ @updated			2011-03-25
  */
 - (NSString *) prepareValue: (id)value;
 @end
@@ -166,6 +166,18 @@
 	else if ([value isKindOfClass: [NSString class]]) {
 		return [NSString stringWithFormat: @"'%@'", [[(NSString *)value stringByReplacingOccurrencesOfString: @"\\" withString: @"\\\\"] stringByReplacingOccurrencesOfString: @"\'" withString: @"\\\'"]];
 	}
+	else if ([value isKindOfClass: [NSData class]]) {
+		NSData *data = (NSData *)value;
+		int length = [data length];
+		NSMutableString *buffer = [NSMutableString stringWithCapacity: (length * 2)];
+		[buffer appendString: @"'"];
+		const unsigned char *dataBuffer = [data bytes];
+		for (int i = 0; i < length; i++) {
+			[buffer appendFormat: @"%02x", (unsigned long)dataBuffer[i]];
+		}
+		[buffer appendString: @"'"];
+		return buffer;
+	}
 	else if ([value isKindOfClass: [NSNull class]]) {
 		return @"null";
 	}
@@ -176,7 +188,9 @@
 		[formatter release];
 		return date;
 	}
-	return [NSString stringWithFormat: @"%@", value];
+	else {
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Unable to prepare value. '%@'", value] userInfo: nil];
+	}
 }
 
 @end
