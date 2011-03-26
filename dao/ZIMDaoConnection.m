@@ -151,7 +151,7 @@
 	// Declared Datetype - http://www.sqlite.org/datatype3.html (section 2.2 table column 1)
 	const NSSet *intTypes  = [NSSet setWithObjects: @"BIGINT", @"BOOLEAN", @"INT", @"INT2", @"INT8", @"INTEGER", @"MEDIUMINT", @"SMALLINT", @"TINYINT", @"UNSIGNED BIG INT", nil];
 	const NSSet *realTypes = [NSSet setWithObjects: @"DECIMAL", @"DOUBLE", @"DOUBLE PRECISION", @"FLOAT", @"NUMERIC", @"REAL", nil];
-	const NSSet *strTypes  = [NSSet setWithObjects: @"CHARACTER", @"CLOB", @"NATIONAL VARYING CHARACTER", @"NATIVE CHARACTER", @"NCHAR", @"NVARCHAR", @"TEXT", @"VARCHAR", @"VARIANT", @"VARYING CHARACTER", nil];
+	const NSSet *strTypes  = [NSSet setWithObjects: @"CHAR", @"CHARACTER", @"CLOB", @"NATIONAL VARYING CHARACTER", @"NATIVE CHARACTER", @"NCHAR", @"NVARCHAR", @"TEXT", @"VARCHAR", @"VARIANT", @"VARYING CHARACTER", nil];
 	const NSSet *binTypes  = [NSSet setWithObjects: @"BLOB", nil];
 	const NSSet *nullTypes = [NSSet setWithObjects: @"NULL", nil];
 	const NSSet *dateTypes = [NSSet setWithObjects: @"DATE", @"DATETIME", @"TIMESTAMP", nil];

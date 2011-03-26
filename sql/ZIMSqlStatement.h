@@ -77,10 +77,52 @@
 #define ZIMSqlOperatorBetween					@"BETWEEN"
 #define ZIMSqlOperatorNotBetween				@"NOT BETWEEN"
 
+// Default Values -- http://forums.realsoftware.com/viewtopic.php?f=3&t=35179
+#define ZIMSqlDefaultValueIsAutoIncremented		@"PRIMARY KEY AUTOINCREMENT"
+#define ZIMSqlDefaultValueIsNull				@"DEFAULT NULL";
+#define ZIMSqlDefaultValueIsNotNull				@"NOT NULL"
+#define ZIMSqlDefaultValueIsCurrentDate			@"DEFAULT CURRENT_DATE"
+#define ZIMSqlDefaultValueIsCurrentDateTime		@"DEFAULT (datetime('now','localtime'))"
+#define ZIMSqlDefaultValueIsCurrentTime			@"DEFAULT CURRENT_TIME"
+#define ZIMSqlDefaultValueIsCurrentTimestamp	@"DEFAULT CURRENT_TIMESTAMP"
+NSString *ZIMSqlDefaultValue(id value);
+
+// Declared Datetype -- http://www.sqlite.org/datatype3.html
+#define ZIMSqlDataTypeBigInt					@"BIGINT"
+#define ZIMSqlDataTypeBlob						@"BLOB"
+#define ZIMSqlDataTypeBoolean					@"BOOLEAN"
+#define ZIMSqlDataTypeClob						@"CLOB"
+#define ZIMSqlDataTypeDate						@"DATE"
+#define ZIMSqlDataTypeDateTime					@"DATETIME"
+#define ZIMSqlDataTypeDouble					@"DOUBLE"
+#define ZIMSqlDataTypeDoublePrecision			@"DOUBLE PRECISION"
+#define ZIMSqlDataTypeFloat						@"FLOAT"
+#define ZIMSqlDataTypeInt						@"INT"
+#define ZIMSqlDataTypeInt2						@"INT2"
+#define ZIMSqlDataTypeInt8						@"INT8"
+#define ZIMSqlDataTypeInteger					@"INTEGER"
+#define ZIMSqlDataTypeMediumInt					@"MEDIUMINT"
+#define ZIMSqlDataTypeNumeric					@"NUMERIC"
+#define ZIMSqlDataTypeReal						@"REAL"
+#define ZIMSqlDataTypeSmallInt					@"SMALLINT"
+#define ZIMSqlDataTypeText						@"TEXT"
+#define ZIMSqlDataTypeTimestamp					@"TIMESTAMP"
+#define ZIMSqlDataTypeTinyInt					@"TINYINT"
+#define ZIMSqlDataTypeUnsignedBigInt			@"UNSIGNED BIG INT"
+#define ZIMSqlDataTypeVariant					@"VARIANT"
+NSString *ZIMSqlDataTypeChar(NSInteger x);
+NSString *ZIMSqlDataTypeCharacter(NSInteger x);
+NSString *ZIMSqlDataTypeDecimal(NSInteger x, NSInteger y);
+NSString *ZIMSqlDataTypeNativeCharacter(NSInteger x);
+NSString *ZIMSqlDataTypeNChar(NSInteger x);
+NSString *ZIMSqlDataTypeNVarChar(NSInteger x);
+NSString *ZIMSqlDataTypeVarChar(NSInteger x);
+NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
+
 /*!
  @class				ZIMSqlStatement
  @discussion		This class represents an SQL statements.
- @updated			2011-03-13
+ @updated			2011-03-26
  @see				http://souptonuts.sourceforge.net/readme_sqlite_tutorial.html
  */
 @interface ZIMSqlStatement : NSObject {

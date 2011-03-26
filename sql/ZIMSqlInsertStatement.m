@@ -86,13 +86,16 @@
 		[str appendString: @")"];
 		return str;
 	}
+	else if ([value isKindOfClass: [NSNumber class]]) {
+		return [NSString stringWithFormat: @"%@", value];
+	}
 	else if ([value isKindOfClass: [NSString class]]) {
 		return [NSString stringWithFormat: @"'%@'", [[(NSString *)value stringByReplacingOccurrencesOfString: @"\\" withString: @"\\\\"] stringByReplacingOccurrencesOfString: @"\'" withString: @"\\\'"]];
 	}
 	else if ([value isKindOfClass: [NSData class]]) {
 		NSData *data = (NSData *)value;
 		int length = [data length];
-		NSMutableString *buffer = [NSMutableString stringWithCapacity: (length * 2)];
+		NSMutableString *buffer = [[[NSMutableString alloc] init] autorelease];
 		[buffer appendString: @"'"];
 		const unsigned char *dataBuffer = [data bytes];
 		for (int i = 0; i < length; i++) {
