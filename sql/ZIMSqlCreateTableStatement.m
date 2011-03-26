@@ -30,12 +30,6 @@
 
 - (void) dealloc {
 	[_column release];
-	if (_primaryKey != nil) {
-		[_primaryKey release];
-	}
-	if (_uniqueKey != nil) {
-		[_uniqueKey release];
-	}
 	[super dealloc];
 }
 
