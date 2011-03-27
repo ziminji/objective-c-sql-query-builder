@@ -23,7 +23,7 @@
 		_table = nil;
 		_column = [[NSMutableDictionary alloc] init];
 		_primaryKey = nil;
-		_uniqueKey = nil;
+		_unique = nil;
 	}
 	return self;
 }
@@ -38,7 +38,20 @@
 }
 
 - (void) column: (NSString *)column type: (NSString *)type {
-	[self column: column type: type unique: NO];
+	[_column setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
+}
+
+- (void) column: (NSString *)column type: (NSString *)type defaultValue: (NSString *)value {
+	[_column setObject: [NSString stringWithFormat: @"%@ %@ %@", column, type, value] forKey: column];
+}
+
+- (void) column: (NSString *)column type: (NSString *)type primaryKey: (BOOL)primaryKey {
+	if (primaryKey) {
+		[_column setObject: [NSString stringWithFormat: @"%@ %@ PRIMARY KEY", column, type] forKey: column];
+	}
+	else {
+		[_column setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
+	}
 }
 
 - (void) column: (NSString *)column type: (NSString *)type unique: (BOOL)unique {
@@ -48,10 +61,6 @@
 	else {
 		[_column setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
 	}
-}
-
-- (void) column: (NSString *)column type: (NSString *)type defaultValue: (NSString *)value {
-	[_column setObject: [NSString stringWithFormat: @"%@ %@ %@", column, type, value] forKey: column];
 }
 
 - (void) primaryKey: (NSArray *)columns {
@@ -68,17 +77,17 @@
 	}
 }
 
-- (void) uniqueKey: (NSArray *)columns {
+- (void) unique: (NSArray *)columns {
 	if (columns != nil) {
 		for (NSString *column in columns) {
 			if ([_column objectForKey: column] == nil) {
-				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before unique key can be assigned.", column] userInfo: nil];
+				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before applying unique constraint.", column] userInfo: nil];
 			}
 		}
-		_uniqueKey = [NSString stringWithFormat: @"UNIQUE (%@)", [columns componentsJoinedByString: @", "]];
+		_unique = [NSString stringWithFormat: @"UNIQUE (%@)", [columns componentsJoinedByString: @", "]];
 	}
 	else {
-		_uniqueKey = nil;
+		_unique = nil;
 	}
 }
 
@@ -102,8 +111,8 @@
 		[sql appendFormat: @", %@", _primaryKey];
 	}
 
-	if (_uniqueKey != nil) {
-		[sql appendFormat: @", %@", _uniqueKey];
+	if (_unique != nil) {
+		[sql appendFormat: @", %@", _unique];
 	}
 
 	[sql appendString: @");"];
