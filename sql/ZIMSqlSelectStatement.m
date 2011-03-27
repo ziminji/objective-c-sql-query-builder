@@ -46,7 +46,7 @@
 		_orderBy = [[NSMutableArray alloc] init];
 		_limit = 0;
 		_offset = 0;
-		_union = [[NSMutableArray alloc] init];
+		_compound = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -59,7 +59,7 @@
 	[_groupBy release];
 	[_having release];
 	[_orderBy release];
-	[_union release];
+	[_compound release];
 	[super dealloc];
 }
 
@@ -243,8 +243,15 @@
 	_offset = abs(offset);
 }
 
-- (void) unionSelectStatement: (ZIMSqlSelectStatement *)statement {
-	[_union addObject: [statement statement]];
+- (void) compoundWith: (NSString *)statement operator: (NSString *)operator {
+	if (!(([statement length] >= 6)  && [[[statement substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"SELECT"])) {
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May only compound a select statement." userInfo: nil];
+	}
+	operator = [operator uppercaseString];
+	if (![[NSSet setWithObjects: ZIMSqlOperatorExcept, ZIMSqlOperatorIntersect, ZIMSqlOperatorUnion, ZIMSqlOperatorUnionALL, nil] isSubsetOfSet: [NSSet setWithObject: operator]]) {
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid operator." userInfo: nil];
+	}
+	[_compound addObject: [NSString stringWithFormat: @"%@ %@", operator, statement]];
 }
 
 - (NSString *) statement {
@@ -323,8 +330,8 @@
 		[sql appendFormat: @" OFFSET %d", _offset];
 	}
 
-	for (NSString *statement in _union) {
-		[sql appendFormat: @" UNION %@", statement];
+	for (NSString *compound in _compound) {
+		[sql appendFormat: @" %@", compound];
 	}
 
 	[sql appendString: @";"];

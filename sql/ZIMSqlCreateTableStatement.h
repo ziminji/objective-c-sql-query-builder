@@ -67,7 +67,7 @@
 /*!
  @method				column:type:unique:
  @discussion			This method will create a column with the specified datatype. It also provides
-						the option to ensures that all values in a column are distinct.
+						the option to ensure that all values in the column are distinct.
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param unique			This constrains the column to only unique values.

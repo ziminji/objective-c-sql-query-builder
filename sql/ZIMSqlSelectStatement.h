@@ -19,7 +19,7 @@
 /*!
  @class				ZIMSqlSelectStatement
  @discussion		This class represents an SQL select statements.
- @updated			2011-03-13
+ @updated			2011-03-27
  @see				http://www.sqlite.org/lang_select.html
  */
 @interface ZIMSqlSelectStatement : ZIMSqlStatement {
@@ -35,7 +35,7 @@
 		NSMutableArray *_orderBy;
 		NSInteger _limit;
 		NSInteger _offset;
-		NSMutableArray *_union;
+		NSMutableArray *_compound;
 
 }
 /*!
@@ -266,12 +266,13 @@
  */
 - (void) offset: (NSInteger)offset;
 /*!
- @method			unionSelectStatement:
- @discussion		This method will union the specified select statement to the SQL statement.
- @param statement	The select statement that will be unioned to the SQL statement.
- @updated			2011-03-13
+ @method			compoundWith:operator:
+ @discussion		This method will form a compound select statement using the specified operator.
+ @param statement	The select statement that will be appended.
+ @param operator	The operator to be used.  Must use UNION, UNION ALL, INTERSECT, or EXCEPT.
+ @updated			2011-03-27
  */
-- (void) unionSelectStatement: (ZIMSqlSelectStatement *)statement;
+- (void) compoundWith: (NSString *)statement operator: (NSString *)operator;
 /*!
  @method			statement
  @discussion		This method will return the SQL statement.
