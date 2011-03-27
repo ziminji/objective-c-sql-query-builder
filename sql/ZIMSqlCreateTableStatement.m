@@ -21,6 +21,7 @@
 - (id) init {
 	if (self = [super init]) {
 		_table = nil;
+		_temporary = NO;
 		_column = [[NSMutableDictionary alloc] init];
 		_primaryKey = nil;
 		_unique = nil;
@@ -34,7 +35,12 @@
 }
 
 - (void) table: (NSString *)table {
+	[self table: table temporary: NO];
+}
+
+- (void) table: (NSString *)table temporary: (BOOL)temporary {
 	_table = table;
+	_temporary = temporary;
 }
 
 - (void) column: (NSString *)column type: (NSString *)type {
@@ -94,7 +100,13 @@
 - (NSString *) statement {
 	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
 	
-	[sql appendFormat: @"CREATE TABLE IF NOT EXISTS %@ (", _table];
+	[sql appendString: @"CREATE"];
+
+	if (_temporary) {
+		[sql appendString: @" TEMPORARY"];
+	}
+	
+	[sql appendFormat: @" TABLE %@ (", _table];
 
 	int i = 0;
 	for (NSString *column in _column) {
