@@ -53,11 +53,11 @@
  */
 - (void) column: (NSString *)column;
 /*!
- @method			column:value:
+ @method			column:alias:
  @discussion		This method will add a column to the SQL statement.
  @param column		The column to be selected.
  @param alias		The alias to be used.
- @updated			2011-03-13
+ @updated			2011-03-27
  */
 - (void) column: (NSString *)column alias: (NSString *)alias;
 /*!
