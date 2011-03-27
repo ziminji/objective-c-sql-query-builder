@@ -26,6 +26,7 @@
 
 	@private
 		NSString *_table;
+		BOOL _temporary;
 		NSMutableDictionary *_column;
 		NSString *_primaryKey;
 		NSString *_unique;
@@ -38,6 +39,13 @@
  @updated				2011-03-19
  */
 - (void) table: (NSString *)table;
+/*!
+ @method				table:temporary:
+ @discussion			This method will set the table used in the SQL statement.
+ @param table			The table that will be used in the SQL statement.
+ @updated				2011-03-27
+ */
+- (void) table: (NSString *)table temporary: (BOOL)temporary;
 /*!
  @method				column:type:
  @discussion			This method will create a column with the specified parameters.

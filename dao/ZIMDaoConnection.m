@@ -16,7 +16,7 @@
 
 #import "ZIMDaoConnection.h"
 
-// Defines a table column datatype
+// Defines the integer value for the table column datatype
 #define ZIMDAO_DATE								6
 
 /*!
@@ -232,6 +232,20 @@
 	[self close];
 	[_dataSource release];
 	[super dealloc];
+}
+
++ (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql {
+	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource];
+	NSNumber *result = [connection execute: sql];
+	[connection release];
+	return result;
+}
+
++ (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql {
+	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource];
+	NSArray *records = [connection query: sql];
+	[connection release];
+	return records;
 }
 
 @end
