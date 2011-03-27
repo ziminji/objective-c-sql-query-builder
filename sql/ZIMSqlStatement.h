@@ -64,7 +64,7 @@
 #define ZIMSqlOperatorBitwiseShiftRight			@">>"
 #define ZIMSqlOperatorBitwiseNegation			@"~"
 
-// Additional Operator
+// Additional Operators
 #define ZIMSqlOperatorConcatenate				@"||"
 #define ZIMSqlOperatorIn						@"IN"
 #define ZIMSqlOperatorNotIn						@"NOT IN"
@@ -76,6 +76,12 @@
 #define ZIMSqlOperatorNotGlob					@"NOT GLOB"
 #define ZIMSqlOperatorBetween					@"BETWEEN"
 #define ZIMSqlOperatorNotBetween				@"NOT BETWEEN"
+
+// Compound Operators
+#define ZIMSqlOperatorExcept					@"EXCEPT"
+#define ZIMSqlOperatorIntersect					@"INTERSECT"
+#define ZIMSqlOperatorUnion						@"UNION"
+#define ZIMSqlOperatorUnionALL					@"UNION ALL"
 
 // Default Values -- http://forums.realsoftware.com/viewtopic.php?f=3&t=35179
 #define ZIMSqlDefaultValueIsAutoIncremented		@"PRIMARY KEY AUTOINCREMENT"
