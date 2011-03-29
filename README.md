@@ -76,7 +76,7 @@ repository, go ahead and create a fork.
 This project is under heavy development.  There are development plans to add:
 
 * More SQL builder classes;
-* Object Relation Modeling (ORM) that will utilize both the Data Mapper and Active Record design patterns;
+* Object Relational Modeling (ORM) that will utilize both the Data Mapper and Active Record design patterns;
 * Unit-tests;
 * Documentation generated via Doxygen; and,
 * Additional tutorials.
