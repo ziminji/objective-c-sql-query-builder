@@ -1,6 +1,6 @@
 # Objective-C SQL Query Builder
 
-This repository contains two sets of Objective-C based classes that handle a SQLite database. The DAO folder contains
+This repository contains two sets of Objective-C based classes that handle a SQLite database.  The DAO folder contains
 a class that easily manages the database connection.  The SQL folder contains a collection of SQL builder classes that
 can be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar to those
 found in LINQ.
@@ -21,7 +21,7 @@ repository are written with these observations in mind.
 
 The following is a short-list of some the features:
 
-* Implements a very simple, but powerful, Data Access Object (DAO).
+* Implements a very simple, but powerful, Data Access Object (DAO) that wraps the sqlite3 C based functions.
 * Executes an SQL statement with one line of code.
 * Has a large collection of SQL builder classes with methods that mimics their SQL equivalent.
 * Helps ensure that SQL is well-formed.
@@ -78,7 +78,7 @@ This project is under heavy development.  There are development plans to add:
 * More SQL builder classes;
 * Object Relational Modeling (ORM) that will utilize both the Data Mapper and Active Record design patterns;
 * Unit-tests;
-* Documentation generated via Doxygen; and,
+* Documentation generated via [Doxygen](http://www.stack.nl/~dimitri/doxygen/); and,
 * Additional tutorials.
 
 ## License (Apache v2.0)
