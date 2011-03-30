@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a copy of the License at:
  * 
  *    http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -19,12 +19,13 @@
 /*!
  @class					ZIMDaoConnection
  @discussion			This class represents an SQL statements.
- @updated				2011-03-25
+ @updated				2011-03-30
  */
 @interface ZIMDaoConnection : NSObject {
 	
 	@private
 		NSString *_dataSource;
+		NSLock *_mutex;
 		sqlite3 *_database;
 		BOOL _isConnected;
 
@@ -37,9 +38,21 @@
 						the resource directory to the working directory; otherwise, the data source will be
 						created in the working directory.
  @param dataSource		The file name of the database to be used.
- @updated				2011-03-27
+ @updated				2011-03-30
  */
 - (id) initWithDataSource: (NSString *)dataSource;
+/*!
+ @method				initWithDataSource:withMultithreadingSupport:
+ @discussion			This constructor creates an instance of this class with the specified data source
+						and will attempt to open a database connection.  If the data source does not already
+						exist in the working directoy, an attempt will be made to copy the data source from
+						the resource directory to the working directory; otherwise, the data source will be
+						created in the working directory.
+ @param dataSource		The file name of the database to be used.
+ @param locks			This determines whether locks should be used.
+ @updated				2011-03-30
+ */
+- (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)locks;
 /*!
  @method				open
  @discussion			This method will open a connection to the database.
@@ -51,7 +64,7 @@
  @discussion			This method will execute the specified SQL statement.
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-03-27
+ @updated				2011-03-30
  */
 - (NSNumber *) execute: (NSString *)sql;
 /*!
@@ -59,7 +72,7 @@
  @discussion			This method will query with the specified SQL statement.
  @param sql				The SQL statement to be used.
  @return				The result set.
- @updated				2011-03-27
+ @updated				2011-03-30
  */
 - (NSArray *) query: (NSString *)sql;
 /*!
@@ -81,7 +94,7 @@
  @param dataSource		The file name of the database to be used.
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-03-27
+ @updated				2011-03-30
  */
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql;
 /*!
@@ -90,7 +103,7 @@
  @param dataSource		The file name of the database to be used.
  @param sql				The SQL statement to be used.
  @return				The result set.
- @updated				2011-03-27
+ @updated				2011-03-30
  */
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql;
 
