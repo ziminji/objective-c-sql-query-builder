@@ -25,6 +25,7 @@ The following is a short-list of some the features:
 * Executes an SQL statement with one line of code.
 * Has a large collection of SQL builder classes with methods that mimics their SQL equivalent.
 * Helps ensure that SQL is well-formed.
+* Supports all major Objective-C datatypes, including NSNull, NSNumber, NSString, NSData, and NSDate.
 * Sanitizes data.
 * Handles most complex queries.
 * Works with raw SQL.
@@ -65,7 +66,8 @@ Update, and Delete (CRUD) statements.
 ## Reporting Bugs & Making Recommendations
 
 Help debug the Objective-C classes in repository by reporting any bugs.  The more detailed the report the better.  If
-you have a bug-fix or a unit-test, please send a message to this repository's inbox.
+you have a bug-fix or a unit-test, please create an issue under the "Issues" tab of this repository's inbox and someone
+will follow-up with it.
 
 Likewise, if you would like to make a recommendation on how to improve these classes, take the time to send a message
 so that it can be considered for an upcoming release.  Or, if you would like to contribute to the development of this
@@ -77,6 +79,7 @@ This project is under heavy development.  There are development plans to add:
 
 * More SQL builder classes;
 * Object Relational Modeling (ORM) that will utilize both the Data Mapper and Active Record design patterns;
+* Multi-threading support in the DAO for asynchronous SQLite calls;
 * Unit-tests;
 * Documentation generated via [Doxygen](http://www.stack.nl/~dimitri/doxygen/); and,
 * Additional tutorials.
