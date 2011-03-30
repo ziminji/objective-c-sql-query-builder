@@ -51,6 +51,10 @@
 @implementation ZIMDaoConnection
 
 - (id) initWithDataSource: (NSString *)dataSource {
+	return [self initWithDataSource: dataSource withMultithreadingSupport: NO];
+}
+
+- (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)support {
 	if (self = [super init]) {
 		NSFileManager *fileManager = [NSFileManager defaultManager];
 		NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], dataSource, nil]];
@@ -65,6 +69,9 @@
 		}
 		_dataSource = [workingPath copy];
 		[fileManager release];
+		if (support) {
+			_mutex = [[NSLock alloc] init];
+		}
 		[self open];
 	}
 	return self;
@@ -79,31 +86,50 @@
 }
 
 - (NSNumber *) execute: (NSString *)sql {
+	if (_mutex != nil) {
+		[_mutex lock];
+	}
+
 	sqlite3_stmt *statement = NULL;
-	
+
 	if ((sqlite3_prepare_v2(_database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK) || (sqlite3_step(statement) != SQLITE_DONE)) {
 		sqlite3_finalize(statement);
+		if (_mutex != nil) {
+			[_mutex unlock];
+		}
 		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to execute SQL statement. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
 	}
-	
+
 	NSNumber *result = nil;
-	
+
 	if (([sql length] >= 6)  && [[[sql substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"INSERT"]) {
 	 	result = [NSNumber numberWithInt: sqlite3_last_insert_rowid(_database)];
 	}
 	else {
 		result = [NSNumber numberWithInt: YES];
 	}
-	
+
 	sqlite3_finalize(statement);
+
+	if (_mutex != nil) {
+		[_mutex unlock];
+	}
+
 	return result;
 }
 
-- (NSArray *) query: (NSString *)sql {	
+- (NSArray *) query: (NSString *)sql {
+	if (_mutex != nil) {
+		[_mutex lock];
+	}
+
 	sqlite3_stmt *statement = NULL;
 	
 	if (sqlite3_prepare_v2(_database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK) {
 		sqlite3_finalize(statement);
+		if (_mutex != nil) {
+			[_mutex unlock];
+		}
 		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to perform query with SQL statement. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
 	}
 	
@@ -144,6 +170,11 @@
 	[columnNames release];
 	
 	sqlite3_finalize(statement);
+
+	if (_mutex != nil) {
+		[_mutex unlock];
+	}
+
 	return records;
 }
 
@@ -231,18 +262,21 @@
 - (void) dealloc {
 	[self close];
 	[_dataSource release];
+	if (_mutex != nil) {
+		[_mutex release];
+	}
 	[super dealloc];
 }
 
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql {
-	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource];
+	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSNumber *result = [connection execute: sql];
 	[connection release];
 	return result;
 }
 
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql {
-	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource];
+	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSArray *records = [connection query: sql];
 	[connection release];
 	return records;
