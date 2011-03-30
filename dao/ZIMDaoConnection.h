@@ -22,8 +22,8 @@
  @updated				2011-03-30
  */
 @interface ZIMDaoConnection : NSObject {
-	
-	@private
+
+	@protected
 		NSString *_dataSource;
 		NSLock *_mutex;
 		sqlite3 *_database;
