@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a copy of the License at:
  * 
  *    http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,23 +14,8 @@
  * limitations under the License.
  */
 
+#import "ZIMSqlHelper.h"
 #import "ZIMSqlSelectStatement.h"
-
-/*!
- @category		ZIMSqlSelectStatement (Private)
- @discussion	This category defines the prototpes for this class's private methods.
- @updated		2011-03-13
- */
-@interface ZIMSqlSelectStatement (Private)
-/*!
- @method			prepareValue:
- @discussion		This method will prepare a value for an SQL statement.
- @param value		The value to be prepared.
- @return			The prepared value.
- @updated			2011-03-26
- */
-- (NSString *) prepareValue: (id)value;
-@end
 
 @implementation ZIMSqlSelectStatement
 
@@ -68,19 +53,19 @@
 }
 
 - (void) column: (NSString *)column {
-	[_column addObject: column];
+	[_column addObject: [ZIMSqlHelper prepareField: column]];
 }
 
 - (void) column: (NSString *)column alias: (NSString *)alias {
-	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", column, alias]];
+	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", [ZIMSqlHelper prepareField: column], alias]];
 }
 
 - (void) from: (NSString *)table {
-	[_table addObject: table];
+	[_table addObject: [ZIMSqlHelper prepareField: table]];
 }
 
 - (void) from: (NSString *)table alias: (NSString *)alias {
-	[_table addObject: [NSString stringWithFormat: @"%@ %@", table, alias]];
+	[_table addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlHelper prepareField: table], alias]];
 }
 
 - (void) join: (NSString *)table {
@@ -92,11 +77,11 @@
 }
 
 - (void) join: (NSString *)table type: (NSString *)type {
-	[_join addObject: [NSArray arrayWithObjects: (((type == nil) || [type isEqualToString: ZIMSqlJoinTypeNone]) ? [NSString stringWithFormat: @" JOIN %@", table] : [NSString stringWithFormat: @" %@ JOIN %@", [type uppercaseString], table]), [[[NSMutableArray alloc] init] autorelease], [[[NSMutableArray alloc] init] autorelease], nil]];
+	[_join addObject: [NSArray arrayWithObjects: (((type == nil) || [type isEqualToString: ZIMSqlJoinTypeNone]) ? [NSString stringWithFormat: @" JOIN %@", [ZIMSqlHelper prepareField: table]] : [NSString stringWithFormat: @" %@ JOIN %@", [type uppercaseString], [ZIMSqlHelper prepareField: table]]), [[[NSMutableArray alloc] init] autorelease], [[[NSMutableArray alloc] init] autorelease], nil]];
 }
 
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type {
-	[self join: [NSString stringWithFormat: @"%@ %@", table, alias] type: type];
+	[self join: [NSString stringWithFormat: @"%@ %@", [ZIMSqlHelper prepareField: table], alias] type: type];
 }
 
 - (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
@@ -108,7 +93,7 @@
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May not declare two different types of constraints on a JOIN statement." userInfo: nil];
 		}
 		joinCondition = (NSMutableArray *)[[_join objectAtIndex: index] objectAtIndex: 1];
-		[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@", column1, [operator uppercaseString], column2]];
+		[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlHelper prepareField: column1], [operator uppercaseString], [ZIMSqlHelper prepareField: column2]]];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Must declare a JOIN clause before declaring a constraint." userInfo: nil];
@@ -124,7 +109,7 @@
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May not declare two different types of constraints on a JOIN statement." userInfo: nil];
 		}
 		joinCondition = (NSMutableArray *)[[_join objectAtIndex: index] objectAtIndex: 2];
-		[joinCondition addObject: column];
+		[joinCondition addObject: [ZIMSqlHelper prepareField: column]];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Must declare a JOIN clause before declaring a constraint." userInfo: nil];
@@ -136,10 +121,7 @@
 }
 
 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector {
-	if (!([brace isEqualToString: ZIMSqlBlockOpeningBrace] || [brace isEqualToString: ZIMSqlBlockClosingBrace])) {
-		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid brace token." userInfo: nil];
-	}
-	[_where addObject: [NSArray arrayWithObjects: connector, brace, nil]];
+	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [ZIMSqlHelper prepareEncloser: brace], nil]];
 }
 
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
@@ -147,7 +129,7 @@
 }
 
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector {
-	[_where addObject: [NSArray arrayWithObjects: connector, [NSString stringWithFormat: @"WHERE %@ %@ %@", column1, [operator uppercaseString], column2], nil]];
+	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@", [ZIMSqlHelper prepareField: column1], [operator uppercaseString], [ZIMSqlHelper prepareField: column2]], nil]];
 }
 
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value {
@@ -160,18 +142,18 @@
 		if (![value isKindOfClass: [NSArray class]]) {
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 		}
-		[_where addObject: [NSArray arrayWithObjects: connector, [NSString stringWithFormat: @"WHERE %@ %@ %@ AND %@", column, operator, [self prepareValue: [(NSArray *)value objectAtIndex: 0]], [self prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
+		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@ AND %@", [ZIMSqlHelper prepareField: column], operator, [ZIMSqlHelper prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlHelper prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
 	}
 	else {
 		if (([operator isEqualToString: ZIMSqlOperatorIn] || [operator isEqualToString: ZIMSqlOperatorNotIn]) && ![value isKindOfClass: [NSArray class]]) {
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 		}
-		[_where addObject: [NSArray arrayWithObjects: connector, [NSString stringWithFormat: @"WHERE %@ %@ %@", column, operator, [self prepareValue: value]], nil]];
+		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@", [ZIMSqlHelper prepareField: column], operator, [ZIMSqlHelper prepareValue: value]], nil]];
 	}
 }
 
 - (void) groupBy: (NSString *)column {
-	[_groupBy addObject: column];
+	[_groupBy addObject: [ZIMSqlHelper prepareField: column]];
 }
 
 - (void) groupByHavingBlock: (NSString *)brace {
@@ -180,10 +162,7 @@
 
 - (void) groupByHavingBlock: (NSString *)brace connector: (NSString *)connector {
 	if ([_groupBy count] > 0) {
-		if (!([brace isEqualToString: ZIMSqlBlockOpeningBrace] || [brace isEqualToString: ZIMSqlBlockClosingBrace])) {
-			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid brace token." userInfo: nil];
-		}
-		[_having addObject: [NSArray arrayWithObjects: connector, brace, nil]];
+		[_having addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [ZIMSqlHelper prepareEncloser: brace], nil]];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Must declare a GROUP BY clause before declaring a constraint." userInfo: nil];
@@ -196,7 +175,7 @@
 
 - (void) groupByHaving: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector {
 	if ([_groupBy count] > 0) {
-		[_having addObject: [NSArray arrayWithObjects: connector, [NSString stringWithFormat: @"HAVING %@ %@ %@", column1, [operator uppercaseString], column2], nil]];
+		[_having addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"HAVING %@ %@ %@", [ZIMSqlHelper prepareField: column1], [operator uppercaseString], [ZIMSqlHelper prepareField: column2]], nil]];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Must declare a GROUP BY clause before declaring a constraint." userInfo: nil];
@@ -209,17 +188,18 @@
 
 - (void) groupByHaving: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
 	if ([_groupBy count] > 0) {
+		operator = [operator uppercaseString];
 		if ([operator isEqualToString: ZIMSqlOperatorBetween] || [operator isEqualToString: ZIMSqlOperatorNotBetween]) {
 			if (![value isKindOfClass: [NSArray class]]) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 			}
-			[_having addObject: [NSArray arrayWithObjects: connector, [NSString stringWithFormat: @"HAVING %@ %@ %@ AND %@", column, operator, [self prepareValue: [(NSArray *)value objectAtIndex: 0]], [self prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
+			[_having addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"HAVING %@ %@ %@ AND %@", [ZIMSqlHelper prepareField: column], operator, [ZIMSqlHelper prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlHelper prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
 		}
 		else {
 			if (([operator isEqualToString: ZIMSqlOperatorIn] || [operator isEqualToString: ZIMSqlOperatorNotIn]) && ![value isKindOfClass: [NSArray class]]) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 			}
-			[_having addObject: [NSArray arrayWithObjects: connector, [NSString stringWithFormat: @"HAVING %@ %@ %@", column, operator, [self prepareValue: value]], nil]];
+			[_having addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"HAVING %@ %@ %@", [ZIMSqlHelper prepareField: column], operator, [ZIMSqlHelper prepareValue: value]], nil]];
 		}
 	}
 	else {
@@ -232,7 +212,7 @@
 }
 
 - (void) orderBy: (NSString *)column ascending: (BOOL)ascending {
-	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", column, ((ascending) ? @"ASC" : @"DESC")]];
+	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlHelper prepareField: column], ((ascending) ? @"ASC" : @"DESC")]];
 }
 
 - (void) limit: (NSInteger)limit {
@@ -293,11 +273,11 @@
 		[sql appendString: @" "];
 		for (NSArray *where in _where) {
 			NSString *whereClause = [where objectAtIndex: 1];
-			if (doAppendConnector && ![whereClause isEqualToString: ZIMSqlBlockClosingBrace]) {
+			if (doAppendConnector && ![whereClause isEqualToString: ZIMSqlEncloserClosingBrace]) {
 				[sql appendFormat: @" %@ ", [where objectAtIndex: 0]];
 			}
 			[sql appendString: whereClause];
-			doAppendConnector = (![whereClause isEqualToString: ZIMSqlBlockOpeningBrace]);
+			doAppendConnector = (![whereClause isEqualToString: ZIMSqlEncloserOpeningBrace]);
 		}
 	}
 
@@ -310,11 +290,11 @@
 		[sql appendString: @" "];
 		for (NSArray *having in _having) {
 			NSString *havingClause = [having objectAtIndex: 1];
-			if (doAppendConnector && ![havingClause isEqualToString: ZIMSqlBlockClosingBrace]) {
+			if (doAppendConnector && ![havingClause isEqualToString: ZIMSqlEncloserClosingBrace]) {
 				[sql appendFormat: @" %@ ", [having objectAtIndex: 0]];
 			}
 			[sql appendString: havingClause];
-			doAppendConnector = (![havingClause isEqualToString: ZIMSqlBlockOpeningBrace]);
+			doAppendConnector = (![havingClause isEqualToString: ZIMSqlEncloserOpeningBrace]);
 		}
 	}
 	
@@ -337,55 +317,6 @@
 	[sql appendString: @";"];
 
 	return sql;
-}
-
-- (NSString *) prepareValue: (id)value {
-	if ([value isKindOfClass: [ZIMSqlSelectStatement class]]) {
-		return [NSString stringWithFormat: @"(%@)", [(ZIMSqlSelectStatement *)value statement]];
-	}
-	else if ([value isKindOfClass: [NSArray class]]) {
-		NSMutableString *str = [[[NSMutableString alloc] init] autorelease];
-		[str appendString: @"("];
-		for (int i = 0; i < [value count]; i++) {
-			if (i > 0) {
-				[str appendString: @", "];
-			}
-			[str appendString: [self prepareValue: [value objectAtIndex: i]]];
-		}
-		[str appendString: @")"];
-		return str;
-	}
-	else if ([value isKindOfClass: [NSNumber class]]) {
-		return [NSString stringWithFormat: @"%@", value];
-	}
-	else if ([value isKindOfClass: [NSString class]]) {
-		return [NSString stringWithFormat: @"'%@'", [[(NSString *)value stringByReplacingOccurrencesOfString: @"\\" withString: @"\\\\"] stringByReplacingOccurrencesOfString: @"\'" withString: @"\\\'"]];
-	}
-	else if ([value isKindOfClass: [NSData class]]) {
-		NSData *data = (NSData *)value;
-		int length = [data length];
-		NSMutableString *buffer = [[[NSMutableString alloc] init] autorelease];
-		[buffer appendString: @"'"];
-		const unsigned char *dataBuffer = [data bytes];
-		for (int i = 0; i < length; i++) {
-			[buffer appendFormat: @"%02x", (unsigned long)dataBuffer[i]];
-		}
-		[buffer appendString: @"'"];
-		return buffer;
-	}
-	else if ([value isKindOfClass: [NSNull class]]) {
-		return @"null";
-	}
-	else if ([value isKindOfClass: [NSDate class]]) {
-		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-		[formatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
-		NSString *date = [NSString stringWithFormat: @"'%@'", [formatter stringFromDate: (NSDate *)value]];
-		[formatter release];
-		return date;
-	}
-	else {
-		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Unable to prepare value. '%@'", value] userInfo: nil];
-	}
 }
 
 @end
