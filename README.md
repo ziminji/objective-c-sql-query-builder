@@ -58,7 +58,7 @@ To use these classes in an Xcode project, add the following framework:
 ### Required Files
 
 A lot of work has gone into making these classes as independent as possible; however, a few dependencies just can't be
-avoided.  Therefore, the following files will most likely have to be included in a Xcode project:
+avoided.  Therefore, the following files will most likely have to be included in an Xcode project:
 
 * ZIMDaoConnection.h
 * ZIMDaoConnection.m
@@ -76,8 +76,8 @@ find more information on this repository's Wiki.
 
 ### Tutorials / Examples
 
-Checkout this repository's Wiki for a handful of examples.  There, you will find examples on how to build Create, Read,
-Update, and Delete (CRUD) statements.
+Checkout this repository's Wiki for a handful of examples.  There, you will find examples on make a database connection
+using the Data Access Object (DAO) and how to build Create, Read, Update, and Delete (CRUD) statements.
 
 ## Reporting Bugs & Making Recommendations
 
@@ -91,11 +91,11 @@ repository, go ahead and create a fork.
 
 ### Known Issues
 
-Usually, code is not posted unless it works; however, there are times when some code may get posted even though it still
-contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this README if they are not
-already listed under the "Issues" tab.
+Usually, code is not posted to this repository unless it works; however, there are times when some code may get posted
+even though it still contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this
+README if they are not already listed under the "Issues" tab.
 
-At the current time, these are no known bugs.
+At the current time, there are no known bugs.
 
 ## Future Development
 
