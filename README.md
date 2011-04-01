@@ -25,7 +25,7 @@ The following is a short-list of some the features:
 * Places automatically the SQLite database in the "Document" directory.
 * Provides multi-threading support in the DAO to deal with asynchronous SQLite calls;
 * Executes an SQL statement with one line of code.
-* Has a large collection of SQL builder classes with methods that mimics their SQL equivalent.
+* Has a large collection of SQL builder classes with methods that mimic their SQL equivalent.
 * Helps ensure that SQL is well-formed.
 * Supports all major Objective-C datatypes, including NSNull, NSNumber, NSString, NSData, and NSDate.
 * Sanitizes data.
@@ -74,6 +74,14 @@ follow-up with it as soon as possible.
 Likewise, if you would like to make a recommendation on how to improve these classes, take the time to send a message
 so that it can be considered for an upcoming release.  Or, if you would like to contribute to the development of this
 repository, go ahead and create a fork.
+
+### Known Issues
+
+Usually, code is not posted unless it works; however, there are times when some code may get posted even though it still
+contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this README if they are not
+already listed under the "Issues" tab.
+
+At the current time, these are no known bugs.
 
 ## Future Development
 
