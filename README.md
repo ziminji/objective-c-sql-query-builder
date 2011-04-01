@@ -58,7 +58,7 @@ To use these classes in an Xcode project, add the following framework:
 ### Required Files
 
 A lot of work has gone into making these classes as independent as possible; however, a few dependencies just can't be
-avoided.  Therefore, the following files will most likely have to be included to in a project:
+avoided.  Therefore, the following files will most likely have to be included in a Xcode project:
 
 * ZIMDaoConnection.h
 * ZIMDaoConnection.m
