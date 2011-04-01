@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a copy of the License at:
  * 
  *    http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -52,7 +52,7 @@
  @discussion		This method will start or end a block.
  @param brace		The brace to be used; it is either an opening or closing brace.
  @param connector	The connector to be used.
- @updated			2011-03-20
+ @updated			2011-04-01
  */
 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector;
 /*!
@@ -61,7 +61,7 @@
  @param column1		The column to be tested.
  @param operator	The operator to be used.
  @param column2		The column to be compared.
- @updated			2011-03-17
+ @updated			2011-04-01
  */
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
 /*!
@@ -71,7 +71,7 @@
  @param operator	The operator to be used.
  @param column2		The column to be compared.
  @param connector	The connector to be used.
- @updated			2011-03-17
+ @updated			2011-04-01
  */
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
 /*!
@@ -80,7 +80,7 @@
  @param column		The column to be tested.
  @param operator	The operator to be used.
  @param value		The value to be compared.
- @updated			2011-03-17
+ @updated			2011-04-01
  */
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
 /*!
@@ -90,14 +90,14 @@
  @param operator	The operator to be used.
  @param value		The value to be compared.
  @param connector	The connector to be used.
- @updated			2011-03-17
+ @updated			2011-04-01
  */
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
  @method			orderBy:
  @discussion		This method will add an order by clause to the SQL statement.
  @param column		The column to be ordered.
- @updated			2011-03-20
+ @updated			2011-04-01
  */
 - (void) orderBy: (NSString *)column;
 /*!
@@ -105,7 +105,7 @@
  @discussion		This method will add an order by clause to the SQL statement.
  @param column		The column to be ordered.
  @param ascending	This will determine whether the column should be ordered in ascending or descending order.
- @updated			2011-03-17
+ @updated			2011-04-01
  */
 - (void) orderBy: (NSString *)column ascending: (BOOL)ascending;
 /*!
