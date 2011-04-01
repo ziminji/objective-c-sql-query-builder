@@ -11,11 +11,11 @@ All classes are designed to be used in iPhone/iOS applications.
 
 The goal is to make these classes the "de facto" standard for communicating with SQLite databases on iPhone/iOS devices.
 
-After looking at other Objective-C SQLite projects, it was obvious that there was a need for an Objective-C library that
-offers more than just a set of SQLite wrapper classes.  It was even more apparent that classes needed to be written very
-cleanly and with clear naming conventions similar to those in LINQ.  With the abundance of third-party libraries for
-Objective-C, developers are craving libraries that are simple to learn and are intuitive.  Therefore, the classes in this
-repository are written with these observations in mind.
+After looking at other Objective-C SQLite projects, it was obvious that there was a need for a lightweight Objective-C
+library that offers more than just a set of SQLite wrapper classes.  It was even more apparent that classes needed to be
+written very cleanly and with clear naming conventions similar to those in LINQ.  With the abundance of third-party
+libraries for Objective-C, developers are craving libraries that are simple to learn and are intuitive.  Therefore, the
+classes in this repository are written with these observations in mind.
 
 ## Features
 
@@ -36,7 +36,7 @@ The following is a short-list of some the features:
 
 ## Getting Started
 
-Using these class in an Xcode project is easy to do.  Here is how:
+Using these classes in an Xcode project is easy to do.  Here is how:
 
 1. Download the source code via Github as a tarball (i.e. .tar.gz).
 2. Navigate to the tarball in Finder.
@@ -55,12 +55,26 @@ To use these classes in an Xcode project, add the following framework:
 
 * libsqlite3.dylib
 
+### Required Files
+
+A lot of work has gone into making these classes as independent as possible; however, a few dependencies just can't be
+avoided.  Therefore, the following files will most likely have to be included to in a project:
+
+* ZIMDaoConnection.h
+* ZIMDaoConnection.m
+* ZIMSqlHelper.h
+* ZIMSqlHelper.m
+* ZIMSqlStatement.h
+* ZIMSqlStatement.m
+* ZIMSqlSelectStatement.h
+* ZIMSqlSelectStatement.m
+
 ### Documentation
 
 All classes are heavily documented with [HeaderDoc](http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html#//apple_ref/doc/uid/TP40001215-CH345-SW1).  You can get familiar with each class by simply opening its respective ".h" file.  You can also
 find more information on this repository's Wiki.
 
-### Examples
+### Tutorials / Examples
 
 Checkout this repository's Wiki for a handful of examples.  There, you will find examples on how to build Create, Read,
 Update, and Delete (CRUD) statements.
@@ -87,11 +101,12 @@ At the current time, these are no known bugs.
 
 This project is under heavy development.  There are development plans to add:
 
+* A default configuration file for the Data Access Object (DAO);
 * More SQL builder classes;
 * Object Relational Modeling (ORM) that will utilize both the Data Mapper and Active Record design patterns;
 * Unit-tests;
 * Documentation generated via [Doxygen](http://www.stack.nl/~dimitri/doxygen/); and,
-* Additional tutorials.
+* Additional tutorials and examples.
 
 ## License (Apache v2.0)
 
