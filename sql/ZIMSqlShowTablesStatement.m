@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-#import "ZIMSqlHelper.h"
 #import "ZIMSqlShowTablesStatement.h"
 
 @implementation ZIMSqlShowTablesStatement
@@ -31,7 +30,7 @@
 }
 
 - (void) like: (NSString *)value {
-	_clause = [NSString stringWithFormat: @"WHERE name LIKE %@", [ZIMSqlHelper prepareValue: value]];
+	_clause = [NSString stringWithFormat: @"WHERE name LIKE %@", [ZIMSqlExpression prepareValue: value]];
 }
 
 - (NSString *) statement {

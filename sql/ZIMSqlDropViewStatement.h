@@ -19,11 +19,11 @@
 /*!
  @class					ZIMSqlDropViewStatement
  @discussion			This class represents an SQL drop view statement.
- @updated				2011-04-01
+ @updated				2011-04-02
  @see					http://www.sqlite.org/lang_dropview.html
  */
 
-@interface ZIMSqlDropViewStatement : ZIMSqlStatement {
+@interface ZIMSqlDropViewStatement : NSObject <ZIMSqlStatement> {
 	
 	@protected
 		NSString *_view;

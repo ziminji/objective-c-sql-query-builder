@@ -19,10 +19,10 @@
 /*!
  @class					ZIMSqlAnalyzeStatement
  @discussion			This class represents an SQL analyze statements.
- @updated				2011-04-01
+ @updated				2011-04-02
  @see					http://www.sqlite.org/lang_analyze.html
  */
-@interface ZIMSqlAnalyzeStatement : ZIMSqlStatement {
+@interface ZIMSqlAnalyzeStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
 		NSString *_table;

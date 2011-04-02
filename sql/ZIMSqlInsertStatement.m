@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-#import "ZIMSqlHelper.h"
 #import "ZIMSqlInsertStatement.h"
 
 @implementation ZIMSqlInsertStatement
@@ -37,7 +36,7 @@
 }
 
 - (void) column: (NSString *)column value: (id)value {
-	[_column setObject: [ZIMSqlHelper prepareValue: value] forKey: column];
+	[_column setObject: [ZIMSqlExpression prepareValue: value] forKey: column];
 }
 
 - (NSString *) statement {

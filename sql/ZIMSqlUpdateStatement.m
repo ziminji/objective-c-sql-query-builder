@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-#import "ZIMSqlHelper.h"
 #import "ZIMSqlUpdateStatement.h"
 
 @implementation ZIMSqlUpdateStatement
@@ -43,7 +42,7 @@
 }
 
 - (void) column: (NSString *)column value: (id)value {
-	[_column addObject: [NSString stringWithFormat: @"%@ = %@", column, [ZIMSqlHelper prepareValue: value]]];
+	[_column addObject: [NSString stringWithFormat: @"%@ = %@", column, [ZIMSqlExpression prepareValue: value]]];
 }
 
 - (void) whereBlock: (NSString *)brace {
@@ -51,7 +50,7 @@
 }
 
 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector {
-	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [ZIMSqlHelper prepareEnclosure: brace], nil]];
+	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [ZIMSqlExpression prepareEnclosure: brace], nil]];
 }
 
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
@@ -59,7 +58,7 @@
 }
 
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector {
-	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@", [ZIMSqlHelper prepareField: column1], [operator uppercaseString], [ZIMSqlHelper prepareField: column2]], nil]];
+	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@", [ZIMSqlExpression prepareField: column1], [operator uppercaseString], [ZIMSqlExpression prepareField: column2]], nil]];
 }
 
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value {
@@ -72,7 +71,7 @@
 		if (![value isKindOfClass: [NSArray class]]) {
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 		}
-		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@ AND %@", [ZIMSqlHelper prepareField: column], operator, [ZIMSqlHelper prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlHelper prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
+		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@ AND %@", [ZIMSqlExpression prepareField: column], operator, [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
 	}
 	else {
 		if (([operator isEqualToString: ZIMSqlOperatorIn] || [operator isEqualToString: ZIMSqlOperatorNotIn]) && ![value isKindOfClass: [NSArray class]]) {
@@ -86,7 +85,7 @@
 				operator = ZIMSqlOperatorIsNot;
 			}
 		}
-		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@", [ZIMSqlHelper prepareField: column], operator, [ZIMSqlHelper prepareValue: value]], nil]];
+		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@", [ZIMSqlExpression prepareField: column], operator, [ZIMSqlExpression prepareValue: value]], nil]];
 	}
 }
 
@@ -95,7 +94,7 @@
 }
 
 - (void) orderBy: (NSString *)column ascending: (BOOL)ascending {
-	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlHelper prepareField: column], ((ascending) ? @"ASC" : @"DESC")]];
+	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareField: column], ((ascending) ? @"ASC" : @"DESC")]];
 }
 
 - (void) limit: (NSInteger)limit {

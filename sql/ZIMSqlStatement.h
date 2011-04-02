@@ -15,124 +15,23 @@
  */
 
 #import <Foundation/Foundation.h>
-
-// Block Statement Tokens
-#define ZIMSqlEnclosureOpeningBrace				@"("
-#define ZIMSqlEnclosureClosingBrace				@")"
-
-// Connectors
-#define ZIMSqlConnectorAnd						@"AND"
-#define ZIMSqlConnectorOr						@"OR"
-
-// Join Types -- http://sqlite.org/syntaxdiagrams.html#join-op
-#define ZIMSqlJoinTypeCross						@"CROSS"
-#define ZIMSqlJoinTypeInner						@"INNER"
-#define ZIMSqlJoinTypeLeft						@"LEFT"
-#define ZIMSqlJoinTypeLeftOuter					@"LEFT OUTER"
-#define ZIMSqlJoinTypeNatural					@"NATURAL"
-#define ZIMSqlJoinTypeNaturalCross				@"NATURAL CROSS"
-#define ZIMSqlJoinTypeNaturalInner				@"NATURAL INNER"
-#define ZIMSqlJoinTypeNaturalLeft				@"NATURAL LEFT"
-#define ZIMSqlJoinTypeNaturalLeftOuter			@"NATURAL LEFT OUTER"
-#define ZIMSqlJoinTypeNone						@""
-
-// Expressions -- http://zetcode.com/databases/sqlitetutorial/expressions/
-// Arithmetic Operators
-#define ZIMSqlOperatorAdd						@"+"
-#define ZIMSqlOperatorSubtract					@"-"
-#define ZIMSqlOperatorMultiply					@"*"
-#define ZIMSqlOperatorDivide					@"/"
-#define ZIMSqlOperatorMod						@"%"
-
-// Boolean Operators
-#define ZIMSqlOperatorAnd						@"AND"
-#define ZIMSqlOperatorOr						@"OR"
-#define ZIMSqlOperatorNot						@"NOT"
-
-// Relational Operators
-#define ZIMSqlOperatorLessThan					@"<"
-#define ZIMSqlOperatorLessThanOrEqualTo			@"<="
-#define ZIMSqlOperatorGreaterThan				@">"
-#define ZIMSqlOperatorGreaterThanOrEqualTo		@">="
-#define ZIMSqlOperatorEqualTo					@"="
-#define ZIMSqlOperatorNotEqualTo				@"<>"
-
-// Bitwise Operators
-#define ZIMSqlOperatorBitwiseAnd				@"&"
-#define ZIMSqlOperatorBitwiseOr					@"|"
-#define ZIMSqlOperatorBitwiseShiftLeft			@"<<"
-#define ZIMSqlOperatorBitwiseShiftRight			@">>"
-#define ZIMSqlOperatorBitwiseNegation			@"~"
-
-// Additional Operators
-#define ZIMSqlOperatorConcatenate				@"||"
-#define ZIMSqlOperatorIn						@"IN"
-#define ZIMSqlOperatorNotIn						@"NOT IN"
-#define ZIMSqlOperatorIs						@"IS"
-#define ZIMSqlOperatorIsNot						@"IS NOT"
-#define ZIMSqlOperatorLike						@"LIKE"
-#define ZIMSqlOperatorNotLike					@"NOT LIKE"
-#define ZIMSqlOperatorGlob						@"GLOB"
-#define ZIMSqlOperatorNotGlob					@"NOT GLOB"
-#define ZIMSqlOperatorBetween					@"BETWEEN"
-#define ZIMSqlOperatorNotBetween				@"NOT BETWEEN"
-
-// Compound Operators
-#define ZIMSqlOperatorExcept					@"EXCEPT"
-#define ZIMSqlOperatorIntersect					@"INTERSECT"
-#define ZIMSqlOperatorUnion						@"UNION"
-#define ZIMSqlOperatorUnionALL					@"UNION ALL"
-
-// Default Values -- http://forums.realsoftware.com/viewtopic.php?f=3&t=35179
-#define ZIMSqlDefaultValueIsAutoIncremented		@"PRIMARY KEY AUTOINCREMENT"
-#define ZIMSqlDefaultValueIsNull				@"DEFAULT NULL";
-#define ZIMSqlDefaultValueIsNotNull				@"NOT NULL"
-#define ZIMSqlDefaultValueIsCurrentDate			@"DEFAULT CURRENT_DATE"
-#define ZIMSqlDefaultValueIsCurrentDateTime		@"DEFAULT (datetime('now','localtime'))"
-#define ZIMSqlDefaultValueIsCurrentTime			@"DEFAULT CURRENT_TIME"
-#define ZIMSqlDefaultValueIsCurrentTimestamp	@"DEFAULT CURRENT_TIMESTAMP"
-NSString *ZIMSqlDefaultValue(id value);
-
-// Declared Datetype -- http://www.sqlite.org/datatype3.html
-#define ZIMSqlDataTypeBigInt					@"BIGINT"
-#define ZIMSqlDataTypeBlob						@"BLOB"
-#define ZIMSqlDataTypeBoolean					@"BOOLEAN"
-#define ZIMSqlDataTypeClob						@"CLOB"
-#define ZIMSqlDataTypeDate						@"DATE"
-#define ZIMSqlDataTypeDateTime					@"DATETIME"
-#define ZIMSqlDataTypeDouble					@"DOUBLE"
-#define ZIMSqlDataTypeDoublePrecision			@"DOUBLE PRECISION"
-#define ZIMSqlDataTypeFloat						@"FLOAT"
-#define ZIMSqlDataTypeInt						@"INT"
-#define ZIMSqlDataTypeInt2						@"INT2"
-#define ZIMSqlDataTypeInt8						@"INT8"
-#define ZIMSqlDataTypeInteger					@"INTEGER"
-#define ZIMSqlDataTypeMediumInt					@"MEDIUMINT"
-#define ZIMSqlDataTypeNumeric					@"NUMERIC"
-#define ZIMSqlDataTypeReal						@"REAL"
-#define ZIMSqlDataTypeSmallInt					@"SMALLINT"
-#define ZIMSqlDataTypeText						@"TEXT"
-#define ZIMSqlDataTypeTimestamp					@"TIMESTAMP"
-#define ZIMSqlDataTypeTinyInt					@"TINYINT"
-#define ZIMSqlDataTypeUnsignedBigInt			@"UNSIGNED BIG INT"
-#define ZIMSqlDataTypeVariant					@"VARIANT"
-NSString *ZIMSqlDataTypeChar(NSInteger x);
-NSString *ZIMSqlDataTypeCharacter(NSInteger x);
-NSString *ZIMSqlDataTypeDecimal(NSInteger x, NSInteger y);
-NSString *ZIMSqlDataTypeNativeCharacter(NSInteger x);
-NSString *ZIMSqlDataTypeNChar(NSInteger x);
-NSString *ZIMSqlDataTypeNVarChar(NSInteger x);
-NSString *ZIMSqlDataTypeVarChar(NSInteger x);
-NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
+#import "ZIMSqlExpression.h"
 
 /*!
  @class					ZIMSqlStatement
- @discussion			This class represents an SQL statements.
- @updated				2011-03-26
+ @discussion			This protocol specifies the contract for an SQL statements.
+ @updated				2011-04-02
  @see					http://souptonuts.sourceforge.net/readme_sqlite_tutorial.html
  */
-@interface ZIMSqlStatement : NSObject {
+@protocol ZIMSqlStatement <NSObject>
 
-}
+@required
+/*!
+ @method				statement
+ @discussion			This method will return the SQL statement.
+ @return				The SQL statement that was constructed.
+ @updated				2011-04-02
+ */
+- (NSString *) statement;
 
 @end

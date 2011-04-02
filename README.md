@@ -62,10 +62,9 @@ avoided.  Therefore, the following files will most likely have to be included in
 
 * ZIMDaoConnection.h
 * ZIMDaoConnection.m
-* ZIMSqlHelper.h
-* ZIMSqlHelper.m
+* ZIMSqlExpression.h
+* ZIMSqlExpression.m
 * ZIMSqlStatement.h
-* ZIMSqlStatement.m
 * ZIMSqlSelectStatement.h
 * ZIMSqlSelectStatement.m
 
@@ -76,8 +75,8 @@ find more information on this repository's Wiki.
 
 ### Tutorials / Examples
 
-Checkout this repository's Wiki for a handful of examples.  There, you will find examples on make a database connection
-using the Data Access Object (DAO) and how to build Create, Read, Update, and Delete (CRUD) statements.
+Checkout this repository's Wiki for a handful of examples.  There, you will find examples on how to make a database
+connection using the Data Access Object (DAO) and how to build Create, Read, Update, and Delete (CRUD) statements.
 
 ## Reporting Bugs & Making Recommendations
 

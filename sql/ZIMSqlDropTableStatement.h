@@ -19,11 +19,11 @@
 /*!
  @class					ZIMSqlDropTableStatement
  @discussion			This class represents an SQL drop table statement.
- @updated				2011-04-01
+ @updated				2011-04-02
  @see					http://www.sqlite.org/lang_droptable.html
  */
 
-@interface ZIMSqlDropTableStatement : ZIMSqlStatement {
+@interface ZIMSqlDropTableStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
 		NSString *_table;
