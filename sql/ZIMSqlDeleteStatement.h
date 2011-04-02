@@ -19,10 +19,10 @@
 /*!
  @class					ZIMSqlDeleteStatement
  @discussion			This class represents an SQL delete statements.
- @updated				2011-04-01
+ @updated				2011-04-02
  @see					http://www.sqlite.org/lang_delete.html
  */
-@interface ZIMSqlDeleteStatement : ZIMSqlStatement {
+@interface ZIMSqlDeleteStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
 		NSString *_table;

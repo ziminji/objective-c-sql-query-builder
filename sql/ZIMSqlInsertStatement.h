@@ -19,10 +19,10 @@
 /*!
  @class					ZIMSqlInsertStatement
  @discussion			This class represents an SQL insert statements.
- @updated				2011-04-01
+ @updated				2011-04-02
  @see					http://www.sqlite.org/lang_insert.html
  */
-@interface ZIMSqlInsertStatement : ZIMSqlStatement {
+@interface ZIMSqlInsertStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
 		NSString *_table;

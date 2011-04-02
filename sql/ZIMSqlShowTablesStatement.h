@@ -19,9 +19,10 @@
 /*!
  @class					ZIMSqlShowTablesStatement
  @discussion			This class represents an SQL show tables statements.
- @updated				2011-04-01
+ @updated				2011-04-02
+ @see					http://dev.mysql.com/doc/refman/5.0/en/show-tables.html
  */
-@interface ZIMSqlShowTablesStatement : ZIMSqlStatement {
+@interface ZIMSqlShowTablesStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
 		NSString *_clause;
