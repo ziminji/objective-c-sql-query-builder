@@ -17,39 +17,39 @@
 #import "ZIMSqlStatement.h"
 
 /*!
- @class				ZIMSqlDropViewStatement
- @discussion		This class represents an SQL drop view statement.
- @updated			2011-03-18
- @see				http://www.sqlite.org/lang_dropview.html
+ @class					ZIMSqlDropViewStatement
+ @discussion			This class represents an SQL drop view statement.
+ @updated				2011-04-01
+ @see					http://www.sqlite.org/lang_dropview.html
  */
 
 @interface ZIMSqlDropViewStatement : ZIMSqlStatement {
 	
-	@private
+	@protected
 		NSString *_view;
 		BOOL _exists;
 	
 }
 /*!
- @method			view:
- @discussion		This method will set the view used in the SQL statement.
- @param view		The view that will be used in the SQL statement.
- @updated			2011-03-18
+ @method				view:
+ @discussion			This method will set the view used in the SQL statement.
+ @param view			The view that will be used in the SQL statement.
+ @updated				2011-03-18
  */
 - (void) view: (NSString *)view;
 /*!
- @method			view:exists:
- @discussion		This method will set the view used in the SQL statement.
- @param view		The view that will be used in the SQL statement.
- @param exists		This will determine whether the "IF EXISTS" keywords should added. 
- @updated			2011-03-18
+ @method				view:exists:
+ @discussion			This method will set the view used in the SQL statement.
+ @param view			The view that will be used in the SQL statement.
+ @param exists			This will determine whether the "IF EXISTS" keywords should added. 
+ @updated				2011-03-18
  */
 - (void) view: (NSString *)view exists: (BOOL)exists;
 /*!
- @method			statement
- @discussion		This method will return the SQL statement.
- @return			The SQL statement that was constructed.
- @updated			2011-03-18
+ @method				statement
+ @discussion			This method will return the SQL statement.
+ @return				The SQL statement that was constructed.
+ @updated				2011-03-18
  */
 - (NSString *) statement;
 

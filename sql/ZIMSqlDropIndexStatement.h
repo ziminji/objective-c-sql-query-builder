@@ -17,39 +17,39 @@
 #import "ZIMSqlStatement.h"
 
 /*!
- @class				ZIMSqlDropIndexStatement
- @discussion		This class represents an SQL drop index statement.
- @updated			2011-03-18
- @see				http://www.sqlite.org/lang_dropindex.html
+ @class					ZIMSqlDropIndexStatement
+ @discussion			This class represents an SQL drop index statement.
+ @updated				2011-04-01
+ @see					http://www.sqlite.org/lang_dropindex.html
  */
 
 @interface ZIMSqlDropIndexStatement : ZIMSqlStatement {
 	
-	@private
+	@protected
 		NSString *_index;
 		BOOL _exists;
 
 }
 /*!
- @method			index:
- @discussion		This method will set the index used in the SQL statement.
- @param index		The index that will be used in the SQL statement.
- @updated			2011-03-18
+ @method				index:
+ @discussion			This method will set the index used in the SQL statement.
+ @param index			The index that will be used in the SQL statement.
+ @updated				2011-03-18
  */
 - (void) index: (NSString *)index;
 /*!
- @method			index:exists:
- @discussion		This method will set the index used in the SQL statement.
- @param index		The index that will be used in the SQL statement.
- @param exists		This will determine whether the "IF EXISTS" keywords should added. 
- @updated			2011-03-18
+ @method				index:exists:
+ @discussion			This method will set the index used in the SQL statement.
+ @param index			The index that will be used in the SQL statement.
+ @param exists			This will determine whether the "IF EXISTS" keywords should added. 
+ @updated				2011-03-18
  */
 - (void) index: (NSString *)index exists: (BOOL)exists;
 /*!
- @method			statement
- @discussion		This method will return the SQL statement.
- @return			The SQL statement that was constructed.
- @updated			2011-03-18
+ @method				statement
+ @discussion			This method will return the SQL statement.
+ @return				The SQL statement that was constructed.
+ @updated				2011-03-18
  */
 - (NSString *) statement;
 
