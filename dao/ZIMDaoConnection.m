@@ -138,9 +138,9 @@
 		
 		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to perform query with SQL statement. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
 	}
-	
-	NSMutableArray *columnTypes = [[NSMutableArray alloc] init];
+
 	NSMutableArray *columnNames = [[NSMutableArray alloc] init];
+	NSMutableArray *columnTypes = [[NSMutableArray alloc] init];
 	
 	BOOL doFetchColumnInfo = YES;
 	int columnCount = 0;
@@ -157,9 +157,9 @@
 				NSString *columnName = [NSString stringWithUTF8String: sqlite3_column_name(statement, index)];
 				if (!([record isKindOfClass: [NSMutableDictionary class]] || [record respondsToSelector: NSSelectorFromString(columnName)])) {
 					[record release];
-					
-					[columnTypes release];
+
 					[columnNames release];
+					[columnTypes release];
 					
 					sqlite3_finalize(statement);
 					
@@ -189,8 +189,8 @@
 		[record release];
 	}
 	
-	[columnTypes release];
 	[columnNames release];
+	[columnTypes release];
 	
 	sqlite3_finalize(statement);
 
