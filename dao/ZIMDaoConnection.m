@@ -119,6 +119,10 @@
 }
 
 - (NSArray *) query: (NSString *)sql {
+	return [self query: sql asObject: [NSMutableDictionary class]];
+}
+
+- (NSArray *) query: (NSString *)sql asObject: (Class)model {
 	if (_mutex != nil) {
 		[_mutex lock];
 	}
@@ -127,9 +131,11 @@
 	
 	if (sqlite3_prepare_v2(_database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK) {
 		sqlite3_finalize(statement);
+		
 		if (_mutex != nil) {
 			[_mutex unlock];
 		}
+		
 		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to perform query with SQL statement. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
 	}
 	
@@ -142,18 +148,35 @@
 	NSMutableArray *records = [[[NSMutableArray alloc] init] autorelease];
 	
 	while (sqlite3_step(statement) == SQLITE_ROW) {
+		id record = [[model alloc] init];
+
 		if (doFetchColumnInfo) {
 			columnCount = sqlite3_column_count(statement);
 			
 			for (int index = 0; index < columnCount; index++) {
-				[columnTypes addObject: [NSNumber numberWithInt: [self columnTypeAtIndex: index inStatement: statement]]];
-				[columnNames addObject: [NSString stringWithUTF8String: sqlite3_column_name(statement, index)]];
+				NSString *columnName = [NSString stringWithUTF8String: sqlite3_column_name(statement, index)];
+				if (!([record isKindOfClass: [NSMutableDictionary class]] || [record respondsToSelector: NSSelectorFromString(columnName)])) {
+					[record release];
+					
+					[columnTypes release];
+					[columnNames release];
+					
+					sqlite3_finalize(statement);
+					
+					if (_mutex != nil) {
+						[_mutex unlock];
+					}
+					
+					@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to perform query with SQL statement because column '%@' could not be found in model.", columnName] userInfo: nil];
+				}
+				else {
+					[columnNames addObject: columnName];
+					[columnTypes addObject: [NSNumber numberWithInt: [self columnTypeAtIndex: index inStatement: statement]]];
+				}
 			}
-			
+
 			doFetchColumnInfo = NO;
 		}
-		
-		NSMutableDictionary *record = [[NSMutableDictionary alloc] initWithCapacity: columnCount];
 		
 		for (int index = 0; index < columnCount; index++) {
 			id value = [self columnValueAtIndex: index withColumnType: [[columnTypes objectAtIndex: index] intValue] inStatement: statement];

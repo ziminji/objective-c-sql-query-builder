@@ -69,12 +69,22 @@
 - (NSNumber *) execute: (NSString *)sql;
 /*!
  @method				query:
- @discussion			This method will query with the specified SQL statement.
+ @discussion			This method will query with the specified SQL statement and will map
+						each record to an NSDictionary.
  @param sql				The SQL statement to be used.
- @return				The result set.
- @updated				2011-03-30
+ @return				The result set (i.e. an array of records).
+ @updated				2011-04-02
  */
 - (NSArray *) query: (NSString *)sql;
+/*!
+ @method				query:asObject:
+ @discussion			This method will query with the specified SQL statement and will map
+						each record to the specified object (i.e. model).
+ @param sql				The SQL statement to be used.
+ @return				The result set (i.e. an array of records).
+ @updated				2011-04-02
+ */
+- (NSArray *) query: (NSString *)sql asObject: (Class)model;
 /*!
  @method				isConnected
  @discussion			This method checks whether a database connection currently exists.
