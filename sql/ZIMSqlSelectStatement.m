@@ -152,7 +152,7 @@
 			if ([operator isEqualToString: ZIMSqlOperatorEqualTo]) {
 				operator = ZIMSqlOperatorIs;
 			}
-			else if ([operator isEqualToString: ZIMSqlOperatorNotEqualTo]) {
+			else if ([operator isEqualToString: ZIMSqlOperatorNotEqualTo] || [operator isEqualToString: @"!="]) {
 				operator = ZIMSqlOperatorIsNot;
 			}
 		}
@@ -211,7 +211,7 @@
 				if ([operator isEqualToString: ZIMSqlOperatorEqualTo]) {
 					operator = ZIMSqlOperatorIs;
 				}
-				else if ([operator isEqualToString: ZIMSqlOperatorNotEqualTo]) {
+				else if ([operator isEqualToString: ZIMSqlOperatorNotEqualTo] || [operator isEqualToString: @"!="]) {
 					operator = ZIMSqlOperatorIsNot;
 				}
 			}
