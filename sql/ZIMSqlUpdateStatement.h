@@ -19,10 +19,10 @@
 /*!
  @class					ZIMSqlUpdateStatement
  @discussion			This class represents an SQL update statements.
- @updated				2011-04-01
+ @updated				2011-04-02
  @see					http://www.sqlite.org/lang_update.html
  */
-@interface ZIMSqlUpdateStatement : ZIMSqlStatement {
+@interface ZIMSqlUpdateStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
 		NSString *_table;

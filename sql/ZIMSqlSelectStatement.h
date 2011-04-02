@@ -19,10 +19,10 @@
 /*!
  @class					ZIMSqlSelectStatement
  @discussion			This class represents an SQL select statements.
- @updated				2011-04-01
+ @updated				2011-04-02
  @see					http://www.sqlite.org/lang_select.html
  */
-@interface ZIMSqlSelectStatement : ZIMSqlStatement {
+@interface ZIMSqlSelectStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
 		BOOL _distinct;
