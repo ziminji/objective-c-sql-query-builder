@@ -19,12 +19,12 @@
 /*!
  @class					ZIMSqlCreateTableStatement
  @discussion			This class represents an SQL create table statements.
- @updated				2011-03-27
+ @updated				2011-04-01
  @see					http://www.sqlite.org/lang_createtable.html
  */
 @interface ZIMSqlCreateTableStatement : ZIMSqlStatement {
 
-	@private
+	@protected
 		NSString *_table;
 		BOOL _temporary;
 		NSMutableDictionary *_column;

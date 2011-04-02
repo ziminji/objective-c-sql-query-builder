@@ -33,13 +33,13 @@
  */
 + (NSString *) prepareConnector: (NSString *)connector;
 /*!
- @method				prepareEncloser:
- @discussion			This method will prepare an encloser for an SQL statement.
- @param encloser		The encloser to be prepared.
- @return				The prepared encloser.
+ @method				prepareEnclosure:
+ @discussion			This method will prepare an enclosure character for an SQL statement.
+ @param enclosure		The enclosure character to be prepared.
+ @return				The prepared enclosure character.
  @updated				2011-04-01
  */
-+ (NSString *) prepareEncloser: (NSString *)encloser;
++ (NSString *) prepareEnclosure: (NSString *)enclosure;
 /*!
  @method				prepareField:
  @discussion			This method will prepare a field for an SQL statement.

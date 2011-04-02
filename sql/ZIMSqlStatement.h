@@ -17,8 +17,8 @@
 #import <Foundation/Foundation.h>
 
 // Block Statement Tokens
-#define ZIMSqlEncloserOpeningBrace				@"("
-#define ZIMSqlEncloserClosingBrace				@")"
+#define ZIMSqlEnclosureOpeningBrace				@"("
+#define ZIMSqlEnclosureClosingBrace				@")"
 
 // Connectors
 #define ZIMSqlConnectorAnd						@"AND"
@@ -126,10 +126,10 @@ NSString *ZIMSqlDataTypeVarChar(NSInteger x);
 NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
 
 /*!
- @class				ZIMSqlStatement
- @discussion		This class represents an SQL statements.
- @updated			2011-03-26
- @see				http://souptonuts.sourceforge.net/readme_sqlite_tutorial.html
+ @class					ZIMSqlStatement
+ @discussion			This class represents an SQL statements.
+ @updated				2011-03-26
+ @see					http://souptonuts.sourceforge.net/readme_sqlite_tutorial.html
  */
 @interface ZIMSqlStatement : NSObject {
 

@@ -17,18 +17,28 @@
 #import "ZIMSqlStatement.h"
 
 /*!
- @class				ZIMSqlFetchTablesStatement
- @discussion		This class represents an SQL fetch tables statements.
- @updated			2011-03-24
+ @class					ZIMSqlShowTablesStatement
+ @discussion			This class represents an SQL show tables statements.
+ @updated				2011-04-01
  */
-@interface ZIMSqlFetchTablesStatement : ZIMSqlStatement {
+@interface ZIMSqlShowTablesStatement : ZIMSqlStatement {
+
+	@protected
+		NSString *_clause;
 
 }
 /*!
- @method			statement
- @discussion		This method will return the SQL statement.
- @return			The SQL statement that was constructed.
- @updated			2011-03-24
+ @method				like:
+ @discussion			This method will causing only those tables that match the specified
+						like constraint.
+ @updated				2011-04-01
+ */
+- (void) like: (NSString *)value;
+/*!
+ @method				statement
+ @discussion			This method will return the SQL statement.
+ @return				The SQL statement that was constructed.
+ @updated				2011-04-01
  */
 - (NSString *) statement;
 

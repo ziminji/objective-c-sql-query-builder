@@ -19,12 +19,12 @@
 /*!
  @class					ZIMSqlAlterTableStatement
  @discussion			This class represents an SQL alter table statements.
- @updated				2011-03-29
+ @updated				2011-04-01
  @see					http://www.sqlite.org/lang_altertable.html
  */
 @interface ZIMSqlAlterTableStatement : ZIMSqlStatement {
 
-	@private
+	@protected
 		NSString *_table;
 		NSString *_clause;
 

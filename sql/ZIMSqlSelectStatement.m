@@ -121,7 +121,7 @@
 }
 
 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector {
-	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [ZIMSqlHelper prepareEncloser: brace], nil]];
+	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [ZIMSqlHelper prepareEnclosure: brace], nil]];
 }
 
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
@@ -148,6 +148,14 @@
 		if (([operator isEqualToString: ZIMSqlOperatorIn] || [operator isEqualToString: ZIMSqlOperatorNotIn]) && ![value isKindOfClass: [NSArray class]]) {
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 		}
+		else if ([value isKindOfClass: [NSNull class]]) {
+			if ([operator isEqualToString: ZIMSqlOperatorEqualTo]) {
+				operator = ZIMSqlOperatorIs;
+			}
+			else if ([operator isEqualToString: ZIMSqlOperatorNotEqualTo]) {
+				operator = ZIMSqlOperatorIsNot;
+			}
+		}
 		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@", [ZIMSqlHelper prepareField: column], operator, [ZIMSqlHelper prepareValue: value]], nil]];
 	}
 }
@@ -162,7 +170,7 @@
 
 - (void) groupByHavingBlock: (NSString *)brace connector: (NSString *)connector {
 	if ([_groupBy count] > 0) {
-		[_having addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [ZIMSqlHelper prepareEncloser: brace], nil]];
+		[_having addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [ZIMSqlHelper prepareEnclosure: brace], nil]];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Must declare a GROUP BY clause before declaring a constraint." userInfo: nil];
@@ -199,6 +207,14 @@
 			if (([operator isEqualToString: ZIMSqlOperatorIn] || [operator isEqualToString: ZIMSqlOperatorNotIn]) && ![value isKindOfClass: [NSArray class]]) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 			}
+			else if ([value isKindOfClass: [NSNull class]]) {
+				if ([operator isEqualToString: ZIMSqlOperatorEqualTo]) {
+					operator = ZIMSqlOperatorIs;
+				}
+				else if ([operator isEqualToString: ZIMSqlOperatorNotEqualTo]) {
+					operator = ZIMSqlOperatorIsNot;
+				}
+			}
 			[_having addObject: [NSArray arrayWithObjects: [ZIMSqlHelper prepareConnector: connector], [NSString stringWithFormat: @"HAVING %@ %@ %@", [ZIMSqlHelper prepareField: column], operator, [ZIMSqlHelper prepareValue: value]], nil]];
 		}
 	}
@@ -229,7 +245,7 @@
 	}
 	operator = [operator uppercaseString];
 	if (![[NSSet setWithObjects: ZIMSqlOperatorExcept, ZIMSqlOperatorIntersect, ZIMSqlOperatorUnion, ZIMSqlOperatorUnionALL, nil] isSubsetOfSet: [NSSet setWithObject: operator]]) {
-		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid operator." userInfo: nil];
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid operator token provided." userInfo: nil];
 	}
 	[_compound addObject: [NSString stringWithFormat: @"%@ %@", operator, statement]];
 }
@@ -273,11 +289,11 @@
 		[sql appendString: @" "];
 		for (NSArray *where in _where) {
 			NSString *whereClause = [where objectAtIndex: 1];
-			if (doAppendConnector && ![whereClause isEqualToString: ZIMSqlEncloserClosingBrace]) {
+			if (doAppendConnector && ![whereClause isEqualToString: ZIMSqlEnclosureClosingBrace]) {
 				[sql appendFormat: @" %@ ", [where objectAtIndex: 0]];
 			}
 			[sql appendString: whereClause];
-			doAppendConnector = (![whereClause isEqualToString: ZIMSqlEncloserOpeningBrace]);
+			doAppendConnector = (![whereClause isEqualToString: ZIMSqlEnclosureOpeningBrace]);
 		}
 	}
 
@@ -290,11 +306,11 @@
 		[sql appendString: @" "];
 		for (NSArray *having in _having) {
 			NSString *havingClause = [having objectAtIndex: 1];
-			if (doAppendConnector && ![havingClause isEqualToString: ZIMSqlEncloserClosingBrace]) {
+			if (doAppendConnector && ![havingClause isEqualToString: ZIMSqlEnclosureClosingBrace]) {
 				[sql appendFormat: @" %@ ", [having objectAtIndex: 0]];
 			}
 			[sql appendString: havingClause];
-			doAppendConnector = (![havingClause isEqualToString: ZIMSqlEncloserOpeningBrace]);
+			doAppendConnector = (![havingClause isEqualToString: ZIMSqlEnclosureOpeningBrace]);
 		}
 	}
 	
