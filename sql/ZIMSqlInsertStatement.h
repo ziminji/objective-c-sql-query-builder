@@ -17,38 +17,38 @@
 #import "ZIMSqlStatement.h"
 
 /*!
- @class				ZIMSqlInsertStatement
- @discussion		This class represents an SQL insert statements.
- @updated			2011-03-13
- @see				http://www.sqlite.org/lang_insert.html
+ @class					ZIMSqlInsertStatement
+ @discussion			This class represents an SQL insert statements.
+ @updated				2011-04-01
+ @see					http://www.sqlite.org/lang_insert.html
  */
 @interface ZIMSqlInsertStatement : ZIMSqlStatement {
 
-	@private
+	@protected
 		NSString *_table;
 		NSMutableDictionary *_column;
 
 }
 /*!
- @method			table:
- @discussion		This method will set the table used in the SQL statement.
- @param table		The table that will be used in the SQL statement.
- @updated			2011-03-13
+ @method				table:
+ @discussion			This method will set the table used in the SQL statement.
+ @param table			The table that will be used in the SQL statement.
+ @updated				2011-03-13
  */
 - (void) table: (NSString *)table;
 /*!
- @method			column:value:
- @discussion		This method will add a column/value pair to the SQL statement.
- @param column		The column where the value will be inserted.
- @param value		The value to be inserted.
- @updated			2011-04-01
+ @method				column:value:
+ @discussion			This method will add a column/value pair to the SQL statement.
+ @param column			The column where the value will be inserted.
+ @param value			The value to be inserted.
+ @updated				2011-04-01
  */
 - (void) column: (NSString *)column value: (id)value;
 /*!
- @method			statement
- @discussion		This method will return the SQL statement.
- @return			The SQL statement that was constructed.
- @updated			2011-03-19
+ @method				statement
+ @discussion			This method will return the SQL statement.
+ @return				The SQL statement that was constructed.
+ @updated				2011-03-19
  */
 - (NSString *) statement;
 

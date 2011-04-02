@@ -14,12 +14,38 @@
  * limitations under the License.
  */
 
-#import "ZIMSqlFetchTablesStatement.h"
+#import "ZIMSqlHelper.h"
+#import "ZIMSqlShowTablesStatement.h"
 
-@implementation ZIMSqlFetchTablesStatement
+@implementation ZIMSqlShowTablesStatement
+
+- (id) init {
+	if (self = [super init]) {
+		_clause = nil;
+	}
+	return self;
+}
+
+- (void) dealloc {
+	[super dealloc];
+}
+
+- (void) like: (NSString *)value {
+	_clause = [NSString stringWithFormat: @"WHERE name LIKE %@", [ZIMSqlHelper prepareValue: value]];
+}
 
 - (NSString *) statement {
-	return @"SELECT * FROM sqlite_master WHERE type = 'table';";
+	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
+
+	[sql appendString: @"SELECT * FROM sqlite_master WHERE type = 'table'"];
+
+	if (_clause != nil) {
+		[sql appendFormat: @" AND %@", _clause];
+	}
+
+	[sql appendString: @";"];
+	
+	return sql;
 }
 
 @end

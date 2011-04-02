@@ -21,17 +21,18 @@
 @implementation ZIMSqlHelper
 
 + (NSString *) prepareConnector: (NSString *)connector {
+	connector = [connector uppercaseString];
 	if (!([connector isEqualToString: ZIMSqlConnectorAnd] || [connector isEqualToString: ZIMSqlConnectorOr])) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid connector token provided." userInfo: nil];
 	}
 	return connector;
 }
 
-+ (NSString *) prepareEncloser: (NSString *)encloser {
-	if (!([encloser isEqualToString: ZIMSqlEncloserOpeningBrace] || [encloser isEqualToString: ZIMSqlEncloserClosingBrace])) {
-		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid encloser token provided." userInfo: nil];
++ (NSString *) prepareEnclosure: (NSString *)enclosure {
+	if (!([enclosure isEqualToString: ZIMSqlEnclosureOpeningBrace] || [enclosure isEqualToString: ZIMSqlEnclosureClosingBrace])) {
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid enclosure token provided." userInfo: nil];
 	}
-	return encloser;
+	return enclosure;
 }
 
 + (NSString *) prepareField: (NSString *)field {
