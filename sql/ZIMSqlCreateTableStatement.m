@@ -69,28 +69,28 @@
 	}
 }
 
-- (void) primaryKey: (NSArray *)columns {
+- (void) primaryKey: (NSSet *)columns {
 	if (columns != nil) {
 		for (NSString *column in columns) {
 			if ([_column objectForKey: column] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before primary key can be assigned.", column] userInfo: nil];
 			}
 		}
-		_primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@)", [columns componentsJoinedByString: @", "]];
+		_primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@)", [[columns allObjects] componentsJoinedByString: @", "]];
 	}
 	else {
 		_primaryKey = nil;
 	}
 }
 
-- (void) unique: (NSArray *)columns {
+- (void) unique: (NSSet *)columns {
 	if (columns != nil) {
 		for (NSString *column in columns) {
 			if ([_column objectForKey: column] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before applying unique constraint.", column] userInfo: nil];
 			}
 		}
-		_unique = [NSString stringWithFormat: @"UNIQUE (%@)", [columns componentsJoinedByString: @", "]];
+		_unique = [NSString stringWithFormat: @"UNIQUE (%@)", [[columns allObjects] componentsJoinedByString: @", "]];
 	}
 	else {
 		_unique = nil;
