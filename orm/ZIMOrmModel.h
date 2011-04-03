@@ -58,7 +58,7 @@
 /*!
  @method				columns
  @discussion			This method will return the table name associated with this class.
- @return				A list of name/type pairs
+ @return				A list of name/type pairs.
  @updated				2011-04-03
  @see					http://stackoverflow.com/questions/1213901/how-do-i-list-all-instance-variables-of-a-class-in-objective-c
  */

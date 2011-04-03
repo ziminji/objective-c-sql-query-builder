@@ -3,8 +3,8 @@
 This repository contains three sets of Objective-C based classes that handle a SQLite database.  The DAO folder contains
 a class that easily manages the database connection.  The SQL folder contains a collection of SQL builder classes that
 can be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar to those
-found in LINQ. And, the ORM folder contains a set of classes to handle mapping data to objects using the Data Mapper and
-Active Record paradigms.
+found in LINQ. And, the ORM folder contains a set of classes that can control and manipulate data within a database via
+the Data Mapper and Active Record design patterns.
 
 All classes are designed to be used in iPhone/iOS applications.
 
@@ -20,7 +20,7 @@ classes in this repository are written with these observations in mind.
 
 ## Features
 
-The following is a short-list of some the features:
+The following is a short-list of some of the features:
 
 * Implements a very simple, but powerful, Data Access Object (DAO) that wraps the sqlite3 C based functions.
 * Places automatically the SQLite database in the "Document" directory.
@@ -32,6 +32,7 @@ The following is a short-list of some the features:
 * Sanitizes data.
 * Handles most complex queries.
 * Works with raw SQL.
+* Offers Object Relational Mapping (ORM) with composite primary keys.
 * Requires only those classes that are needed.  Great for mobile development.
 * Classes are easily extendible.
 
@@ -108,7 +109,7 @@ Usually, code is not posted to this repository unless it works; however, there a
 even though it still contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this
 README if they are not already listed under the "Issues" tab.
 
-At the current time, there are no known bugs.  However, the ORM is still in development.
+At the current time, there are no known bugs.  However, the Object Relational Modeling (ORM) is still in development.
 
 ## Future Development
 
@@ -116,7 +117,6 @@ This project is under heavy development.  There are development plans to add:
 
 * A default configuration file for the Data Access Object (DAO);
 * More SQL builder classes;
-* Object Relational Modeling (ORM) that will utilize both the Data Mapper and Active Record design patterns;
 * Unit-tests;
 * Documentation generated via [Doxygen](http://www.stack.nl/~dimitri/doxygen/); and,
 * Additional tutorials and examples.
