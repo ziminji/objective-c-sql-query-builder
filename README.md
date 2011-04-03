@@ -1,10 +1,10 @@
 # Objective-C SQL Query Builder
 
-This repository contains three sets of Objective-C based classes that handle a SQLite database.  The DAO folder contains
+This repository contains three sets of Objective-C based classes that handle an SQLite database.  The DAO folder contains
 a class that easily manages the database connection.  The SQL folder contains a collection of SQL builder classes that
 can be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar to those
-found in LINQ. And, the ORM folder contains a set of classes that can control and manipulate data within a database via
-the Data Mapper and Active Record design patterns.
+found in LINQ. And, the ORM folder contains a set of classes that can control and manipulate data within an SQLite database
+via the Data Mapper and Active Record design patterns.
 
 All classes are designed to be used in iPhone/iOS applications.
 
