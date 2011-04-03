@@ -24,7 +24,7 @@
 @implementation ZIMOrmModel
 
 #if !defined(ZIMOrmDataSource)
-	// Define pre-processing instruction "ZIMOrmDataSource" in <project-name>_Prefix.pch 
+	// Define this pre-processing instruction "ZIMOrmDataSource" in <project-name>_Prefix.pch 
 	#define ZIMOrmDataSource		@"DefaultDB.sqlite"
 #endif
 
@@ -74,7 +74,13 @@
 				ZIMSqlInsertStatement *sql = [[ZIMSqlInsertStatement alloc] init];
 				[sql table: [[self class] table]];
 				for (NSString *column in columns) {
-					[sql column: column value: [self valueForKey: column]];
+					NSString *value = [self valueForKey: column];
+					if ([_primaryKey containsObject: column] && (value == nil)) {
+						[sql release];
+						[columns release];
+						@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to save record because column '%@' has no assigned value.", column] userInfo: nil];
+					}
+					[sql column: column value: value];
 				}
 				NSNumber *result = [ZIMDaoConnection dataSource: [[self class] dataSource] execute: [sql statement]];
 				if (_autoIncremented) {
@@ -98,9 +104,10 @@
 					NSString *value = [self valueForKey: column];
 					if (value == nil) {
 						[sql release];
-						@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to delete record because column '%@' has no assigned value.", column] userInfo: nil];
+						[columns release];
+						@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to save record because column '%@' has no assigned value.", column] userInfo: nil];
 					}
-					[sql where: column operator: ZIMSqlOperatorEqualTo value: [self valueForKey: column]];
+					[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
 				}
 				[ZIMDaoConnection dataSource: [[self class] dataSource] execute: [sql statement]];
 				[sql release];
@@ -109,7 +116,7 @@
 		[columns release];
 	}
 	else {
-		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to delete record because no primary key has been declared." userInfo: nil];
+		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to save record because no primary key has been declared." userInfo: nil];
 	}
 }
 
@@ -128,7 +135,9 @@
 
 	Ivar *vars = class_copyIvarList([self class], &columnCount);
 
-	NSMutableDictionary *columns = [[[NSMutableDictionary alloc] initWithCapacity: columnCount] autorelease];
+	int capacity = columnCount - [configurations count];
+
+	NSMutableDictionary *columns = [[[NSMutableDictionary alloc] initWithCapacity: capacity] autorelease];
 
 	for (int i = 0; i < columnCount; i++) {
 		Ivar var = vars[i];
