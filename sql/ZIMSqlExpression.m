@@ -18,7 +18,10 @@
 #import "ZIMSqlSelectStatement.h"
 
 NSString *ZIMSqlDefaultValue(id value) {
-	if ([value isKindOfClass: [NSNumber class]]) {
+	if ((value == nil) || [value isKindOfClass: [NSNull class]]) {
+		return @"DEFAULT NULL";
+	}
+	else if ([value isKindOfClass: [NSNumber class]]) {
 		return [NSString stringWithFormat: @"DEFAULT %@", value];
 	}
 	else if ([value isKindOfClass: [NSString class]]) {
@@ -35,9 +38,6 @@ NSString *ZIMSqlDefaultValue(id value) {
 		}
 		[buffer appendString: @"'"];
 		return buffer;
-	}
-	else if ([value isKindOfClass: [NSNull class]]) {
-		return @"DEFAULT NULL";
 	}
 	else if ([value isKindOfClass: [NSDate class]]) {
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -108,7 +108,10 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 }
 
 + (NSString *) prepareValue: (id)value {
-	if ([value isKindOfClass: [ZIMSqlSelectStatement class]]) {
+	if ((value == nil) || [value isKindOfClass: [NSNull class]]) {
+		return @"NULL";
+	}
+	else if ([value isKindOfClass: [ZIMSqlSelectStatement class]]) {
 		return [NSString stringWithFormat: @"(%@)", [(ZIMSqlSelectStatement *)value statement]];
 	}
 	else if ([value isKindOfClass: [NSArray class]]) {
@@ -140,9 +143,6 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 		}
 		[buffer appendString: @"'"];
 		return buffer;
-	}
-	else if ([value isKindOfClass: [NSNull class]]) {
-		return @"null";
 	}
 	else if ([value isKindOfClass: [NSDate class]]) {
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
