@@ -1,10 +1,9 @@
 # Objective-C SQL Query Builder
 
 This repository contains three sets of Objective-C based classes that handle an SQLite database.  The DAO folder contains
-a class that easily manages the database connection.  The SQL folder contains a collection of SQL builder classes that
-can be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar to those
-found in LINQ. And, the ORM folder contains a set of classes that can control and manipulate data within an SQLite database
-via the Data Mapper and Active Record design patterns.
+an SQLite wrapper class that easily manages the database connection.  The SQL folder contains a collection of SQL builder
+classes that can be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar
+to those found in LINQ.  And, the ORM folder contains a set of classes that can control and manipulate data within an SQLite database via the Data Mapper and Active Record design patterns.
 
 All classes are designed to be used in iPhone/iOS applications.
 
@@ -51,16 +50,11 @@ Using these classes in an Xcode project is easy to do.  Here is how:
 9. Choose "Recursively create groups for any added folders".
 10. Click "Add".
 
-### Required Frameworks
-
-To use these classes in an Xcode project, add the following framework:
-
-* libsqlite3.dylib
-
 ### Required Files
 
-A lot of work has gone into making these classes as independent as possible; however, a few dependencies just can't be
-avoided.  Therefore, the following files will most likely have to be included in an Xcode project:
+A lot of work has gone into making the classes in this repository as independent as possible; however, a few
+dependencies just can't be avoided.  Therefore, the following files will most likely have to be included in
+an Xcode project:
 
 * ZIMDaoConnection.h
 * ZIMDaoConnection.m
@@ -83,6 +77,12 @@ To utilize the ORM, the following files must also be included:
 * ZIMOrmSelectStatement.h
 * ZIMOrmSelectStatement.m
 
+### Required Frameworks
+
+To use these classes in an Xcode project, add the following framework:
+
+* libsqlite3.dylib
+
 ### Documentation
 
 All classes are heavily documented with [HeaderDoc](http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html#//apple_ref/doc/uid/TP40001215-CH345-SW1).  You can get familiar with each class by simply opening its respective ".h" file.  You can also
@@ -90,8 +90,9 @@ find more information on this repository's Wiki.
 
 ### Tutorials / Examples
 
-Checkout this repository's Wiki for a handful of examples.  There, you will find examples on how to make a database
-connection using the Data Access Object (DAO) and how to build Create, Read, Update, and Delete (CRUD) statements.
+Checkout this repository's Wiki for a handful of examples.  There, you will find examples on how to make an SQLite
+database connection using the Data Access Object (DAO) and how to build Create, Read, Update, and Delete (CRUD)
+statements.
 
 ## Reporting Bugs & Making Recommendations
 
@@ -102,6 +103,8 @@ follow-up with it as soon as possible.
 Likewise, if you would like to make a recommendation on how to improve these classes, take the time to send a message
 so that it can be considered for an upcoming release.  Or, if you would like to contribute to the development of this
 repository, go ahead and create a fork.
+
+You can also email any bug-fixes, unit-tests, or recommendations to oss@ziminji.com.
 
 ### Known Issues
 

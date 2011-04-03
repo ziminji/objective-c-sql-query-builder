@@ -103,7 +103,8 @@
 	NSNumber *result = nil;
 
 	if (([sql length] >= 6)  && [[[sql substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"INSERT"]) {
-	 	result = [NSNumber numberWithInt: sqlite3_last_insert_rowid(_database)];
+	 	// Known limitations: http://www.sqlite.org/c3ref/last_insert_rowid.html
+		result = [NSNumber numberWithInt: sqlite3_last_insert_rowid(_database)];
 	}
 	else {
 		result = [NSNumber numberWithInt: YES];
@@ -301,6 +302,13 @@
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql {
 	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSArray *records = [connection query: sql];
+	[connection release];
+	return records;
+}
+
++ (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql asObject: (Class)model {
+	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
+	NSArray *records = [connection query: sql asObject: model];
 	[connection release];
 	return records;
 }
