@@ -1,9 +1,10 @@
 # Objective-C SQL Query Builder
 
-This repository contains two sets of Objective-C based classes that handle a SQLite database.  The DAO folder contains
+This repository contains three sets of Objective-C based classes that handle a SQLite database.  The DAO folder contains
 a class that easily manages the database connection.  The SQL folder contains a collection of SQL builder classes that
 can be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar to those
-found in LINQ.
+found in LINQ. And, the ORM folder contains a set of classes to handle mapping data to objects using the Data Mapper and
+Active Record paradigms.
 
 All classes are designed to be used in iPhone/iOS applications.
 
@@ -68,6 +69,19 @@ avoided.  Therefore, the following files will most likely have to be included in
 * ZIMSqlSelectStatement.h
 * ZIMSqlSelectStatement.m
 
+To utilize the ORM, the following files must also be included:
+
+* ZIMSqlDeleteStatement.h
+* ZIMSqlDeleteStatement.m
+* ZIMSqlInsertStatement.h
+* ZIMSqlInsertStatement.m
+* ZIMSqlUpdateStatement.h
+* ZIMSqlUpdateStatement.m
+* ZIMOrmModel.h
+* ZIMOrmModel.m
+* ZIMOrmSelectStatement.h
+* ZIMOrmSelectStatement.m
+
 ### Documentation
 
 All classes are heavily documented with [HeaderDoc](http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html#//apple_ref/doc/uid/TP40001215-CH345-SW1).  You can get familiar with each class by simply opening its respective ".h" file.  You can also
@@ -94,7 +108,7 @@ Usually, code is not posted to this repository unless it works; however, there a
 even though it still contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this
 README if they are not already listed under the "Issues" tab.
 
-At the current time, there are no known bugs.
+At the current time, there are no known bugs.  However, the ORM is still in development.
 
 ## Future Development
 
