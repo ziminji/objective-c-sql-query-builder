@@ -65,7 +65,8 @@
  @discussion			This method will execute the specified SQL statement.
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-03-30
+ @updated				2011-04-03
+ @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  */
 - (NSNumber *) execute: (NSString *)sql;
 /*!
@@ -82,8 +83,11 @@
  @discussion			This method will query with the specified SQL statement and will map
 						each record to the specified object (i.e. model).
  @param sql				The SQL statement to be used.
+ @param model			The class to used to map each record.  The class only needs to have
+						accessible instance variables and does not necessarily have to conform
+						to the Active Record design pattern.
  @return				The result set (i.e. an array of records).
- @updated				2011-04-02
+ @updated				2011-04-03
  */
 - (NSArray *) query: (NSString *)sql asObject: (Class)model;
 /*!
@@ -105,7 +109,8 @@
  @param dataSource		The file name of the database to be used.
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-03-30
+ @updated				2011-04-03
+ @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  */
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql;
 /*!
@@ -117,5 +122,17 @@
  @updated				2011-03-30
  */
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql;
+/*!
+ @method				dataSource:query:
+ @discussion			This method will query with the specified SQL statement.
+ @param dataSource		The file name of the database to be used.
+ @param sql				The SQL statement to be used.
+ @param model			The class to used to map each record.  The class only needs to have
+						accessible instance variables and does not necessarily have to conform
+						to the Active Record design pattern.
+ @return				The result set.
+ @updated				2011-04-03
+ */
++ (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql asObject: (Class)model;
 
 @end

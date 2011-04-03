@@ -33,7 +33,7 @@
 	_table = table;
 }
 
-- (NSString *) statement {	
+- (NSString *) statement {
 	return [NSString stringWithFormat: @"ANALYZE %@;", _table];
 }
 
