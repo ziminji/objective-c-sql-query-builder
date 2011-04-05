@@ -1,9 +1,10 @@
 # Objective-C SQL Query Builder
 
-This repository contains three sets of Objective-C based classes that handle an SQLite database.  The DAO folder contains
-an SQLite wrapper class that easily manages the database connection.  The SQL folder contains a collection of SQL builder
-classes that can be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar
-to those found in LINQ.  And, the ORM folder contains a set of classes that can control and manipulate data within an SQLite database via the Data Mapper and Active Record design patterns.
+This project is made up of four folders: three of the folders contain Objective-C classes that handle an SQLite database
+and one folder contains the API.  The DAO folder contains an SQLite wrapper class that easily manages the database connection.
+The SQL folder contains a collection of SQL builder classes that can be used to construct well-formed SQL statements for
+SQLite via a plethora of convenient methods similar to those found in LINQ.  And, the ORM folder contains a set of classes
+that can control and manipulate data within an SQLite database via the Data Mapper and Active Record design patterns.
 
 All classes are designed to be used in iPhone/iOS applications.
 
@@ -34,6 +35,7 @@ The following is a short-list of some of the features:
 * Offers Object Relational Mapping (ORM) with composite primary keys.
 * Requires only those classes that are needed.  Great for mobile development.
 * Classes are easily extendible.
+* Has clear API documentation generated via [Doxygen](http://www.stack.nl/~dimitri/doxygen/).
 
 ## Getting Started
 
@@ -85,8 +87,8 @@ To use these classes in an Xcode project, add the following framework:
 
 ### Documentation
 
-All classes are heavily documented with [HeaderDoc](http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html#//apple_ref/doc/uid/TP40001215-CH345-SW1).  You can get familiar with each class by simply opening its respective ".h" file.  You can also
-find more information on this repository's Wiki.
+All classes are heavily documented using [HeaderDoc](http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html#//apple_ref/doc/uid/TP40001215-CH345-SW1).  You can get familiar with each class by simply looking at the API or by opening its
+respective ".h" file.  You can also find more information on this repository's Wiki.
 
 ### Tutorials / Examples
 
@@ -120,8 +122,8 @@ This project is under heavy development.  There are development plans to add:
 
 * A default configuration file for the Data Access Object (DAO);
 * More SQL builder classes;
+* The ability to handle foreign keys via SQL builder classes and Active Record;
 * Unit-tests;
-* Documentation generated via [Doxygen](http://www.stack.nl/~dimitri/doxygen/); and,
 * Additional tutorials and examples.
 
 ## License (Apache v2.0)
