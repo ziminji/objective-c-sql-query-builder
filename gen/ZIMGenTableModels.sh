@@ -105,7 +105,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 	##
 	for table in $tables; do
 		##
-		# Takes the table's name and ensures that starts with a capital letter so that it can be used
+		# Takes the table's name and ensures that it starts with a capital letter so that it can be used
 		# for the model's class name.
 		##
 		CLASS_NAME=$(ucfirst ${table})
@@ -319,7 +319,15 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		##
 		echo "@end" 1>> $MODEL_M
 	done
+	
+	##
+	# Indicates that the BASH script is done.
+	##
+	echo "Done!"
 else 
+	##
+	# Indicates that an error occurred when loading the Java properties file.
+	##
 	echo "Error: Unable to load the Java properties file."
 	exit 1
 fi
