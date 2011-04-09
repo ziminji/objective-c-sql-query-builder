@@ -81,6 +81,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#adad3089b46cdb02939d9953a67278c5c">query:asObject:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a323861ac70e1951acd3d335767c79d74">isConnected</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#ae1e6a0eab48ddc5a59e04106e03fc0cb">close</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(SEL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#ab51da49484131ed5b5e2741b855aa6f1">selectorForSettingColumnName:</a><code> [implementation]</code></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a827b505c516a339080d1c27b36cfef1d">capitalizeString:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(int)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#af148a17411d63290ae35d3f3802b4f59">columnTypeAtIndex:inStatement:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#aa125676665460ddabbd6027fabc0dab0">columnValueAtIndex:withColumnType:inStatement:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a9474fb8db92f6811c136ebce152990b5">dealloc</a><code> [implementation]</code></td></tr>
@@ -99,6 +101,23 @@ Protected Attributes</h2></td></tr>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This class represents an SQL statements.  2011-03-30 </p>
 </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a827b505c516a339080d1c27b36cfef1d"></a><!-- doxytag: member="ZIMDaoConnection::capitalizeString:" ref="a827b505c516a339080d1c27b36cfef1d" args="(NSString *string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSString *) capitalizeString: </td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>string</em></td>
+          <td><code> [implementation]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ae1e6a0eab48ddc5a59e04106e03fc0cb"></a><!-- doxytag: member="ZIMDaoConnection::close" ref="ae1e6a0eab48ddc5a59e04106e03fc0cb" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -489,6 +508,23 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab51da49484131ed5b5e2741b855aa6f1"></a><!-- doxytag: member="ZIMDaoConnection::selectorForSettingColumnName:" ref="ab51da49484131ed5b5e2741b855aa6f1" args="(NSString *column)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (SEL) selectorForSettingColumnName: </td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>column</em></td>
+          <td><code> [implementation]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <hr/><h2>Member Data Documentation</h2>
 <a class="anchor" id="a61abceaf89d8175a737cd757b372dda7"></a><!-- doxytag: member="ZIMDaoConnection::_database" ref="a61abceaf89d8175a737cd757b372dda7" args="" -->
 <div class="memitem">
@@ -561,7 +597,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 4 2011 23:41:23 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Apr 9 2011 03:51:12 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
