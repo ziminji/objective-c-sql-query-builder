@@ -65,8 +65,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ZIMOrmSelectStatement Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="ZIMOrmSelectStatement" -->
+<!-- doxytag: class="ZIMOrmSelectStatement" --><!-- doxytag: inherits="ZIMSqlStatement-p" -->
 <p><code>#import &lt;<a class="el" href="_z_i_m_orm_select_statement_8h_source.html">ZIMOrmSelectStatement.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for ZIMOrmSelectStatement:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="interface_z_i_m_orm_select_statement.png" usemap="#ZIMOrmSelectStatement_map" alt=""/>
+  <map id="ZIMOrmSelectStatement_map" name="ZIMOrmSelectStatement_map">
+<area href="protocol_z_i_m_sql_statement-p.html" alt="&lt;ZIMSqlStatement&gt;" shape="rect" coords="0,0,148,24"/>
+</map>
+ </div></div>
 
 <p><a href="class_z_i_m_orm_select_statement-members.html">List of all members.</a></p>
 <table class="memberdecls">
@@ -98,13 +107,14 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a40aaff2cfe4a0627624e6bf0aa7ca2b3">offset:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a73bd485dbbdc192a45267be1ab5e1e9c">query</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a1f80a7f360b9022b7ebf6d09c00c11f1">dealloc</a><code> [implementation]</code></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a040067495519a11d474068c6c8aefb26">statement</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">Class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_select_statement.html#acb4534c641240fb8874d5ed1dac0a142">_model</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_z_i_m_sql_select_statement.html">ZIMSqlSelectStatement</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_select_statement.html#ac118a8fc2c4228482c408fba5f3f8293">_sql</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>This class will loads the results of found by the query in the specified model.  2011-04-02 </p>
+<div class="textblock"><p>This class will loads the results of found by the query in the specified model.  2011-04-07 </p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a1f80a7f360b9022b7ebf6d09c00c11f1"></a><!-- doxytag: member="ZIMOrmSelectStatement::dealloc" ref="a1f80a7f360b9022b7ebf6d09c00c11f1" args="()" -->
 <div class="memitem">
@@ -738,6 +748,26 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a040067495519a11d474068c6c8aefb26"></a><!-- doxytag: member="ZIMOrmSelectStatement::statement" ref="a040067495519a11d474068c6c8aefb26" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSString *) statement </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td><code> [implementation]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>statement  This method will return the SQL statement. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed.  2011-04-02 </dd></dl>
+
+<p>Reimplemented from <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a90ce3103da2cf9b334b338a7eb2cd9fc"></a><!-- doxytag: member="ZIMOrmSelectStatement::where:operator:column:" ref="a90ce3103da2cf9b334b338a7eb2cd9fc" args="(NSString *column1,[operator] NSString *operator,[column] NSString *column2)" -->
 <div class="memitem">
 <div class="memproto">
@@ -1025,7 +1055,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Apr 4 2011 23:41:23 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Apr 9 2011 03:51:12 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
