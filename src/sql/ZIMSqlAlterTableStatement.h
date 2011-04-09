@@ -18,8 +18,8 @@
 
 /*!
  @class					ZIMSqlAlterTableStatement
- @discussion			This class represents an SQL alter table statements.
- @updated				2011-04-02
+ @discussion			This class represents an SQL alter table statement.
+ @updated				2011-04-07
  @see					http://www.sqlite.org/lang_altertable.html
  */
 @interface ZIMSqlAlterTableStatement : NSObject <ZIMSqlStatement> {

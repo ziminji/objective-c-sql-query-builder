@@ -18,8 +18,8 @@
 
 /*!
  @class					ZIMSqlCreateTableStatement
- @discussion			This class represents an SQL create table statements.
- @updated				2011-04-02
+ @discussion			This class represents an SQL create table statement.
+ @updated				2011-04-07
  @see					http://www.sqlite.org/lang_createtable.html
  */
 @interface ZIMSqlCreateTableStatement : NSObject <ZIMSqlStatement> {

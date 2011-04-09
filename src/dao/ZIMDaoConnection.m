@@ -26,6 +26,23 @@
  */
 @interface ZIMDaoConnection (Private)
 /*!
+ @method			selectorForSettingColumnName:
+ @discussion		This method will make a "set" selector for the specified column.
+ @param string		The column.
+ @return			The "set" selector.
+ @updated			2011-04-07
+ */
+- (SEL) selectorForSettingColumnName: (NSString *)column;
+/*!
+ @method			capitalizeString:
+ @discussion		This method will capitalize the first letter in a string.
+ @param string		The string to be modified.
+ @return			The modified string.
+ @updated			2011-04-08
+ @see				http://stackoverflow.com/questions/883897/easy-way-to-set-a-single-character-of-an-nsstring-to-uppercase
+ */
+- (NSString *) capitalizeString: (NSString *)string;
+/*!
  @method			columnTypeAtIndex:inStatement:
  @discussion		This method will determine the data type for the specified column.
  @param column		The column index.
@@ -156,7 +173,7 @@
 			
 			for (int index = 0; index < columnCount; index++) {
 				NSString *columnName = [NSString stringWithUTF8String: sqlite3_column_name(statement, index)];
-				if (!([record isKindOfClass: [NSMutableDictionary class]] || [record respondsToSelector: NSSelectorFromString(columnName)])) {
+				if (!([record isKindOfClass: [NSMutableDictionary class]] || [record respondsToSelector: [self selectorForSettingColumnName: columnName]])) {
 					[record release];
 
 					[columnNames release];
@@ -200,6 +217,14 @@
 	}
 
 	return records;
+}
+
+- (SEL) selectorForSettingColumnName: (NSString *)column {
+	return NSSelectorFromString([NSString stringWithFormat: @"set%@", [self capitalizeString: column]]);
+}
+
+- (NSString *) capitalizeString: (NSString *)string {
+	return [string stringByReplacingCharactersInRange: NSMakeRange(0, 1) withString: [[string substringToIndex: 1] uppercaseString]];
 }
 
 - (int) columnTypeAtIndex: (int)column inStatement: (sqlite3_stmt *)statement {

@@ -14,32 +14,23 @@
  * limitations under the License.
  */
 
-#import "ZIMSqlStatement.h"
+#import <Foundation/Foundation.h>
+#import "ZIMSqlExpression.h"
 
 /*!
- @class					ZIMSqlAnalyzeStatement
- @discussion			This class represents an SQL analyze statements.
+ @class					ZIMSqlStatement
+ @discussion			This protocol specifies the contract for an SQL statement.
  @updated				2011-04-02
- @see					http://www.sqlite.org/lang_analyze.html
+ @see					http://souptonuts.sourceforge.net/readme_sqlite_tutorial.html
  */
-@interface ZIMSqlAnalyzeStatement : NSObject <ZIMSqlStatement> {
+@protocol ZIMSqlStatement <NSObject>
 
-	@protected
-		NSString *_table;
-
-}
-/*!
- @method				table:
- @discussion			This method will set the table used in the SQL statement.
- @param table			The table that will be used in the SQL statement.
- @updated				2011-04-01
- */
-- (void) table: (NSString *)table;
+@required
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-04-01
+ @updated				2011-04-02
  */
 - (NSString *) statement;
 

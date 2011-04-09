@@ -18,7 +18,7 @@
 
 /*!
  @class					ZIMSqlUpdateStatement
- @discussion			This class represents an SQL update statements.
+ @discussion			This class represents an SQL update statement.
  @updated				2011-04-02
  @see					http://www.sqlite.org/lang_update.html
  */
