@@ -68,7 +68,7 @@ make the implementation process as painless as possible:
 * ZIMSqlSDK.h
 * ZIMOrmSDK.h
 
-Based on which SDK is needed, only those classes listed (i.e imported) in the SDK import file are needed to be
+Based on which SDK is needed, only those classes listed (i.e. imported) in the SDK import file are needed to be
 added to the respective Xcode project.
 
 ### Required Frameworks
@@ -104,7 +104,7 @@ You can also email any bug-fixes, unit-tests, or recommendations to oss@ziminji.
 
 Usually, code is not posted to this repository unless it works; however, there are times when some code may get posted
 even though it still contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this
-README.md if they are not already listed under the "Issues" tab.
+README if they are not already listed under the "Issues" tab.
 
 At the current time, there are no known bugs.  However, the Object Relational Modeling (ORM) is still in development.
 
@@ -117,6 +117,7 @@ This project is under heavy development.  There are development plans to add:
 * The ability to handle foreign keys via SQL builder classes and Active Record;
 * Lazy loading;
 * A module to handle pagination;
+* A set of utility classes;
 * Unit-tests;
 * Additional tutorials and examples.
 
