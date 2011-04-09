@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
+#import "ZIMSqlStatement.h"
 #import "ZIMSqlSelectStatement.h"
 
 /*!
  @class					ZIMOrmSelectStatement
  @discussion			This class will loads the results of found by the query in the specified
 						model.
- @updated				2011-04-02
+ @updated				2011-04-07
  */
-@interface ZIMOrmSelectStatement : NSObject {
+@interface ZIMOrmSelectStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
 		Class _model;

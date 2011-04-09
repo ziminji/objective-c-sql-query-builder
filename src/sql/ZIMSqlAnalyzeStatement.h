@@ -17,24 +17,24 @@
 #import "ZIMSqlStatement.h"
 
 /*!
- @class					ZIMSqlShowTablesStatement
- @discussion			This class represents an SQL show tables statements.
- @updated				2011-04-02
- @see					http://dev.mysql.com/doc/refman/5.0/en/show-tables.html
+ @class					ZIMSqlAnalyzeStatement
+ @discussion			This class represents an SQL analyze statement.
+ @updated				2011-04-07
+ @see					http://www.sqlite.org/lang_analyze.html
  */
-@interface ZIMSqlShowTablesStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlAnalyzeStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
-		NSString *_clause;
+		NSString *_table;
 
 }
 /*!
- @method				like:
- @discussion			This method will causing only those tables that match the specified
-						like constraint.
+ @method				table:
+ @discussion			This method will set the table used in the SQL statement.
+ @param table			The table that will be used in the SQL statement.
  @updated				2011-04-01
  */
-- (void) like: (NSString *)value;
+- (void) table: (NSString *)table;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
