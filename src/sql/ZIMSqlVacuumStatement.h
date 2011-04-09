@@ -14,23 +14,25 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "ZIMSqlExpression.h"
+#import "ZIMSqlStatement.h"
 
 /*!
- @class					ZIMSqlStatement
- @discussion			This protocol specifies the contract for an SQL statements.
- @updated				2011-04-02
- @see					http://souptonuts.sourceforge.net/readme_sqlite_tutorial.html
+ @class					ZIMSqlVacuumStatement
+ @discussion			This class represents an SQL vacuum statement.
+ @updated				2011-04-07
+ @see					http://www.sqlite.org/lang_vacuum.html
  */
-@protocol ZIMSqlStatement <NSObject>
+@interface ZIMSqlVacuumStatement : NSObject <ZIMSqlStatement> {
 
-@required
+	@protected
+		NSString *_table;
+
+}
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-04-02
+ @updated				2011-04-07
  */
 - (NSString *) statement;
 

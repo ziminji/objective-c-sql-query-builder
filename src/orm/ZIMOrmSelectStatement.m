@@ -126,6 +126,10 @@
 	[_sql offset: offset];
 }
 
+- (NSString *) statement {
+	return [_sql statement];
+}
+
 - (NSArray *) query {
 	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [_model dataSource] withMultithreadingSupport: NO];
 	NSArray *records = [connection query: [_sql statement] asObject: _model];
