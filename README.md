@@ -38,7 +38,7 @@ The following is a short-list of some of the features:
 * Handles most complex queries.
 * Works with raw SQL.
 * Offers Object Relational Mapping (ORM) with composite primary keys.
-* Can auto-generate models (i.e. an Active Records) for each table in the SQLite database.
+* Can auto-generate models (i.e. Active Records) for each table in the SQLite database.
 * Requires only those classes that are needed.  Great for mobile development.
 * Classes are easily extendible.
 * Has clear API documentation generated via [Doxygen](http://www.stack.nl/~dimitri/doxygen/).
@@ -61,29 +61,15 @@ Using these classes in an Xcode project is easy to do.  Here is how:
 ### Required Files
 
 A lot of work has gone into making the classes in this repository as independent as possible; however, a few
-dependencies just can't be avoided.  Therefore, the following files will most likely have to be included in
-an Xcode project:
+dependencies just can't be avoided.  To make life easier, the following SDK import files have been created to
+make the implementation process as painless as possible:
 
-* ZIMDaoConnection.h
-* ZIMDaoConnection.m
-* ZIMSqlExpression.h
-* ZIMSqlExpression.m
-* ZIMSqlStatement.h
-* ZIMSqlSelectStatement.h
-* ZIMSqlSelectStatement.m
+* ZIMDaoSDK.h
+* ZIMSqlSDK.h
+* ZIMOrmSDK.h
 
-To utilize the ORM, the following files must also be included:
-
-* ZIMSqlDeleteStatement.h
-* ZIMSqlDeleteStatement.m
-* ZIMSqlInsertStatement.h
-* ZIMSqlInsertStatement.m
-* ZIMSqlUpdateStatement.h
-* ZIMSqlUpdateStatement.m
-* ZIMOrmModel.h
-* ZIMOrmModel.m
-* ZIMOrmSelectStatement.h
-* ZIMOrmSelectStatement.m
+Based on which SDK is needed, only those classes listed (i.e imported) in the SDK import file are needed to be
+added to the respective Xcode project.
 
 ### Required Frameworks
 

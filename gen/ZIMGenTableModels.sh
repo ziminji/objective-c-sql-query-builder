@@ -19,11 +19,11 @@
 ##
 # INSTRUCTIONS
 #
-# Before running this script, configure the associated Java properties file.
+# Before running this BASH script, configure the associated Java properties file.
 #
 # To run this BASH script, use the following commands:
-# 	username$ chmod +x ZIMGenModel.sh 
-# 	username$ ./ZIMGenModel.sh ZIMGenModel.properties
+# 	username$ chmod +x ZIMGenTableModels.sh 
+# 	username$ ./ZIMGenTableModels.sh ZIMGenTableModels.properties
 ##
 
 ##
@@ -51,7 +51,7 @@ declare -r DATATYPES="BIGINT:NSNumber|BOOLEAN:NSNumber|INT:NSNumber|INT2:NSNumbe
 function getValueFromHashMapWithKey {
 	local HashValue=""
 	if [ "$1" != "" -a "$2" != "" ]; then
-		local HashMap=$1 #$(echo "$1" | tr "|" "\n")
+		local HashMap=$1
 		local TIFS=$IFS
 		IFS='|'
 		for HashPair in $HashMap; do
