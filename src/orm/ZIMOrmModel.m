@@ -45,12 +45,12 @@
 		ZIMSqlDeleteStatement *sql = [[ZIMSqlDeleteStatement alloc] init];
 		[sql table: [[self class] table]];
 		for (NSString *column in _primaryKey) {
-			NSString *value = [self valueForKey: column];
+			id value = [self valueForKey: column];
 			if (value == nil) {
 				[sql release];
-				@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to delete record because column '%@' has no assigned value.", column] userInfo: nil];
+				@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to delete record because no value has been assigned to the '%@' column.", column] userInfo: nil];
 			}
-			[sql where: column operator: ZIMSqlOperatorEqualTo value: [self valueForKey: column]];
+			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
 		}
 		[ZIMDaoConnection dataSource: [[self class] dataSource] execute: [sql statement]];
 		[sql release];
@@ -128,7 +128,9 @@
 	return NSStringFromClass([self class]);
 }
 
-+ (NSDictionary *) columns {	
++ (NSDictionary *) columns {
+	// TODO get instance variables from super classes as well to allow further subclassing
+
 	NSSet *configurations = [[NSSet alloc] initWithObjects: @"_primaryKey", @"_autoIncremented", @"_saved", nil];
 
 	unsigned int columnCount;
@@ -143,9 +145,9 @@
 		Ivar var = vars[i];
 		
 		NSString *columnName = [NSString stringWithUTF8String: ivar_getName(var)];
-		NSString *columnType = [NSString stringWithUTF8String: ivar_getTypeEncoding(var)];
 		
 		if (![configurations containsObject: columnName]) {
+			NSString *columnType = [NSString stringWithUTF8String: ivar_getTypeEncoding(var)]; // http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
 			[columns setObject: columnType forKey: columnName];
 		}
 	}
