@@ -136,7 +136,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		##
 		echo "/*!" 1>> $MODEL_H
 		echo " @class $CLASS_NAME" 1>> $MODEL_H
-		echo " @discussion This class represents an SQL statements." 1>> $MODEL_H
+		echo " @discussion This class represents an SQLite database table." 1>> $MODEL_H
 		echo " @updated $DATE_MODIFIED" 1>> $MODEL_H
 		echo " */" 1>> $MODEL_H
 		
