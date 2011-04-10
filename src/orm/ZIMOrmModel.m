@@ -25,7 +25,7 @@
 
 #if !defined(ZIMOrmDataSource)
 	// Define this pre-processing instruction "ZIMOrmDataSource" in <project-name>_Prefix.pch 
-	#define ZIMOrmDataSource		@"DefaultDB.sqlite"
+	#define ZIMOrmDataSource		@"defaultdb.sqlite"
 #endif
 
 - (id) init {
