@@ -36,7 +36,7 @@ declare -r DATE_MODIFIED=$(date +%F)
 ##
 # Defines the hashmap for translating columns.
 ##
-declare -r DATATYPES="BIGINT:NSNumber|BOOLEAN:NSNumber|INT:NSNumber|INT2:NSNumber|INT8:NSNumber|INTEGER:NSNumber|MEDIUMINT:NSNumber|SMALLINT:NSNumber|TINYINT:NSNumber|UNSIGNED BIG INT:NSNumber|DECIMAL:NSNumber|DOUBLE:NSNumber|DOUBLE PRECISION:NSNumber|FLOAT:NSNumber|NUMERIC:NSNumber|REAL:NSNumber|CHAR:NSString|CHARACTER:NSString|CLOB:NSString|NATIONAL VARYING CHARACTER:NSString|NATIVE CHARACTER:NSString|NCHAR:NSString|NVARCHAR:NSString|TEXT:NSString|VARCHAR:NSString|VARIANT:NSString|VARYING CHARACTER:NSString|BLOB:NSData|NULL:NSNull|DATE:NSDate|DATETIME:NSDate|TIMESTAMP:NSDate"
+declare -r DATATYPES="BIGINT:NSNumber|BOOL:NSNumber|BOOLEAN:NSNumber|INT:NSNumber|INT2:NSNumber|INT8:NSNumber|INTEGER:NSNumber|MEDIUMINT:NSNumber|SMALLINT:NSNumber|TINYINT:NSNumber|UNSIGNED BIG INT:NSNumber|DECIMAL:NSNumber|DOUBLE:NSNumber|DOUBLE PRECISION:NSNumber|FLOAT:NSNumber|NUMERIC:NSNumber|REAL:NSNumber|CHAR:NSString|CHARACTER:NSString|CLOB:NSString|NATIONAL VARYING CHARACTER:NSString|NATIVE CHARACTER:NSString|NCHAR:NSString|NVARCHAR:NSString|TEXT:NSString|VARCHAR:NSString|VARIANT:NSString|VARYING CHARACTER:NSString|BLOB:NSData|NULL:NSNull|DATE:NSDate|DATETIME:NSDate|TIMESTAMP:NSDate"
 
 ##
 # @method				getValueFromHashMapWithKey
@@ -98,7 +98,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 	##
 	# Fetches an array of table names from the specified datatbase (@see http://mailliststock.wordpress.com/2007/03/01/sqlite-examples-with-bash-perl-and-python/)
 	##
-	tables=`sqlite3 $database "SELECT tbl_name FROM sqlite_master WHERE type = 'table';"`
+	tables=`sqlite3 $database "SELECT tbl_name FROM sqlite_master WHERE type = 'table' AND tbl_name NOT IN ('sqlite_sequence');"`
 
 	##
 	# Creates a model (i.e. an Active Records) for each table in the database.
@@ -183,7 +183,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 			elif [ $POSITION -eq 2 ]; then # gets the column's datatype
 				CTYPE=`echo -n "${Info%%(*}" | tr "[:lower:]" "[:upper:]"`
 				ColumnTypes[$COUNT]=`getValueFromHashMapWithKey "$DATATYPES" "$CTYPE"`
-				if [ "$ColumnTypes[$COUNT]" = "" ]; then
+				if [ -z "${ColumnTypes[${COUNT}]}" ]; then
 					echo "Error: Unknown datatype detected."
 					exit 1
 				fi
@@ -232,12 +232,12 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		echo -e "\n@end" 1>> $MODEL_H
 
 		##
-		# Constructs the file name for the class's ".m"
+		# Constructs the file name for the class's ".m".
 		##
 		MODEL_M="$CLASS_NAME.m"
 
 		##
-		# Generates the informational comment block for the ".h"
+		# Generates the informational comment block for the ".h".
 		##
 		echo "//" 1> $MODEL_M
 		echo "//  $CLASS_NAME.m" 1>> $MODEL_M
@@ -246,21 +246,30 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		echo "//  Created by $author on $DATE_CREATED." 1>> $MODEL_M
 		echo "//  Copyright $YEAR $author. All rights reserved." 1>> $MODEL_M
 		echo -e "//\n" 1>> $MODEL_M
-		
+
 		##
 		# Generates the import statement for ".h".
 		##
 		echo -e "#import \"$CLASS_NAME.h\"\n" 1>> $MODEL_M
-		
+
 		##
 		# Generates the class's @implementation declaration.
 		##
 		echo -e "@implementation $CLASS_NAME\n" 1>> $MODEL_M
 
 		##
+		# Generates the @synthesize declaration for each column.
+		##
+		let INDEX=0
+		while [ $INDEX -lt $COUNT ]; do
+			echo "@synthesize ${ColumnNames[${INDEX}]};" 1>> $MODEL_M
+			let INDEX=$INDEX+1
+		done
+
+		##
 		# Generates the class's constructor method with opening braces.
 		##
-		echo "- (id) init {" 1>> $MODEL_M
+		echo -e "\n- (id) init {" 1>> $MODEL_M
 		echo -e "\tif (self = [super init]) {" 1>> $MODEL_M
 
 		##
@@ -297,6 +306,11 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		# Generates the class's destructor method.
 		##
 		echo "- (void) dealloc {" 1>> $MODEL_M
+		let INDEX=0
+		while [ $INDEX -lt $COUNT ]; do
+			echo -e "\tif (${ColumnNames[${INDEX}]} != nil) { [${ColumnNames[${INDEX}]} release]; }" 1>> $MODEL_M
+			let INDEX=$INDEX+1
+		done
 		echo -e "\t[super dealloc];" 1>> $MODEL_M
 		echo -e "}\n" 1>> $MODEL_M
 
