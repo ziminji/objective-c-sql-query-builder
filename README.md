@@ -28,7 +28,7 @@ classes in this repository are written with these observations in mind.
 The following is a short-list of some of the features:
 
 * Implements a very simple, but powerful, Data Access Object (DAO) that wraps the sqlite3 C based functions.
-* Places automatically the SQLite database in the "Document" directory.
+* Automatically places the SQLite database in the "Document" directory.
 * Provides multi-threading support in the DAO to deal with asynchronous SQLite calls;
 * Executes an SQL statement with one line of code.
 * Has a large collection of SQL builder classes with methods that mimic their SQL equivalent.
@@ -49,7 +49,7 @@ Using these classes in an Xcode project is easy to do.  Here is how:
 
 1. Download the source code via Github as a tarball (i.e. .tar.gz).
 2. Navigate to the tarball in Finder.
-3. Unachieve the tarball by double-clicking it in a Finder window.
+3. Unarchive the tarball by double-clicking it in a Finder window.
 4. Open an Xcode project.
 5. Right-click on the "Classes" folder and click on the "Add >> Existing Files..." option.
 6. Highlight the files, then click the "Add" button.
