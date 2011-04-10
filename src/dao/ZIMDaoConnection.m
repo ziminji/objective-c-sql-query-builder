@@ -30,7 +30,7 @@
  @discussion		This method will make a "set" selector for the specified column.
  @param string		The column.
  @return			The "set" selector.
- @updated			2011-04-07
+ @updated			2011-04-10
  */
 - (SEL) selectorForSettingColumnName: (NSString *)column;
 /*!
@@ -48,7 +48,7 @@
  @param column		The column index.
  @param statement	The prepared SQL statement.
  @return			The integer value of the data type for the specified column.
- @updated			2011-03-24
+ @updated			2011-04-10
  @see				http://www.sqlite.org/datatype3.html
  @see				http://www.sqlite.org/c3ref/c_blob.html
  */
@@ -220,7 +220,7 @@
 }
 
 - (SEL) selectorForSettingColumnName: (NSString *)column {
-	return NSSelectorFromString([NSString stringWithFormat: @"set%@", [self capitalizeString: column]]);
+	return NSSelectorFromString([NSString stringWithFormat: @"set%@:", [self capitalizeString: column]]);
 }
 
 - (NSString *) capitalizeString: (NSString *)string {
@@ -229,7 +229,7 @@
 
 - (int) columnTypeAtIndex: (int)column inStatement: (sqlite3_stmt *)statement {
 	// Declared Datetype - http://www.sqlite.org/datatype3.html (section 2.2 table column 1)
-	const NSSet *intTypes  = [NSSet setWithObjects: @"BIGINT", @"BOOLEAN", @"INT", @"INT2", @"INT8", @"INTEGER", @"MEDIUMINT", @"SMALLINT", @"TINYINT", @"UNSIGNED BIG INT", nil];
+	const NSSet *intTypes  = [NSSet setWithObjects: @"BIGINT", @"BOOL", @"BOOLEAN", @"INT", @"INT2", @"INT8", @"INTEGER", @"MEDIUMINT", @"SMALLINT", @"TINYINT", @"UNSIGNED BIG INT", nil];
 	const NSSet *realTypes = [NSSet setWithObjects: @"DECIMAL", @"DOUBLE", @"DOUBLE PRECISION", @"FLOAT", @"NUMERIC", @"REAL", nil];
 	const NSSet *strTypes  = [NSSet setWithObjects: @"CHAR", @"CHARACTER", @"CLOB", @"NATIONAL VARYING CHARACTER", @"NATIVE CHARACTER", @"NCHAR", @"NVARCHAR", @"TEXT", @"VARCHAR", @"VARIANT", @"VARYING CHARACTER", nil];
 	const NSSet *binTypes  = [NSSet setWithObjects: @"BLOB", nil];

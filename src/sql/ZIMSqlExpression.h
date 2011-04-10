@@ -84,7 +84,7 @@
 #define ZIMSqlOperatorUnionALL					@"UNION ALL"
 
 // Default Values -- http://forums.realsoftware.com/viewtopic.php?f=3&t=35179
-#define ZIMSqlDefaultValueIsAutoIncremented		@"PRIMARY KEY AUTOINCREMENT"
+#define ZIMSqlDefaultValueIsAutoIncremented		@"PRIMARY KEY AUTOINCREMENT NOT NULL"
 #define ZIMSqlDefaultValueIsNull				@"DEFAULT NULL";
 #define ZIMSqlDefaultValueIsNotNull				@"NOT NULL"
 #define ZIMSqlDefaultValueIsCurrentDate			@"DEFAULT CURRENT_DATE"
