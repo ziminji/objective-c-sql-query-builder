@@ -27,16 +27,21 @@
 ##
 
 ##
-# Defines date related constants.
+# Defines reserved words.
 ##
-declare -r DATE_CREATED=$(date +%m/%d/%y)
-declare -r YEAR=$(date +%Y)
-declare -r DATE_MODIFIED=$(date +%F)
+declare -r RESERVED_TOKENS=( id delete save hashCode )
 
 ##
 # Defines the hashmap for translating columns.
 ##
 declare -r DATATYPES="BIGINT:NSNumber|BOOL:NSNumber|BOOLEAN:NSNumber|INT:NSNumber|INT2:NSNumber|INT8:NSNumber|INTEGER:NSNumber|MEDIUMINT:NSNumber|SMALLINT:NSNumber|TINYINT:NSNumber|UNSIGNED BIG INT:NSNumber|DECIMAL:NSNumber|DOUBLE:NSNumber|DOUBLE PRECISION:NSNumber|FLOAT:NSNumber|NUMERIC:NSNumber|REAL:NSNumber|CHAR:NSString|CHARACTER:NSString|CLOB:NSString|NATIONAL VARYING CHARACTER:NSString|NATIVE CHARACTER:NSString|NCHAR:NSString|NVARCHAR:NSString|TEXT:NSString|VARCHAR:NSString|VARIANT:NSString|VARYING CHARACTER:NSString|BLOB:NSData|NULL:NSNull|DATE:NSDate|DATETIME:NSDate|TIMESTAMP:NSDate"
+
+##
+# Defines date related constants.
+##
+declare -r DATE_CREATED=$(date +%m/%d/%y)
+declare -r YEAR=$(date +%Y)
+declare -r DATE_MODIFIED=$(date +%F)
 
 ##
 # @method				getValueFromHashMapWithKey
@@ -179,6 +184,12 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		for Info in $ColumnInformation; do
 			let POSITION=$INDEX%5
 			if [ $POSITION -eq 1 ]; then # gets the column's name
+				for token in ${RESERVED_TOKENS[@]}; do
+					if [ "$Info" = "$token" ]; then
+						echo "Error: Column '$Info' must be renamed, cannot be a reserved word."
+						exit 1
+					fi
+				done
 				ColumnNames[$COUNT]="$Info"
 			elif [ $POSITION -eq 2 ]; then # gets the column's datatype
 				CTYPE=`echo -n "${Info%%(*}" | tr "[:lower:]" "[:upper:]"`
