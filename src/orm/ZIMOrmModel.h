@@ -32,13 +32,13 @@
 /*!
  @method				delete
  @discussion			This method deletes the record matching the primary key.
- @updated				2011-04-03
+ @updated				2011-04-12
  */
 - (void) delete;
 /*!
  @method				save
  @discussion			This method either creates or updates the record matching the primary key.
- @updated				2011-04-03
+ @updated				2011-04-12
  */
 - (void) save;
 /*!
