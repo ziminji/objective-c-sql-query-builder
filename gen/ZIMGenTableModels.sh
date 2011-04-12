@@ -29,7 +29,7 @@
 ##
 # Defines reserved words.
 ##
-declare -r RESERVED_TOKENS=( id delete save hashCode )
+declare -a RESERVED_TOKENS=( 'alloc' 'autorelease' 'id' 'init' 'class' 'columns' 'conformsToProtocol' 'dataSource' 'dealloc' 'delete' 'description' 'hash' 'hashCode' 'isEqual' 'isKindOfClass' 'isMemberOfClass' 'isProxy' 'performSelector' 'release' 'respondsToSelector' 'retain' 'retainCount' 'save' 'self' 'superclass' 'table' 'zone' )
 
 ##
 # Defines the hashmap for translating columns.
