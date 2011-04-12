@@ -152,24 +152,27 @@
 }
 
 - (NSString *) hashCode {
-	NSMutableString *primaryKey = [[NSMutableString alloc] init];
-	for (NSString *column in _primaryKey) {
-		id value = [self valueForKey: column];
-		if (value == nil) {
-			[primaryKey release];
-			return nil;
+	if ((_primaryKey != nil) && ([_primaryKey count] > 0)) {
+		NSMutableString *primaryKey = [[NSMutableString alloc] init];
+		for (NSString *column in _primaryKey) {
+			id value = [self valueForKey: column];
+			if (value == nil) {
+				[primaryKey release];
+				return nil;
+			}
+			[primaryKey appendFormat: @"%@=%@", column, value];
 		}
-		[primaryKey appendFormat: @"%@=%@", column, value];
+		const char *cString = [primaryKey UTF8String];
+		[primaryKey release];
+		unsigned char digest[CC_SHA1_DIGEST_LENGTH];
+		CC_SHA1(cString, strlen(cString), digest);
+		NSMutableString *hashKey = [NSMutableString stringWithCapacity: CC_SHA1_DIGEST_LENGTH * 2];
+		for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
+			[hashKey appendFormat: @"%02X", digest[i]];
+		}
+		return [hashKey lowercaseString];
 	}
-	const char *cString = [primaryKey UTF8String];
-	[primaryKey release];
-	unsigned char digest[CC_SHA1_DIGEST_LENGTH];
-	CC_SHA1(cString, strlen(cString), digest);
-	NSMutableString *hashKey = [NSMutableString stringWithCapacity: CC_SHA1_DIGEST_LENGTH * 2];
-	for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
-		[hashKey appendFormat: @"%02X", digest[i]];
-	}
-	return [hashKey lowercaseString];
+	return nil;
 }
 
 + (NSString *) dataSource {
