@@ -26,8 +26,7 @@
 @implementation ZIMOrmModel
 
 #if !defined(ZIMOrmDataSource)
-// Define this pre-processing instruction "ZIMOrmDataSource" in <project-name>_Prefix.pch 
-#define ZIMOrmDataSource		@"defaultdb.sqlite"
+	#define ZIMOrmDataSource @"defaultdb.sqlite" // Define this pre-processing instruction "ZIMOrmDataSource" in <project-name>_Prefix.pch
 #endif
 
 - (id) init {
@@ -45,19 +44,24 @@
 
 - (void) delete {
 	if ((_primaryKey != nil) && ([_primaryKey count] > 0)) {
+		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
+		[connection execute: @"BEGIN IMMEDIATE TRANSACTION;"];
 		ZIMSqlDeleteStatement *sql = [[ZIMSqlDeleteStatement alloc] init];
 		[sql table: [[self class] table]];
 		for (NSString *column in _primaryKey) {
 			id value = [self valueForKey: column];
 			if (value == nil) {
 				[sql release];
-				@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to delete record because no value has been assigned to the '%@' column.", column] userInfo: nil];
+				[connection release];
+				@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to delete record because column '%@' is not assigned a value.", column] userInfo: nil];
 			}
 			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
 		}
-		[ZIMDaoConnection dataSource: [[self class] dataSource] execute: [sql statement]];
+		[connection execute: [sql statement]];
 		[sql release];
 		_saved = nil;
+		[connection execute: @"COMMIT TRANSACTION;"];
+		[connection release];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to delete record because no primary key has been declared." userInfo: nil];
@@ -107,6 +111,7 @@
 					}
 					[connection execute: [update statement]];
 					[update release];
+					_saved = hashCode;
 				}
 			}
 		}
@@ -130,7 +135,7 @@
 					[insert column: column value: value];
 				}
 				NSNumber *result = [connection execute: [insert statement]];
-				if (_autoIncremented) {
+				if (_autoIncremented && (hashCode == nil)) {
 					[self setValue: result forKey: [[_primaryKey allObjects] objectAtIndex: 0]];
 				}
 				[insert release];
