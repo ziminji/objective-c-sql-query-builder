@@ -19,14 +19,14 @@
 /*!
  @class					ZIMOrmModel
  @discussion			This class acts as the base model.
- @updated				2011-04-03
+ @updated				2011-04-10
  */
 @interface ZIMOrmModel : NSObject {
 
 	@protected
 		NSSet *_primaryKey; // may be a composite primary key
 		BOOL _autoIncremented;
-		BOOL _saved;
+		NSString *_saved;
 
 }
 /*!
@@ -41,6 +41,14 @@
  @updated				2011-04-03
  */
 - (void) save;
+/*!
+ @method				hashCode
+ @discussion			This method return a hash code that is calculated by first concatenating the value
+						assigned to each primary key and then finding the SHA1 has for the concatenated string.
+ @updated				2011-04-12
+ @see
+ */
+- (NSString *) hashCode;
 /*!
  @method				dataSource
  @discussion			This method will return the file name of the database.
