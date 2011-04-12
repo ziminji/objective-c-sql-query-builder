@@ -36,7 +36,7 @@
 - (NSString *) statement {
 	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
 
-	[sql appendString: @"SELECT * FROM sqlite_master WHERE type = 'table'"];
+	[sql appendString: @"SELECT tbl_name FROM sqlite_master WHERE type = 'table' AND tbl_name NOT IN ('sqlite_sequence')"];
 
 	if (_clause != nil) {
 		[sql appendFormat: @" AND %@", _clause];
