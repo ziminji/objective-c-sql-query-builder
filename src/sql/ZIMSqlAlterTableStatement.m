@@ -34,6 +34,10 @@
 	_table = table;
 }
 
+- (void) autoincrement: (NSInteger)position {
+	_clause = [NSString stringWithFormat: @"UPDATE sqlite_sequence SET seq = %d", position];
+}
+
 - (void) column: (NSString *)column type: (NSString *)type {
 	_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@", column, type];
 }
@@ -64,7 +68,10 @@
 	_clause = [NSString stringWithFormat: @"RENAME TO %@", table];
 }
 
-- (NSString *) statement {	
+- (NSString *) statement {
+	if ([_clause hasPrefix: @"UPDATE"]) {
+		return [NSString stringWithFormat: @"%@ WHERE name = '%@';", _clause, _table];
+	}
 	return [NSString stringWithFormat: @"ALTER TABLE %@ %@;", _table, _clause];
 }
 

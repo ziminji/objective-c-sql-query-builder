@@ -14,23 +14,30 @@
  * limitations under the License.
  */
 
-#import "ZIMSqlStatement.h"
+#import "ZIMSqlTruncateTableStatement.h"
 
-/*!
- @class					ZIMSqlVacuumStatement
- @discussion			This class represents an SQL vacuum statement.
- @updated				2011-04-12
- @see					http://www.sqlite.org/lang_vacuum.html
- */
-@interface ZIMSqlVacuumStatement : NSObject <ZIMSqlStatement> {
+@implementation ZIMSqlTruncateTableStatement
 
+- (id) init {
+	if (self = [super init]) {
+		_table = nil;
+	}
+	return self;
 }
-/*!
- @method				statement
- @discussion			This method will return the SQL statement.
- @return				The SQL statement that was constructed.
- @updated				2011-04-07
- */
-- (NSString *) statement;
+
+- (void) dealloc {
+	[super dealloc];
+}
+
+- (void) table: (NSString *)table {
+	_table = table;
+}
+
+- (NSString *) statement {
+	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
+	[sql appendFormat: @"DELETE FROM %@; ", _table];
+	[sql appendFormat: @"DELETE FROM sqlite_sequence WHERE name = '%@';", _table];
+	return sql;
+}
 
 @end
