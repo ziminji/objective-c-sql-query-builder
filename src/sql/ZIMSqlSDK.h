@@ -29,5 +29,6 @@
 #import "ZIMSqlSelectStatement.h"
 #import "ZIMSqlShowTablesStatement.h"
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlTruncateTableStatement.h"
 #import "ZIMSqlUpdateStatement.h"
 #import "ZIMSqlVacuumStatement.h"
