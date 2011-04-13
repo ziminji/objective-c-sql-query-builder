@@ -17,19 +17,30 @@
 #import "ZIMSqlStatement.h"
 
 /*!
- @class					ZIMSqlVacuumStatement
- @discussion			This class represents an SQL vacuum statement.
+ @class					ZIMSqlTruncateTableStatement
+ @discussion			This class represents an SQL truncate table statement.
  @updated				2011-04-12
- @see					http://www.sqlite.org/lang_vacuum.html
+ @see					http://dev.mysql.com/doc/refman/5.0/en/truncate-table.html
+ @see					http://stackoverflow.com/questions/3443630/reset-the-row-number-count-in-sqlite3-mysql
  */
-@interface ZIMSqlVacuumStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlTruncateTableStatement : NSObject <ZIMSqlStatement> {
+
+	@protected
+		NSString *_table;
 
 }
+/*!
+ @method				table:
+ @discussion			This method will set the table used in the SQL statement.
+ @param table			The table that will be used in the SQL statement.
+ @updated				2011-04-12
+ */
+- (void) table: (NSString *)table;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-04-07
+ @updated				2011-04-12
  */
 - (NSString *) statement;
 
