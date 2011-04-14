@@ -38,7 +38,7 @@ The following is a short-list of some of the features:
 * Handles most complex queries.
 * Works with raw SQL.
 * Offers Object Relational Mapping (ORM) with composite primary keys.
-* Can auto-generate models (i.e. Active Records) for each table in the SQLite database.
+* Can auto-generate models (i.e. Active Records) for each table in the SQLite database via a BASH script.
 * Requires only those classes that are needed.  Great for mobile development.
 * Classes are easily extendible.
 * Has clear API documentation generated via [Doxygen](http://www.stack.nl/~dimitri/doxygen/).
