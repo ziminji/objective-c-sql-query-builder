@@ -29,7 +29,7 @@
 ##
 # Defines reserved words.
 ##
-declare -a RESERVED_TOKENS=( 'alloc' 'autorelease' 'id' 'init' 'class' 'columns' 'conformsToProtocol' 'dataSource' 'dealloc' 'delete' 'description' 'hash' 'hashCode' 'isEqual' 'isKindOfClass' 'isMemberOfClass' 'isProxy' 'performSelector' 'release' 'respondsToSelector' 'retain' 'retainCount' 'save' 'self' 'superclass' 'table' 'zone' )
+declare -a RESERVED_TOKENS=( 'alloc' 'autorelease' 'id' 'init' 'class' 'columns' 'conformsToProtocol' 'dataSource' 'dealloc' 'delete' 'description' 'hash' 'hashCode' 'isAutoIncremented' 'isEqual' 'isKindOfClass' 'isMemberOfClass' 'isProxy' 'isSaveable' 'performSelector' 'primaryKey' 'release' 'respondsToSelector' 'retain' 'retainCount' 'save' 'self' 'superclass' 'table' 'zone' )
 
 ##
 # Defines the hashmap for translating columns.
@@ -278,37 +278,11 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		done
 
 		##
-		# Generates the class's constructor method with opening braces.
+		# Generates the class's constructor method.
 		##
 		echo -e "\n- (id) init {" 1>> $MODEL_M
 		echo -e "\tif (self = [super init]) {" 1>> $MODEL_M
-
-		##
-		# Generates the primary key.
-		##
-		let INDEX=0
-		PKEY=""
-		while [ $INDEX -lt $COUNT ]; do
-			if [ "${PrimaryKey[${INDEX}]}" = "1" ]; then
-				if [ "$PKEY" != "" ]; then
-					PKEY="$PKEY, @\"${ColumnNames[${INDEX}]}\""
-				else
-					PKEY="@\"${ColumnNames[${INDEX}]}\""
-				fi
-			fi
-			let INDEX=$INDEX+1
-		done
-		if [ "$PKEY" != "" ]; then
-			echo -e "\t\t_primaryKey = [NSSet setWithObject: $PKEY];" 1>> $MODEL_M
-			
-		else
-			echo -e "\t\t_primaryKey = nil;" 1>> $MODEL_M
-		fi
-		echo -e "\t\t_autoIncremented = $AUTOINCREMENTED;" 1>> $MODEL_M
-		
-		##
-		# Generates the class's constructor method with closing braces.
-		##
+		echo -e "\t\t_saved = nil;" 1>> $MODEL_M
 		echo -e "\t}" 1>> $MODEL_M
 		echo -e "\treturn self;" 1>> $MODEL_M
 		echo -e "}\n" 1>> $MODEL_M
@@ -338,7 +312,38 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		echo "+ (NSString *) table {" 1>> $MODEL_M
 		echo -e "\treturn @\"$table\";" 1>> $MODEL_M
 		echo -e "}\n" 1>> $MODEL_M
-		
+
+		##
+		# Generates the primary key.
+		##
+		echo "+ (NSSet *) primaryKey {" 1>> $MODEL_M
+		let INDEX=0
+		PKEY=""
+		while [ $INDEX -lt $COUNT ]; do
+			if [ "${PrimaryKey[${INDEX}]}" = "1" ]; then
+				if [ "$PKEY" != "" ]; then
+					PKEY="$PKEY, @\"${ColumnNames[${INDEX}]}\""
+				else
+					PKEY="@\"${ColumnNames[${INDEX}]}\""
+				fi
+			fi
+			let INDEX=$INDEX+1
+		done
+		if [ "$PKEY" != "" ]; then
+			echo -e "\treturn [NSSet setWithObject: $PKEY];" 1>> $MODEL_M
+			
+		else
+			echo -e "\treturn nil;" 1>> $MODEL_M
+		fi
+		echo -e "}\n" 1>> $MODEL_M
+
+		##
+		# Generates a method to return whether the table's primary key auto-increments.
+		##
+		echo "+ (BOOL) isAutoIncremented {" 1>> $MODEL_M
+		echo -e "\treturn $AUTOINCREMENTED;" 1>> $MODEL_M
+		echo -e "}\n" 1>> $MODEL_M
+
 		##
 		# Generates the @end declaration for the class's ".m".
 		##

@@ -30,16 +30,16 @@
 }
 /*!
  @method				like:
- @discussion			This method will causing only those tables that match the specified
+ @discussion			This method will cause only those tables that match the specified
 						like constraint.
- @updated				2011-04-01
+ @updated				2011-04-13
  */
 - (void) like: (NSString *)value;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-04-01
+ @updated				2011-04-12
  */
 - (NSString *) statement;
 

@@ -31,8 +31,6 @@
 
 - (id) init {
 	if (self = [super init]) {
-		_primaryKey = [NSSet setWithObject: @"pk"];
-		_autoIncremented = YES;
 		_saved = nil;
 	}
 	return self;
@@ -43,12 +41,16 @@
 }
 
 - (void) delete {
-	if ((_primaryKey != nil) && ([_primaryKey count] > 0)) {
+	if (![[self class] isSaveable]) {
+		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to delete record because this model is not savable." userInfo: nil];
+	}
+	NSSet *primaryKey = [[self class] primaryKey];
+	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
 		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
 		[connection execute: @"BEGIN IMMEDIATE TRANSACTION;"];
 		ZIMSqlDeleteStatement *sql = [[ZIMSqlDeleteStatement alloc] init];
 		[sql table: [[self class] table]];
-		for (NSString *column in _primaryKey) {
+		for (NSString *column in primaryKey) {
 			id value = [self valueForKey: column];
 			if (value == nil) {
 				[sql release];
@@ -69,7 +71,11 @@
 }
 
 - (void) save {
-	if ((_primaryKey != nil) && ([_primaryKey count] > 0)) {
+	if (![[self class] isSaveable]) {
+		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to save record because this model is not savable." userInfo: nil];
+	}
+	NSSet *primaryKey = [[self class] primaryKey];
+	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
 		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
 		[connection execute: @"BEGIN IMMEDIATE TRANSACTION;"];
 		NSMutableDictionary *columns = [[NSMutableDictionary alloc] initWithDictionary: [[self class] columns]];
@@ -81,7 +87,7 @@
 				ZIMSqlSelectStatement *select = [[ZIMSqlSelectStatement alloc] init];
 				[select column: @"1" alias: @"IsFound"];
 				[select from: [[self class] table]];
-				for (NSString *column in _primaryKey) {
+				for (NSString *column in primaryKey) {
 					[select where: column operator: ZIMSqlOperatorEqualTo value: [self valueForKey: column]];
 				}
 				[select limit: 1];
@@ -90,7 +96,7 @@
 				[select release];
 			}
 			if (!doInsert) {
-				for (NSString *column in _primaryKey) {
+				for (NSString *column in primaryKey) {
 					[columns removeObjectForKey: column];
 				}
 				if ([columns count] > 0) {
@@ -99,7 +105,7 @@
 					for (NSString *column in columns) {
 						[update column: column value: [self valueForKey: column]];
 					}
-					for (NSString *column in _primaryKey) {
+					for (NSString *column in primaryKey) {
 						NSString *value = [self valueForKey: column];
 						if (value == nil) {
 							[update release];
@@ -116,8 +122,8 @@
 			}
 		}
 		if (doInsert) {
-			if (_autoIncremented && (hashCode == nil)) {
-				for (NSString *column in _primaryKey) {
+			if ([[self class] isAutoIncremented] && (hashCode == nil)) {
+				for (NSString *column in primaryKey) {
 					[columns removeObjectForKey: column];
 				}
 			}
@@ -126,7 +132,7 @@
 				[insert table: [[self class] table]];
 				for (NSString *column in columns) {
 					NSString *value = [self valueForKey: column];
-					if ([_primaryKey containsObject: column] && (value == nil)) {
+					if ([primaryKey containsObject: column] && (value == nil)) {
 						[insert release];
 						[columns release];
 						[connection release];
@@ -135,8 +141,8 @@
 					[insert column: column value: value];
 				}
 				NSNumber *result = [connection execute: [insert statement]];
-				if (_autoIncremented && (hashCode == nil)) {
-					[self setValue: result forKey: [[_primaryKey allObjects] objectAtIndex: 0]];
+				if ([[self class] isAutoIncremented] && (hashCode == nil)) {
+					[self setValue: result forKey: [[primaryKey allObjects] objectAtIndex: 0]];
 				}
 				[insert release];
 				_saved = [self hashCode];
@@ -152,18 +158,19 @@
 }
 
 - (NSString *) hashCode {
-	if ((_primaryKey != nil) && ([_primaryKey count] > 0)) {
-		NSMutableString *primaryKey = [[NSMutableString alloc] init];
-		for (NSString *column in _primaryKey) {
+	NSSet *primaryKey = [[self class] primaryKey];
+	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
+		NSMutableString *buffer = [[NSMutableString alloc] init];
+		for (NSString *column in primaryKey) {
 			id value = [self valueForKey: column];
 			if (value == nil) {
-				[primaryKey release];
+				[buffer release];
 				return nil;
 			}
-			[primaryKey appendFormat: @"%@=%@", column, value];
+			[buffer appendFormat: @"%@=%@", column, value];
 		}
-		const char *cString = [primaryKey UTF8String];
-		[primaryKey release];
+		const char *cString = [buffer UTF8String];
+		[buffer release];
 		unsigned char digest[CC_SHA1_DIGEST_LENGTH];
 		CC_SHA1(cString, strlen(cString), digest);
 		NSMutableString *hashKey = [NSMutableString stringWithCapacity: CC_SHA1_DIGEST_LENGTH * 2];
@@ -183,35 +190,40 @@
 	return NSStringFromClass([self class]);
 }
 
++ (NSSet *) primaryKey {
+	return [NSSet setWithObject: @"pk"];
+}
+
++ (BOOL) isAutoIncremented {
+	NSSet *primaryKey = [[self class] primaryKey];
+	if ((primaryKey == nil) || ([primaryKey count] != 1)) {
+		return NO;
+	}
+	return YES;
+}
+
 + (NSDictionary *) columns {
 	// TODO get instance variables from super classes as well to allow further subclassing
-	
-	NSSet *configurations = [[NSSet alloc] initWithObjects: @"_primaryKey", @"_autoIncremented", @"_saved", nil];
-	
+	NSSet *configurations = [[NSSet alloc] initWithObjects: @"_saved", nil];
 	unsigned int columnCount;
-	
 	Ivar *vars = class_copyIvarList([self class], &columnCount);
-	
-	int capacity = columnCount - [configurations count];
-	
+	int capacity = (columnCount - [configurations count]) * 2;
 	NSMutableDictionary *columns = [[[NSMutableDictionary alloc] initWithCapacity: capacity] autorelease];
-	
 	for (int i = 0; i < columnCount; i++) {
 		Ivar var = vars[i];
-		
 		NSString *columnName = [NSString stringWithUTF8String: ivar_getName(var)];
-		
 		if (![configurations containsObject: columnName]) {
 			NSString *columnType = [NSString stringWithUTF8String: ivar_getTypeEncoding(var)]; // http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
 			[columns setObject: columnType forKey: columnName];
 		}
 	}
-	
 	free(vars);
-	
 	[configurations release];
-	
 	return columns;
+}
+
++ (BOOL) isSaveable {
+	return YES;
 }
 
 @end
