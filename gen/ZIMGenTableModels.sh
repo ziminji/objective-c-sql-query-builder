@@ -359,7 +359,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 	# Generates the plit file for the database.
 	##
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" 1> $PLIST
-	echo -e "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n" 1>> $PLIST
+	echo "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">" 1>> $PLIST
 	echo "<plist version=\"1.0\">" 1>> $PLIST
 	echo -e "\t<dict>" 1>> $PLIST
 	echo -e "\t\t<key>type</key>" 1>> $PLIST
