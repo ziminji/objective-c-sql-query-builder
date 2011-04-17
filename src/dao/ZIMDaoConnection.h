@@ -50,10 +50,10 @@
 						the resource directory to the working directory; otherwise, the data source will be
 						created in the working directory.
  @param dataSource		The file name of the database to be used.
- @param support			This determines whether locks should be used.
- @updated				2011-03-30
+ @param multithreading	This determines whether locks should be used.
+ @updated				2011-04-16
  */
-- (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)support;
+- (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!
  @method				open
  @discussion			This method will open a connection to the database.

@@ -101,6 +101,11 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 	. $1
 
 	##
+	# Constructs the name for the database's ".plist" file.
+	##
+	PLIST="${database%%.*}.plist"
+
+	##
 	# Fetches an array of table names from the specified datatbase (@see http://mailliststock.wordpress.com/2007/03/01/sqlite-examples-with-bash-perl-and-python/)
 	##
 	tables=`sqlite3 $database "SELECT tbl_name FROM sqlite_master WHERE type = 'table' AND tbl_name NOT IN ('sqlite_sequence');"`
@@ -116,7 +121,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		CLASS_NAME=$(ucfirst ${table})
 
 		##
-		# Constructs the file name for the class's ".h".
+		# Constructs the name for the class's ".h" file.
 		##
 		MODEL_H="$CLASS_NAME.h"
 
@@ -243,12 +248,12 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		echo -e "\n@end" 1>> $MODEL_H
 
 		##
-		# Constructs the file name for the class's ".m".
+		# Constructs the name for the class's ".m" file.
 		##
 		MODEL_M="$CLASS_NAME.m"
 
 		##
-		# Generates the informational comment block for the ".h".
+		# Generates the informational comment block for the ".m".
 		##
 		echo "//" 1> $MODEL_M
 		echo "//  $CLASS_NAME.m" 1>> $MODEL_M
@@ -303,7 +308,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		# Generates a method to return the data source.
 		##
 		echo "+ (NSString *) dataSource {" 1>> $MODEL_M
-		echo -e "\treturn @\"$database\";" 1>> $MODEL_M
+		echo -e "\treturn [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: @\"$PLIST\"];" 1>> $MODEL_M
 		echo -e "}\n" 1>> $MODEL_M
 
 		##
@@ -349,7 +354,21 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		##
 		echo "@end" 1>> $MODEL_M
 	done
-	
+
+	##
+	# Generates the plit file for the database.
+	##
+	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" 1> $PLIST
+	echo -e "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n" 1>> $PLIST
+	echo "<plist version=\"1.0\">" 1>> $PLIST
+	echo -e "\t<dict>" 1>> $PLIST
+	echo -e "\t\t<key>type</key>" 1>> $PLIST
+	echo -e "\t\t<string>SQLite</string>" 1>> $PLIST
+	echo -e "\t\t<key>database</key>" 1>> $PLIST
+	echo -e "\t\t<string>$database</string>" 1>> $PLIST
+	echo -e "\t</dict>" 1>> $PLIST
+	echo "</plist>" 1>> $PLIST
+
 	##
 	# Indicates that the BASH script is done.
 	##

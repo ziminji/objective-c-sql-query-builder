@@ -30,6 +30,7 @@ The following is a short-list of some of the features:
 * Implements a very simple, but powerful, Data Access Object (DAO) that wraps the sqlite3 C based functions.
 * Automatically places the SQLite database in the "Document" directory.
 * Provides multi-threading support in the DAO to deal with asynchronous SQLite calls;
+* Utilizes a PLIST file for setting up connection configurations;
 * Executes an SQL statement with one line of code.
 * Has a large collection of SQL builder classes with methods that mimic their SQL equivalent.
 * Helps ensure that SQL is well-formed.
@@ -117,7 +118,6 @@ so that you can be notified when such updates are made.
 
 This project is under heavy development.  There are development plans to add:
 
-* A default configuration file for the Data Access Object (DAO);
 * More SQL builder classes;
 * The ability to handle foreign keys via SQL builder classes and Active Record;
 * Lazy loading;

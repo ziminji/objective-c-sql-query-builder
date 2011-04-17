@@ -26,7 +26,7 @@
 @implementation ZIMOrmModel
 
 #if !defined(ZIMOrmDataSource)
-	#define ZIMOrmDataSource @"defaultdb.sqlite" // Define this pre-processing instruction "ZIMOrmDataSource" in <project-name>_Prefix.pch
+	#define ZIMOrmDataSource @"sqlite.plist" // Define this pre-processing instruction "ZIMOrmDataSource" in <project-name>_Prefix.pch
 #endif
 
 - (id) init {
@@ -183,7 +183,7 @@
 }
 
 + (NSString *) dataSource {
-	return ZIMOrmDataSource;
+	return [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: ZIMOrmDataSource];
 }
 
 + (NSString *) table {
