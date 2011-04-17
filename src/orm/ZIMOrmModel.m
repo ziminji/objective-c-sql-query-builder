@@ -183,7 +183,7 @@
 }
 
 + (NSString *) dataSource {
-	return [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: ZIMOrmDataSource];
+	return ZIMOrmDataSource;
 }
 
 + (NSString *) table {
