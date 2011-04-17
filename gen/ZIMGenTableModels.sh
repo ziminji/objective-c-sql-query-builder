@@ -308,7 +308,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		# Generates a method to return the data source.
 		##
 		echo "+ (NSString *) dataSource {" 1>> $MODEL_M
-		echo -e "\treturn [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: @\"$PLIST\"];" 1>> $MODEL_M
+		echo -e "\treturn @\"$PLIST\";" 1>> $MODEL_M
 		echo -e "}\n" 1>> $MODEL_M
 
 		##

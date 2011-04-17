@@ -73,6 +73,7 @@
 
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
 	if (self = [super init]) {
+		dataSource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: dataSource];
 		NSDictionary *config = [[NSDictionary alloc] initWithContentsOfFile: dataSource];
 		NSString *type = [config objectForKey: @"type"];
 		NSString *database = [config objectForKey: @"database"];
