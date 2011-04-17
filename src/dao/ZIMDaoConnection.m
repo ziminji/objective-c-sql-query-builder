@@ -71,12 +71,18 @@
 	return [self initWithDataSource: dataSource withMultithreadingSupport: NO];
 }
 
-- (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)support {
+- (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
 	if (self = [super init]) {
+		NSDictionary *config = [[NSDictionary alloc] initWithContentsOfFile: dataSource];
+		NSString *type = [config objectForKey: @"type"];
+		NSString *database = [config objectForKey: @"database"];
+		if ((type == nil) || ![[type lowercaseString] isEqualToString: @"sqlite"] || (database == nil)) {
+			@throw [NSException exceptionWithName: @"ZIMDaoException" reason: @"Failed to load data source." userInfo: nil];
+		}
 		NSFileManager *fileManager = [NSFileManager defaultManager];
-		NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], dataSource, nil]];
+		NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
 		if (![fileManager fileExistsAtPath: workingPath]) {
-			NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: dataSource];
+			NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
 			if (![fileManager fileExistsAtPath: resourcePath]) {
 				NSError *error;
 				if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
@@ -86,7 +92,8 @@
 		}
 		_dataSource = [workingPath copy];
 		[fileManager release];
-		if (support) {
+		[config release];
+		if (multithreading) {
 			_mutex = [[NSLock alloc] init];
 		}
 		[self open];
