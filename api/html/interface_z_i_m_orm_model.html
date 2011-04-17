@@ -75,21 +75,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#ad9b9c6e1827feae95c9ace43c47fb6c2">delete</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a813326d955a409db8c38297356f5a656">save</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#af501f5078004cfe44ed8366e7668b4fd">hashCode</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a7b0c9674ccc23668ea472aa8a34f5960">init</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a78233988637586da2e60abe5be28fb55">dealloc</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a6d20d3f7cc85554e217beec141703a9f">dataSource</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a6856891998d52f9ebc1d4f7152d13dd8">table</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSSet *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a4ea487fb8f76b1106cc50295dab9b60e">primaryKey</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a3242f025f4aa10919089ab00fb1f5f0d">isAutoIncremented</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSDictionary *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#aebb74faf3ac622ac4ca85e302d5520f2">columns</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a850953900ef030d85b9d1624b6af44b3">isSaveable</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NSSet *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#aed7f5bd273e38d95cebf99b1aaf2dbca">_primaryKey</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#a17e4d56d4987ef244f854d64a42b4725">_autoIncremented</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#aa3703177dfa6adc034df949d3bee9693">_saved</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#a6133b3022327a167d9b0c1a3986a96ec">_saved</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>This class acts as the base model.  2011-04-03 </p>
+<div class="textblock"><p>This class acts as the base model.  2011-04-14 </p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="aebb74faf3ac622ac4ca85e302d5520f2"></a><!-- doxytag: member="ZIMOrmModel::columns" ref="aebb74faf3ac622ac4ca85e302d5520f2" args="()" -->
 <div class="memitem">
@@ -105,8 +107,10 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>columns  This method will return the table name associated with this class. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>A list of name/type pairs.  2011-04-03 </dd></dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://stackoverflow.com/questions/1213901/how-do-i-list-all-instance-variables-of-a-class-in-objective-c">http://stackoverflow.com/questions/1213901/how-do-i-list-all-instance-variables-of-a-class-in-objective-c</a> </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A list of name/type pairs.  2011-04-14 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://stackoverflow.com/questions/1213901/how-do-i-list-all-instance-variables-of-a-class-in-objective-c">http://stackoverflow.com/questions/1213901/how-do-i-list-all-instance-variables-of-a-class-in-objective-c</a> </dd>
+<dd>
+<a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html">http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html</a> </dd></dl>
 
 </div>
 </div>
@@ -124,7 +128,7 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>dataSource  This method will return the file name of the database. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The file name of the database to be used.  2011-04-03 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The file name of the database to be used.  2011-04-16 </dd></dl>
 
 </div>
 </div>
@@ -157,7 +161,25 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>delete  This method deletes the record matching the primary key.  2011-04-03 </p>
+<p>delete  This method deletes the record matching the primary key.  2011-04-14 </p>
+
+</div>
+</div>
+<a class="anchor" id="af501f5078004cfe44ed8366e7668b4fd"></a><!-- doxytag: member="ZIMOrmModel::hashCode" ref="af501f5078004cfe44ed8366e7668b4fd" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSString *) hashCode </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>hashCode  This method return a hash code that is calculated by first concatenating the value assigned to each primary key and then finding the SHA1 has for the concatenated string.  2011-04-14 </p>
+<dl class="see"><dt><b>See also:</b></dt><dd></dd></dl>
 
 </div>
 </div>
@@ -177,6 +199,60 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a3242f025f4aa10919089ab00fb1f5f0d"></a><!-- doxytag: member="ZIMOrmModel::isAutoIncremented" ref="a3242f025f4aa10919089ab00fb1f5f0d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (BOOL) isAutoIncremented </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>isAutoIncremented  This method returns whether the table's primary key auto-increments. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns whether the table's primary key auto-increments.  2011-04-14 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a850953900ef030d85b9d1624b6af44b3"></a><!-- doxytag: member="ZIMOrmModel::isSaveable" ref="a850953900ef030d85b9d1624b6af44b3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (BOOL) isSaveable </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>isSaveable  This method returns whether the model can be saved to the database. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns whether the model can be saved to the database.  2011-04-14 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4ea487fb8f76b1106cc50295dab9b60e"></a><!-- doxytag: member="ZIMOrmModel::primaryKey" ref="a4ea487fb8f76b1106cc50295dab9b60e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (NSSet *) primaryKey </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>primaryKey  This method will return the table's primary key. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The table's primary key.  2011-04-14 </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a813326d955a409db8c38297356f5a656"></a><!-- doxytag: member="ZIMOrmModel::save" ref="a813326d955a409db8c38297356f5a656" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -190,7 +266,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>save  This method either creates or updates the record matching the primary key.  2011-04-03 </p>
+<p>save  This method either creates or updates the record matching the primary key.  2011-04-14 </p>
 
 </div>
 </div>
@@ -213,38 +289,12 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a17e4d56d4987ef244f854d64a42b4725"></a><!-- doxytag: member="ZIMOrmModel::_autoIncremented" ref="a17e4d56d4987ef244f854d64a42b4725" args="" -->
+<a class="anchor" id="a6133b3022327a167d9b0c1a3986a96ec"></a><!-- doxytag: member="ZIMOrmModel::_saved" ref="a6133b3022327a167d9b0c1a3986a96ec" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (BOOL) <a class="el" href="interface_z_i_m_orm_model.html#a17e4d56d4987ef244f854d64a42b4725">_autoIncremented</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aed7f5bd273e38d95cebf99b1aaf2dbca"></a><!-- doxytag: member="ZIMOrmModel::_primaryKey" ref="aed7f5bd273e38d95cebf99b1aaf2dbca" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSSet*) <a class="el" href="interface_z_i_m_orm_model.html#aed7f5bd273e38d95cebf99b1aaf2dbca">_primaryKey</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa3703177dfa6adc034df949d3bee9693"></a><!-- doxytag: member="ZIMOrmModel::_saved" ref="aa3703177dfa6adc034df949d3bee9693" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (BOOL) <a class="el" href="interface_z_i_m_orm_model.html#aa3703177dfa6adc034df949d3bee9693">_saved</a><code> [protected]</code></td>
+          <td class="memname">- (NSString*) <a class="el" href="interface_z_i_m_orm_model.html#a6133b3022327a167d9b0c1a3986a96ec">_saved</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -271,7 +321,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Apr 9 2011 03:51:12 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Apr 17 2011 00:37:20 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
