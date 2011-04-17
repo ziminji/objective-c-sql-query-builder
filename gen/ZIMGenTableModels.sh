@@ -96,6 +96,11 @@ ARGCT=$#
 ##
 if [ $ARGCT -ge 1 -a -e $1 ]; then
 	##
+	# Indicates that the BASH script is beginning to run.
+	##
+	echo "Generating files!"
+
+	##
 	# Loads data from the Java properties file (@see http://www.jeggu.com/2010/02/how-to-read-properties-using-bournebash.html)
 	##
 	. $1
@@ -356,7 +361,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 	done
 
 	##
-	# Generates the plit file for the database.
+	# Generates the plist file for the database.
 	##
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" 1> $PLIST
 	echo "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">" 1>> $PLIST
