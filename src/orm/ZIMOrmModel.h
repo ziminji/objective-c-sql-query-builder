@@ -30,13 +30,13 @@
 /*!
  @method				delete
  @discussion			This method deletes the record matching the primary key.
- @updated				2011-04-14
+ @updated				2011-04-18
  */
 - (void) delete;
 /*!
  @method				save
  @discussion			This method either creates or updates the record matching the primary key.
- @updated				2011-04-14
+ @updated				2011-04-18
  */
 - (void) save;
 /*!
@@ -65,9 +65,9 @@
  @method				primaryKey
  @discussion			This method will return the table's primary key.
  @return				The table's primary key.
- @updated				2011-04-14
+ @updated				2011-04-18
  */
-+ (NSSet *) primaryKey; // may be a composite primary key
++ (NSArray *) primaryKey; // may be a composite primary key
 /*!
  @method				isAutoIncremented
  @discussion			This method returns whether the table's primary key auto-increments.

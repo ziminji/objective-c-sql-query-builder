@@ -44,7 +44,7 @@
 	if (![[self class] isSaveable]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to delete record because this model is not savable." userInfo: nil];
 	}
-	NSSet *primaryKey = [[self class] primaryKey];
+	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
 		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
 		[connection execute: @"BEGIN IMMEDIATE TRANSACTION;"];
@@ -74,7 +74,7 @@
 	if (![[self class] isSaveable]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to save record because this model is not savable." userInfo: nil];
 	}
-	NSSet *primaryKey = [[self class] primaryKey];
+	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
 		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
 		[connection execute: @"BEGIN IMMEDIATE TRANSACTION;"];
@@ -132,7 +132,7 @@
 				[insert table: [[self class] table]];
 				for (NSString *column in columns) {
 					NSString *value = [self valueForKey: column];
-					if ([primaryKey containsObject: column] && (value == nil)) {
+					if ((value == nil) && [primaryKey containsObject: column]) {
 						[insert release];
 						[columns release];
 						[connection release];
@@ -142,7 +142,7 @@
 				}
 				NSNumber *result = [connection execute: [insert statement]];
 				if ([[self class] isAutoIncremented] && (hashCode == nil)) {
-					[self setValue: result forKey: [[primaryKey allObjects] objectAtIndex: 0]];
+					[self setValue: result forKey: [primaryKey objectAtIndex: 0]];
 				}
 				[insert release];
 				_saved = [self hashCode];
@@ -190,12 +190,12 @@
 	return NSStringFromClass([self class]);
 }
 
-+ (NSSet *) primaryKey {
-	return [NSSet setWithObject: @"pk"];
++ (NSArray *) primaryKey {
+	return [NSArray arrayWithObject: @"pk"];
 }
 
 + (BOOL) isAutoIncremented {
-	NSSet *primaryKey = [[self class] primaryKey];
+	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey == nil) || ([primaryKey count] != 1)) {
 		return NO;
 	}

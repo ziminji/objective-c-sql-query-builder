@@ -326,22 +326,17 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		##
 		# Generates the primary key.
 		##
-		echo "+ (NSSet *) primaryKey {" 1>> $MODEL_M
-		let INDEX=0
-		PKEY=""
-		while [ $INDEX -lt $COUNT ]; do
+		echo "+ (NSArray *) primaryKey {" 1>> $MODEL_M
+		let INDEX=$COUNT-1
+		PKEY="nil"
+		while [ $INDEX -ge 0 ]; do
 			if [ "${PrimaryKey[${INDEX}]}" = "1" ]; then
-				if [ "$PKEY" != "" ]; then
-					PKEY="$PKEY, @\"${ColumnNames[${INDEX}]}\""
-				else
-					PKEY="@\"${ColumnNames[${INDEX}]}\""
-				fi
+				PKEY="@\"${ColumnNames[${INDEX}]}\", $PKEY"
 			fi
-			let INDEX=$INDEX+1
+			let INDEX=$INDEX-1
 		done
-		if [ "$PKEY" != "" ]; then
-			echo -e "\treturn [NSSet setWithObject: $PKEY];" 1>> $MODEL_M
-			
+		if [ "$PKEY" != "nil" ]; then
+			echo -e "\treturn [NSArray arrayWithObjects: $PKEY];" 1>> $MODEL_M
 		else
 			echo -e "\treturn nil;" 1>> $MODEL_M
 		fi
