@@ -86,16 +86,16 @@
  @method				primaryKey:
  @discussion			This method will set the specified columns to be the (composite) primary key.
  @param columns			The columns to be set as the (composite) primary key.
- @updated				2011-04-03
+ @updated				2011-04-18
  */
-- (void) primaryKey: (NSSet *)columns;
+- (void) primaryKey: (NSArray *)columns;
 /*!
  @method				unique:
  @discussion			This method will apply a unique constraint across the specified columns.
- @param column			The columns to be constrained.
- @updated				2011-04-03
+ @param columns			The columns to be constrained.
+ @updated				2011-04-18
  */
-- (void) unique: (NSSet *)columns;
+- (void) unique: (NSArray *)columns;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
