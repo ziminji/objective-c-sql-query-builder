@@ -48,7 +48,7 @@
  @param column		The column index.
  @param statement	The prepared SQL statement.
  @return			The integer value of the data type for the specified column.
- @updated			2011-04-10
+ @updated			2011-04-18
  @see				http://www.sqlite.org/datatype3.html
  @see				http://www.sqlite.org/c3ref/c_blob.html
  */
@@ -243,32 +243,30 @@
 	const NSSet *binTypes  = [NSSet setWithObjects: @"BLOB", nil];
 	const NSSet *nullTypes = [NSSet setWithObjects: @"NULL", nil];
 	const NSSet *dateTypes = [NSSet setWithObjects: @"DATE", @"DATETIME", @"TIMESTAMP", nil];
-
 	// Determine Datatype of the column - http://www.sqlite.org/c3ref/c_blob.html
 	const char *columnType = (const char *)sqlite3_column_decltype(statement, column);
 	if (columnType != NULL) {
-		NSString *sqlType = [NSString stringWithUTF8String: columnType];
-		NSRange end = [sqlType rangeOfString: @"("];
+		NSString *dataType = [[NSString stringWithUTF8String: columnType] uppercaseString];
+		NSRange end = [dataType rangeOfString: @"("];
 		if (end.location != NSNotFound) {
-			sqlType = [sqlType substringWithRange: NSMakeRange(0, end.location)];
+			dataType = [dataType substringWithRange: NSMakeRange(0, end.location)];
 		}
-		NSSet *dataType = [NSSet setWithObject: [sqlType uppercaseString]];
-		if ([intTypes isSubsetOfSet: dataType])	{
+		if ([intTypes containsObject: dataType])	{
 			return SQLITE_INTEGER;
 		}
-		if ([realTypes isSubsetOfSet: dataType]) {
+		if ([realTypes containsObject: dataType]) {
 			return SQLITE_FLOAT;
 		}
-		if ([strTypes isSubsetOfSet: dataType]) {
+		if ([strTypes containsObject: dataType]) {
 			return SQLITE_TEXT;
 		}
-		if ([binTypes isSubsetOfSet: dataType]) {
+		if ([binTypes containsObject: dataType]) {
 			return SQLITE_BLOB;
 		}
-		if ([nullTypes isSubsetOfSet: dataType]) {
+		if ([nullTypes containsObject: dataType]) {
 			return SQLITE_NULL;
 		}
-		if ([dateTypes isSubsetOfSet: dataType]) {
+		if ([dateTypes containsObject: dataType]) {
 			return ZIMDAO_DATE;
 		}
 		return SQLITE_TEXT;
