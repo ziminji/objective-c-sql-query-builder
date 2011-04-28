@@ -74,7 +74,7 @@
 	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
 		ZIMSqlSelectStatement *sql = [[ZIMSqlSelectStatement alloc] init];
-		[sql table: [[self class] table]];
+		[sql from: [[self class] table]];
 		for (NSString *column in primaryKey) {
 			id value = [self valueForKey: column];
 			if (value == nil) {
@@ -191,7 +191,7 @@
 }
 
 - (NSString *) hashCode {
-	NSSet *primaryKey = [[self class] primaryKey];
+	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
 		NSMutableString *buffer = [[NSMutableString alloc] init];
 		for (NSString *column in primaryKey) {
