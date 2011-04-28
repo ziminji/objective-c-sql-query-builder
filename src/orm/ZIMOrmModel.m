@@ -83,6 +83,7 @@
 			}
 			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
 		}
+		[sql limit: 1];
 		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
 		[connection execute: @"BEGIN IMMEDIATE TRANSACTION;"];
 		NSArray *records = [connection query: [sql statement]];
