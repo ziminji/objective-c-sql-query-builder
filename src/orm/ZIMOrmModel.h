@@ -34,6 +34,12 @@
  */
 - (void) delete;
 /*!
+ @method				load
+ @discussion			This method will load/reload the record matching the primary key.
+ @updated				2011-04-28
+ */
+- (void) load;
+/*!
  @method				save
  @discussion			This method either creates or updates the record matching the primary key.
  @updated				2011-04-18

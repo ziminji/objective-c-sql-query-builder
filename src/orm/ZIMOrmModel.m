@@ -70,6 +70,39 @@
 	}
 }
 
+- (void) load {
+	NSArray *primaryKey = [[self class] primaryKey];
+	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
+		ZIMSqlSelectStatement *sql = [[ZIMSqlSelectStatement alloc] init];
+		[sql table: [[self class] table]];
+		for (NSString *column in primaryKey) {
+			id value = [self valueForKey: column];
+			if (value == nil) {
+				[sql release];
+				@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to load record because column '%@' is not assigned a value.", column] userInfo: nil];
+			}
+			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
+		}
+		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
+		[connection execute: @"BEGIN IMMEDIATE TRANSACTION;"];
+		NSArray *records = [connection query: [sql statement]];
+		[connection execute: @"COMMIT TRANSACTION;"];
+		[connection release];
+		[sql release];
+		if ([records count] != 1) {
+			@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to load record because the declared primary is invalid." userInfo: nil];
+		}
+		NSDictionary *record = [records objectAtIndex: 0];
+		for (NSString *column in record) {
+			[self setValue: [record valueForKey: column] forKey: column];
+		}
+		_saved = [self hashCode];
+	}
+	else {
+		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to load record because no primary key has been declared." userInfo: nil];
+	}
+}
+
 - (void) save {
 	if (![[self class] isSaveable]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to save record because this model is not savable." userInfo: nil];
