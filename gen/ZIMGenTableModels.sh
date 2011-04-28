@@ -29,7 +29,7 @@
 ##
 # Defines reserved words.
 ##
-declare -a RESERVED_TOKENS=( 'alloc' 'autorelease' 'id' 'init' 'class' 'columns' 'conformsToProtocol' 'dataSource' 'dealloc' 'delete' 'description' 'hash' 'hashCode' 'isAutoIncremented' 'isEqual' 'isKindOfClass' 'isMemberOfClass' 'isProxy' 'isSaveable' 'performSelector' 'primaryKey' 'release' 'respondsToSelector' 'retain' 'retainCount' 'save' 'self' 'superclass' 'table' 'zone' )
+declare -a RESERVED_TOKENS=( 'alloc' 'autorelease' 'id' 'init' 'class' 'columns' 'conformsToProtocol' 'dataSource' 'dealloc' 'delete' 'description' 'hash' 'hashCode' 'isAutoIncremented' 'isEqual' 'isKindOfClass' 'isMemberOfClass' 'isProxy' 'isSaveable' 'load' 'performSelector' 'primaryKey' 'release' 'respondsToSelector' 'retain' 'retainCount' 'save' 'self' 'superclass' 'table' 'zone' )
 
 ##
 # Defines the hashmap for translating columns.
