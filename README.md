@@ -120,9 +120,11 @@ so that you can be notified when such updates are made.
 This project is under heavy development.  There are development plans to add:
 
 * The ability to process more than one SQL statement at a time in the Data Access Object (DAO);
+* A database encryption layer for password protecting an SQLite database;
 * More SQL builder classes;
 * The ability to handle foreign keys via SQL builder classes and Active Record;
 * Lazy loading;
+* A partitioning class for splitting-up a database into smaller databases;
 * A module to handle pagination;
 * A set of utility classes;
 * Unit-tests;
