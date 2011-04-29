@@ -22,6 +22,13 @@
 
 - (id) initWithModel: (Class)model {
 	if (self = [super init]) {
+		Class superClass = model;
+		do {
+			superClass = class_getSuperclass(superClass);
+		} while ((superClass != nil) && (superClass != [ZIMOrmModel class]));
+		if (superClass == nil) {
+			@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
+		}
 		_model = model;
 		_sql = [[ZIMSqlSelectStatement alloc] init];
 		[_sql from: [model table]];
