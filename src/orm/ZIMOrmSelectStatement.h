@@ -34,7 +34,8 @@
  @method				initWithDataSource:
  @discussion			This constructor creates an instance of this class with the specified model.
  @param model			The model's class.
- @updated				2011-04-02
+ @updated				2011-04-29
+ @see					http://cocoawithlove.com/2010/01/getting-subclasses-of-objective-c-class.html
  */
 - (id) initWithModel: (Class)model;
 /*!
