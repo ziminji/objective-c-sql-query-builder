@@ -87,8 +87,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a3acafa507ae25509e87bde857937de65">column:type:defaultValue:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a63939f2a302263600722f1b7cbc1db0a">column:type:primaryKey:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#af858e7d5ea5ad190cef1345a578f4766">column:type:unique:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#aa839934a16b96ae8abc2177d4de7a945">primaryKey:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#abdc39ac2ed79b8c79fe64b02cb230342">unique:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a6ac8b08f3330b8a68e7d429dbeaf70ca">primaryKey:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ae367b1fcef9c10778d1eb57bfa734c77">unique:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#abe64d6ba57a6f3042a001a0b631ec7ee">statement</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ac1b65ab837b5293b0742d94884d1cc14">init</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ac5fa59eaa6f08ec22888d091be2518f1">dealloc</a><code> [implementation]</code></td></tr>
@@ -297,14 +297,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa839934a16b96ae8abc2177d4de7a945"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::primaryKey:" ref="aa839934a16b96ae8abc2177d4de7a945" args="(NSSet *columns)" -->
+<a class="anchor" id="a6ac8b08f3330b8a68e7d429dbeaf70ca"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::primaryKey:" ref="a6ac8b08f3330b8a68e7d429dbeaf70ca" args="(NSArray *columns)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) primaryKey: </td>
           <td></td>
-          <td class="paramtype">(NSSet *)&#160;</td>
+          <td class="paramtype">(NSArray *)&#160;</td>
           <td class="paramname"><em>columns</em></td>
           <td></td>
         </tr>
@@ -314,7 +314,7 @@ Protected Attributes</h2></td></tr>
 <p>primaryKey:  This method will set the specified columns to be the (composite) primary key. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">columns</td><td>The columns to be set as the (composite) primary key.  2011-04-03 </td></tr>
+    <tr><td class="paramname">columns</td><td>The columns to be set as the (composite) primary key.  2011-04-18 </td></tr>
   </table>
   </dd>
 </dl>
@@ -399,14 +399,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="abdc39ac2ed79b8c79fe64b02cb230342"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::unique:" ref="abdc39ac2ed79b8c79fe64b02cb230342" args="(NSSet *columns)" -->
+<a class="anchor" id="ae367b1fcef9c10778d1eb57bfa734c77"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::unique:" ref="ae367b1fcef9c10778d1eb57bfa734c77" args="(NSArray *columns)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) unique: </td>
           <td></td>
-          <td class="paramtype">(NSSet *)&#160;</td>
+          <td class="paramtype">(NSArray *)&#160;</td>
           <td class="paramname"><em>columns</em></td>
           <td></td>
         </tr>
@@ -416,7 +416,7 @@ Protected Attributes</h2></td></tr>
 <p>unique:  This method will apply a unique constraint across the specified columns. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">column</td><td>The columns to be constrained.  2011-04-03 </td></tr>
+    <tr><td class="paramname">columns</td><td>The columns to be constrained.  2011-04-18 </td></tr>
   </table>
   </dd>
 </dl>
@@ -508,7 +508,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Apr 17 2011 00:37:20 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 02:00:42 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

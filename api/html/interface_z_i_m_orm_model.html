@@ -73,7 +73,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#ae840cfe7ae087e66039fbb44d6ecaa37">belongsTo:foreignKey:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a9ca0cf3c6a08f57941cb071f49a1cb0e">hasOne:foreignKey:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a3230a810cf48cd6dd8f4ea411cede99a">hasMany:foreignKey:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#ad9b9c6e1827feae95c9ace43c47fb6c2">delete</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a3f0f625955168a40569980a4d7131eeb">load</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a813326d955a409db8c38297356f5a656">save</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#af501f5078004cfe44ed8366e7668b4fd">hashCode</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a7b0c9674ccc23668ea472aa8a34f5960">init</a><code> [implementation]</code></td></tr>
@@ -82,10 +86,11 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a6d20d3f7cc85554e217beec141703a9f">dataSource</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a6856891998d52f9ebc1d4f7152d13dd8">table</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(NSSet *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a4ea487fb8f76b1106cc50295dab9b60e">primaryKey</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a7808f9affbc863c19e8ceb2164b27e08">primaryKey</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a3242f025f4aa10919089ab00fb1f5f0d">isAutoIncremented</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSDictionary *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#aebb74faf3ac622ac4ca85e302d5520f2">columns</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a850953900ef030d85b9d1624b6af44b3">isSaveable</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a5efea4cfe970058de0e4f274f001c293">isModel:</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#a6133b3022327a167d9b0c1a3986a96ec">_saved</a></td></tr>
@@ -93,6 +98,42 @@ Protected Attributes</h2></td></tr>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This class acts as the base model.  2011-04-14 </p>
 </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ae840cfe7ae087e66039fbb44d6ecaa37"></a><!-- doxytag: member="ZIMOrmModel::belongsTo:foreignKey:" ref="ae840cfe7ae087e66039fbb44d6ecaa37" args="(Class model,[foreignKey] NSArray *foreignKey)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (id) belongsTo: </td>
+          <td></td>
+          <td class="paramtype">(Class)&#160;</td>
+          <td class="paramname"><em>model</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">foreignKey:</td>
+          <td></td>
+          <td class="paramtype">(NSArray *)&#160;</td>
+          <td class="paramname"><em>foreignKey</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>belongsTo:foreignKey:  This method uses the values stored in the foreign key columns of the current instance (i.e "self") to find a record in another table by comparing them against that table's primary key columns. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model</td><td>The model type to be loaded. </td></tr>
+    <tr><td class="paramname">foreignKey</td><td>An array of columns in the current instance that define the foreign key to be used. The order of the columns matters (i.e. columns must be placed in the same order as model's primary key). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns a model of the specified class.  2011-05-01 </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aebb74faf3ac622ac4ca85e302d5520f2"></a><!-- doxytag: member="ZIMOrmModel::columns" ref="aebb74faf3ac622ac4ca85e302d5520f2" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +202,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>delete  This method deletes the record matching the primary key.  2011-04-14 </p>
+<p>delete  This method deletes the record matching the primary key.  2011-04-18 </p>
 
 </div>
 </div>
@@ -180,6 +221,78 @@ Protected Attributes</h2></td></tr>
 <div class="memdoc">
 <p>hashCode  This method return a hash code that is calculated by first concatenating the value assigned to each primary key and then finding the SHA1 has for the concatenated string.  2011-04-14 </p>
 <dl class="see"><dt><b>See also:</b></dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3230a810cf48cd6dd8f4ea411cede99a"></a><!-- doxytag: member="ZIMOrmModel::hasMany:foreignKey:" ref="a3230a810cf48cd6dd8f4ea411cede99a" args="(Class model,[foreignKey] NSArray *foreignKey)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSArray *) hasMany: </td>
+          <td></td>
+          <td class="paramtype">(Class)&#160;</td>
+          <td class="paramname"><em>model</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">foreignKey:</td>
+          <td></td>
+          <td class="paramtype">(NSArray *)&#160;</td>
+          <td class="paramname"><em>foreignKey</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>hasMany:foreignKey:  This method uses the values stored in the primary key columns of the current instance (i.e "self") to find a set of records in another table by comparing them against that table's foreign key columns. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model</td><td>The model type to be loaded. </td></tr>
+    <tr><td class="paramname">foreignKey</td><td>An array of columns in the specified model that define the foreign key to be used. The order of the columns matters (i.e. columns must be placed in the same order as self's primary key). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns an array of models of the specified class.  2011-05-01 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9ca0cf3c6a08f57941cb071f49a1cb0e"></a><!-- doxytag: member="ZIMOrmModel::hasOne:foreignKey:" ref="a9ca0cf3c6a08f57941cb071f49a1cb0e" args="(Class model,[foreignKey] NSArray *foreignKey)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (id) hasOne: </td>
+          <td></td>
+          <td class="paramtype">(Class)&#160;</td>
+          <td class="paramname"><em>model</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">foreignKey:</td>
+          <td></td>
+          <td class="paramtype">(NSArray *)&#160;</td>
+          <td class="paramname"><em>foreignKey</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>hasOne:foreignKey:  This method uses the values stored in the primary key columns of the current instance (i.e "self") to find a record in another table by comparing them against that table's foreign key columns. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model</td><td>The model type to be loaded. </td></tr>
+    <tr><td class="paramname">foreignKey</td><td>An array of columns in the specified model that define the foreign key to be used. The order of the columns matters (i.e. columns must be placed in the same order as self's primary key). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns a model of the specified class.  2011-05-01 </dd></dl>
 
 </div>
 </div>
@@ -217,6 +330,32 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a5efea4cfe970058de0e4f274f001c293"></a><!-- doxytag: member="ZIMOrmModel::isModel:" ref="a5efea4cfe970058de0e4f274f001c293" args="(Class model)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (BOOL) isModel: </td>
+          <td></td>
+          <td class="paramtype">(Class)&#160;</td>
+          <td class="paramname"><em>model</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>isModel:  This method determines whether the specified class is a class of this type. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model</td><td>The class to be tested. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns whether the specified class is a class of this type.  2011-05-01 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://cocoawithlove.com/2010/01/getting-subclasses-of-objective-c-class.html">http://cocoawithlove.com/2010/01/getting-subclasses-of-objective-c-class.html</a> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a850953900ef030d85b9d1624b6af44b3"></a><!-- doxytag: member="ZIMOrmModel::isSaveable" ref="a850953900ef030d85b9d1624b6af44b3" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -235,12 +374,29 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4ea487fb8f76b1106cc50295dab9b60e"></a><!-- doxytag: member="ZIMOrmModel::primaryKey" ref="a4ea487fb8f76b1106cc50295dab9b60e" args="()" -->
+<a class="anchor" id="a3f0f625955168a40569980a4d7131eeb"></a><!-- doxytag: member="ZIMOrmModel::load" ref="a3f0f625955168a40569980a4d7131eeb" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">+ (NSSet *) primaryKey </td>
+          <td class="memname">- (void) load </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>load  This method will load/reload the record matching the primary key.  2011-04-28 </p>
+
+</div>
+</div>
+<a class="anchor" id="a7808f9affbc863c19e8ceb2164b27e08"></a><!-- doxytag: member="ZIMOrmModel::primaryKey" ref="a7808f9affbc863c19e8ceb2164b27e08" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (NSArray *) primaryKey </td>
           <td></td>
           <td class="paramname"></td>
           <td></td>
@@ -249,7 +405,7 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>primaryKey  This method will return the table's primary key. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The table's primary key.  2011-04-14 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The table's primary key.  2011-04-18 </dd></dl>
 
 </div>
 </div>
@@ -266,7 +422,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>save  This method either creates or updates the record matching the primary key.  2011-04-14 </p>
+<p>save  This method either creates or updates the record matching the primary key.  2011-04-18 </p>
 
 </div>
 </div>
@@ -321,7 +477,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Apr 17 2011 00:37:20 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 02:00:41 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
