@@ -93,8 +93,12 @@
 /*!
  @method				belongsTo:foreignKey:
  @discussion			This method fetches a record matching the specified foreign key from the specified model.
+ @param model			The type of model to be loaded.
+ @param foreignKey		The values to used to fetch the new record.  The order of the value matters; they must be placed
+						in same order as the primary key.
  @return				Returns a model of the specified class.
  @updated				2011-05-01
+ @see					http://cocoawithlove.com/2010/01/getting-subclasses-of-objective-c-class.html
  */
 + (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey;
 /*!
