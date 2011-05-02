@@ -313,9 +313,9 @@
 
 + (BOOL) isModel: (Class)model {
 	Class superClass = model;
-	do {
+	while ((superClass != nil) && (superClass != [ZIMOrmModel class])) {
 		superClass = class_getSuperclass(superClass);
-	} while ((superClass != nil) && (superClass != [ZIMOrmModel class]));
+	}
 	if (superClass == nil) {
 		return NO;
 	}
