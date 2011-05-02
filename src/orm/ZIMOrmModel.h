@@ -28,6 +28,17 @@
 
 }
 /*!
+ @method				belongsTo:foreignKey:
+ @discussion			This method uses the values stored in the foreign key columns of the current instance (i.e "self")
+						to find a record in another table by comparing them against that table's primary key columns.
+ @param model			The model type to be loaded.
+ @param foreignKey		An array of columns in the current instance that define the foreign key to be used.  The order of
+						the columns matters (i.e. columns must be placed in the same order as model's primary key).
+ @return				Returns a model of the specified class.
+ @updated				2011-05-01
+ */
+- (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey; // the foreign key array is an ordered list of columns in "self"
+/*!
  @method				hasOne:foreignKey:
  @discussion			This method uses the values stored in the primary key columns of the current instance (i.e "self")
 						to find a record in another table by comparing them against that table's foreign key columns.
@@ -39,16 +50,16 @@
  */
 - (id) hasOne: (Class)model foreignKey: (NSArray *)foreignKey; // i.e. the foreign key array is an ordered list of columns in "model"
 /*!
- @method				belongsTo:foreignKey:
- @discussion			This method uses the values stored in the foreign key columns of the current instance (i.e "self")
-						to find a record in another table by comparing them against that table's primary key columns.
+ @method				hasMany:foreignKey:
+ @discussion			This method uses the values stored in the primary key columns of the current instance (i.e "self")
+						to find a set of records in another table by comparing them against that table's foreign key columns.
  @param model			The model type to be loaded.
- @param foreignKey		An array of columns in the current instance that define the foreign key to be used.  The order of
-						the columns matters (i.e. columns must be placed in the same order as model's primary key).
- @return				Returns a model of the specified class.
+ @param foreignKey		An array of columns in the specified model that define the foreign key to be used.  The order of
+						the columns matters (i.e. columns must be placed in the same order as self's primary key).
+ @return				Returns an array of models of the specified class.
  @updated				2011-05-01
  */
-- (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey; // the foreign key array is an ordered list of columns in "self"
+- (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey; // i.e. the foreign key array is an ordered list of columns in "model"
 /*!
  @method				delete
  @discussion			This method deletes the record matching the primary key.
