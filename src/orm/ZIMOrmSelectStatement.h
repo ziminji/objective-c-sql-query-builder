@@ -21,7 +21,7 @@
  @class					ZIMOrmSelectStatement
  @discussion			This class will loads the results of found by the query in the specified
 						model.
- @updated				2011-04-07
+ @updated				2011-05-01
  */
 @interface ZIMOrmSelectStatement : NSObject <ZIMSqlStatement> {
 

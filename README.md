@@ -41,6 +41,7 @@ The following is a short-list of some of the features:
 * Works with raw SQL.
 * Offers Object Relational Mapping (ORM) with composite primary keys.
 * Can auto-generate models (i.e. Active Records) for each table in the SQLite database via a BASH script.
+* Handles foreign keys via true lazy loading.
 * Requires only those classes that are needed.  Great for mobile development.
 * Classes are easily extendible.
 * Has clear API documentation generated via [Doxygen](http://www.stack.nl/~dimitri/doxygen/).
@@ -122,8 +123,6 @@ This project is under heavy development.  There are development plans to add:
 * The ability to process more than one SQL statement at a time in the Data Access Object (DAO);
 * A database encryption layer for password protecting an SQLite database;
 * More SQL builder classes;
-* The ability to handle foreign keys via SQL builder classes and Active Record;
-* Lazy loading;
 * A partitioning class for splitting-up a database into smaller databases;
 * A module to handle pagination;
 * A set of utility classes;
