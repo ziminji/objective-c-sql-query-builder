@@ -256,6 +256,24 @@
 	return columns;
 }
 
++ (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey {
+	Class superClass = model;
+	do {
+		superClass = class_getSuperclass(superClass);
+	} while ((superClass != nil) && (superClass != [ZIMOrmModel class]));
+	if (superClass == nil) {
+		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
+	}
+	id record = [[[model alloc] init] autorelease];
+	NSArray *primaryKey = [model primaryKey];
+	int columnCount = [primaryKey count];
+	for (int i = 0; i < columnCount; i++) {
+		[record setValue: [foreignKey objectAtIndex: i] forKey: [primaryKey objectAtIndex: i]];
+	}
+	[(ZIMOrmModel *)record load];
+	return record;
+}
+
 + (BOOL) isSaveable {
 	return YES;
 }

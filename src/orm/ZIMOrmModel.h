@@ -91,6 +91,13 @@
  */
 + (NSDictionary *) columns;
 /*!
+ @method				belongsTo:foreignKey:
+ @discussion			This method fetches a record matching the specified foreign key from the specified model.
+ @return				Returns a model of the specified class.
+ @updated				2011-05-01
+ */
++ (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey;
+/*!
  @method				isSaveable
  @discussion			This method returns whether the model can be saved to the database.
  @return				Returns whether the model can be saved to the database.
