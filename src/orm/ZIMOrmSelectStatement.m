@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-#import <objc/runtime.h>
 #import "ZIMDaoConnection.h"
 #import "ZIMOrmModel.h"
 #import "ZIMOrmSelectStatement.h"
@@ -23,11 +22,7 @@
 
 - (id) initWithModel: (Class)model {
 	if (self = [super init]) {
-		Class superClass = model;
-		do {
-			superClass = class_getSuperclass(superClass);
-		} while ((superClass != nil) && (superClass != [ZIMOrmModel class]));
-		if (superClass == nil) {
+		if (![ZIMOrmModel isModel: model]) {
 			@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
 		}
 		_model = model;
