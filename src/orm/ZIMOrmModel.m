@@ -40,6 +40,39 @@
 	[super dealloc];
 }
 
+- (id) hasOne: (Class)model foreignKey: (NSArray *)foreignKey {
+	if (![ZIMOrmModel isModel: model]) {
+		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
+	}
+	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [model dataSource] withMultithreadingSupport: NO];
+	ZIMSqlSelectStatement *sql = [[ZIMSqlSelectStatement alloc] init];
+	[sql from: [model table]];
+	NSArray *primaryKey = [[self class] primaryKey];
+	int columnCount = [primaryKey count];
+	for (int i = 0; i < columnCount; i++) {
+		[sql where: [foreignKey objectAtIndex: i] operator: ZIMSqlOperatorEqualTo value: [self valueForKey: [primaryKey objectAtIndex: i]]];
+	}
+	[sql limit: 1];
+	NSArray *records = [connection query: [sql statement] asObject: model];
+	[sql release];
+	[connection release];
+	return [records objectAtIndex: 0];
+}
+
+- (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey {
+	if (![ZIMOrmModel isModel: model]) {
+		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
+	}
+	id record = [[[model alloc] init] autorelease];
+	NSArray *primaryKey = [model primaryKey];
+	int columnCount = [primaryKey count];
+	for (int i = 0; i < columnCount; i++) {
+		[record setValue: [self valueForKey: [foreignKey objectAtIndex: i]] forKey: [primaryKey objectAtIndex: i]];
+	}
+	[(ZIMOrmModel *)record load];
+	return record;
+}
+
 - (void) delete {
 	if (![[self class] isSaveable]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to delete record because this model is not savable." userInfo: nil];
@@ -256,25 +289,18 @@
 	return columns;
 }
 
-+ (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey {
++ (BOOL) isSaveable {
+	return YES;
+}
+
++ (BOOL) isModel: (Class)model {
 	Class superClass = model;
 	do {
 		superClass = class_getSuperclass(superClass);
 	} while ((superClass != nil) && (superClass != [ZIMOrmModel class]));
 	if (superClass == nil) {
-		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
+		return NO;
 	}
-	id record = [[[model alloc] init] autorelease];
-	NSArray *primaryKey = [model primaryKey];
-	int columnCount = [primaryKey count];
-	for (int i = 0; i < columnCount; i++) {
-		[record setValue: [foreignKey objectAtIndex: i] forKey: [primaryKey objectAtIndex: i]];
-	}
-	[(ZIMOrmModel *)record load];
-	return record;
-}
-
-+ (BOOL) isSaveable {
 	return YES;
 }
 
