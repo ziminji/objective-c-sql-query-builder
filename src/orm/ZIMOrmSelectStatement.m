@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#import <objc/runtime.h>
 #import "ZIMDaoConnection.h"
 #import "ZIMOrmModel.h"
 #import "ZIMOrmSelectStatement.h"
