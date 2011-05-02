@@ -28,6 +28,28 @@
 
 }
 /*!
+ @method				hasOne:foreignKey:
+ @discussion			This method uses the values stored in the primary key columns of the current instance (i.e "self")
+						to find a record in another table by comparing them against that table's foreign key columns.
+ @param model			The model type to be loaded.
+ @param foreignKey		An array of columns in the specified model that define the foreign key to be used.  The order of
+						the columns matters (i.e. columns must be placed in the same order as self's primary key).
+ @return				Returns a model of the specified class.
+ @updated				2011-05-01
+ */
+- (id) hasOne: (Class)model foreignKey: (NSArray *)foreignKey; // i.e. the foreign key array is an ordered list of columns in "model"
+/*!
+ @method				belongsTo:foreignKey:
+ @discussion			This method uses the values stored in the foreign key columns of the current instance (i.e "self")
+						to find a record in another table by comparing them against that table's primary key columns.
+ @param model			The model type to be loaded.
+ @param foreignKey		An array of columns in the current instance that define the foreign key to be used.  The order of
+						the columns matters (i.e. columns must be placed in the same order as model's primary key).
+ @return				Returns a model of the specified class.
+ @updated				2011-05-01
+ */
+- (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey; // the foreign key array is an ordered list of columns in "self"
+/*!
  @method				delete
  @discussion			This method deletes the record matching the primary key.
  @updated				2011-04-18
@@ -91,22 +113,20 @@
  */
 + (NSDictionary *) columns;
 /*!
- @method				belongsTo:foreignKey:
- @discussion			This method fetches a record matching the specified foreign key from the specified model.
- @param model			The type of model to be loaded.
- @param foreignKey		The values to used to fetch the new record.  The order of the value matters; they must be placed
-						in same order as the primary key.
- @return				Returns a model of the specified class.
- @updated				2011-05-01
- @see					http://cocoawithlove.com/2010/01/getting-subclasses-of-objective-c-class.html
- */
-+ (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey;
-/*!
  @method				isSaveable
  @discussion			This method returns whether the model can be saved to the database.
  @return				Returns whether the model can be saved to the database.
  @updated				2011-04-14
  */
 + (BOOL) isSaveable;
+/*!
+ @method				isModel:
+ @discussion			This method determines whether the specified class is a class of this type.
+ @param model			The class to be tested.
+ @return				Returns whether the specified class is a class of this type.
+ @updated				2011-05-01
+ @see					http://cocoawithlove.com/2010/01/getting-subclasses-of-objective-c-class.html
+ */
++ (BOOL) isModel: (Class)model;
 
 @end
