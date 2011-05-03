@@ -74,6 +74,10 @@
 }
 
 - (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey {
+	return [self hasMany: model foreignKey: foreignKey options: nil];
+}
+
+- (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey options: (NSDictionary *)options {
 	if (![ZIMOrmModel isModel: model]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
 	}
@@ -84,6 +88,14 @@
 	int columnCount = [primaryKey count];
 	for (int i = 0; i < columnCount; i++) {
 		[sql where: [foreignKey objectAtIndex: i] operator: ZIMSqlOperatorEqualTo value: [self valueForKey: [primaryKey objectAtIndex: i]]];
+	}
+	if (options != nil) {
+		if ([options objectForKey: ZIMOrmOptionLimit] != nil) {
+			[sql limit: [[options objectForKey: ZIMOrmOptionLimit] integerValue]];
+		}
+		if ([options objectForKey: ZIMOrmOptionOffset] != nil) {
+			[sql offset: [[options objectForKey: ZIMOrmOptionOffset] integerValue]];
+		}
 	}
 	NSArray *records = [connection query: [sql statement] asObject: model];
 	[sql release];

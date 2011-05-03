@@ -16,6 +16,10 @@
 
 #import <Foundation/Foundation.h>
 
+// Supported options
+#define ZIMOrmOptionLimit						@"LIMIT"
+#define ZIMOrmOptionOffset						@"OFFSET"
+
 /*!
  @class					ZIMOrmModel
  @discussion			This class acts as the base model.
@@ -57,9 +61,22 @@
  @param foreignKey		An array of columns in the specified model that define the foreign key to be used.  The order of
 						the columns matters (i.e. columns must be placed in the same order as self's primary key).
  @return				Returns an array of models of the specified class.
- @updated				2011-05-01
+ @updated				2011-05-03
  */
 - (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey; // i.e. the foreign key array is an ordered list of columns in "model"
+/*!
+ @method				hasMany:foreignKey:
+ @discussion			This method uses the values stored in the primary key columns of the current instance (i.e "self")
+						to find a set of records in another table by comparing them against that table's foreign key columns.
+ @param model			The model type to be loaded.
+ @param foreignKey		An array of columns in the specified model that define the foreign key to be used.  The order of
+						the columns matters (i.e. columns must be placed in the same order as self's primary key).
+ @param options			A dictionary options that will constraint the result set.
+ @return				Returns an array of models of the specified class.
+ @updated				2011-05-03
+ @see					http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html
+ */
+- (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey options: (NSDictionary *)options;
 /*!
  @method				delete
  @discussion			This method deletes the record matching the primary key.
