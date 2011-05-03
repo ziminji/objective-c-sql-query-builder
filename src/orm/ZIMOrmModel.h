@@ -65,7 +65,7 @@
  */
 - (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey; // i.e. the foreign key array is an ordered list of columns in "model"
 /*!
- @method				hasMany:foreignKey:
+ @method				hasMany:foreignKey:options:
  @discussion			This method uses the values stored in the primary key columns of the current instance (i.e "self")
 						to find a set of records in another table by comparing them against that table's foreign key columns.
  @param model			The model type to be loaded.
@@ -76,7 +76,7 @@
  @updated				2011-05-03
  @see					http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html
  */
-- (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey options: (NSDictionary *)options;
+- (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey options: (NSDictionary *)options; // i.e. the foreign key array is an ordered list of columns in "model"
 /*!
  @method				delete
  @discussion			This method deletes the record matching the primary key.
