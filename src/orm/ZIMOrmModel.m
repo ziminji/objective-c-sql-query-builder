@@ -55,21 +55,7 @@
 }
 
 - (id) hasOne: (Class)model foreignKey: (NSArray *)foreignKey {
-	if (![ZIMOrmModel isModel: model]) {
-		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
-	}
-	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [model dataSource] withMultithreadingSupport: NO];
-	ZIMSqlSelectStatement *sql = [[ZIMSqlSelectStatement alloc] init];
-	[sql from: [model table]];
-	NSArray *primaryKey = [[self class] primaryKey];
-	int columnCount = [primaryKey count];
-	for (int i = 0; i < columnCount; i++) {
-		[sql where: [foreignKey objectAtIndex: i] operator: ZIMSqlOperatorEqualTo value: [self valueForKey: [primaryKey objectAtIndex: i]]];
-	}
-	[sql limit: 1];
-	NSArray *records = [connection query: [sql statement] asObject: model];
-	[sql release];
-	[connection release];
+	NSArray *records = [self hasMany: model foreignKey: foreignKey options: [NSDictionary dictionaryWithObjects: [NSNumber numberWithInteger: 1], ZIMOrmOptionLimit, nil]];
 	return [records objectAtIndex: 0];
 }
 
