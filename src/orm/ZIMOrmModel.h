@@ -50,7 +50,7 @@
  @param foreignKey		An array of columns in the specified model that define the foreign key to be used.  The order of
 						the columns matters (i.e. columns must be placed in the same order as self's primary key).
  @return				Returns a model of the specified class.
- @updated				2011-05-01
+ @updated				2011-05-04
  */
 - (id) hasOne: (Class)model foreignKey: (NSArray *)foreignKey; // i.e. the foreign key array is an ordered list of columns in "model"
 /*!
