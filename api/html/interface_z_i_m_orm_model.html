@@ -76,6 +76,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#ae840cfe7ae087e66039fbb44d6ecaa37">belongsTo:foreignKey:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a9ca0cf3c6a08f57941cb071f49a1cb0e">hasOne:foreignKey:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a3230a810cf48cd6dd8f4ea411cede99a">hasMany:foreignKey:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a75ff984498200c2ed4f151e255d9a545">hasMany:foreignKey:options:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#ad9b9c6e1827feae95c9ace43c47fb6c2">delete</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a3f0f625955168a40569980a4d7131eeb">load</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a813326d955a409db8c38297356f5a656">save</a></td></tr>
@@ -256,7 +257,51 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Returns an array of models of the specified class.  2011-05-01 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns an array of models of the specified class.  2011-05-03 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a75ff984498200c2ed4f151e255d9a545"></a><!-- doxytag: member="ZIMOrmModel::hasMany:foreignKey:options:" ref="a75ff984498200c2ed4f151e255d9a545" args="(Class model,[foreignKey] NSArray *foreignKey,[options] NSDictionary *options)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSArray *) hasMany: </td>
+          <td></td>
+          <td class="paramtype">(Class)&#160;</td>
+          <td class="paramname"><em>model</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">foreignKey:</td>
+          <td></td>
+          <td class="paramtype">(NSArray *)&#160;</td>
+          <td class="paramname"><em>foreignKey</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">options:</td>
+          <td></td>
+          <td class="paramtype">(NSDictionary *)&#160;</td>
+          <td class="paramname"><em>options</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>hasMany:foreignKey:options:  This method uses the values stored in the primary key columns of the current instance (i.e "self") to find a set of records in another table by comparing them against that table's foreign key columns. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model</td><td>The model type to be loaded. </td></tr>
+    <tr><td class="paramname">foreignKey</td><td>An array of columns in the specified model that define the foreign key to be used. The order of the columns matters (i.e. columns must be placed in the same order as self's primary key). </td></tr>
+    <tr><td class="paramname">options</td><td>A dictionary options that will constraint the result set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns an array of models of the specified class.  2011-05-03 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html">http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html</a> </dd></dl>
 
 </div>
 </div>
@@ -292,7 +337,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Returns a model of the specified class.  2011-05-01 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns a model of the specified class.  2011-05-04 </dd></dl>
 
 </div>
 </div>
@@ -477,7 +522,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 02:00:41 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu May 19 2011 19:34:58 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
