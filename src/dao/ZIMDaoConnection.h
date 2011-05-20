@@ -67,6 +67,7 @@
  @return				Either the last insert row id or TRUE.
  @updated				2011-04-03
  @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
+ @see					http://code.google.com/p/sqlite-manager/issues/detail?id=34
  */
 - (NSNumber *) execute: (NSString *)sql;
 /*!
