@@ -154,7 +154,7 @@
  @param operator		The operator to be used.
  @param column2			The column to be compared.
  @param connector		The connector to be used.
- @updated				2011-04-01
+ @updated				2011-05-19
  */
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
 /*!
@@ -173,7 +173,7 @@
  @param operator		The operator to be used.
  @param value			The value to be compared.
  @param connector		The connector to be used.
- @updated				2011-04-01
+ @updated				2011-05-19
  */
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
@@ -214,7 +214,7 @@
  @param operator		The operator to be used.
  @param column2			The column to be compared.
  @param connector		The connector to be used.
- @updated				2011-04-01
+ @updated				2011-05-19
  */
 - (void) groupByHaving: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
 /*!
@@ -233,7 +233,7 @@
  @param operator		The operator to be used.
  @param value			The value to be compared.
  @param connector		The connector to be used.
- @updated				2011-04-01
+ @updated				2011-05-19
  */
 - (void) groupByHaving: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
@@ -277,7 +277,7 @@
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-03-13
+ @updated				2011-05-19
  */
 - (NSString *) statement;
 

@@ -58,7 +58,7 @@
 }
 
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector {
-	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@", [ZIMSqlExpression prepareField: column1], [operator uppercaseString], [ZIMSqlExpression prepareField: column2]], nil]];
+	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareField: column1], [operator uppercaseString], [ZIMSqlExpression prepareField: column2]], nil]];
 }
 
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value {
@@ -71,7 +71,7 @@
 		if (![value isKindOfClass: [NSArray class]]) {
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 		}
-		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@ AND %@", [ZIMSqlExpression prepareField: column], operator, [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
+		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@ AND %@", [ZIMSqlExpression prepareField: column], operator, [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
 	}
 	else {
 		if (([operator isEqualToString: ZIMSqlOperatorIn] || [operator isEqualToString: ZIMSqlOperatorNotIn]) && ![value isKindOfClass: [NSArray class]]) {
@@ -85,7 +85,7 @@
 				operator = ZIMSqlOperatorIsNot;
 			}
 		}
-		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"WHERE %@ %@ %@", [ZIMSqlExpression prepareField: column], operator, [ZIMSqlExpression prepareValue: value]], nil]];
+		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareField: column], operator, [ZIMSqlExpression prepareValue: value]], nil]];
 	}
 }
 
@@ -116,7 +116,7 @@
 
 	if ([_where count] > 0) {
 		BOOL doAppendConnector = NO;
-		[sql appendString: @" "];
+		[sql appendString: @" WHERE "];
 		for (NSArray *where in _where) {
 			NSString *whereClause = [where objectAtIndex: 1];
 			if (doAppendConnector && ![whereClause isEqualToString: ZIMSqlEnclosureClosingBrace]) {
