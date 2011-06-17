@@ -206,13 +206,13 @@
  */
 - (void) orderBy: (NSString *)column;
 /*!
- @method				orderBy:ascending:
+ @method				orderBy:descending:
  @discussion			This method will add an order by clause to the SQL statement.
  @param column			The column to be ordered.
- @param ascending		This will determine whether the column should be ordered in ascending or descending order.
- @updated				2011-04-02
+ @param descending		This will determine whether the column should be ordered in descending order.
+ @updated				2011-06-16
  */
-- (void) orderBy: (NSString *)column ascending: (BOOL)ascending;
+- (void) orderBy: (NSString *)column descending: (BOOL)descending;
 /*!
  @method				limit:
  @discussion			This method will add a limit clause to the SQL statement.

@@ -117,8 +117,8 @@
 	[_sql orderBy: column];
 }
 
-- (void) orderBy: (NSString *)column ascending: (BOOL)ascending {
-	[_sql orderBy: column ascending: ascending];
+- (void) orderBy: (NSString *)column descending: (BOOL)descending {
+	[_sql orderBy: column descending: descending];
 }
 
 - (void) limit: (NSInteger)limit {
