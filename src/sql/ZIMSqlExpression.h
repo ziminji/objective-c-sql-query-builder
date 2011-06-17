@@ -150,19 +150,19 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  */
 + (NSString *) prepareEnclosure: (NSString *)enclosure;
 /*!
- @method				prepareField:
- @discussion			This method will prepare a field for an SQL statement.
+ @method				prepareIdentifier:
+ @discussion			This method will prepare an identifier for an SQL statement.
  @param field			The field to be prepared.
  @return				The prepared field.
- @updated				2011-04-01
+ @updated				2011-06-16
  */
-+ (NSString *) prepareField: (NSString *)field;
++ (NSString *) prepareIdentifier: (NSString *)identifier;
 /*!
  @method				prepareValue:
  @discussion			This method will prepare a value for an SQL statement.
  @param value			The value to be prepared.
  @return				The prepared value.
- @updated				2011-04-01
+ @updated				2011-06-16
  */
 + (NSString *) prepareValue: (id)value;
 
