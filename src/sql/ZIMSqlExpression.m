@@ -100,11 +100,14 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	return enclosure;
 }
 
-+ (NSString *) prepareField: (NSString *)field {
-	if (([field length] >= 6)  && [[[field substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"SELECT"]) {
-		return [NSString stringWithFormat: @"(%@)", field];
++ (NSString *) prepareIdentifier: (NSString *)identifier {
+	if (([identifier length] >= 6)  && [[[identifier substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"SELECT"]) {
+		identifier = [(ZIMSqlSelectStatement *)identifier statement];
+		identifier = [statement substringWithRange: NSMakeRange(0, [identifier length] - 1)];
+		identifier = [NSString stringWithFormat: @"(%@)", identifier];
+		return identifier;
 	}
-	return field;
+	return identifier;
 }
 
 + (NSString *) prepareValue: (id)value {
@@ -112,7 +115,10 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 		return @"NULL";
 	}
 	else if ([value isKindOfClass: [ZIMSqlSelectStatement class]]) {
-		return [NSString stringWithFormat: @"(%@)", [(ZIMSqlSelectStatement *)value statement]];
+		NSString *statement = [(ZIMSqlSelectStatement *)value statement];
+		statement = [statement substringWithRange: NSMakeRange(0, [statement length] - 1)];
+		statement = [NSString stringWithFormat: @"(%@)", statement];
+		return statement;
 	}
 	else if ([value isKindOfClass: [NSArray class]]) {
 		NSMutableString *str = [[[NSMutableString alloc] init] autorelease];

@@ -34,12 +34,12 @@
 /*!
  @method				belongsTo:foreignKey:
  @discussion			This method uses the values stored in the foreign key columns of the current instance (i.e "self")
-						to find a record in another table by comparing them against that table's primary key columns.
+						to find a record in another table by comparing them against that foreign table's primary key columns.
  @param model			The model type to be loaded.
  @param foreignKey		An array of columns in the current instance that define the foreign key to be used.  The order of
 						the columns matters (i.e. columns must be placed in the same order as model's primary key).
  @return				Returns a model of the specified class.
- @updated				2011-05-01
+ @updated				2011-05-19
  */
 - (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey; // the foreign key array is an ordered list of columns in "self"
 /*!

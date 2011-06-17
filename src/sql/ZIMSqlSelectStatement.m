@@ -52,19 +52,19 @@
 }
 
 - (void) column: (NSString *)column {
-	[_column addObject: [ZIMSqlExpression prepareField: column]];
+	[_column addObject: [ZIMSqlExpression prepareIdentifier: column]];
 }
 
 - (void) column: (NSString *)column alias: (NSString *)alias {
-	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", [ZIMSqlExpression prepareField: column], alias]];
+	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", [ZIMSqlExpression prepareIdentifier: column], alias]];
 }
 
 - (void) from: (NSString *)table {
-	[_table addObject: [ZIMSqlExpression prepareField: table]];
+	[_table addObject: [ZIMSqlExpression prepareIdentifier: table]];
 }
 
 - (void) from: (NSString *)table alias: (NSString *)alias {
-	[_table addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareField: table], alias]];
+	[_table addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], alias]];
 }
 
 - (void) join: (NSString *)table {
@@ -76,11 +76,11 @@
 }
 
 - (void) join: (NSString *)table type: (NSString *)type {
-	[_join addObject: [NSArray arrayWithObjects: (((type == nil) || [type isEqualToString: ZIMSqlJoinTypeNone]) ? [NSString stringWithFormat: @" JOIN %@", [ZIMSqlExpression prepareField: table]] : [NSString stringWithFormat: @" %@ JOIN %@", [type uppercaseString], [ZIMSqlExpression prepareField: table]]), [[[NSMutableArray alloc] init] autorelease], [[[NSMutableArray alloc] init] autorelease], nil]];
+	[_join addObject: [NSArray arrayWithObjects: (((type == nil) || [type isEqualToString: ZIMSqlJoinTypeNone]) ? [NSString stringWithFormat: @" JOIN %@", [ZIMSqlExpression prepareIdentifier: table]] : [NSString stringWithFormat: @" %@ JOIN %@", [type uppercaseString], [ZIMSqlExpression prepareIdentifier: table]]), [[[NSMutableArray alloc] init] autorelease], [[[NSMutableArray alloc] init] autorelease], nil]];
 }
 
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type {
-	[self join: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareField: table], alias] type: type];
+	[self join: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], alias] type: type];
 }
 
 - (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
@@ -92,7 +92,7 @@
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May not declare two different types of constraints on a JOIN statement." userInfo: nil];
 		}
 		joinCondition = (NSMutableArray *)[[_join objectAtIndex: index] objectAtIndex: 1];
-		[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareField: column1], [operator uppercaseString], [ZIMSqlExpression prepareField: column2]]];
+		[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column1], [operator uppercaseString], [ZIMSqlExpression prepareIdentifier: column2]]];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Must declare a JOIN clause before declaring a constraint." userInfo: nil];
@@ -108,7 +108,7 @@
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May not declare two different types of constraints on a JOIN statement." userInfo: nil];
 		}
 		joinCondition = (NSMutableArray *)[[_join objectAtIndex: index] objectAtIndex: 2];
-		[joinCondition addObject: [ZIMSqlExpression prepareField: column]];
+		[joinCondition addObject: [ZIMSqlExpression prepareIdentifier: column]];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Must declare a JOIN clause before declaring a constraint." userInfo: nil];
@@ -128,7 +128,7 @@
 }
 
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector {
-	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareField: column1], [operator uppercaseString], [ZIMSqlExpression prepareField: column2]], nil]];
+	[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column1], [operator uppercaseString], [ZIMSqlExpression prepareIdentifier: column2]], nil]];
 }
 
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value {
@@ -141,7 +141,7 @@
 		if (![value isKindOfClass: [NSArray class]]) {
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 		}
-		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@ AND %@", [ZIMSqlExpression prepareField: column], operator, [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
+		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@ AND %@", [ZIMSqlExpression prepareIdentifier: column], operator, [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
 	}
 	else {
 		if (([operator isEqualToString: ZIMSqlOperatorIn] || [operator isEqualToString: ZIMSqlOperatorNotIn]) && ![value isKindOfClass: [NSArray class]]) {
@@ -155,12 +155,12 @@
 				operator = ZIMSqlOperatorIsNot;
 			}
 		}
-		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareField: column], operator, [ZIMSqlExpression prepareValue: value]], nil]];
+		[_where addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column], operator, [ZIMSqlExpression prepareValue: value]], nil]];
 	}
 }
 
 - (void) groupBy: (NSString *)column {
-	[_groupBy addObject: [ZIMSqlExpression prepareField: column]];
+	[_groupBy addObject: [ZIMSqlExpression prepareIdentifier: column]];
 }
 
 - (void) groupByHavingBlock: (NSString *)brace {
@@ -182,7 +182,7 @@
 
 - (void) groupByHaving: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector {
 	if ([_groupBy count] > 0) {
-		[_having addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareField: column1], [operator uppercaseString], [ZIMSqlExpression prepareField: column2]], nil]];
+		[_having addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column1], [operator uppercaseString], [ZIMSqlExpression prepareIdentifier: column2]], nil]];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Must declare a GROUP BY clause before declaring a constraint." userInfo: nil];
@@ -200,7 +200,7 @@
 			if (![value isKindOfClass: [NSArray class]]) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 			}
-			[_having addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@ AND %@", [ZIMSqlExpression prepareField: column], operator, [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
+			[_having addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@ AND %@", [ZIMSqlExpression prepareIdentifier: column], operator, [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
 		}
 		else {
 			if (([operator isEqualToString: ZIMSqlOperatorIn] || [operator isEqualToString: ZIMSqlOperatorNotIn]) && ![value isKindOfClass: [NSArray class]]) {
@@ -214,7 +214,7 @@
 					operator = ZIMSqlOperatorIsNot;
 				}
 			}
-			[_having addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareField: column], operator, [ZIMSqlExpression prepareValue: value]], nil]];
+			[_having addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column], operator, [ZIMSqlExpression prepareValue: value]], nil]];
 		}
 	}
 	else {
@@ -223,11 +223,11 @@
 }
 
 - (void) orderBy: (NSString *)column {
-	[self orderBy: column ascending: YES];
+	[self orderBy: column descending: NO];
 }
 
-- (void) orderBy: (NSString *)column ascending: (BOOL)ascending {
-	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareField: column], ((ascending) ? @"ASC" : @"DESC")]];
+- (void) orderBy: (NSString *)column descending: (BOOL)descending {
+	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column], ((descending) ? @"DESC" : @"ASC")]];
 }
 
 - (void) limit: (NSInteger)limit {
