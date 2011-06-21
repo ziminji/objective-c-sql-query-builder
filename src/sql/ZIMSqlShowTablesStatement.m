@@ -30,13 +30,13 @@
 }
 
 - (void) like: (NSString *)value {
-	_clause = [NSString stringWithFormat: @"WHERE name LIKE %@", [ZIMSqlExpression prepareValue: value]];
+	_clause = [NSString stringWithFormat: @"[name] LIKE %@", [ZIMSqlExpression prepareValue: value]];
 }
 
 - (NSString *) statement {
 	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
 
-	[sql appendString: @"SELECT tbl_name FROM sqlite_master WHERE type = 'table' AND tbl_name NOT IN ('sqlite_sequence')"];
+	[sql appendString: @"SELECT [tbl_name] FROM [sqlite_master] WHERE [type] = 'table' AND [tbl_name] NOT IN ('sqlite_sequence')"];
 
 	if (_clause != nil) {
 		[sql appendFormat: @" AND %@", _clause];
