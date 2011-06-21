@@ -32,7 +32,7 @@
  @method				like:
  @discussion			This method will cause only those tables that match the specified
 						like constraint.
- @updated				2011-04-13
+ @updated				2011-06-20
  */
 - (void) like: (NSString *)value;
 /*!
