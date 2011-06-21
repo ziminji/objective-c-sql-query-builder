@@ -31,11 +31,11 @@
 }
 
 - (void) table: (NSString *)table {
-	_table = table;
+	_table = [ZIMSqlExpression prepareIdentifier: table];
 }
 
 - (void) autoincrement: (NSInteger)position {
-	_clause = [NSString stringWithFormat: @"UPDATE sqlite_sequence SET seq = %d", position];
+	_clause = [NSString stringWithFormat: @"UPDATE [sqlite_sequence] SET [seq] = %d", position];
 }
 
 - (void) column: (NSString *)column type: (NSString *)type {
@@ -70,7 +70,7 @@
 
 - (NSString *) statement {
 	if ([_clause hasPrefix: @"UPDATE"]) {
-		return [NSString stringWithFormat: @"%@ WHERE name = '%@';", _clause, _table];
+		return [NSString stringWithFormat: @"%@ WHERE [name] = '%@';", _clause, _table];
 	}
 	return [NSString stringWithFormat: @"ALTER TABLE %@ %@;", _table, _clause];
 }
