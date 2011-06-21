@@ -30,7 +30,7 @@
 }
 
 - (void) table: (NSString *)table {
-	_table = table;
+	_table = [ZIMSqlExpression prepareIdentifier: table];
 }
 
 - (NSString *) statement {
