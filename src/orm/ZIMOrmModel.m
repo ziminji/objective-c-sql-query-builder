@@ -30,7 +30,7 @@
 #endif
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_saved = nil;
 	}
 	return self;
@@ -55,7 +55,7 @@
 }
 
 - (id) hasOne: (Class)model foreignKey: (NSArray *)foreignKey {
-	NSArray *records = [self hasMany: model foreignKey: foreignKey options: [NSDictionary dictionaryWithObjects: [NSNumber numberWithInteger: 1], ZIMOrmOptionLimit, nil]];
+	NSArray *records = [self hasMany: model foreignKey: foreignKey options: [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInteger: 1], ZIMOrmOptionLimit, nil]];
 	return [records objectAtIndex: 0];
 }
 

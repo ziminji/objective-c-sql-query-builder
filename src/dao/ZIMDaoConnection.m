@@ -72,7 +72,7 @@
 }
 
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		dataSource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: dataSource];
 		NSDictionary *config = [[NSDictionary alloc] initWithContentsOfFile: dataSource];
 		NSString *type = [config objectForKey: @"type"];
@@ -84,7 +84,7 @@
 		NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
 		if (![fileManager fileExistsAtPath: workingPath]) {
 			NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
-			if (![fileManager fileExistsAtPath: resourcePath]) {
+			if ([fileManager fileExistsAtPath: resourcePath]) {
 				NSError *error;
 				if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
 					@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
