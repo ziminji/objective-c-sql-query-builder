@@ -31,8 +31,8 @@
 	[super dealloc];
 }
 
-- (void) table: (NSString *)table {
-	_table = table;
+- (void) into: (NSString *)table {
+	_table = [ZIMSqlExpression prepareIdentifier: table];
 }
 
 - (void) column: (NSString *)column value: (id)value {
