@@ -212,7 +212,7 @@
 			}
 			if ([columns count] > 0) {
 				ZIMSqlInsertStatement *insert = [[ZIMSqlInsertStatement alloc] init];
-				[insert table: [[self class] table]];
+				[insert into: [[self class] table]];
 				for (NSString *column in columns) {
 					NSString *value = [self valueForKey: column];
 					if ((value == nil) && [primaryKey containsObject: column]) {
