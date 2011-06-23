@@ -132,7 +132,7 @@
 		result = [NSNumber numberWithInt: sqlite3_last_insert_rowid(_database)];
 	}
 	else {
-		result = [NSNumber numberWithInt: YES];
+		result = [NSNumber numberWithBool: YES];
 	}
 
 	sqlite3_finalize(statement);
@@ -243,7 +243,7 @@
 	const NSSet *binTypes  = [NSSet setWithObjects: @"BLOB", nil];
 	const NSSet *nullTypes = [NSSet setWithObjects: @"NULL", nil];
 	const NSSet *dateTypes = [NSSet setWithObjects: @"DATE", @"DATETIME", @"TIMESTAMP", nil];
-	// Determine Datatype of the column - http://www.sqlite.org/c3ref/c_blob.html
+	// Determine data type of the column - http://www.sqlite.org/c3ref/c_blob.html
 	const char *columnType = (const char *)sqlite3_column_decltype(statement, column);
 	if (columnType != NULL) {
 		NSString *dataType = [[NSString stringWithUTF8String: columnType] uppercaseString];
