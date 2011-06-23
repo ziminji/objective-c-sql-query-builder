@@ -103,7 +103,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 + (NSString *) prepareIdentifier: (NSString *)identifier {
 	if (([identifier length] >= 6)  && [[[identifier substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"SELECT"]) {
 		identifier = [(ZIMSqlSelectStatement *)identifier statement];
-		identifier = [statement substringWithRange: NSMakeRange(0, [identifier length] - 1)];
+		identifier = [identifier substringWithRange: NSMakeRange(0, [identifier length] - 1)];
 		identifier = [NSString stringWithFormat: @"(%@)", identifier];
 		return identifier;
 	}
