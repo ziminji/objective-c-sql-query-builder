@@ -110,6 +110,10 @@
 	_isConnected = YES;
 }
 
+- (NSNumber *) beginTransaction {
+	return [self execute: @"BEGIN IMMEDIATE TRANSACTION;"];
+}
+
 - (NSNumber *) execute: (NSString *)sql {
 	if (_mutex != nil) {
 		[_mutex lock];
@@ -301,6 +305,18 @@
 		}
 	}
 	return [NSNull null];
+}
+
+- (NSNumber *) rollback {
+	return [self execute: @"ROLLBACK TRANSACTION;"];
+}
+
+- (NSNumber *) commit {
+	return [self execute: @"COMMIT TRANSACTION;"];
+}
+
+- (NSNumber *) vacuum {
+	return [self execute: @"VACUUM;"]
 }
 
 - (BOOL) isConnected {
