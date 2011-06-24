@@ -109,9 +109,9 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 		return identifier;
 	}
 	/*
-	NSMutableString *result = [NSMutableString stringWithCapacity: identifier.length];
+	NSMutableString *result = [NSMutableString stringWithCapacity: [identifier length]];
 	NSScanner *scanner = [NSScanner scannerWithString: identifier];
-	NSCharacterSet *stopSet = [NSCharacterSet characterSetWithCharactersInString: @"\"'`[]"];
+	NSCharacterSet *stopSet = [NSCharacterSet characterSetWithCharactersInString: @"\"'`[]\n\r"];
 	while (![scanner isAtEnd]) {
 	 	NSString *buffer;
 		if ([scanner scanUpToCharactersFromSet: stopSet intoString: &buffer]) {
