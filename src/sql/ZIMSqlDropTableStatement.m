@@ -35,7 +35,7 @@
 }
 
 - (void) table: (NSString *)table exists: (BOOL)exists {
-	_table = table;
+	_table = [ZIMSqlExpression prepareIdentifier: table];
 	_exists = exists;
 }
 
