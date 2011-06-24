@@ -102,11 +102,28 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 
 + (NSString *) prepareIdentifier: (NSString *)identifier {
 	if (([identifier length] >= 6)  && [[[identifier substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"SELECT"]) {
-		identifier = [(ZIMSqlSelectStatement *)identifier statement];
-		identifier = [identifier substringWithRange: NSMakeRange(0, [identifier length] - 1)];
+		while ([identifier hasSuffix: @";"]) {
+			identifier = [identifier substringWithRange: NSMakeRange(0, [identifier length] - 1)];
+		}
 		identifier = [NSString stringWithFormat: @"(%@)", identifier];
 		return identifier;
 	}
+	/*
+	NSMutableString *result = [NSMutableString stringWithCapacity: identifier.length];
+	NSScanner *scanner = [NSScanner scannerWithString: identifier];
+	NSCharacterSet *stopSet = [NSCharacterSet characterSetWithCharactersInString: @"\"'`[]"];
+	while (![scanner isAtEnd]) {
+	 	NSString *buffer;
+		if ([scanner scanUpToCharactersFromSet: stopSet intoString: &buffer]) {
+	  		[result appendString: buffer];     
+	 	}
+		else {
+	  		[scanner setScanLocation: ([scanner scanLocation] + 1)];
+	 	}
+	}
+	NSArray *segments = [result componentsSeparatedByString: @"."];
+	identifier = [NSString stringWithFormat: @"[%@]", [segments componentsJoinedByString: @"].["]];
+	*/
 	return identifier;
 }
 

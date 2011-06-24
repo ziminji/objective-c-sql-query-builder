@@ -42,7 +42,7 @@
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
  @param exists			This will determine whether the "IF EXISTS" keywords should added. 
- @updated				2011-03-17
+ @updated				2011-06-23
  */
 - (void) table: (NSString *)table exists: (BOOL)exists;
 /*!
