@@ -61,6 +61,14 @@
  */
 - (void) open;
 /*!
+ @method				beginTransaction
+ @discussion			This method will begin a transaction.
+ @return				Whether the transaction has been started.
+ @updated				2011-06-23
+ @see					http://www.sqlite.org/lang_transaction.html
+ */
+- (NSNumber *) beginTransaction;
+/*!
  @method				execute:
  @discussion			This method will execute the specified SQL statement.
  @param sql				The SQL statement to be used.
@@ -91,6 +99,30 @@
  @updated				2011-04-03
  */
 - (NSArray *) query: (NSString *)sql asObject: (Class)model;
+/*!
+ @method				rollback
+ @discussion			This method will rollback a transaction.
+ @return				Whether the transaction was rollbacked.
+ @updated				2011-06-23
+ @see					http://www.sqlite.org/lang_transaction.html
+ */
+- (NSNumber *) rollback;
+/*!
+ @method				commit
+ @discussion			This method will commit a transaction.
+ @return				Whether the transaction has been committed.
+ @updated				2011-06-23
+ @see					http://www.sqlite.org/lang_transaction.html
+ */
+- (NSNumber *) commit;
+/*!
+ @method				vacuum
+ @discussion			The method will rebuild the entire database.
+ @return				Whether the command was successfully executed.
+ @updated				2011-06-23
+ @see					http://www.sqlite.org/lang_vacuum.html
+ */
+- (NSNumber *) vacuum;
 /*!
  @method				isConnected
  @discussion			This method checks whether a database connection currently exists.

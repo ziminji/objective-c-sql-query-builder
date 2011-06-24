@@ -96,7 +96,7 @@
 	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
 		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
-		[connection execute: @"BEGIN IMMEDIATE TRANSACTION;"];
+		[connection beginTransaction];
 		ZIMSqlDeleteStatement *sql = [[ZIMSqlDeleteStatement alloc] init];
 		[sql table: [[self class] table]];
 		for (NSString *column in primaryKey) {
@@ -111,7 +111,7 @@
 		[connection execute: [sql statement]];
 		[sql release];
 		_saved = nil;
-		[connection execute: @"COMMIT TRANSACTION;"];
+		[connection commit];
 		[connection release];
 	}
 	else {
@@ -134,9 +134,9 @@
 		}
 		[sql limit: 1];
 		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
-		[connection execute: @"BEGIN IMMEDIATE TRANSACTION;"];
+		[connection beginTransaction];
 		NSArray *records = [connection query: [sql statement]];
-		[connection execute: @"COMMIT TRANSACTION;"];
+		[connection commit];
 		[connection release];
 		[sql release];
 		if ([records count] != 1) {
@@ -160,7 +160,7 @@
 	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
 		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
-		[connection execute: @"BEGIN IMMEDIATE TRANSACTION;"];
+		[connection beginTransaction];
 		NSMutableDictionary *columns = [[NSMutableDictionary alloc] initWithDictionary: [[self class] columns]];
 		NSString *hashCode = [self hashCode];
 		BOOL doInsert = (hashCode == nil);
@@ -232,7 +232,7 @@
 			}
 		}
 		[columns release];
-		[connection execute: @"COMMIT TRANSACTION;"];
+		[connection commit];
 		[connection release];
 	}
 	else {
