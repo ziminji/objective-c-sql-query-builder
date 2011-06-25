@@ -71,15 +71,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a022da505eef9667c762f865dd2b02d34">prepareConnector:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a5ad6a50f4994ac701521ace235d3b691">prepareEnclosure:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a1978ee9d667ff5b28c4937bb592e21d7">prepareIdentifier:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#aaedde0f875533c61d7dd039d8516adf7">prepareAlias:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a7dd6dd5442d4ba58bfc5d16f0a18051e">prepareConnector:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a961fa6c087fc0c25c1d3747da74f9eb6">prepareEnclosure:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#ab3b2092c67dfe87ebee84dcfceb5f2b0">prepareIdentifier:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a92b265f70057cea3871dc47115be0d5e">prepareValue:</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>This class contains a set of methods to help process input.  2011-04-02 </p>
+<div class="textblock"><p>This class contains a set of methods to help process input. </p>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-04-02 </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a022da505eef9667c762f865dd2b02d34"></a><!-- doxytag: member="ZIMSqlExpression::prepareConnector:" ref="a022da505eef9667c762f865dd2b02d34" args="(NSString *connector)" -->
+<a class="anchor" id="aaedde0f875533c61d7dd039d8516adf7"></a><!-- doxytag: member="ZIMSqlExpression::prepareAlias:" ref="aaedde0f875533c61d7dd039d8516adf7" args="(NSString *token)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (NSString *) prepareAlias: </td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>token</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>prepareAlias:  This method will prepare an alias for an SQL statement. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">token</td><td>The token to be prepared. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared token. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-25 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7dd6dd5442d4ba58bfc5d16f0a18051e"></a><!-- doxytag: member="ZIMSqlExpression::prepareConnector:" ref="a7dd6dd5442d4ba58bfc5d16f0a18051e" args="(NSString *token)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -87,7 +115,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">+ (NSString *) prepareConnector: </td>
           <td></td>
           <td class="paramtype">(NSString *)&#160;</td>
-          <td class="paramname"><em>connector</em></td>
+          <td class="paramname"><em>token</em></td>
           <td></td>
         </tr>
       </table>
@@ -96,15 +124,16 @@ Static Public Member Functions</h2></td></tr>
 <p>prepareConnector:  This method will prepare a connector for an SQL statement. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">connector</td><td>The connector to be prepared. </td></tr>
+    <tr><td class="paramname">token</td><td>The token to be prepared. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared field.  2011-04-02 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared token. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-25 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a5ad6a50f4994ac701521ace235d3b691"></a><!-- doxytag: member="ZIMSqlExpression::prepareEnclosure:" ref="a5ad6a50f4994ac701521ace235d3b691" args="(NSString *enclosure)" -->
+<a class="anchor" id="a961fa6c087fc0c25c1d3747da74f9eb6"></a><!-- doxytag: member="ZIMSqlExpression::prepareEnclosure:" ref="a961fa6c087fc0c25c1d3747da74f9eb6" args="(NSString *token)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -112,7 +141,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">+ (NSString *) prepareEnclosure: </td>
           <td></td>
           <td class="paramtype">(NSString *)&#160;</td>
-          <td class="paramname"><em>enclosure</em></td>
+          <td class="paramname"><em>token</em></td>
           <td></td>
         </tr>
       </table>
@@ -121,15 +150,16 @@ Static Public Member Functions</h2></td></tr>
 <p>prepareEnclosure:  This method will prepare an enclosure character for an SQL statement. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">enclosure</td><td>The enclosure character to be prepared. </td></tr>
+    <tr><td class="paramname">token</td><td>The token to be prepared. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared enclosure character.  2011-04-02 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared token. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-25 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a1978ee9d667ff5b28c4937bb592e21d7"></a><!-- doxytag: member="ZIMSqlExpression::prepareIdentifier:" ref="a1978ee9d667ff5b28c4937bb592e21d7" args="(NSString *identifier)" -->
+<a class="anchor" id="ab3b2092c67dfe87ebee84dcfceb5f2b0"></a><!-- doxytag: member="ZIMSqlExpression::prepareIdentifier:" ref="ab3b2092c67dfe87ebee84dcfceb5f2b0" args="(NSString *token)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -137,7 +167,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">+ (NSString *) prepareIdentifier: </td>
           <td></td>
           <td class="paramtype">(NSString *)&#160;</td>
-          <td class="paramname"><em>identifier</em></td>
+          <td class="paramname"><em>token</em></td>
           <td></td>
         </tr>
       </table>
@@ -146,11 +176,12 @@ Static Public Member Functions</h2></td></tr>
 <p>prepareIdentifier:  This method will prepare an identifier for an SQL statement. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">field</td><td>The field to be prepared. </td></tr>
+    <tr><td class="paramname">token</td><td>The token to be prepared. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared field.  2011-06-16 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared token. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-25 </dd></dl>
 
 </div>
 </div>
@@ -175,7 +206,8 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared value.  2011-06-16 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared value. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-16 </dd></dl>
 
 </div>
 </div>
@@ -198,7 +230,7 @@ Static Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 16 2011 22:51:38 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jun 25 2011 03:49:13 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

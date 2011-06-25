@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlDropTriggerStatement
  @discussion			This class represents an SQL drop trigger statement.
- @updated				2011-04-02
+ @version				2011-04-02
  @see					http://www.sqlite.org/lang_droptrigger.html
  */
 
@@ -34,7 +34,7 @@
  @method				trigger:
  @discussion			This method will set the trigger used in the SQL statement.
  @param trigger			The trigger that will be used in the SQL statement.
- @updated				2011-03-18
+ @version				2011-03-18
  */
 - (void) trigger: (NSString *)trigger;
 /*!
@@ -42,14 +42,14 @@
  @discussion			This method will set the trigger used in the SQL statement.
  @param trigger			The trigger that will be used in the SQL statement.
  @param exists			This will determine whether the "IF EXISTS" keywords should added. 
- @updated				2011-03-18
+ @version				2011-03-18
  */
 - (void) trigger: (NSString *)trigger exists: (BOOL)exists;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-03-18
+ @version				2011-03-18
  */
 - (NSString *) statement;
 
