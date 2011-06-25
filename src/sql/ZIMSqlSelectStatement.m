@@ -56,7 +56,7 @@
 }
 
 - (void) column: (NSString *)column alias: (NSString *)alias {
-	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", [ZIMSqlExpression prepareIdentifier: column], alias]];
+	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareAlias: alias]]];
 }
 
 - (void) from: (NSString *)table {
@@ -64,7 +64,7 @@
 }
 
 - (void) from: (NSString *)table alias: (NSString *)alias {
-	[_table addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], alias]];
+	[_table addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareAlias: alias]]];
 }
 
 - (void) join: (NSString *)table {
@@ -80,7 +80,7 @@
 }
 
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type {
-	[self join: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], alias] type: type];
+	[self join: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareAlias: alias]] type: type];
 }
 
 - (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {

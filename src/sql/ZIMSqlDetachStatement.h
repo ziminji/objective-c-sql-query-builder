@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlDetachStatement
  @discussion			This class represents an SQL detach statement.
- @updated				2011-04-07
+ @version				2011-04-07
  @see					http://www.sqlite.org/lang_detach.html
  */
 @interface ZIMSqlDetachStatement : NSObject <ZIMSqlStatement> {
@@ -33,14 +33,14 @@
  @discussion			This method will cause the specified database to be detached from the current
 						database connection.
  @param database		The database name that will be detached.
- @updated				2011-04-07
+ @version				2011-04-07
  */
 - (void) database: (NSString *)database;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-04-07
+ @version				2011-04-07
  */
 - (NSString *) statement;
 

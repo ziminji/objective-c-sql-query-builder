@@ -76,9 +76,13 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a41f6408a31f6c37c2a378d00c88237c3">initWithDataSource:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a32286e073eb758cf7b32a72d0948cab0">initWithDataSource:withMultithreadingSupport:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#ac0c09f96772e8ad7064bbef7f1c118ff">open</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSNumber *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a0ea1d8e4bc1eb78c008d53f5fadb78bc">beginTransaction</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSNumber *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a957fa8820faeca66eea6626e1e1d3246">execute:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#aaf48a5365675593dd90a23a2c7bf9700">query:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#adad3089b46cdb02939d9953a67278c5c">query:asObject:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSNumber *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a76500f8c94df146d2ac0b6f431cc0690">rollback</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSNumber *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a9a10df7e92643726508ec3a56270c423">commit</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSNumber *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a46bdd87071ad6f7d76dc644d75e44e14">vacuum</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a323861ac70e1951acd3d335767c79d74">isConnected</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#ae1e6a0eab48ddc5a59e04106e03fc0cb">close</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(SEL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#ab51da49484131ed5b5e2741b855aa6f1">selectorForSettingColumnName:</a><code> [implementation]</code></td></tr>
@@ -99,8 +103,29 @@ Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_dao_connection.html#ab1f5163ffed36ca644e5d0fa5f7e4e58">_isConnected</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>This class represents an SQL statements.  2011-03-30 </p>
+<div class="textblock"><p>This class represents an SQL statements. </p>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-30 </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a0ea1d8e4bc1eb78c008d53f5fadb78bc"></a><!-- doxytag: member="ZIMDaoConnection::beginTransaction" ref="a0ea1d8e4bc1eb78c008d53f5fadb78bc" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSNumber *) beginTransaction </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>beginTransaction  This method will begin a transaction. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Whether the transaction has been started. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-23 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_transaction.html">http://www.sqlite.org/lang_transaction.html</a> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a827b505c516a339080d1c27b36cfef1d"></a><!-- doxytag: member="ZIMDaoConnection::capitalizeString:" ref="a827b505c516a339080d1c27b36cfef1d" args="(NSString *string)" -->
 <div class="memitem">
 <div class="memproto">
@@ -131,7 +156,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>close  This method will close an open database connection.  2011-03-23 </p>
+<p>close  This method will close an open database connection. </p>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-23 </dd></dl>
 
 </div>
 </div>
@@ -195,6 +221,26 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9a10df7e92643726508ec3a56270c423"></a><!-- doxytag: member="ZIMDaoConnection::commit" ref="a9a10df7e92643726508ec3a56270c423" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSNumber *) commit </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>commit  This method will commit a transaction. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Whether the transaction has been committed. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-23 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_transaction.html">http://www.sqlite.org/lang_transaction.html</a> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ad413e0d745cd214f2115ecf3f7dd0495"></a><!-- doxytag: member="ZIMDaoConnection::dataSource:execute:" ref="ad413e0d745cd214f2115ecf3f7dd0495" args="(NSString *dataSource,[execute] NSString *sql)" -->
 <div class="memitem">
 <div class="memproto">
@@ -227,7 +273,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Either the last insert row id or TRUE.  2011-04-03 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Either the last insert row id or TRUE. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-04-03 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/c3ref/last_insert_rowid.html">http://www.sqlite.org/c3ref/last_insert_rowid.html</a> </dd></dl>
 
 </div>
@@ -264,7 +311,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The result set.  2011-03-30 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The result set. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-30 </dd></dl>
 
 </div>
 </div>
@@ -307,7 +355,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The result set.  2011-04-03 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The result set. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-04-03 </dd></dl>
 
 </div>
 </div>
@@ -348,7 +397,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Either the last insert row id or TRUE.  2011-04-03 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Either the last insert row id or TRUE. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-23 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/c3ref/last_insert_rowid.html">http://www.sqlite.org/c3ref/last_insert_rowid.html</a> </dd>
 <dd>
 <a href="http://code.google.com/p/sqlite-manager/issues/detail?id=34">http://code.google.com/p/sqlite-manager/issues/detail?id=34</a> </dd></dl>
@@ -372,10 +422,11 @@ Protected Attributes</h2></td></tr>
 <p>initWithDataSource:  This constructor creates an instance of this class with the specified data source and will attempt to open a database connection. If the data source does not already exist in the working directoy, an attempt will be made to copy the data source from the resource directory to the working directory; otherwise, the data source will be created in the working directory. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">dataSource</td><td>The file name of the database to be used.  2011-03-30 </td></tr>
+    <tr><td class="paramname">dataSource</td><td>The file name of the database to be used. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-30 </dd></dl>
 
 </div>
 </div>
@@ -407,10 +458,11 @@ Protected Attributes</h2></td></tr>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">dataSource</td><td>The file name of the database to be used. </td></tr>
-    <tr><td class="paramname">multithreading</td><td>This determines whether locks should be used.  2011-04-16 </td></tr>
+    <tr><td class="paramname">multithreading</td><td>This determines whether locks should be used. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-04-16 </dd></dl>
 
 </div>
 </div>
@@ -428,7 +480,8 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>isConnected  This method checks whether a database connection currently exists. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Indicates whether a database connection exists.  2011-03-23 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Indicates whether a database connection exists. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-23 </dd></dl>
 
 </div>
 </div>
@@ -445,7 +498,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<p>open  This method will open a connection to the database.  2011-03-23 </p>
+<p>open  This method will open a connection to the database. </p>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-23 </dd></dl>
 
 </div>
 </div>
@@ -470,7 +524,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The result set (i.e. an array of records).  2011-04-02 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The result set (i.e. an array of records). </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-04-02 </dd></dl>
 
 </div>
 </div>
@@ -506,7 +561,28 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The result set (i.e. an array of records).  2011-04-03 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The result set (i.e. an array of records). </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-04-03 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a76500f8c94df146d2ac0b6f431cc0690"></a><!-- doxytag: member="ZIMDaoConnection::rollback" ref="a76500f8c94df146d2ac0b6f431cc0690" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSNumber *) rollback </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>rollback  This method will rollback a transaction. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Whether the transaction was rollbacked. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-23 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_transaction.html">http://www.sqlite.org/lang_transaction.html</a> </dd></dl>
 
 </div>
 </div>
@@ -524,6 +600,26 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a46bdd87071ad6f7d76dc644d75e44e14"></a><!-- doxytag: member="ZIMDaoConnection::vacuum" ref="a46bdd87071ad6f7d76dc644d75e44e14" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSNumber *) vacuum </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>vacuum  The method will rebuild the entire database. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Whether the command was successfully executed. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-23 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_vacuum.html">http://www.sqlite.org/lang_vacuum.html</a> </dd></dl>
 
 </div>
 </div>
@@ -599,7 +695,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 16 2011 22:51:38 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jun 25 2011 03:49:13 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

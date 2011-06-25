@@ -49,7 +49,7 @@ declare -r DATE_MODIFIED=$(date +%F)
 # @param $1				The hashmap to be queried.
 # @param $2				The key of the mapped value.
 # @return				The the value mapped to the specified key.
-# @updated				2011-04-09
+# @version				2011-04-09
 # @see					http://diggleby.com/create-keyvalue-pairs-in-bash/
 # @see					http://stackoverflow.com/questions/918886/split-string-based-on-delimiter-in-bash
 ##
@@ -76,7 +76,7 @@ function getValueFromHashMapWithKey {
 # @discussion			This function capitalize the first letter of a string.
 # @param $1				The string to be capitalized.
 # @return				The modified string.
-# @updated				2011-04-08
+# @version				2011-04-08
 # @see					http://www.linuxquestions.org/questions/programming-9/bash-scripting-capitalizing-first-letter-or-each-word-in-a-string-268182/)
 ##
 function ucfirst {
@@ -152,7 +152,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		echo "/*!" 1>> $MODEL_H
 		echo " @class $CLASS_NAME" 1>> $MODEL_H
 		echo " @discussion This class represents an SQLite database table." 1>> $MODEL_H
-		echo " @updated $DATE_MODIFIED" 1>> $MODEL_H
+		echo " @version $DATE_MODIFIED" 1>> $MODEL_H
 		echo " */" 1>> $MODEL_H
 		
 		##

@@ -20,7 +20,7 @@
 /*!
  @class					ZIMDaoConnection
  @discussion			This class represents an SQL statements.
- @updated				2011-03-30
+ @version				2011-03-30
  */
 @interface ZIMDaoConnection : NSObject {
 
@@ -39,7 +39,7 @@
 						the resource directory to the working directory; otherwise, the data source will be
 						created in the working directory.
  @param dataSource		The file name of the database to be used.
- @updated				2011-03-30
+ @version				2011-03-30
  */
 - (id) initWithDataSource: (NSString *)dataSource;
 /*!
@@ -51,20 +51,20 @@
 						created in the working directory.
  @param dataSource		The file name of the database to be used.
  @param multithreading	This determines whether locks should be used.
- @updated				2011-04-16
+ @version				2011-04-16
  */
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!
  @method				open
  @discussion			This method will open a connection to the database.
- @updated				2011-03-23
+ @version				2011-03-23
  */
 - (void) open;
 /*!
  @method				beginTransaction
  @discussion			This method will begin a transaction.
  @return				Whether the transaction has been started.
- @updated				2011-06-23
+ @version				2011-06-23
  @see					http://www.sqlite.org/lang_transaction.html
  */
 - (NSNumber *) beginTransaction;
@@ -73,7 +73,7 @@
  @discussion			This method will execute the specified SQL statement.
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-06-23
+ @version				2011-06-23
  @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  @see					http://code.google.com/p/sqlite-manager/issues/detail?id=34
  */
@@ -84,7 +84,7 @@
 						each record to an NSDictionary.
  @param sql				The SQL statement to be used.
  @return				The result set (i.e. an array of records).
- @updated				2011-04-02
+ @version				2011-04-02
  */
 - (NSArray *) query: (NSString *)sql;
 /*!
@@ -96,14 +96,14 @@
 						accessible instance variables and does not necessarily have to conform
 						to the Active Record design pattern.
  @return				The result set (i.e. an array of records).
- @updated				2011-04-03
+ @version				2011-04-03
  */
 - (NSArray *) query: (NSString *)sql asObject: (Class)model;
 /*!
  @method				rollback
  @discussion			This method will rollback a transaction.
  @return				Whether the transaction was rollbacked.
- @updated				2011-06-23
+ @version				2011-06-23
  @see					http://www.sqlite.org/lang_transaction.html
  */
 - (NSNumber *) rollback;
@@ -111,7 +111,7 @@
  @method				commit
  @discussion			This method will commit a transaction.
  @return				Whether the transaction has been committed.
- @updated				2011-06-23
+ @version				2011-06-23
  @see					http://www.sqlite.org/lang_transaction.html
  */
 - (NSNumber *) commit;
@@ -119,7 +119,7 @@
  @method				vacuum
  @discussion			The method will rebuild the entire database.
  @return				Whether the command was successfully executed.
- @updated				2011-06-23
+ @version				2011-06-23
  @see					http://www.sqlite.org/lang_vacuum.html
  */
 - (NSNumber *) vacuum;
@@ -127,13 +127,13 @@
  @method				isConnected
  @discussion			This method checks whether a database connection currently exists.
  @return				Indicates whether a database connection exists.
- @updated				2011-03-23
+ @version				2011-03-23
  */
 - (BOOL) isConnected;
 /*!
  @method				close
  @discussion			This method will close an open database connection.
- @updated				2011-03-23
+ @version				2011-03-23
  */
 - (void) close;
 /*!
@@ -142,7 +142,7 @@
  @param dataSource		The file name of the database to be used.
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-04-03
+ @version				2011-04-03
  @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  */
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql;
@@ -152,7 +152,7 @@
  @param dataSource		The file name of the database to be used.
  @param sql				The SQL statement to be used.
  @return				The result set.
- @updated				2011-03-30
+ @version				2011-03-30
  */
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql;
 /*!
@@ -164,7 +164,7 @@
 						accessible instance variables and does not necessarily have to conform
 						to the Active Record design pattern.
  @return				The result set.
- @updated				2011-04-03
+ @version				2011-04-03
  */
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql asObject: (Class)model;
 
