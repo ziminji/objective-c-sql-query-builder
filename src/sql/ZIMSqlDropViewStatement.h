@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlDropViewStatement
  @discussion			This class represents an SQL drop view statement.
- @updated				2011-04-02
+ @version				2011-04-02
  @see					http://www.sqlite.org/lang_dropview.html
  */
 
@@ -34,7 +34,7 @@
  @method				view:
  @discussion			This method will set the view used in the SQL statement.
  @param view			The view that will be used in the SQL statement.
- @updated				2011-03-18
+ @version				2011-03-18
  */
 - (void) view: (NSString *)view;
 /*!
@@ -42,14 +42,14 @@
  @discussion			This method will set the view used in the SQL statement.
  @param view			The view that will be used in the SQL statement.
  @param exists			This will determine whether the "IF EXISTS" keywords should added. 
- @updated				2011-06-23
+ @version				2011-06-23
  */
 - (void) view: (NSString *)view exists: (BOOL)exists;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-03-18
+ @version				2011-03-18
  */
 - (NSString *) statement;
 

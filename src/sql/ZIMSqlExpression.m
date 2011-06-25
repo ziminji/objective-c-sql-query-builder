@@ -85,33 +85,40 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 
 @implementation ZIMSqlExpression
 
-+ (NSString *) prepareConnector: (NSString *)connector {
-	connector = [connector uppercaseString];
-	if (!([connector isEqualToString: ZIMSqlConnectorAnd] || [connector isEqualToString: ZIMSqlConnectorOr])) {
++ (NSString *) prepareAlias: (NSString *)token {
+	NSCharacterSet *removables = [NSCharacterSet characterSetWithCharactersInString: @";\"'`[]\n\r"];
+	token = [[token componentsSeparatedByCharactersInSet: removables] componentsJoinedByString: @""].
+	token = [NSString stringWithFormat: @"[%@]", token];
+	return token;
+}
+
++ (NSString *) prepareConnector: (NSString *)token {
+	token = [token uppercaseString];
+	if (!([token isEqualToString: ZIMSqlConnectorAnd] || [token isEqualToString: ZIMSqlConnectorOr])) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid connector token provided." userInfo: nil];
 	}
-	return connector;
+	return token;
 }
 
-+ (NSString *) prepareEnclosure: (NSString *)enclosure {
-	if (!([enclosure isEqualToString: ZIMSqlEnclosureOpeningBrace] || [enclosure isEqualToString: ZIMSqlEnclosureClosingBrace])) {
++ (NSString *) prepareEnclosure: (NSString *)token {
+	if (!([token isEqualToString: ZIMSqlEnclosureOpeningBrace] || [token isEqualToString: ZIMSqlEnclosureClosingBrace])) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid enclosure token provided." userInfo: nil];
 	}
-	return enclosure;
+	return token;
 }
 
-+ (NSString *) prepareIdentifier: (NSString *)identifier {
-	if (([identifier length] >= 6)  && [[[identifier substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"SELECT"]) {
-		while ([identifier hasSuffix: @";"]) {
-			identifier = [identifier substringWithRange: NSMakeRange(0, [identifier length] - 1)];
++ (NSString *) prepareIdentifier: (NSString *)token {
+	if (([token length] >= 6)  && [[[token substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"SELECT"]) {
+		while ([token hasSuffix: @";"]) {
+			token = [token substringWithRange: NSMakeRange(0, [token length] - 1)];
 		}
-		identifier = [NSString stringWithFormat: @"(%@)", identifier];
-		return identifier;
+		token = [NSString stringWithFormat: @"(%@)", token];
+		return token;
 	}
 	/*
-	NSMutableString *result = [NSMutableString stringWithCapacity: [identifier length]];
-	NSScanner *scanner = [NSScanner scannerWithString: identifier];
-	NSCharacterSet *stopSet = [NSCharacterSet characterSetWithCharactersInString: @"\"'`[]\n\r"];
+	NSMutableString *result = [NSMutableString stringWithCapacity: [token length]];
+	NSScanner *scanner = [NSScanner scannerWithString: token];
+	NSCharacterSet *stopSet = [NSCharacterSet characterSetWithCharactersInString: @";\"'`[]\n\r"];
 	while (![scanner isAtEnd]) {
 	 	NSString *buffer;
 		if ([scanner scanUpToCharactersFromSet: stopSet intoString: &buffer]) {
@@ -122,9 +129,9 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	 	}
 	}
 	NSArray *segments = [result componentsSeparatedByString: @"."];
-	identifier = [NSString stringWithFormat: @"[%@]", [segments componentsJoinedByString: @"].["]];
+	token = [NSString stringWithFormat: @"[%@]", [segments componentsJoinedByString: @"].["]];
 	*/
-	return identifier;
+	return token;
 }
 
 + (NSString *) prepareValue: (id)value {

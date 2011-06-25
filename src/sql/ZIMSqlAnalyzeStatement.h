@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlAnalyzeStatement
  @discussion			This class represents an SQL analyze statement.
- @updated				2011-04-07
+ @version				2011-04-07
  @see					http://www.sqlite.org/lang_analyze.html
  */
 @interface ZIMSqlAnalyzeStatement : NSObject <ZIMSqlStatement> {
@@ -32,14 +32,14 @@
  @method				table:
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
- @updated				2011-06-20
+ @version				2011-06-20
  */
 - (void) table: (NSString *)table;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-04-01
+ @version				2011-04-01
  */
 - (NSString *) statement;
 

@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlShowTablesStatement
  @discussion			This class represents an SQL show tables statement.
- @updated				2011-04-02
+ @version				2011-04-02
  @see					http://dev.mysql.com/doc/refman/5.0/en/show-tables.html
  */
 @interface ZIMSqlShowTablesStatement : NSObject <ZIMSqlStatement> {
@@ -32,14 +32,14 @@
  @method				like:
  @discussion			This method will cause only those tables that match the specified
 						like constraint.
- @updated				2011-06-20
+ @version				2011-06-20
  */
 - (void) like: (NSString *)value;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-06-20
+ @version				2011-06-20
  */
 - (NSString *) statement;
 

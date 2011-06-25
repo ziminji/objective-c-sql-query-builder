@@ -128,41 +128,49 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
 /*!
  @class					ZIMSqlExpression
  @discussion			This class contains a set of methods to help process input.
- @updated				2011-04-02
+ @version				2011-04-02
  */
 @interface ZIMSqlExpression : NSObject {
 
 }
 /*!
+ @method				prepareAlias:
+ @discussion			This method will prepare an alias for an SQL statement.
+ @param token			The token to be prepared.
+ @return				The prepared token.
+ @version				2011-06-25
+ */
++ (NSString *) prepareAlias: (NSString *)token;
+/*!
  @method				prepareConnector:
  @discussion			This method will prepare a connector for an SQL statement.
- @param connector		The connector to be prepared.
- @return				The prepared field.
- @updated				2011-04-02
+ @param token			The token to be prepared.
+ @return				The prepared token.
+ @version				2011-06-25
  */
-+ (NSString *) prepareConnector: (NSString *)connector;
++ (NSString *) prepareConnector: (NSString *)token;
 /*!
  @method				prepareEnclosure:
  @discussion			This method will prepare an enclosure character for an SQL statement.
- @param enclosure		The enclosure character to be prepared.
- @return				The prepared enclosure character.
- @updated				2011-04-02
+ @param token			The token to be prepared.
+ @return				The prepared token.
+ @version				2011-06-25
  */
-+ (NSString *) prepareEnclosure: (NSString *)enclosure;
++ (NSString *) prepareEnclosure: (NSString *)token;
 /*!
  @method				prepareIdentifier:
  @discussion			This method will prepare an identifier for an SQL statement.
- @param field			The field to be prepared.
- @return				The prepared field.
- @updated				2011-06-23
+ @param token			The token to be prepared.
+ @return				The prepared token.
+ @version				2011-06-25
  */
-+ (NSString *) prepareIdentifier: (NSString *)identifier;
++ (NSString *) prepareIdentifier: (NSString *)token;
 /*!
  @method				prepareValue:
  @discussion			This method will prepare a value for an SQL statement.
  @param value			The value to be prepared.
  @return				The prepared value.
- @updated				2011-06-16
+ @version				2011-06-16
  */
 + (NSString *) prepareValue: (id)value;
 

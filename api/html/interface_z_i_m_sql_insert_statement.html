@@ -81,7 +81,7 @@ Inheritance diagram for ZIMSqlInsertStatement:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_insert_statement.html#ae33358fc02d4ceaea5c0b4f7e5fe5f3a">table:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_insert_statement.html#a59a707a9a940fb9cbdba83f2e1a6a11e">into:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_insert_statement.html#a7c4e095ac880e003c758e5fcb44509db">column:value:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_insert_statement.html#a67f62f89532661ff69b9cf164a13dc63">statement</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_insert_statement.html#a96a760eb05e01e8568b59ae647a67cc9">init</a><code> [implementation]</code></td></tr>
@@ -92,7 +92,8 @@ Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableDictionary *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_insert_statement.html#a87bced63deb1b1f4ffadf9d7234ef2d9">_column</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>This class represents an SQL insert statement.  2011-04-07 </p>
+<div class="textblock"><p>This class represents an SQL insert statement. </p>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-04-07 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_insert.html">http://www.sqlite.org/lang_insert.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a7c4e095ac880e003c758e5fcb44509db"></a><!-- doxytag: member="ZIMSqlInsertStatement::column:value:" ref="a7c4e095ac880e003c758e5fcb44509db" args="(NSString *column,[value] id value)" -->
@@ -123,10 +124,11 @@ Protected Attributes</h2></td></tr>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">column</td><td>The column where the value will be inserted. </td></tr>
-    <tr><td class="paramname">value</td><td>The value to be inserted.  2011-04-01 </td></tr>
+    <tr><td class="paramname">value</td><td>The value to be inserted. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-04-01 </dd></dl>
 
 </div>
 </div>
@@ -162,6 +164,31 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a59a707a9a940fb9cbdba83f2e1a6a11e"></a><!-- doxytag: member="ZIMSqlInsertStatement::into:" ref="a59a707a9a940fb9cbdba83f2e1a6a11e" args="(NSString *table)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) into: </td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>table</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>into:  This method will set the table used in the SQL statement. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The table that will be used in the SQL statement. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-23 </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a67f62f89532661ff69b9cf164a13dc63"></a><!-- doxytag: member="ZIMSqlInsertStatement::statement" ref="a67f62f89532661ff69b9cf164a13dc63" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -176,33 +203,10 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>statement  This method will return the SQL statement. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed.  2011-03-19 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-19 </dd></dl>
 
 <p>Reimplemented from <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae33358fc02d4ceaea5c0b4f7e5fe5f3a"></a><!-- doxytag: member="ZIMSqlInsertStatement::table:" ref="ae33358fc02d4ceaea5c0b4f7e5fe5f3a" args="(NSString *table)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (void) table: </td>
-          <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
-          <td class="paramname"><em>table</em></td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>table:  This method will set the table used in the SQL statement. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">table</td><td>The table that will be used in the SQL statement.  2011-03-13 </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -252,7 +256,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 16 2011 22:51:38 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jun 25 2011 03:49:13 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

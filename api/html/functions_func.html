@@ -99,6 +99,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>beginTransaction
+: <a class="el" href="interface_z_i_m_dao_connection.html#a0ea1d8e4bc1eb78c008d53f5fadb78bc">ZIMDaoConnection</a>
+</li>
 <li>belongsTo:foreignKey:
 : <a class="el" href="interface_z_i_m_orm_model.html#ae840cfe7ae087e66039fbb44d6ecaa37">ZIMOrmModel</a>
 </li>
@@ -147,8 +150,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>columnValueAtIndex:withColumnType:inStatement:
 : <a class="el" href="interface_z_i_m_dao_connection.html#aa125676665460ddabbd6027fabc0dab0">ZIMDaoConnection</a>
 </li>
-<li>compoundWith:operator:
-: <a class="el" href="interface_z_i_m_sql_select_statement.html#a54d72a63b0e0aaa2002653260deb1675">ZIMSqlSelectStatement</a>
+<li>combine:operator:
+: <a class="el" href="interface_z_i_m_sql_select_statement.html#a36544178c79b512e48d32b79ee0a3bce">ZIMSqlSelectStatement</a>
+</li>
+<li>commit
+: <a class="el" href="interface_z_i_m_dao_connection.html#a9a10df7e92643726508ec3a56270c423">ZIMDaoConnection</a>
 </li>
 </ul>
 
@@ -173,9 +179,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="interface_z_i_m_dao_connection.html#a975dba866dcae5242d01bf26bbda52f9">ZIMDaoConnection</a>
 </li>
 <li>dealloc
-: <a class="el" href="interface_z_i_m_sql_show_tables_statement.html#a94660b06b4aec471bdcdf2ed0c07e09d">ZIMSqlShowTablesStatement</a>
-, <a class="el" href="interface_z_i_m_sql_select_statement.html#a450836bfedca5e47d2b335f5fe750a08">ZIMSqlSelectStatement</a>
-, <a class="el" href="interface_z_i_m_sql_insert_statement.html#a5621dae46b04a132a2e9efa64e9c7417">ZIMSqlInsertStatement</a>
+: <a class="el" href="interface_z_i_m_sql_select_statement.html#a450836bfedca5e47d2b335f5fe750a08">ZIMSqlSelectStatement</a>
+, <a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a6282e0f1ab1e32c07c863c02152d71f2">ZIMSqlTruncateTableStatement</a>
 , <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#aa2ebd7da3b75505ba1ba8c0e26c4f73a">ZIMSqlDropViewStatement</a>
 , <a class="el" href="interface_z_i_m_sql_drop_trigger_statement.html#adccbd74991690edd1a983759597b65e2">ZIMSqlDropTriggerStatement</a>
 , <a class="el" href="interface_z_i_m_orm_model.html#a78233988637586da2e60abe5be28fb55">ZIMOrmModel</a>
@@ -185,13 +190,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ac5fa59eaa6f08ec22888d091be2518f1">ZIMSqlCreateTableStatement</a>
 , <a class="el" href="interface_z_i_m_sql_update_statement.html#a81c32763f90dd2bfa9a7bc5a9756260f">ZIMSqlUpdateStatement</a>
 , <a class="el" href="interface_z_i_m_sql_analyze_statement.html#a4c11ebc60eccf7b052393f0c2dbd2441">ZIMSqlAnalyzeStatement</a>
-, <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a18dec0b99f1dfafd249b5b8b6b3bde3a">ZIMSqlAlterTableStatement</a>
+, <a class="el" href="interface_z_i_m_sql_insert_statement.html#a5621dae46b04a132a2e9efa64e9c7417">ZIMSqlInsertStatement</a>
 , <a class="el" href="interface_z_i_m_sql_drop_table_statement.html#ada381401d2fe026d5df1f0f7d21f64ba">ZIMSqlDropTableStatement</a>
 , <a class="el" href="interface_z_i_m_orm_select_statement.html#a1f80a7f360b9022b7ebf6d09c00c11f1">ZIMOrmSelectStatement</a>
 , <a class="el" href="interface_z_i_m_dao_connection.html#a9474fb8db92f6811c136ebce152990b5">ZIMDaoConnection</a>
 , <a class="el" href="interface_z_i_m_sql_attach_statement.html#acaa482a8feddb800f8159a2684517bf5">ZIMSqlAttachStatement</a>
-, <a class="el" href="interface_z_i_m_sql_vacuum_statement.html#a45c92eb7d8f8275e117ac698bfeff5cc">ZIMSqlVacuumStatement</a>
-, <a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a6282e0f1ab1e32c07c863c02152d71f2">ZIMSqlTruncateTableStatement</a>
+, <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a18dec0b99f1dfafd249b5b8b6b3bde3a">ZIMSqlAlterTableStatement</a>
+, <a class="el" href="interface_z_i_m_sql_show_tables_statement.html#a94660b06b4aec471bdcdf2ed0c07e09d">ZIMSqlShowTablesStatement</a>
 </li>
 <li>delete
 : <a class="el" href="interface_z_i_m_orm_model.html#ad9b9c6e1827feae95c9ace43c47fb6c2">ZIMOrmModel</a>
@@ -281,16 +286,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a43f1346d5405f957434848061fb6b529">ZIMSqlTruncateTableStatement</a>
 , <a class="el" href="interface_z_i_m_sql_detach_statement.html#a7e2d2fac4b690bd9c55b68b245b40529">ZIMSqlDetachStatement</a>
 , <a class="el" href="interface_z_i_m_sql_update_statement.html#a9d570bf006ee753c288f79b72faebe2a">ZIMSqlUpdateStatement</a>
-, <a class="el" href="interface_z_i_m_sql_vacuum_statement.html#a402244c56848f1aef6e41e1d7d951733">ZIMSqlVacuumStatement</a>
 , <a class="el" href="interface_z_i_m_sql_analyze_statement.html#a02e6fe8b79540e4b270701e7841ec738">ZIMSqlAnalyzeStatement</a>
 , <a class="el" href="interface_z_i_m_sql_drop_index_statement.html#a9b1b407d75bb7e2372f9ecaee7b13834">ZIMSqlDropIndexStatement</a>
 , <a class="el" href="interface_z_i_m_sql_drop_table_statement.html#a65c3f95a74ce4715989c03048d824d9a">ZIMSqlDropTableStatement</a>
+, <a class="el" href="interface_z_i_m_orm_model.html#a7b0c9674ccc23668ea472aa8a34f5960">ZIMOrmModel</a>
 , <a class="el" href="interface_z_i_m_sql_select_statement.html#a874169fb8b83e856cf3a658efae19b73">ZIMSqlSelectStatement</a>
 , <a class="el" href="interface_z_i_m_sql_insert_statement.html#a96a760eb05e01e8568b59ae647a67cc9">ZIMSqlInsertStatement</a>
 , <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a86346dd2dbe8be1a420a015eda3c2dd6">ZIMSqlDropViewStatement</a>
-, <a class="el" href="interface_z_i_m_sql_drop_trigger_statement.html#ae84454335ee6c888e840481ca6061c55">ZIMSqlDropTriggerStatement</a>
-, <a class="el" href="interface_z_i_m_orm_model.html#a7b0c9674ccc23668ea472aa8a34f5960">ZIMOrmModel</a>
 , <a class="el" href="interface_z_i_m_sql_attach_statement.html#a08cb53ad384e4d9d1d446a2aae4c6f14">ZIMSqlAttachStatement</a>
+, <a class="el" href="interface_z_i_m_sql_drop_trigger_statement.html#ae84454335ee6c888e840481ca6061c55">ZIMSqlDropTriggerStatement</a>
 , <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ac1b65ab837b5293b0742d94884d1cc14">ZIMSqlCreateTableStatement</a>
 </li>
 <li>initWithDataSource:
@@ -301,6 +305,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>initWithModel:
 : <a class="el" href="interface_z_i_m_orm_select_statement.html#a9ad9f502e5e6037096aad5163a6115a1">ZIMOrmSelectStatement</a>
+</li>
+<li>into:
+: <a class="el" href="interface_z_i_m_sql_insert_statement.html#a59a707a9a940fb9cbdba83f2e1a6a11e">ZIMSqlInsertStatement</a>
 </li>
 <li>isAutoIncremented
 : <a class="el" href="interface_z_i_m_orm_model.html#a3242f025f4aa10919089ab00fb1f5f0d">ZIMOrmModel</a>
@@ -387,14 +394,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>prepareAlias:
+: <a class="el" href="interface_z_i_m_sql_expression.html#aaedde0f875533c61d7dd039d8516adf7">ZIMSqlExpression</a>
+</li>
 <li>prepareConnector:
-: <a class="el" href="interface_z_i_m_sql_expression.html#a022da505eef9667c762f865dd2b02d34">ZIMSqlExpression</a>
+: <a class="el" href="interface_z_i_m_sql_expression.html#a7dd6dd5442d4ba58bfc5d16f0a18051e">ZIMSqlExpression</a>
 </li>
 <li>prepareEnclosure:
-: <a class="el" href="interface_z_i_m_sql_expression.html#a5ad6a50f4994ac701521ace235d3b691">ZIMSqlExpression</a>
+: <a class="el" href="interface_z_i_m_sql_expression.html#a961fa6c087fc0c25c1d3747da74f9eb6">ZIMSqlExpression</a>
 </li>
 <li>prepareIdentifier:
-: <a class="el" href="interface_z_i_m_sql_expression.html#a1978ee9d667ff5b28c4937bb592e21d7">ZIMSqlExpression</a>
+: <a class="el" href="interface_z_i_m_sql_expression.html#ab3b2092c67dfe87ebee84dcfceb5f2b0">ZIMSqlExpression</a>
 </li>
 <li>prepareValue:
 : <a class="el" href="interface_z_i_m_sql_expression.html#a92b265f70057cea3871dc47115be0d5e">ZIMSqlExpression</a>
@@ -425,6 +435,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>rename:
 : <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#aa371c31f892f0cebabbc01b775839b2e">ZIMSqlAlterTableStatement</a>
 </li>
+<li>rollback
+: <a class="el" href="interface_z_i_m_dao_connection.html#a76500f8c94df146d2ac0b6f431cc0690">ZIMDaoConnection</a>
+</li>
 </ul>
 
 
@@ -436,8 +449,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="interface_z_i_m_dao_connection.html#ab51da49484131ed5b5e2741b855aa6f1">ZIMDaoConnection</a>
 </li>
 <li>statement
-: <a class="el" href="interface_z_i_m_sql_vacuum_statement.html#aa52adf1153de3f2889356c9eafb9573b">ZIMSqlVacuumStatement</a>
-, <a class="el" href="interface_z_i_m_sql_update_statement.html#aef99a3e923ce38dbd06801bab88ffa61">ZIMSqlUpdateStatement</a>
+: <a class="el" href="interface_z_i_m_sql_update_statement.html#aef99a3e923ce38dbd06801bab88ffa61">ZIMSqlUpdateStatement</a>
 , <a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#ae92397cb1aa6434b5609f7bbb4911f92">ZIMSqlTruncateTableStatement</a>
 , <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>
 , <a class="el" href="interface_z_i_m_sql_show_tables_statement.html#a172860e0ae46077eebe198f022e7fdbd">ZIMSqlShowTablesStatement</a>
@@ -465,11 +477,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>table:
 : <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ae83fc88619b8a66f255c5ebdb048a59b">ZIMSqlAlterTableStatement</a>
 , <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a0cf8efec5da18becf3a910635b71b70c">ZIMSqlCreateTableStatement</a>
-, <a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a81cd29751aba6aebcdb25088f86cc58b">ZIMSqlTruncateTableStatement</a>
 , <a class="el" href="interface_z_i_m_sql_update_statement.html#a3db318ec81cff056e7b272d74a76e459">ZIMSqlUpdateStatement</a>
 , <a class="el" href="interface_z_i_m_sql_delete_statement.html#a95ccb1769b788bb191ee6ae7faed7161">ZIMSqlDeleteStatement</a>
 , <a class="el" href="interface_z_i_m_sql_analyze_statement.html#a78843b33e4a8d0cde2575eec490ccc19">ZIMSqlAnalyzeStatement</a>
-, <a class="el" href="interface_z_i_m_sql_insert_statement.html#ae33358fc02d4ceaea5c0b4f7e5fe5f3a">ZIMSqlInsertStatement</a>
+, <a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a81cd29751aba6aebcdb25088f86cc58b">ZIMSqlTruncateTableStatement</a>
 , <a class="el" href="interface_z_i_m_sql_drop_table_statement.html#acb55a0a23e0fe69801f2ad96ca1f3500">ZIMSqlDropTableStatement</a>
 </li>
 <li>table:exists:
@@ -495,6 +506,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_v"></a>- v -</h3><ul>
+<li>vacuum
+: <a class="el" href="interface_z_i_m_dao_connection.html#a46bdd87071ad6f7d76dc644d75e44e14">ZIMDaoConnection</a>
+</li>
 <li>view:
 : <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a7e803c58358f83950e79eba73a02ecfe">ZIMSqlDropViewStatement</a>
 </li>
@@ -557,7 +571,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 16 2011 22:51:38 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jun 25 2011 03:49:13 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

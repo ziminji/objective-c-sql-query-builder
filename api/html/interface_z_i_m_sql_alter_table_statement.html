@@ -97,7 +97,8 @@ Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#afcfc2108a5af1989006200bfa98d932e">_clause</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>This class represents an SQL alter table statement.  2011-04-07 </p>
+<div class="textblock"><p>This class represents an SQL alter table statement. </p>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-04-07 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_altertable.html">http://www.sqlite.org/lang_altertable.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a68196c0a85fed6fb53a1654201a04c30"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::autoincrement:" ref="a68196c0a85fed6fb53a1654201a04c30" args="(NSInteger position)" -->
@@ -117,10 +118,11 @@ Protected Attributes</h2></td></tr>
 <p>autoincrement:  This method will change the autoincrement position. WARNING: ALTERING TABLE VIA THIS METHOD MAY CAUSE PROBLEMS WITH THE AUTOINCREMENT KEY GENERATION ALGORITHM. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">position</td><td>The position to which the autoincrementer will be set.  2011-04-12 </td></tr>
+    <tr><td class="paramname">position</td><td>The position to which the autoincrementer will be set. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-20 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://sqlite.org/autoinc.html">http://sqlite.org/autoinc.html</a> </dd>
 <dd>
 <a href="http://stackoverflow.com/questions/3443630/reset-the-row-number-count-in-sqlite3-mysql">http://stackoverflow.com/questions/3443630/reset-the-row-number-count-in-sqlite3-mysql</a> </dd></dl>
@@ -155,10 +157,11 @@ Protected Attributes</h2></td></tr>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">column</td><td>The column to be created. </td></tr>
-    <tr><td class="paramname">type</td><td>The datatype of the column.  2011-03-29 </td></tr>
+    <tr><td class="paramname">type</td><td>The datatype of the column. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-29 </dd></dl>
 
 </div>
 </div>
@@ -197,10 +200,11 @@ Protected Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">column</td><td>The column to be created. </td></tr>
     <tr><td class="paramname">type</td><td>The datatype of the column. </td></tr>
-    <tr><td class="paramname">defaultValue</td><td>The default value to be used when no data is provided.  2011-03-29 </td></tr>
+    <tr><td class="paramname">defaultValue</td><td>The default value to be used when no data is provided. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-29 </dd></dl>
 
 </div>
 </div>
@@ -239,10 +243,11 @@ Protected Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">column</td><td>The column to be created. </td></tr>
     <tr><td class="paramname">type</td><td>The datatype of the column. </td></tr>
-    <tr><td class="paramname">primaryKey</td><td>This marks the specified column as the primary key.  2011-03-29 </td></tr>
+    <tr><td class="paramname">primaryKey</td><td>This marks the specified column as the primary key. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-29 </dd></dl>
 
 </div>
 </div>
@@ -281,10 +286,11 @@ Protected Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">column</td><td>The column to be created. </td></tr>
     <tr><td class="paramname">type</td><td>The datatype of the column. </td></tr>
-    <tr><td class="paramname">unique</td><td>This constrains the column to only unique values.  2011-03-29 </td></tr>
+    <tr><td class="paramname">unique</td><td>This constrains the column to only unique values. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-29 </dd></dl>
 
 </div>
 </div>
@@ -337,10 +343,11 @@ Protected Attributes</h2></td></tr>
 <p>rename:  This method will set the table used in the SQL statement. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">table</td><td>The table that will be used in the SQL statement.  2011-03-29 </td></tr>
+    <tr><td class="paramname">table</td><td>The table that will be used in the SQL statement. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-03-29 </dd></dl>
 
 </div>
 </div>
@@ -358,7 +365,8 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 <p>statement  This method will return the SQL statement. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed.  2011-04-12 </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed. </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-20 </dd></dl>
 
 <p>Reimplemented from <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>.</p>
 
@@ -381,10 +389,11 @@ Protected Attributes</h2></td></tr>
 <p>table:  This method will set the table used in the SQL statement. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">table</td><td>The table that will be used in the SQL statement.  2011-03-29 </td></tr>
+    <tr><td class="paramname">table</td><td>The table that will be used in the SQL statement. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>2011-06-20 </dd></dl>
 
 </div>
 </div>
@@ -434,7 +443,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 16 2011 22:51:38 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sat Jun 25 2011 03:49:13 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
