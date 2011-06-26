@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-#import "ZIMSqlShowTablesStatement.h"
+#import "ZIMSqlCreateViewStatement.h"
 
-@implementation ZIMSqlShowTablesStatement
+@implementation ZIMSqlCreateViewStatement
 
 - (id) init {
 	if (self = [super init]) {
-		_clause = nil;
+		_view = nil;
+		_temporary = NO;
+		_statement = nil;
 	}
 	return self;
 }
@@ -29,23 +31,34 @@
 	[super dealloc];
 }
 
-- (void) like: (NSString *)value {
-	_clause = [NSString stringWithFormat: @"[name] LIKE %@", [ZIMSqlExpression prepareValue: value]];
+- (void) view: (NSString *)view {
+	[self view: view temporary: NO];
+}
+
+- (void) view: (NSString *)view temporary: (BOOL)temporary {
+	_view = [ZIMSqlExpression prepareIdentifier: view];
+	_temporary = temporary;
+}
+
+- (void) sql: (NSString *)statement {
+	_statement = statement;
 }
 
 - (NSString *) statement {
 	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
 
-	[sql appendString: @"SELECT [name] FROM [sqlite_master] WHERE [type] = 'table' AND [name] NOT IN ('sqlite_sequence')"];
+	[sql appendString: @"CREATE "];
 
-	if (_clause != nil) {
-		[sql appendFormat: @" AND %@", _clause];
+	if (_temporary) {
+		[sql appendString: @"TEMPORARY "];
 	}
-
-	[sql appendString: @" ORDER BY [name];"]
-
-	[sql appendString: @";"];
 	
+	[sql appendFormat: @"VIEW %@ AS ", _view];
+
+	[sql appendString: _statement];
+	
+	[sql appendString: @";"];
+
 	return sql;
 }
 
