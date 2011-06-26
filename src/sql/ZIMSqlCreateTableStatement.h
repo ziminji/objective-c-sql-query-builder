@@ -34,16 +34,18 @@
 }
 /*!
  @method				table:
- @discussion			This method will set the table used in the SQL statement.
- @param table			The table that will be used in the SQL statement.
- @version				2011-03-19
+ @discussion			This method sets the name for the table in the SQL statement.
+ @param view			The table's name.
+ @version				2011-06-26
  */
 - (void) table: (NSString *)table;
 /*!
  @method				table:temporary:
- @discussion			This method will set the table used in the SQL statement.
- @param table			The table that will be used in the SQL statement.
- @version				2011-03-27
+ @discussion			This method sets the name for the table in the SQL statement and whether it
+						is temporary or not.
+ @param view			The table's name.
+ @param temporary		This establishes whether the table will be temporary.
+ @version				2011-06-26
  */
 - (void) table: (NSString *)table temporary: (BOOL)temporary;
 /*!

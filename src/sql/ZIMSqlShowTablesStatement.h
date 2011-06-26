@@ -19,8 +19,9 @@
 /*!
  @class					ZIMSqlShowTablesStatement
  @discussion			This class represents an SQL show tables statement.
- @version				2011-04-02
+ @version				2011-06-26
  @see					http://dev.mysql.com/doc/refman/5.0/en/show-tables.html
+ @see					http://www.sqlite.org/faq.html#q7
  */
 @interface ZIMSqlShowTablesStatement : NSObject <ZIMSqlStatement> {
 
@@ -39,7 +40,7 @@
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @version				2011-06-20
+ @version				2011-06-26
  */
 - (NSString *) statement;
 
