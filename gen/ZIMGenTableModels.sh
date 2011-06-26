@@ -113,7 +113,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 	##
 	# Fetches an array of table names from the specified datatbase (@see http://mailliststock.wordpress.com/2007/03/01/sqlite-examples-with-bash-perl-and-python/)
 	##
-	tables=`sqlite3 $database "SELECT [tbl_name] FROM [sqlite_master] WHERE [type] = 'table' AND [tbl_name] NOT IN ('sqlite_sequence');"`
+	tables=`sqlite3 $database "SELECT [name] FROM [sqlite_master] WHERE [type] = 'table' AND [name] NOT IN ('sqlite_sequence');"`
 
 	##
 	# Creates a model (i.e. an Active Records) for each table in the database.

@@ -39,7 +39,7 @@
 }
 
 - (void) table: (NSString *)table temporary: (BOOL)temporary {
-	_table = table;
+	_table = [ZIMSqlExpression prepareIdentifier: table];
 	_temporary = temporary;
 }
 
