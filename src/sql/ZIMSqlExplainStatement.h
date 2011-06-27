@@ -22,7 +22,7 @@
 /*!
  @class					ZIMSqlExplainStatement
  @discussion			This class represents an SQL explain statement.
- @version				2011-06-26
+ @updated				2011-06-26
  @see					http://www.sqlite.org/lang_explain.html
  */
 @interface ZIMSqlExplainStatement : NSObject <ZIMSqlStatement> {
@@ -37,21 +37,21 @@
  @discussion			This method will modify the level of data to be return by the SQL statement.
  @param level			The level of data to be returned (i.e. level 0 is for machine instructions and
 						level 1 is for high level information).
- @version				2011-06-25
+ @updated				2011-06-25
  */
 - (void) level: (NSInteger)level;
 /*!
  @method				sql:
  @discussion			This method will set the SQL statement that will be described.
  @param statement		The SQL statement to be described.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 - (void) sql: (id<ZIMSqlStatement>)statement;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 - (NSString *) statement;
 

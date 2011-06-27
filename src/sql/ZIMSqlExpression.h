@@ -128,7 +128,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
 /*!
  @class					ZIMSqlExpression
  @discussion			This class contains a set of methods to help process input.
- @version				2011-04-02
+ @updated				2011-04-02
  */
 @interface ZIMSqlExpression : NSObject {
 
@@ -138,7 +138,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare an alias for an SQL statement.
  @param token			The token to be prepared.
  @return				The prepared token.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 + (NSString *) prepareAlias: (NSString *)token;
 /*!
@@ -146,7 +146,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare a connector for an SQL statement.
  @param token			The token to be prepared.
  @return				The prepared token.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 + (NSString *) prepareConnector: (NSString *)token;
 /*!
@@ -154,7 +154,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare an enclosure character for an SQL statement.
  @param token			The token to be prepared.
  @return				The prepared token.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 + (NSString *) prepareEnclosure: (NSString *)token;
 /*!
@@ -162,7 +162,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare an identifier for an SQL statement.
  @param token			The token to be prepared.
  @return				The prepared token.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 + (NSString *) prepareIdentifier: (NSString *)token;
 /*!
@@ -170,7 +170,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare a value for an SQL statement.
  @param value			The value to be prepared.
  @return				The prepared value.
- @version				2011-06-16
+ @updated				2011-06-16
  */
 + (NSString *) prepareValue: (id)value;
 
