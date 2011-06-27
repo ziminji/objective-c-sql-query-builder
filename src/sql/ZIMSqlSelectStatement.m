@@ -68,19 +68,21 @@
 }
 
 - (void) join: (NSString *)table {
-	[self join: table type: nil];
-}
-
-- (void) join: (NSString *)table alias: (NSString *)alias {
-	[self join: table alias: alias type: nil];
+	[self join: table type: ZIMSqlJoinTypeInner];
 }
 
 - (void) join: (NSString *)table type: (NSString *)type {
-	[_join addObject: [NSArray arrayWithObjects: (((type == nil) || [type isEqualToString: ZIMSqlJoinTypeNone]) ? [NSString stringWithFormat: @" JOIN %@", [ZIMSqlExpression prepareIdentifier: table]] : [NSString stringWithFormat: @" %@ JOIN %@", [type uppercaseString], [ZIMSqlExpression prepareIdentifier: table]]), [[[NSMutableArray alloc] init] autorelease], [[[NSMutableArray alloc] init] autorelease], nil]];
+	NSString *join = [NSString stringWithFormat: @"%@ JOIN %@", [ZIMSqlExpression prepareJoinType: type], [ZIMSqlExpression prepareIdentifier: table]];
+	[_join addObject: [NSArray arrayWithObjects: join, [[[NSMutableArray alloc] init] autorelease], [[[NSMutableArray alloc] init] autorelease], nil]];
+}
+
+- (void) join: (NSString *)table alias: (NSString *)alias {
+	[self join: table alias: alias type: ZIMSqlJoinTypeInner];
 }
 
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type {
-	[self join: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareAlias: alias]] type: type];
+	NSString *join = [NSString stringWithFormat: @"%@ JOIN %@ %@", [ZIMSqlExpression prepareJoinType: type], [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareAlias: alias]];
+	[_join addObject: [NSArray arrayWithObjects: join, [[[NSMutableArray alloc] init] autorelease], [[[NSMutableArray alloc] init] autorelease], nil]];
 }
 
 - (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
@@ -231,11 +233,11 @@
 }
 
 - (void) limit: (NSInteger)limit {
-	_limit = abs(limit);
+	_limit = [ZIMSqlExpression prepareNaturalNumber: limit];
 }
 
 - (void) offset: (NSInteger)offset {
-	_offset = abs(offset);
+	_offset = [ZIMSqlExpression prepareNaturalNumber: offset];
 }
 
 - (void) combine: (NSString *)statement operator: (NSString *)operator {
@@ -271,7 +273,7 @@
 	}
 
 	for (NSArray *join in _join) {
-		[sql appendString: (NSString *)[join objectAtIndex: 0]];
+		[sql appendFormat: @" %@", [join objectAtIndex: 0]];
 		NSArray *joinCondition = (NSArray *)[join objectAtIndex: 1];
 		if ([joinCondition count] > 0) {
 			[sql appendFormat: @" ON (%@)", [joinCondition componentsJoinedByString: @" AND "]];
