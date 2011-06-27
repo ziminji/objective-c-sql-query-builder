@@ -19,10 +19,9 @@
 /*!
  @class					ZIMSqlCreateViewStatement
  @discussion			This class represents an SQL create view statement.
- @version				2011-06-26
+ @updated				2011-06-26
  @see					http://www.sqlite.org/lang_createview.html
  */
-
 @interface ZIMSqlCreateViewStatement : NSObject <ZIMSqlStatement> {
 	
 	@protected
@@ -35,7 +34,7 @@
  @method				view:
  @discussion			This method sets the name for the view in the SQL statement.
  @param view			The view's name.
- @version				2011-06-26
+ @updated				2011-06-26
  */
 - (void) view: (NSString *)view;
 /*!
@@ -44,21 +43,21 @@
 						is temporary or not.
  @param view			The view's name.
  @param temporary		This establishes whether the view will be temporary.
- @version				2011-06-26
+ @updated				2011-06-26
  */
 - (void) view: (NSString *)view temporary: (BOOL)temporary;
 /*!
  @method				sql:
  @discussion			This method will set the SQL statement that will be used.
  @param statement		The SQL statement to be masked.
- @version				2011-06-26
+ @updated				2011-06-26
  */
 - (void) sql: (NSString *)statement;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @version				2011-06-26
+ @updated				2011-06-26
  */
 - (NSString *) statement;
 

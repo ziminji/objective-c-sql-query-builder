@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlDeleteStatement
  @discussion			This class represents an SQL delete statement.
- @version				2011-04-07
+ @updated				2011-04-07
  @see					http://www.sqlite.org/lang_delete.html
  */
 @interface ZIMSqlDeleteStatement : NSObject <ZIMSqlStatement> {
@@ -37,14 +37,14 @@
  @method				table:
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
- @version				2011-06-20
+ @updated				2011-06-20
  */
 - (void) table: (NSString *)table;
 /*!
  @method				whereBlock:
  @discussion			This method will start or end a block.
  @param brace			The brace to be used; it is either an opening or closing brace.
- @version				2011-03-13
+ @updated				2011-03-13
  */
 - (void) whereBlock: (NSString *)brace;
 /*!
@@ -52,7 +52,7 @@
  @discussion			This method will start or end a block.
  @param brace			The brace to be used; it is either an opening or closing brace.
  @param connector		The connector to be used.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector;
 /*!
@@ -61,7 +61,7 @@
  @param column1			The column to be tested.
  @param operator		The operator to be used.
  @param column2			The column to be compared.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
 /*!
@@ -71,7 +71,7 @@
  @param operator		The operator to be used.
  @param column2			The column to be compared.
  @param connector		The connector to be used.
- @version				2011-05-19
+ @updated				2011-05-19
  */
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
 /*!
@@ -80,7 +80,7 @@
  @param column			The column to be tested.
  @param operator		The operator to be used.
  @param value			The value to be compared.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
 /*!
@@ -90,14 +90,14 @@
  @param operator		The operator to be used.
  @param value			The value to be compared.
  @param connector		The connector to be used.
- @version				2011-05-19
+ @updated				2011-05-19
  */
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
  @method				orderBy:
  @discussion			This method will add an order by clause to the SQL statement.
  @param column			The column to be ordered.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) orderBy: (NSString *)column;
 /*!
@@ -105,28 +105,28 @@
  @discussion			This method will add an order by clause to the SQL statement.
  @param column			The column to be ordered.
  @param descending		This will determine whether the column should be ordered in descending order.
- @version				2011-06-16
+ @updated				2011-06-16
  */
 - (void) orderBy: (NSString *)column descending: (BOOL)descending;
 /*!
  @method				limit:
  @discussion			This method will add a limit clause to the SQL statement.
  @param limit			The number of records to be returned.
- @version				2011-03-13
+ @updated				2011-03-13
  */
 - (void) limit: (NSInteger)limit;
 /*!
  @method				offset:
  @discussion			This method will add an offset clause to the SQL statement.
  @param offset			The starting point to start evaluating.
- @version				2011-03-13
+ @updated				2011-03-13
  */
 - (void) offset: (NSInteger)offset;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @version				2011-03-20
+ @updated				2011-03-20
  */
 - (NSString *) statement;
 

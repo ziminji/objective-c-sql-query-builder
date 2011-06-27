@@ -22,7 +22,7 @@
 /*!
  @category		ZIMDaoConnection (Private)
  @discussion	This category defines the prototpes for this class's private methods.
- @version		2011-03-23
+ @updated		2011-03-23
  */
 @interface ZIMDaoConnection (Private)
 /*!
@@ -30,7 +30,7 @@
  @discussion		This method will make a "set" selector for the specified column.
  @param string		The column.
  @return			The "set" selector.
- @version			2011-04-10
+ @updated			2011-04-10
  */
 - (SEL) selectorForSettingColumnName: (NSString *)column;
 /*!
@@ -38,7 +38,7 @@
  @discussion		This method will capitalize the first letter in a string.
  @param string		The string to be modified.
  @return			The modified string.
- @version			2011-04-08
+ @updated			2011-04-08
  @see				http://stackoverflow.com/questions/883897/easy-way-to-set-a-single-character-of-an-nsstring-to-uppercase
  */
 - (NSString *) capitalizeString: (NSString *)string;
@@ -48,7 +48,7 @@
  @param column		The column index.
  @param statement	The prepared SQL statement.
  @return			The integer value of the data type for the specified column.
- @version			2011-04-18
+ @updated			2011-04-18
  @see				http://www.sqlite.org/datatype3.html
  @see				http://www.sqlite.org/c3ref/c_blob.html
  */
@@ -60,7 +60,7 @@
  @param columnType	The integer value of the data type for the specified column.
  @param statement	The prepared SQL statement.
  @return			The prepared value.
- @version			2011-03-24
+ @updated			2011-03-24
  */
 - (id) columnValueAtIndex: (int)column withColumnType: (int)columnType inStatement: (sqlite3_stmt *)statement;
 @end

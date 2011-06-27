@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlSelectStatement
  @discussion			This class represents an SQL select statement.
- @version				2011-06-23
+ @updated				2011-06-23
  @see					http://www.sqlite.org/lang_select.html
  */
 @interface ZIMSqlSelectStatement : NSObject <ZIMSqlStatement> {
@@ -42,14 +42,14 @@
  @method				distinct:
  @discussion			This method will add the "DISTINCT" keyword to the SQL statement.
  @param distinct		This will determine whether the "DISTINCT" keyword should added.
- @version				2011-03-17
+ @updated				2011-03-17
  */
 - (void) distinct: (BOOL)distinct;
 /*!
  @method				column:
  @discussion			This method will add a column to the SQL statement.
  @param column			The column to be selected.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) column: (NSString *)column;
 /*!
@@ -57,14 +57,14 @@
  @discussion			This method will add a column to the SQL statement.
  @param column			The column to be selected.
  @param alias			The alias to be used.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 - (void) column: (NSString *)column alias: (NSString *)alias;
 /*!
  @method				from:
  @discussion			This method will add a from clause to the SQL statement.
  @param table			The table to used in the clause.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) from: (NSString *)table;
 /*!
@@ -72,14 +72,14 @@
  @discussion			This method will add a from clause to the SQL statement.
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 - (void) from: (NSString *)table alias: (NSString *)alias;
 /*!
  @method				join:
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) join: (NSString *)table;
 /*!
@@ -87,7 +87,7 @@
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
  @param type			The type of join clause.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) join: (NSString *)table type: (NSString *)type; // type of JOIN: INNER, RIGHT, LEFT, etc
 /*!
@@ -95,7 +95,7 @@
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) join: (NSString *)table alias: (NSString *)alias;
 /*!
@@ -104,7 +104,7 @@
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
  @param type			The type of join clause.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type; // type of JOIN: INNER, RIGHT, LEFT, etc
 /*!
@@ -113,21 +113,21 @@
  @param column1			The column to be tesed on.
  @param operator		The operator to be used.
  @param column2			The column to be tested on.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
 /*!
  @method				joinUsing:
  @discussion			This method will add a join condition to the SQL statement.
  @param column			The column to be used.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) joinUsing: (NSString *)column;
 /*!
  @method				whereBlock:
  @discussion			This method will start or end a block.
  @param brace			The brace to be used; it is either an opening or closing brace.
- @version				2011-03-13
+ @updated				2011-03-13
  */
 - (void) whereBlock: (NSString *)brace;
 /*!
@@ -135,7 +135,7 @@
  @discussion			This method will start or end a block.
  @param brace			The brace to be used; it is either an opening or closing brace.
  @param connector		The connector to be used.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector;
 /*!
@@ -144,7 +144,7 @@
  @param column1			The column to be tested.
  @param operator		The operator to be used.
  @param column2			The column to be compared.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
 /*!
@@ -154,7 +154,7 @@
  @param operator		The operator to be used.
  @param column2			The column to be compared.
  @param connector		The connector to be used.
- @version				2011-05-19
+ @updated				2011-05-19
  */
 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
 /*!
@@ -163,7 +163,7 @@
  @param column			The column to be tested.
  @param operator		The operator to be used.
  @param value			The value to be compared.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
 /*!
@@ -173,21 +173,21 @@
  @param operator		The operator to be used.
  @param value			The value to be compared.
  @param connector		The connector to be used.
- @version				2011-05-19
+ @updated				2011-05-19
  */
 - (void) where: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
  @method				groupBy:
  @discussion			This method will add a group by clause to the SQL statement.
  @param column			The column to be grouped.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) groupBy: (NSString *)column;
 /*!
  @method				groupByHavingBlock:
  @discussion			This method will start or end a block.
  @param brace			The brace to be used; it is either an opening or closing brace.
- @version				2011-03-18
+ @updated				2011-03-18
  */
 - (void) groupByHavingBlock: (NSString *)brace;
 /*!
@@ -195,7 +195,7 @@
  @discussion			This method will start or end a block.
  @param brace			The brace to be used; it is either an opening or closing brace.
  @param connector		The connector to be used.
- @version				2011-03-18
+ @updated				2011-03-18
  */
 - (void) groupByHavingBlock: (NSString *)brace connector: (NSString *)connector;
 /*!
@@ -204,7 +204,7 @@
  @param column1			The column to be tested.
  @param operator		The operator to be used.
  @param column2			The column to be compared.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) groupByHaving: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
 /*!
@@ -214,7 +214,7 @@
  @param operator		The operator to be used.
  @param column2			The column to be compared.
  @param connector		The connector to be used.
- @version				2011-05-19
+ @updated				2011-05-19
  */
 - (void) groupByHaving: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
 /*!
@@ -223,7 +223,7 @@
  @param column			The column to be tested.
  @param operator		The operator to be used.
  @param value			The value to be compared.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) groupByHaving: (NSString *)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
 /*!
@@ -233,14 +233,14 @@
  @param operator		The operator to be used.
  @param value			The value to be compared.
  @param connector		The connector to be used.
- @version				2011-05-19
+ @updated				2011-05-19
  */
 - (void) groupByHaving: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
  @method				orderBy:
  @discussion			This method will add an order by clause to the SQL statement.
  @param column			The column to be ordered.
- @version				2011-04-01
+ @updated				2011-04-01
  */
 - (void) orderBy: (NSString *)column;
 /*!
@@ -248,21 +248,21 @@
  @discussion			This method will add an order by clause to the SQL statement.
  @param column			The column to be ordered.
  @param descending		This will determine whether the column should be ordered in descending order.
- @version				2011-06-16
+ @updated				2011-06-16
  */
 - (void) orderBy: (NSString *)column descending: (BOOL)descending;
 /*!
  @method				limit:
  @discussion			This method will add a limit clause to the SQL statement.
  @param limit			The number of records to be returned.
- @version				2011-03-13
+ @updated				2011-03-13
  */
 - (void) limit: (NSInteger)limit;
 /*!
  @method				offset:
  @discussion			This method will add an offset clause to the SQL statement.
  @param offset			The starting point to start evaluating.
- @version				2011-03-13
+ @updated				2011-03-13
  */
 - (void) offset: (NSInteger)offset;
 /*!
@@ -270,14 +270,14 @@
  @discussion			This method will combine a select statement using the specified operator.
  @param statement		The select statement that will be appended.
  @param operator		The operator to be used.  Must use UNION, UNION ALL, INTERSECT, or EXCEPT.
- @version				2011-06-23
+ @updated				2011-06-23
  */
 - (void) combine: (NSString *)statement operator: (NSString *)operator;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @version				2011-06-23
+ @updated				2011-06-23
  */
 - (NSString *) statement;
 

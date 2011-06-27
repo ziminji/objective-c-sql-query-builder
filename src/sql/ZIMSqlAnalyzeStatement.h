@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlAnalyzeStatement
  @discussion			This class represents an SQL analyze statement.
- @version				2011-04-07
+ @updated				2011-04-07
  @see					http://www.sqlite.org/lang_analyze.html
  */
 @interface ZIMSqlAnalyzeStatement : NSObject <ZIMSqlStatement> {

@@ -19,10 +19,9 @@
 /*!
  @class					ZIMSqlDropTableStatement
  @discussion			This class represents an SQL drop table statement.
- @version				2011-04-02
+ @updated				2011-04-02
  @see					http://www.sqlite.org/lang_droptable.html
  */
-
 @interface ZIMSqlDropTableStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
@@ -34,7 +33,7 @@
  @method				table:
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
- @version				2011-03-17
+ @updated				2011-03-17
  */
 - (void) table: (NSString *)table;
 /*!
@@ -42,14 +41,14 @@
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
  @param exists			This will determine whether the "IF EXISTS" keywords should added. 
- @version				2011-06-23
+ @updated				2011-06-23
  */
 - (void) table: (NSString *)table exists: (BOOL)exists;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @version				2011-03-17
+ @updated				2011-03-17
  */
 - (NSString *) statement;
 

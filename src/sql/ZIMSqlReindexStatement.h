@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlReindexStatement
  @discussion			This class represents an SQL reindex statement.
- @version				2011-06-26
+ @updated				2011-06-26
  @see					http://www.sqlite.org/lang_reindex.html
  */
 @interface ZIMSqlReindexStatement : NSObject <ZIMSqlStatement> {
@@ -32,14 +32,14 @@
  @method				table:
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
- @version				2011-06-26
+ @updated				2011-06-26
  */
 - (void) table: (NSString *)table;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @version				2011-06-26
+ @updated				2011-06-26
  */
 - (NSString *) statement;
 
