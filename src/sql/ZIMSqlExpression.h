@@ -158,6 +158,14 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  */
 + (NSString *) prepareEnclosure: (NSString *)token;
 /*!
+ @method				prepareJoinType:
+ @discussion			This method will prepare a join type token for an SQL statement.
+ @param token			The token to be prepared.
+ @return				The prepared token.
+ @updated				2011-06-27
+ */
++ (NSString *) prepareJoinType: (NSString *)token;
+/*!
  @method				prepareIdentifier:
  @discussion			This method will prepare an identifier for an SQL statement.
  @param token			The token to be prepared.
@@ -165,6 +173,14 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @updated				2011-06-25
  */
 + (NSString *) prepareIdentifier: (NSString *)token;
+/*!
+ @method				prepareNaturalNumber:
+ @discussion			This method will prepare a number as a natural for an SQL statement.
+ @param number			The number to be prepared.
+ @return				The prepared number.
+ @updated				2011-06-27
+ */
++ (NSInteger) prepareNaturalNumber: (NSInteger)number;
 /*!
  @method				prepareValue:
  @discussion			This method will prepare a value for an SQL statement.

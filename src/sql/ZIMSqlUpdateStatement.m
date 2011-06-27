@@ -98,11 +98,11 @@
 }
 
 - (void) limit: (NSInteger)limit {
-	_limit = abs(limit);
+	_limit = [ZIMSqlExpression prepareNaturalNumber: limit];
 }
 
 - (void) offset: (NSInteger)offset {
-	_offset = abs(offset);
+	_offset = [ZIMSqlExpression prepareNaturalNumber: offset];
 }
 
 - (NSString *) statement {

@@ -79,7 +79,7 @@
  @method				join:
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
- @updated				2011-04-01
+ @updated				2011-06-27
  */
 - (void) join: (NSString *)table;
 /*!
@@ -87,15 +87,15 @@
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
  @param type			The type of join clause.
- @updated				2011-04-01
+ @updated				2011-06-27
  */
-- (void) join: (NSString *)table type: (NSString *)type; // type of JOIN: INNER, RIGHT, LEFT, etc
+- (void) join: (NSString *)table type: (NSString *)type;
 /*!
  @method				join:alias:
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
- @updated				2011-04-01
+ @updated				2011-06-27
  */
 - (void) join: (NSString *)table alias: (NSString *)alias;
 /*!
@@ -104,9 +104,9 @@
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
  @param type			The type of join clause.
- @updated				2011-06-25
+ @updated				2011-06-27
  */
-- (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type; // type of JOIN: INNER, RIGHT, LEFT, etc
+- (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type;
 /*!
  @method				joinOn:operator:column:
  @discussion			This method will add a join condition to the SQL statement.
@@ -255,14 +255,14 @@
  @method				limit:
  @discussion			This method will add a limit clause to the SQL statement.
  @param limit			The number of records to be returned.
- @updated				2011-03-13
+ @updated				2011-06-27
  */
 - (void) limit: (NSInteger)limit;
 /*!
  @method				offset:
  @discussion			This method will add an offset clause to the SQL statement.
  @param offset			The starting point to start evaluating.
- @updated				2011-03-13
+ @updated				2011-06-27
  */
 - (void) offset: (NSInteger)offset;
 /*!
@@ -277,7 +277,7 @@
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-06-23
+ @updated				2011-06-27
  */
 - (NSString *) statement;
 
