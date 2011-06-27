@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlAttachStatement
  @discussion			This class represents an SQL attach statement.
- @version				2011-04-07
+ @updated				2011-04-07
  @see					http://www.sqlite.org/lang_attach.html
  */
 @interface ZIMSqlAttachStatement : NSObject <ZIMSqlStatement> {
@@ -35,14 +35,14 @@
 						database connection.
  @param fileName		The file name of the database to be attached.
  @param database		The database name that will be used when attached.
- @version				2011-04-07
+ @updated				2011-04-07
  */
 - (void) database: (NSString *)fileName as: (NSString *)database;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @version				2011-04-07
+ @updated				2011-04-07
  */
 - (NSString *) statement;
 

@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlStatement
  @discussion			This protocol specifies the contract for an SQL statement.
- @version				2011-04-02
+ @updated				2011-04-02
  @see					http://souptonuts.sourceforge.net/readme_sqlite_tutorial.html
  */
 @protocol ZIMSqlStatement <NSObject>
@@ -30,7 +30,7 @@
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @version				2011-04-02
+ @updated				2011-04-02
  */
 - (NSString *) statement;
 

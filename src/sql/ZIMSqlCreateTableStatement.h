@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlCreateTableStatement
  @discussion			This class represents an SQL create table statement.
- @version				2011-04-07
+ @updated				2011-04-07
  @see					http://www.sqlite.org/lang_createtable.html
  */
 @interface ZIMSqlCreateTableStatement : NSObject <ZIMSqlStatement> {
@@ -35,17 +35,17 @@
 /*!
  @method				table:
  @discussion			This method sets the name for the table in the SQL statement.
- @param view			The table's name.
- @version				2011-06-26
+ @param table			The table's name.
+ @updated				2011-06-26
  */
 - (void) table: (NSString *)table;
 /*!
  @method				table:temporary:
  @discussion			This method sets the name for the table in the SQL statement and whether it
 						is temporary or not.
- @param view			The table's name.
+ @param table			The table's name.
  @param temporary		This establishes whether the table will be temporary.
- @version				2011-06-26
+ @updated				2011-06-26
  */
 - (void) table: (NSString *)table temporary: (BOOL)temporary;
 /*!
@@ -53,7 +53,7 @@
  @discussion			This method will create a column with the specified parameters.
  @param column			The column to be created.
  @param type			The datatype of the column.
- @version				2011-03-26
+ @updated				2011-03-26
  */
 - (void) column: (NSString *)column type: (NSString *)type;
 /*!
@@ -61,8 +61,8 @@
  @discussion			This method will create a column with the specified parameters.
  @param column			The column to be created.
  @param type			The datatype of the column.
- @param defaultValue	The default value to be used when no data is provided.
- @version				2011-03-27
+ @param value			The default value to be used when no data is provided.
+ @updated				2011-06-26
  */
 - (void) column: (NSString *)column type: (NSString *)type defaultValue: (NSString *)value;
 /*!
@@ -71,7 +71,7 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param primaryKey		This marks the specified column as the primary key.
- @version				2011-03-27
+ @updated				2011-03-27
  */
 - (void) column: (NSString *)column type: (NSString *)type primaryKey: (BOOL)primaryKey;
 /*!
@@ -81,28 +81,28 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param unique			This constrains the column to only unique values.
- @version				2011-03-27
+ @updated				2011-03-27
  */
 - (void) column: (NSString *)column type: (NSString *)type unique: (BOOL)unique;
 /*!
  @method				primaryKey:
  @discussion			This method will set the specified columns to be the (composite) primary key.
  @param columns			The columns to be set as the (composite) primary key.
- @version				2011-04-18
+ @updated				2011-04-18
  */
 - (void) primaryKey: (NSArray *)columns;
 /*!
  @method				unique:
  @discussion			This method will apply a unique constraint across the specified columns.
  @param columns			The columns to be constrained.
- @version				2011-04-18
+ @updated				2011-04-18
  */
 - (void) unique: (NSArray *)columns;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @version				2011-03-26
+ @updated				2011-03-26
  */
 - (NSString *) statement;
 

@@ -23,7 +23,7 @@
 /*!
  @class					ZIMOrmModel
  @discussion			This class acts as the base model.
- @version				2011-04-14
+ @updated				2011-04-14
  */
 @interface ZIMOrmModel : NSObject {
 
@@ -39,7 +39,7 @@
  @param foreignKey		An array of columns in the current instance that define the foreign key to be used.  The order of
 						the columns matters (i.e. columns must be placed in the same order as model's primary key).
  @return				Returns a model of the specified class.
- @version				2011-05-19
+ @updated				2011-05-19
  */
 - (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey; // the foreign key array is an ordered list of columns in "self"
 /*!
@@ -50,7 +50,7 @@
  @param foreignKey		An array of columns in the specified model that define the foreign key to be used.  The order of
 						the columns matters (i.e. columns must be placed in the same order as self's primary key).
  @return				Returns a model of the specified class.
- @version				2011-05-04
+ @updated				2011-05-04
  */
 - (id) hasOne: (Class)model foreignKey: (NSArray *)foreignKey; // i.e. the foreign key array is an ordered list of columns in "model"
 /*!
@@ -61,7 +61,7 @@
  @param foreignKey		An array of columns in the specified model that define the foreign key to be used.  The order of
 						the columns matters (i.e. columns must be placed in the same order as self's primary key).
  @return				Returns an array of models of the specified class.
- @version				2011-05-03
+ @updated				2011-05-03
  */
 - (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey; // i.e. the foreign key array is an ordered list of columns in "model"
 /*!
@@ -73,68 +73,68 @@
 						the columns matters (i.e. columns must be placed in the same order as self's primary key).
  @param options			A dictionary options that will constraint the result set.
  @return				Returns an array of models of the specified class.
- @version				2011-05-03
+ @updated				2011-05-03
  @see					http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html
  */
 - (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey options: (NSDictionary *)options; // i.e. the foreign key array is an ordered list of columns in "model"
 /*!
  @method				delete
  @discussion			This method deletes the record matching the primary key.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 - (void) delete;
 /*!
  @method				load
  @discussion			This method will load/reload the record matching the primary key.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 - (void) load;
 /*!
  @method				save
  @discussion			This method either creates or updates the record matching the primary key.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 - (void) save;
 /*!
  @method				hashCode
  @discussion			This method returns a hash code that is calculated by first concatenating the value
 						assigned to each primary key and then finding the SHA1 has for the concatenated string.
- @version				2011-06-25
+ @updated				2011-06-25
  */
 - (NSString *) hashCode;
 /*!
  @method				dataSource
  @discussion			This method will return the file name of the database.
  @return				The file name of the database to be used.
- @version				2011-04-16
+ @updated				2011-04-16
  */
 + (NSString *) dataSource;
 /*!
  @method				table
  @discussion			This method will return the table name associated with this class.
  @return				The table name associated with this class.
- @version				2011-04-03
+ @updated				2011-04-03
  */
 + (NSString *) table;
 /*!
  @method				primaryKey
  @discussion			This method will return the table's primary key.
  @return				The table's primary key.
- @version				2011-04-18
+ @updated				2011-04-18
  */
 + (NSArray *) primaryKey; // may be a composite primary key
 /*!
  @method				isAutoIncremented
  @discussion			This method returns whether the table's primary key auto-increments.
  @return				Returns whether the table's primary key auto-increments.
- @version				2011-04-14
+ @updated				2011-04-14
  */
 + (BOOL) isAutoIncremented;
 /*!
  @method				columns
  @discussion			This method will return the table name associated with this class.
  @return				A list of name/type pairs.
- @version				2011-04-14
+ @updated				2011-04-14
  @see					http://stackoverflow.com/questions/1213901/how-do-i-list-all-instance-variables-of-a-class-in-objective-c
  @see					http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
  */
@@ -143,7 +143,7 @@
  @method				isSaveable
  @discussion			This method returns whether the model can be saved to the database.
  @return				Returns whether the model can be saved to the database.
- @version				2011-04-14
+ @updated				2011-04-14
  */
 + (BOOL) isSaveable;
 /*!
@@ -151,7 +151,7 @@
  @discussion			This method determines whether the specified class is a class of this type.
  @param model			The class to be tested.
  @return				Returns whether the specified class is a class of this type.
- @version				2011-05-01
+ @updated				2011-05-01
  @see					http://cocoawithlove.com/2010/01/getting-subclasses-of-objective-c-class.html
  */
 + (BOOL) isModel: (Class)model;
