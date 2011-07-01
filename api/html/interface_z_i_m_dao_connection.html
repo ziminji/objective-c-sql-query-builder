@@ -86,7 +86,6 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a323861ac70e1951acd3d335767c79d74">isConnected</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#ae1e6a0eab48ddc5a59e04106e03fc0cb">close</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(SEL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#ab51da49484131ed5b5e2741b855aa6f1">selectorForSettingColumnName:</a><code> [implementation]</code></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a827b505c516a339080d1c27b36cfef1d">capitalizeString:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(int)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#af148a17411d63290ae35d3f3802b4f59">columnTypeAtIndex:inStatement:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#aa125676665460ddabbd6027fabc0dab0">columnValueAtIndex:withColumnType:inStatement:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_dao_connection.html#a9474fb8db92f6811c136ebce152990b5">dealloc</a><code> [implementation]</code></td></tr>
@@ -97,14 +96,15 @@ Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_dao_connection.html#a975dba866dcae5242d01bf26bbda52f9">dataSource:query:asObject:</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NSString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_dao_connection.html#affb98a6e5c276e1317de68ec720e7563">_dataSource</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_dao_connection.html#affb98a6e5c276e1317de68ec720e7563">_dataSource</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSMutableSet *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_dao_connection.html#a4f10afc47c9785c6e9211e29044a896c">_privileges</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSLock *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_dao_connection.html#a1699183cb156e9c5d2b4cd30887c1920">_mutex</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sqlite3 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_dao_connection.html#a61abceaf89d8175a737cd757b372dda7">_database</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_dao_connection.html#ab1f5163ffed36ca644e5d0fa5f7e4e58">_isConnected</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL statements. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-03-30 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-29 </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a0ea1d8e4bc1eb78c008d53f5fadb78bc"></a><!-- doxytag: member="ZIMDaoConnection::beginTransaction" ref="a0ea1d8e4bc1eb78c008d53f5fadb78bc" args="()" -->
 <div class="memitem">
@@ -124,23 +124,6 @@ Protected Attributes</h2></td></tr>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Whether the transaction has been started. </dd></dl>
 <dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-23 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_transaction.html">http://www.sqlite.org/lang_transaction.html</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a827b505c516a339080d1c27b36cfef1d"></a><!-- doxytag: member="ZIMDaoConnection::capitalizeString:" ref="a827b505c516a339080d1c27b36cfef1d" args="(NSString *string)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (NSString *) capitalizeString: </td>
-          <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
-          <td class="paramname"><em>string</em></td>
-          <td><code> [implementation]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
 
 </div>
 </div>
@@ -251,13 +234,13 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">+ (NSNumber *) dataSource: </td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>dataSource</em></td>
         </tr>
         <tr>
           <td class="paramkey">execute:</td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>sql</em>&#160;</td>
         </tr>
         <tr>
@@ -290,13 +273,13 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">+ (NSArray *) dataSource: </td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>dataSource</em></td>
         </tr>
         <tr>
           <td class="paramkey">query:</td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>sql</em>&#160;</td>
         </tr>
         <tr>
@@ -328,13 +311,13 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">+ (NSArray *) dataSource: </td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>dataSource</em></td>
         </tr>
         <tr>
           <td class="paramkey">query:</td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>sql</em></td>
         </tr>
         <tr>
@@ -389,7 +372,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">- (NSNumber *) execute: </td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>sql</em></td>
           <td></td>
         </tr>
@@ -405,7 +388,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Either the last insert row id or TRUE. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-23 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-29 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/c3ref/last_insert_rowid.html">http://www.sqlite.org/c3ref/last_insert_rowid.html</a> </dd>
 <dd>
 <a href="http://code.google.com/p/sqlite-manager/issues/detail?id=34">http://code.google.com/p/sqlite-manager/issues/detail?id=34</a> </dd></dl>
@@ -419,7 +402,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">- (id) initWithDataSource: </td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>dataSource</em></td>
           <td></td>
         </tr>
@@ -445,7 +428,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">- (id) initWithDataSource: </td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>dataSource</em></td>
         </tr>
         <tr>
@@ -471,7 +454,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-04-16 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-29 </dd></dl>
 
 </div>
 </div>
@@ -521,7 +504,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">- (NSArray *) query: </td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>sql</em></td>
           <td></td>
         </tr>
@@ -548,7 +531,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">- (NSArray *) query: </td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>sql</em></td>
         </tr>
         <tr>
@@ -575,7 +558,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The result set (i.e. an array of records). </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-04-03 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-29 </dd></dl>
 
 </div>
 </div>
@@ -607,7 +590,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">- (SEL) selectorForSettingColumnName: </td>
           <td></td>
-          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>column</em></td>
           <td><code> [implementation]</code></td>
         </tr>
@@ -633,7 +616,7 @@ Protected Attributes</h2></td></tr>
 <dl class="user"><dt><b>Signature:</b></dt><dd>vacuum </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>The method will rebuild the entire database. </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Whether the command was successfully executed. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-23 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-30 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_vacuum.html">http://www.sqlite.org/lang_vacuum.html</a> </dd></dl>
 
 </div>
@@ -657,7 +640,7 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (NSString*) <a class="el" href="interface_z_i_m_dao_connection.html#affb98a6e5c276e1317de68ec720e7563">_dataSource</a><code> [protected]</code></td>
+          <td class="memname">- (<a class="el" href="class_n_s_string.html">NSString</a>*) <a class="el" href="interface_z_i_m_dao_connection.html#affb98a6e5c276e1317de68ec720e7563">_dataSource</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -691,6 +674,19 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a4f10afc47c9785c6e9211e29044a896c"></a><!-- doxytag: member="ZIMDaoConnection::_privileges" ref="a4f10afc47c9785c6e9211e29044a896c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSMutableSet*) <a class="el" href="interface_z_i_m_dao_connection.html#a4f10afc47c9785c6e9211e29044a896c">_privileges</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_z_i_m_dao_connection_8h_source.html">ZIMDaoConnection.h</a></li>
 <li><a class="el" href="_z_i_m_dao_connection_8m.html">ZIMDaoConnection.m</a></li>
@@ -710,7 +706,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Jun 27 2011 02:02:00 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 30 2011 23:03:58 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

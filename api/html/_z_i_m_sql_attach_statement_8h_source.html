@@ -80,12 +80,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00025"></a><a class="code" href="interface_z_i_m_sql_attach_statement.html">00025</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_attach_statement.html">ZIMSqlAttachStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>&gt; {
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027         <span class="keyword">@protected</span>
-<a name="l00028"></a><a class="code" href="interface_z_i_m_sql_attach_statement.html#a7f87c1df18f5dfde523decf16fa97d41">00028</a>                 NSString *<a class="code" href="interface_z_i_m_sql_attach_statement.html#a7f87c1df18f5dfde523decf16fa97d41">_fileName</a>;
-<a name="l00029"></a><a class="code" href="interface_z_i_m_sql_attach_statement.html#a940eb2ffd02e43550ce6afbc4c7796eb">00029</a>                 NSString *<a class="code" href="interface_z_i_m_sql_attach_statement.html#a940eb2ffd02e43550ce6afbc4c7796eb">_database</a>;
+<a name="l00028"></a><a class="code" href="interface_z_i_m_sql_attach_statement.html#a7f87c1df18f5dfde523decf16fa97d41">00028</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_attach_statement.html#a7f87c1df18f5dfde523decf16fa97d41">_fileName</a>;
+<a name="l00029"></a><a class="code" href="interface_z_i_m_sql_attach_statement.html#a940eb2ffd02e43550ce6afbc4c7796eb">00029</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_attach_statement.html#a940eb2ffd02e43550ce6afbc4c7796eb">_database</a>;
 <a name="l00030"></a>00030 
 <a name="l00031"></a>00031 }
-<a name="l00040"></a>00040 - (void) database: (NSString *)fileName as: (NSString *)database;
-<a name="l00047"></a>00047 - (NSString *) statement;
+<a name="l00040"></a>00040 - (void) database: (<a class="code" href="class_n_s_string.html">NSString</a> *)fileName as: (<a class="code" href="class_n_s_string.html">NSString</a> *)database;
+<a name="l00047"></a>00047 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049 <span class="keyword">@end</span>
 </pre></div></div>
@@ -104,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Jun 27 2011 02:01:59 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 30 2011 23:03:58 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#import "NSString+ZIMExtString.h"
 #import "ZIMDaoConnection.h"
 
 // Defines the integer value for the table column datatype
@@ -22,7 +23,7 @@
 /*!
  @category		ZIMDaoConnection (Private)
  @discussion	This category defines the prototpes for this class's private methods.
- @updated		2011-03-23
+ @updated		2011-06-29
  */
 @interface ZIMDaoConnection (Private)
 /*!
@@ -33,15 +34,6 @@
  @updated			2011-04-10
  */
 - (SEL) selectorForSettingColumnName: (NSString *)column;
-/*!
- @method			capitalizeString:
- @discussion		This method will capitalize the first letter in a string.
- @param string		The string to be modified.
- @return			The modified string.
- @updated			2011-04-08
- @see				http://stackoverflow.com/questions/883897/easy-way-to-set-a-single-character-of-an-nsstring-to-uppercase
- */
-- (NSString *) capitalizeString: (NSString *)string;
 /*!
  @method			columnTypeAtIndex:inStatement:
  @discussion		This method will determine the data type for the specified column.
@@ -72,7 +64,7 @@
 }
 
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
-	if ((self = [super init])) {
+	if (self = [super init]) {
 		dataSource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: dataSource];
 		NSDictionary *config = [[NSDictionary alloc] initWithContentsOfFile: dataSource];
 		NSString *type = [config objectForKey: @"type"];
@@ -93,6 +85,16 @@
 		}
 		_dataSource = [workingPath copy];
 		[fileManager release];
+		NSArray *privileges = [config objectForKey: @"privileges"];
+		if (privileges != nil) {
+			_privileges = [[NSMutableSet alloc] init];
+			for (NSString *privilege in privileges) {
+				[_privileges addObject: [privilege uppercaseString]];
+			}
+			[_privileges addObject: @"BEGIN"];
+			[_privileges addObject: @"ROLLBACK"];
+			[_privileges addObject: @"COMMIT"];
+		}
 		[config release];
 		if (multithreading) {
 			_mutex = [[NSLock alloc] init];
@@ -119,6 +121,15 @@
 		[_mutex lock];
 	}
 
+	NSString *sqlType = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r"]] uppercaseString];
+
+	if ((_privileges != nil) && ![_privileges containsObject: sqlType]) {
+		if (_mutex != nil) {
+			[_mutex unlock];
+		}
+		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: @"Failed to execute SQL statement because privileges have been restricted." userInfo: nil];
+	}
+
 	sqlite3_stmt *statement = NULL;
 
 	if ((sqlite3_prepare_v2(_database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK) || (sqlite3_step(statement) != SQLITE_DONE)) {
@@ -131,7 +142,7 @@
 
 	NSNumber *result = nil;
 
-	if (([sql length] >= 6)  && [[[sql substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"INSERT"]) {
+	if ([sqlType isEqualToString: @"INSERT"]) {
 	 	// Known limitations: http://www.sqlite.org/c3ref/last_insert_rowid.html
 		result = [NSNumber numberWithInt: sqlite3_last_insert_rowid(_database)];
 	}
@@ -155,6 +166,15 @@
 - (NSArray *) query: (NSString *)sql asObject: (Class)model {
 	if (_mutex != nil) {
 		[_mutex lock];
+	}
+
+	NSString *sqlType = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r"]] uppercaseString];
+
+	if ((_privileges != nil) && ![_privileges containsObject: sqlType]) {
+		if (_mutex != nil) {
+			[_mutex unlock];
+		}
+		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: @"Failed to perform query with SQL statement because privileges have been restricted." userInfo: nil];
 	}
 
 	sqlite3_stmt *statement = NULL;
@@ -232,11 +252,7 @@
 }
 
 - (SEL) selectorForSettingColumnName: (NSString *)column {
-	return NSSelectorFromString([NSString stringWithFormat: @"set%@:", [self capitalizeString: column]]);
-}
-
-- (NSString *) capitalizeString: (NSString *)string {
-	return [string stringByReplacingCharactersInRange: NSMakeRange(0, 1) withString: [[string substringToIndex: 1] uppercaseString]];
+	return NSSelectorFromString([NSString stringWithFormat: @"set%@:", [NSString capitalizeFirstCharacterInString: column]]);
 }
 
 - (int) columnTypeAtIndex: (int)column inStatement: (sqlite3_stmt *)statement {
@@ -316,7 +332,7 @@
 }
 
 - (NSNumber *) vacuum {
-	return [self execute: @"VACUUM;"]
+	return [self execute: @"VACUUM;"];
 }
 
 - (BOOL) isConnected {
@@ -332,10 +348,9 @@
 
 - (void) dealloc {
 	[self close];
-	[_dataSource release];
-	if (_mutex != nil) {
-		[_mutex release];
-	}
+	if (_dataSource != nil) { [_dataSource release]; }
+	if (_privileges != nil) { [_privileges release]; }
+	if (_mutex != nil) { [_mutex release]; }
 	[super dealloc];
 }
 

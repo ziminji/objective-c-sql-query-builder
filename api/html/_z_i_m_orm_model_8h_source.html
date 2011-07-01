@@ -84,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00028"></a><a class="code" href="interface_z_i_m_orm_model.html">00028</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_orm_model.html">ZIMOrmModel</a> : NSObject {
 <a name="l00029"></a>00029 
 <a name="l00030"></a>00030         <span class="keyword">@protected</span>
-<a name="l00031"></a><a class="code" href="interface_z_i_m_orm_model.html#a6133b3022327a167d9b0c1a3986a96ec">00031</a>                 NSString *<a class="code" href="interface_z_i_m_orm_model.html#a6133b3022327a167d9b0c1a3986a96ec">_saved</a>;
+<a name="l00031"></a><a class="code" href="interface_z_i_m_orm_model.html#a6133b3022327a167d9b0c1a3986a96ec">00031</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_orm_model.html#a6133b3022327a167d9b0c1a3986a96ec">_saved</a>;
 <a name="l00032"></a>00032 
 <a name="l00033"></a>00033 }
 <a name="l00044"></a>00044 - (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey; <span class="comment">// the foreign key array is an ordered list of columns in &quot;self&quot;</span>
@@ -94,9 +94,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00085"></a>00085 <span class="comment"></span>- (void) delete;
 <a name="l00091"></a>00091 - (void) load;
 <a name="l00097"></a>00097 - (void) save;
-<a name="l00104"></a>00104 - (NSString *) hashCode;
-<a name="l00111"></a>00111 + (NSString *) dataSource;
-<a name="l00118"></a>00118 + (NSString *) table;
+<a name="l00104"></a>00104 - (<a class="code" href="class_n_s_string.html">NSString</a> *) hashCode;
+<a name="l00111"></a>00111 + (<a class="code" href="class_n_s_string.html">NSString</a> *) dataSource;
+<a name="l00118"></a>00118 + (<a class="code" href="class_n_s_string.html">NSString</a> *) table;
 <a name="l00125"></a>00125 + (NSArray *) primaryKey; <span class="comment">// may be a composite primary key</span>
 <a name="l00132"></a>00132 <span class="comment"></span>+ (BOOL) isAutoIncremented;
 <a name="l00141"></a>00141 + (NSDictionary *) columns;
@@ -120,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Jun 27 2011 02:01:59 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 30 2011 23:03:58 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -30,7 +30,7 @@
 #endif
 
 - (id) init {
-	if ((self = [super init])) {
+	if (self = [super init]) {
 		_saved = nil;
 	}
 	return self;
