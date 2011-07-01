@@ -20,12 +20,13 @@
 /*!
  @class					ZIMDaoConnection
  @discussion			This class represents an SQL statements.
- @updated				2011-03-30
+ @updated				2011-06-29
  */
 @interface ZIMDaoConnection : NSObject {
 
 	@protected
 		NSString *_dataSource;
+		NSMutableSet *_privileges;
 		NSLock *_mutex;
 		sqlite3 *_database;
 		BOOL _isConnected;
@@ -51,7 +52,7 @@
 						created in the working directory.
  @param dataSource		The file name of the database to be used.
  @param multithreading	This determines whether locks should be used.
- @updated				2011-04-16
+ @updated				2011-06-29
  */
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!
@@ -73,7 +74,7 @@
  @discussion			This method will execute the specified SQL statement.
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-06-23
+ @updated				2011-06-29
  @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  @see					http://code.google.com/p/sqlite-manager/issues/detail?id=34
  */
@@ -96,7 +97,7 @@
 						accessible instance variables and does not necessarily have to conform
 						to the Active Record design pattern.
  @return				The result set (i.e. an array of records).
- @updated				2011-04-03
+ @updated				2011-06-29
  */
 - (NSArray *) query: (NSString *)sql asObject: (Class)model;
 /*!
@@ -119,7 +120,7 @@
  @method				vacuum
  @discussion			The method will rebuild the entire database.
  @return				Whether the command was successfully executed.
- @updated				2011-06-23
+ @updated				2011-06-30
  @see					http://www.sqlite.org/lang_vacuum.html
  */
 - (NSNumber *) vacuum;

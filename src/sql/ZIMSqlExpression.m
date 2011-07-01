@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#import "NSString+ZIMExtString.h"
 #import "ZIMSqlExpression.h"
 #import "ZIMSqlSelectStatement.h"
 
@@ -87,7 +88,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 
 + (NSString *) prepareAlias: (NSString *)token {
 	NSCharacterSet *removables = [NSCharacterSet characterSetWithCharactersInString: @";\"'`[]\n\r"];
-	token = [[token componentsSeparatedByCharactersInSet: removables] componentsJoinedByString: @""].
+	token = [[token componentsSeparatedByCharactersInSet: removables] componentsJoinedByString: @""];
 	token = [NSString stringWithFormat: @"[%@]", token];
 	return token;
 }
@@ -108,7 +109,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 }
 
 + (NSString *) prepareJoinType: (NSString *)token {
-	const NSSet *joinTypes  = [NSSet setWithObjects: ZIMSqlJoinTypeCross, ZIMSqlJoinTypeInner, ZIMSqlJoinTypeLeft, ZIMSqlJoinTypeLeftOuter, ZIMSqlJoinTypeNatural, ZIMSqlJoinTypeNaturalCross, ZIMSqlJoinTypeNaturalInner, ZIMSqlJoinTypeNaturalLeft, ZIMSqlJoinTypeNaturalLeftOuter, nil];
+	const NSSet *joinTypes = [NSSet setWithObjects: ZIMSqlJoinTypeCross, ZIMSqlJoinTypeInner, ZIMSqlJoinTypeLeft, ZIMSqlJoinTypeLeftOuter, ZIMSqlJoinTypeNatural, ZIMSqlJoinTypeNaturalCross, ZIMSqlJoinTypeNaturalInner, ZIMSqlJoinTypeNaturalLeft, ZIMSqlJoinTypeNaturalLeftOuter, nil];
 	if ((token == nil) || [token isEqualToString: ZIMSqlJoinTypeNone]) {
 		token = ZIMSqlJoinTypeInner;
 	}
@@ -125,7 +126,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 }
 
 + (NSString *) prepareIdentifier: (NSString *)token {
-	if (([token length] >= 6)  && [[[token substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"SELECT"]) {
+	if ([[[NSString firstTokenInString: token scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r"]] uppercaseString] isEqualToString: @"SELECT"]) {
 		while ([token hasSuffix: @";"]) {
 			token = [token substringWithRange: NSMakeRange(0, [token length] - 1)];
 		}
@@ -139,7 +140,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	while (![scanner isAtEnd]) {
 	 	NSString *buffer;
 		if ([scanner scanUpToCharactersFromSet: stopSet intoString: &buffer]) {
-	  		[result appendString: buffer];     
+	  		[result appendString: buffer];
 	 	}
 		else {
 	  		[scanner setScanLocation: ([scanner scanLocation] + 1)];

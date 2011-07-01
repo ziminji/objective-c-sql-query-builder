@@ -80,22 +80,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00025"></a><a class="code" href="interface_z_i_m_sql_create_table_statement.html">00025</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_create_table_statement.html">ZIMSqlCreateTableStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>&gt; {
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027         <span class="keyword">@protected</span>
-<a name="l00028"></a><a class="code" href="interface_z_i_m_sql_create_table_statement.html#a2ebe11184292ff211f43fa721432d5a0">00028</a>                 NSString *<a class="code" href="interface_z_i_m_sql_create_table_statement.html#a2ebe11184292ff211f43fa721432d5a0">_table</a>;
+<a name="l00028"></a><a class="code" href="interface_z_i_m_sql_create_table_statement.html#a2ebe11184292ff211f43fa721432d5a0">00028</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_create_table_statement.html#a2ebe11184292ff211f43fa721432d5a0">_table</a>;
 <a name="l00029"></a><a class="code" href="interface_z_i_m_sql_create_table_statement.html#aef997c62d3f2f7d57f41db60fe66d2e7">00029</a>                 BOOL <a class="code" href="interface_z_i_m_sql_create_table_statement.html#aef997c62d3f2f7d57f41db60fe66d2e7">_temporary</a>;
 <a name="l00030"></a><a class="code" href="interface_z_i_m_sql_create_table_statement.html#acc53d80853522ca190545f1b06d2aa64">00030</a>                 NSMutableDictionary *<a class="code" href="interface_z_i_m_sql_create_table_statement.html#acc53d80853522ca190545f1b06d2aa64">_column</a>;
-<a name="l00031"></a><a class="code" href="interface_z_i_m_sql_create_table_statement.html#a2e626d2e8eece5e9cd2f4151ec3ef4c6">00031</a>                 NSString *<a class="code" href="interface_z_i_m_sql_create_table_statement.html#a2e626d2e8eece5e9cd2f4151ec3ef4c6">_primaryKey</a>;
-<a name="l00032"></a><a class="code" href="interface_z_i_m_sql_create_table_statement.html#a818a6f7652877a55e78f0f1c84416b34">00032</a>                 NSString *<a class="code" href="interface_z_i_m_sql_create_table_statement.html#a818a6f7652877a55e78f0f1c84416b34">_unique</a>;
+<a name="l00031"></a><a class="code" href="interface_z_i_m_sql_create_table_statement.html#a2e626d2e8eece5e9cd2f4151ec3ef4c6">00031</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_create_table_statement.html#a2e626d2e8eece5e9cd2f4151ec3ef4c6">_primaryKey</a>;
+<a name="l00032"></a><a class="code" href="interface_z_i_m_sql_create_table_statement.html#a818a6f7652877a55e78f0f1c84416b34">00032</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_create_table_statement.html#a818a6f7652877a55e78f0f1c84416b34">_unique</a>;
 <a name="l00033"></a>00033 
 <a name="l00034"></a>00034 }
-<a name="l00041"></a>00041 - (void) table: (NSString *)table;
-<a name="l00050"></a>00050 - (void) table: (NSString *)table temporary: (BOOL)temporary;
-<a name="l00058"></a>00058 - (void) column: (NSString *)column type: (NSString *)type;
-<a name="l00067"></a>00067 - (void) column: (NSString *)column type: (NSString *)type defaultValue: (NSString *)value;
-<a name="l00076"></a>00076 - (void) column: (NSString *)column type: (NSString *)type primaryKey: (BOOL)primaryKey;
-<a name="l00086"></a>00086 - (void) column: (NSString *)column type: (NSString *)type unique: (BOOL)unique;
+<a name="l00041"></a>00041 - (void) table: (<a class="code" href="class_n_s_string.html">NSString</a> *)table;
+<a name="l00050"></a>00050 - (void) table: (<a class="code" href="class_n_s_string.html">NSString</a> *)table temporary: (BOOL)temporary;
+<a name="l00058"></a>00058 - (void) column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column type: (<a class="code" href="class_n_s_string.html">NSString</a> *)type;
+<a name="l00067"></a>00067 - (void) column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column type: (<a class="code" href="class_n_s_string.html">NSString</a> *)type defaultValue: (<a class="code" href="class_n_s_string.html">NSString</a> *)value;
+<a name="l00076"></a>00076 - (void) column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column type: (<a class="code" href="class_n_s_string.html">NSString</a> *)type primaryKey: (BOOL)primaryKey;
+<a name="l00086"></a>00086 - (void) column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column type: (<a class="code" href="class_n_s_string.html">NSString</a> *)type unique: (BOOL)unique;
 <a name="l00093"></a>00093 - (void) primaryKey: (NSArray *)columns;
 <a name="l00100"></a>00100 - (void) unique: (NSArray *)columns;
-<a name="l00107"></a>00107 - (NSString *) statement;
+<a name="l00107"></a>00107 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
 <a name="l00108"></a>00108 
 <a name="l00109"></a>00109 <span class="keyword">@end</span>
 </pre></div></div>
@@ -114,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Jun 27 2011 02:01:59 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 30 2011 23:03:58 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
