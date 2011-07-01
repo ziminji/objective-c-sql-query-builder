@@ -10,8 +10,8 @@
 	<array>
 		<string>SELECT</string>
 		<string>INSERT</string>
-		<string>DELETE</string>
 		<string>UPDATE</string>
+		<string>DELETE</string>
 	</array>
 </dict>
 </plist>

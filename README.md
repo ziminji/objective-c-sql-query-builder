@@ -77,7 +77,7 @@ added to the respective Xcode project.
 
 ### Required Frameworks
 
-To use these classes in an Xcode project, add the following framework:
+To use these Objective-C classes in an Xcode project, add the following framework:
 
 * libsqlite3.dylib
 
@@ -90,7 +90,15 @@ respective ".h" file.  You can also find more information on this repository's W
 
 Checkout this repository's Wiki for a handful of examples.  There, you will find examples on how to make an SQLite
 database connection using the Data Access Object (DAO) and how to build Create, Read, Update, and Delete (CRUD)
-statements.
+statements.  The Wiki also has tutorials on how to use Object Relational Mapping (ORM) and how to generate the
+necessary models (i.e. active records).
+
+### Further Assistance
+
+If you need further assistance in implementing these classes, you can always send an email to oss@ziminji.com with
+any questions that you may have.  Any frequently asked questions (FAQ) will be posted on this repository's Wiki.
+
+You can also seek assistance via the blogs.  A great Web site for community assistance is [[Stack Overflow|http://stackoverflow.com/]].
 
 ## Reporting Bugs & Making Recommendations
 
