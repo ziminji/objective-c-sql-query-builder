@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00025"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html">00025</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_delete_statement.html">ZIMSqlDeleteStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>&gt; {
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027         <span class="keyword">@protected</span>
-<a name="l00028"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#ab5a5eb4e563ff96509e2dc9820c49860">00028</a>                 NSString *<a class="code" href="interface_z_i_m_sql_delete_statement.html#ab5a5eb4e563ff96509e2dc9820c49860">_table</a>;
+<a name="l00028"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#ab5a5eb4e563ff96509e2dc9820c49860">00028</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_delete_statement.html#ab5a5eb4e563ff96509e2dc9820c49860">_table</a>;
 <a name="l00029"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#a052cc05efb6d9989bb76fbcd5b848497">00029</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_delete_statement.html#a052cc05efb6d9989bb76fbcd5b848497">_where</a>;
 <a name="l00030"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#a4d41403e8f94b8702708d3ce127f655a">00030</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_delete_statement.html#a4d41403e8f94b8702708d3ce127f655a">_orderBy</a>;
 <a name="l00031"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#a84962bc232572e71abcdfa8b8179c68f">00031</a>                 NSInteger <a class="code" href="interface_z_i_m_sql_delete_statement.html#a84962bc232572e71abcdfa8b8179c68f">_limit</a>;
@@ -88,18 +88,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00033"></a>00033 
 <a name="l00034"></a>00034 }
 <a name="l00035"></a>00035 
-<a name="l00042"></a>00042 - (void) table: (NSString *)table;
-<a name="l00049"></a>00049 - (void) whereBlock: (NSString *)brace;
-<a name="l00057"></a>00057 - (void) whereBlock: (NSString *)brace connector: (NSString *)connector;
-<a name="l00066"></a>00066 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
-<a name="l00076"></a>00076 - (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
-<a name="l00085"></a>00085 - (void) where: (NSString *)column operator: (NSString *)operator value: (<span class="keywordtype">id</span>)value; <span class="comment">// wrap primitives with NSNumber</span>
-<a name="l00095"></a>00095 <span class="comment"></span>- (void) where: (NSString *)column operator: (NSString *)operator value: (<span class="keywordtype">id</span>)value connector: (NSString *)connector; <span class="comment">// wrap primitives with NSNumber</span>
-<a name="l00102"></a>00102 <span class="comment"></span>- (void) orderBy: (NSString *)column;
-<a name="l00110"></a>00110 - (void) orderBy: (NSString *)column descending: (BOOL)descending;
+<a name="l00042"></a>00042 - (void) table: (<a class="code" href="class_n_s_string.html">NSString</a> *)table;
+<a name="l00049"></a>00049 - (void) whereBlock: (<a class="code" href="class_n_s_string.html">NSString</a> *)brace;
+<a name="l00057"></a>00057 - (void) whereBlock: (<a class="code" href="class_n_s_string.html">NSString</a> *)brace connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
+<a name="l00066"></a>00066 - (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2;
+<a name="l00076"></a>00076 - (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2 connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
+<a name="l00085"></a>00085 - (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value; <span class="comment">// wrap primitives with NSNumber</span>
+<a name="l00095"></a>00095 <span class="comment"></span>- (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector; <span class="comment">// wrap primitives with NSNumber</span>
+<a name="l00102"></a>00102 <span class="comment"></span>- (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column;
+<a name="l00110"></a>00110 - (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column descending: (BOOL)descending;
 <a name="l00117"></a>00117 - (void) limit: (NSInteger)limit;
 <a name="l00124"></a>00124 - (void) offset: (NSInteger)offset;
-<a name="l00131"></a>00131 - (NSString *) statement;
+<a name="l00131"></a>00131 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
 <a name="l00132"></a>00132 
 <a name="l00133"></a>00133 <span class="keyword">@end</span>
 </pre></div></div>
@@ -118,7 +118,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Jun 27 2011 02:01:59 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 30 2011 23:03:58 for objective-c-sql-query-builder by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

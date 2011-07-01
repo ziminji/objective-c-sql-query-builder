@@ -14,4 +14,6 @@
  * limitations under the License.
  */
 
+#import "NSString+ZIMExtString.h"
+
 #import "ZIMDaoConnection.h"

@@ -6,5 +6,12 @@
 	<string>SQLite</string>
 	<key>database</key>
 	<string>defaultdb.sqlite</string>
+	<key>privileges</key>
+	<array>
+		<string>SELECT</string>
+		<string>INSERT</string>
+		<string>DELETE</string>
+		<string>UPDATE</string>
+	</array>
 </dict>
 </plist>
