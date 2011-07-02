@@ -36,7 +36,7 @@ The following is a short-list of some of the features:
 * Executes an SQL statement with one line of code.
 * Has a large collection of SQL builder classes with methods that mimic their SQL equivalent.
 * Helps ensure that SQL is well-formed.
-* Supports all major Objective-C datatypes, including NSNull, NSNumber, NSString, NSData, and NSDate.
+* Supports all major Objective-C datatypes, including NSNull, NSNumber, NSDecimalNumber, NSString, NSData, and NSDate.
 * Sanitizes data.
 * Handles most complex queries.
 * Works with raw SQL.
