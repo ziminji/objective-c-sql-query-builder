@@ -96,9 +96,10 @@ necessary models (i.e. active records).
 ### Further Assistance
 
 If you need further assistance in implementing these classes, you can always send an email to oss@ziminji.com with
-any questions that you may have.  Any frequently asked questions (FAQ) will be posted on this repository's Wiki.
+any questions that you may have about this repository.  Any frequently asked questions (FAQ) will be posted on this
+repository's Wiki.
 
-You can also seek assistance via the blogs.  A great Web site for community assistance is [[Stack Overflow|http://stackoverflow.com/]].
+You can also seek assistance via the blogs.  A great Web site for community assistance is [Stack Overflow](http://stackoverflow.com).
 
 ## Reporting Bugs & Making Recommendations
 
