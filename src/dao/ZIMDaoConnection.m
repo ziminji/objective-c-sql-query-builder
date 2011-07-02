@@ -121,9 +121,9 @@
 		[_mutex lock];
 	}
 
-	NSString *sqlType = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r"]] uppercaseString];
+	NSString *command = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r"]] uppercaseString];
 
-	if ((_privileges != nil) && ![_privileges containsObject: sqlType]) {
+	if ((_privileges != nil) && ![_privileges containsObject: command]) {
 		if (_mutex != nil) {
 			[_mutex unlock];
 		}
@@ -142,7 +142,7 @@
 
 	NSNumber *result = nil;
 
-	if ([sqlType isEqualToString: @"INSERT"]) {
+	if ([command isEqualToString: @"INSERT"]) {
 	 	// Known limitations: http://www.sqlite.org/c3ref/last_insert_rowid.html
 		result = [NSNumber numberWithInt: sqlite3_last_insert_rowid(_database)];
 	}
@@ -168,9 +168,9 @@
 		[_mutex lock];
 	}
 
-	NSString *sqlType = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r"]] uppercaseString];
+	NSString *command = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r"]] uppercaseString];
 
-	if ((_privileges != nil) && ![_privileges containsObject: sqlType]) {
+	if ((_privileges != nil) && ![_privileges containsObject: command]) {
 		if (_mutex != nil) {
 			[_mutex unlock];
 		}

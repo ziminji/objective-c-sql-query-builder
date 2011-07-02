@@ -22,8 +22,8 @@
 # Before running this BASH script, configure the associated Java properties file.
 #
 # To run this BASH script, use the following commands:
-# 	username$ chmod +x ZIMGenTableModels.sh 
-# 	username$ ./ZIMGenTableModels.sh ZIMGenTableModels.properties
+# 	username$ chmod +x ZIMGenModels.sh 
+# 	username$ ./ZIMGenModels.sh ZIMGenModels.properties
 ##
 
 ##
