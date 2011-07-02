@@ -52,7 +52,7 @@
  @param columnType	The integer value of the data type for the specified column.
  @param statement	The prepared SQL statement.
  @return			The prepared value.
- @updated			2011-03-24
+ @updated			2011-07-02
  */
 - (id) columnValueAtIndex: (int)column withColumnType: (int)columnType inStatement: (sqlite3_stmt *)statement;
 @end
@@ -299,7 +299,7 @@
 		return [NSNumber numberWithInt: sqlite3_column_int(statement, column)];
 	}
 	if (columnType == SQLITE_FLOAT) {
-		return [NSNumber numberWithDouble: sqlite3_column_double(statement, column)];
+		return [[[NSDecimalNumber alloc] initWithDouble: sqlite3_column_double(statement, column)] autorelease];
 	}
 	if (columnType == SQLITE_TEXT) {
 		const char *text = (const char *)sqlite3_column_text(statement, column);
