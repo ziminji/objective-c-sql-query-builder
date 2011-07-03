@@ -33,14 +33,14 @@
  @method				table:
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
- @updated				2011-06-20
+ @updated				2011-07-02
  */
 - (void) table: (NSString *)table;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-06-20
+ @updated				2011-07-02
  */
 - (NSString *) statement;
 

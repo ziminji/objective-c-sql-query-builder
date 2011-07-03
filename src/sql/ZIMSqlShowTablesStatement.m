@@ -42,7 +42,7 @@
 		[sql appendFormat: @" AND %@", _clause];
 	}
 
-	[sql appendString: @" ORDER BY [name];"];
+	[sql appendString: @" ORDER BY [name] ASC"];
 
 	[sql appendString: @";"];
 	

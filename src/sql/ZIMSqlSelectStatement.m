@@ -229,7 +229,7 @@
 }
 
 - (void) orderBy: (NSString *)column descending: (BOOL)descending {
-	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column], ((descending) ? @"DESC" : @"ASC")]];
+	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareSortOrder: descending]]];
 }
 
 - (void) limit: (NSInteger)limit {
@@ -241,8 +241,8 @@
 }
 
 - (void) combine: (NSString *)statement operator: (NSString *)operator {
-	if (!(([statement length] >= 6)  && [[[statement substringWithRange: NSMakeRange(0, 6)] uppercaseString] isEqualToString: @"SELECT"])) {
-		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May only compound a select statement." userInfo: nil];
+	if (![[[NSString firstTokenInString: statement scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r\t"]] uppercaseString] isEqualToString: @"SELECT"]) {
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May only combine a select statement." userInfo: nil];
 	}
 	operator = [operator uppercaseString];
 	if (![[NSSet setWithObjects: ZIMSqlOperatorExcept, ZIMSqlOperatorIntersect, ZIMSqlOperatorUnion, ZIMSqlOperatorUnionALL, nil] isSubsetOfSet: [NSSet setWithObject: operator]]) {

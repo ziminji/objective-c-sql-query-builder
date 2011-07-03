@@ -30,13 +30,13 @@
 }
 
 - (void) table: (NSString *)table {
-	_table = [ZIMSqlExpression prepareIdentifier: table];
+	_table = table;
 }
 
 - (NSString *) statement {
 	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
-	[sql appendFormat: @"DELETE FROM %@; ", _table];
-	[sql appendFormat: @"DELETE FROM [sqlite_sequence] WHERE [name] = '%@';", _table];
+	[sql appendFormat: @"DELETE FROM %@; ", [ZIMSqlExpression prepareIdentifier: _table]];
+	[sql appendFormat: @"DELETE FROM [sqlite_sequence] WHERE [name] = %@;", [ZIMSqlExpression prepareValue: _table]];
 	return sql;
 }
 

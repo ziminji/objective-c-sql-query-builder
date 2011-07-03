@@ -119,7 +119,7 @@ Usually, code is not posted to this repository unless it works; however, there a
 even though it still contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this
 README (if they are not already listed under the "Issues" tab).
 
-At the current time, there are no known bugs.  However, the Object Relational Modeling (ORM) is still in development.
+At the current time, there are no known bugs.
 
 ### Updates
 
