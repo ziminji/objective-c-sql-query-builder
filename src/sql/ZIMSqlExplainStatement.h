@@ -37,7 +37,7 @@
  @discussion			This method will modify the level of data to be return by the SQL statement.
  @param level			The level of data to be returned (i.e. level 0 is for machine instructions and
 						level 1 is for high level information).
- @updated				2011-06-25
+ @updated				2011-07-02
  */
 - (void) level: (NSInteger)level;
 /*!

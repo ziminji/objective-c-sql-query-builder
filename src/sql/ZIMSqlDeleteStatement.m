@@ -88,7 +88,7 @@
 }
 
 - (void) orderBy: (NSString *)column descending: (BOOL)descending {
-	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column], ((descending) ? @"DESC" : @"ASC")]];
+	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareSortOrder: descending]]];
 }
 
 - (void) limit: (NSInteger)limit {

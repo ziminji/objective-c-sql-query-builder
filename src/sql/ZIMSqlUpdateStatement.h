@@ -113,7 +113,7 @@
  @discussion			This method will add an order by clause to the SQL statement.
  @param column			The column to be ordered.
  @param descending		This will determine whether the column should be ordered in descending order.
- @updated				2011-06-16
+ @updated				2011-07-02
  */
 - (void) orderBy: (NSString *)column descending: (BOOL)descending;
 /*!

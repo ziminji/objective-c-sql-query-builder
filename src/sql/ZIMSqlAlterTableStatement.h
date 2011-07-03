@@ -41,7 +41,7 @@
  @discussion			This method will change the autoincrement position.  WARNING: ALTERING TABLE VIA THIS
 						METHOD MAY CAUSE PROBLEMS WITH THE AUTOINCREMENT KEY GENERATION ALGORITHM.
  @param position		The position to which the autoincrementer will be set.
- @updated				2011-06-20
+ @updated				2011-07-02
  @see					http://sqlite.org/autoinc.html
  @see					http://stackoverflow.com/questions/3443630/reset-the-row-number-count-in-sqlite3-mysql
  */
@@ -86,7 +86,7 @@
  @method				rename:
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
- @updated				2011-03-29
+ @updated				2011-07-02
  */
 - (void) rename: (NSString *)table;
 /*!

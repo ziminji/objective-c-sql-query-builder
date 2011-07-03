@@ -31,7 +31,7 @@
 }
 
 - (void) level: (NSInteger)level {
-	_level = abs(level);
+	_level = [ZIMSqlExpression prepareNaturalNumber: level];
 }
 
 - (void) sql: (id<ZIMSqlStatement>)sql {

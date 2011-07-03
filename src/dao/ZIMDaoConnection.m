@@ -121,7 +121,7 @@
 		[_mutex lock];
 	}
 
-	NSString *command = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r"]] uppercaseString];
+	NSString *command = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r\t"]] uppercaseString];
 
 	if ((_privileges != nil) && ![_privileges containsObject: command]) {
 		if (_mutex != nil) {
@@ -168,7 +168,7 @@
 		[_mutex lock];
 	}
 
-	NSString *command = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r"]] uppercaseString];
+	NSString *command = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r\t"]] uppercaseString];
 
 	if ((_privileges != nil) && ![_privileges containsObject: command]) {
 		if (_mutex != nil) {

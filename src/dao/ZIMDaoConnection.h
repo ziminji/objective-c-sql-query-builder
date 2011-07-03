@@ -74,7 +74,7 @@
  @discussion			This method will execute the specified SQL statement.
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-06-29
+ @updated				2011-07-02
  @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  @see					http://code.google.com/p/sqlite-manager/issues/detail?id=34
  */
@@ -97,7 +97,7 @@
 						accessible instance variables and does not necessarily have to conform
 						to the Active Record design pattern.
  @return				The result set (i.e. an array of records).
- @updated				2011-06-29
+ @updated				2011-07-02
  */
 - (NSArray *) query: (NSString *)sql asObject: (Class)model;
 /*!
