@@ -31,7 +31,7 @@
 }
 
 - (void) table: (NSString *)table {
-	_table = [ZIMSqlExpression prepareIdentifier: table];
+	_table = table;
 }
 
 - (void) autoincrement: (NSInteger)position {
@@ -72,7 +72,7 @@
 	if ([_clause hasPrefix: @"UPDATE"]) {
 		return [NSString stringWithFormat: @"%@ WHERE [name] = '%@';", _clause, _table];
 	}
-	return [NSString stringWithFormat: @"ALTER TABLE %@ %@;", _table, _clause];
+	return [NSString stringWithFormat: @"ALTER TABLE %@ %@;", [ZIMSqlExpression prepareIdentifier: _table], _clause];
 }
 
 @end
