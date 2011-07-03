@@ -34,7 +34,7 @@
 }
 
 - (NSString *) statement {
-	NSString *sql = [NSString stringWithFormat: @"REINDEX %@; ", _table];
+	NSString *sql = [NSString stringWithFormat: @"REINDEX %@;", _table];
 	return sql;
 }
 

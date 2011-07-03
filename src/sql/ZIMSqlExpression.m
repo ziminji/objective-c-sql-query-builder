@@ -87,7 +87,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 @implementation ZIMSqlExpression
 
 + (NSString *) prepareAlias: (NSString *)token {
-	NSCharacterSet *removables = [NSCharacterSet characterSetWithCharactersInString: @";\"'`[]\n\r"];
+	NSCharacterSet *removables = [NSCharacterSet characterSetWithCharactersInString: @";\"'`[]\n\r\t"];
 	token = [[token componentsSeparatedByCharactersInSet: removables] componentsJoinedByString: @""];
 	token = [NSString stringWithFormat: @"[%@]", token];
 	return token;
@@ -108,25 +108,8 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	return token;
 }
 
-+ (NSString *) prepareJoinType: (NSString *)token {
-	const NSSet *joinTypes = [NSSet setWithObjects: ZIMSqlJoinTypeCross, ZIMSqlJoinTypeInner, ZIMSqlJoinTypeLeft, ZIMSqlJoinTypeLeftOuter, ZIMSqlJoinTypeNatural, ZIMSqlJoinTypeNaturalCross, ZIMSqlJoinTypeNaturalInner, ZIMSqlJoinTypeNaturalLeft, ZIMSqlJoinTypeNaturalLeftOuter, nil];
-	if ((token == nil) || [token isEqualToString: ZIMSqlJoinTypeNone]) {
-		token = ZIMSqlJoinTypeInner;
-	}
-	else if ([token isEqualToString: @","]) {
-		token = ZIMSqlJoinTypeCross;
-	}
-	else {
-		token = [token uppercaseString];
-	}
-	if (![joinTypes containsObject: token])	{
-		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid join type token provided." userInfo: nil];
-	}
-	return token;
-}
-
 + (NSString *) prepareIdentifier: (NSString *)token {
-	if ([[[NSString firstTokenInString: token scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r"]] uppercaseString] isEqualToString: @"SELECT"]) {
+	if ([[[NSString firstTokenInString: token scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r\t"]] uppercaseString] isEqualToString: @"SELECT"]) {
 		while ([token hasSuffix: @";"]) {
 			token = [token substringWithRange: NSMakeRange(0, [token length] - 1)];
 		}
@@ -152,8 +135,29 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	return token;
 }
 
++ (NSString *) prepareJoinType: (NSString *)token {
+	const NSSet *joinTypes = [NSSet setWithObjects: ZIMSqlJoinTypeCross, ZIMSqlJoinTypeInner, ZIMSqlJoinTypeLeft, ZIMSqlJoinTypeLeftOuter, ZIMSqlJoinTypeNatural, ZIMSqlJoinTypeNaturalCross, ZIMSqlJoinTypeNaturalInner, ZIMSqlJoinTypeNaturalLeft, ZIMSqlJoinTypeNaturalLeftOuter, nil];
+	if ((token == nil) || [token isEqualToString: ZIMSqlJoinTypeNone]) {
+		token = ZIMSqlJoinTypeInner;
+	}
+	else if ([token isEqualToString: @","]) {
+		token = ZIMSqlJoinTypeCross;
+	}
+	else {
+		token = [token uppercaseString];
+	}
+	if (![joinTypes containsObject: token])	{
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid join type token provided." userInfo: nil];
+	}
+	return token;
+}
+
 + (NSInteger) prepareNaturalNumber: (NSInteger)number {
 	return abs(number);
+}
+
++ (NSString *) prepareSortOrder: (BOOL)descending {
+	return (descending) ? @"DESC" : @"ASC";
 }
 
 + (NSString *) prepareValue: (id)value {
@@ -182,7 +186,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 		return [NSString stringWithFormat: @"%@", value];
 	}
 	else if ([value isKindOfClass: [NSString class]]) {
-		return [NSString stringWithFormat: @"'%@'", [[(NSString *)value stringByReplacingOccurrencesOfString: @"\\" withString: @"\\\\"] stringByReplacingOccurrencesOfString: @"\'" withString: @"\\\'"]];
+		return [NSString stringWithFormat: @"'%@'", [(NSString *)value stringByReplacingOccurrencesOfString: @"'" withString: @"''"]];
 	}
 	else if ([value isKindOfClass: [NSData class]]) {
 		NSData *data = (NSData *)value;
