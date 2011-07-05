@@ -52,7 +52,7 @@
 						created in the working directory.
  @param dataSource		The file name of the database to be used.
  @param multithreading	This determines whether locks should be used.
- @updated				2011-06-29
+ @updated				2011-07-05
  */
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!

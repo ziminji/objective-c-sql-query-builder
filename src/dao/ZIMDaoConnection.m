@@ -18,7 +18,9 @@
 #import "ZIMDaoConnection.h"
 
 // Defines the integer value for the table column datatype
-#define ZIMDAO_DATE								6
+#if !defined(SQLITE_DATE)
+	#define SQLITE_DATE				6
+#endif
 
 /*!
  @category		ZIMDaoConnection (Private)
@@ -40,7 +42,7 @@
  @param column		The column index.
  @param statement	The prepared SQL statement.
  @return			The integer value of the data type for the specified column.
- @updated			2011-04-18
+ @updated			2011-07-05
  @see				http://www.sqlite.org/datatype3.html
  @see				http://www.sqlite.org/c3ref/c_blob.html
  */
@@ -52,7 +54,7 @@
  @param columnType	The integer value of the data type for the specified column.
  @param statement	The prepared SQL statement.
  @return			The prepared value.
- @updated			2011-07-02
+ @updated			2011-07-05
  */
 - (id) columnValueAtIndex: (int)column withColumnType: (int)columnType inStatement: (sqlite3_stmt *)statement;
 @end
@@ -70,6 +72,7 @@
 		NSString *type = [config objectForKey: @"type"];
 		NSString *database = [config objectForKey: @"database"];
 		if ((type == nil) || ![[type lowercaseString] isEqualToString: @"sqlite"] || (database == nil)) {
+			[config release];
 			@throw [NSException exceptionWithName: @"ZIMDaoException" reason: @"Failed to load data source." userInfo: nil];
 		}
 		NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -79,6 +82,8 @@
 			if ([fileManager fileExistsAtPath: resourcePath]) {
 				NSError *error;
 				if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
+					[fileManager release];
+					[config release];
 					@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
 				}
 			}
@@ -271,7 +276,7 @@
 		if (end.location != NSNotFound) {
 			dataType = [dataType substringWithRange: NSMakeRange(0, end.location)];
 		}
-		if ([intTypes containsObject: dataType])	{
+		if ([intTypes containsObject: dataType]) {
 			return SQLITE_INTEGER;
 		}
 		if ([realTypes containsObject: dataType]) {
@@ -287,7 +292,7 @@
 			return SQLITE_NULL;
 		}
 		if ([dateTypes containsObject: dataType]) {
-			return ZIMDAO_DATE;
+			return SQLITE_DATE;
 		}
 		return SQLITE_TEXT;
 	}
@@ -310,7 +315,7 @@
 	if (columnType == SQLITE_BLOB) {
 		return [NSData dataWithBytes: sqlite3_column_blob(statement, column) length: sqlite3_column_bytes(statement, column)];
 	}
-	if (columnType == ZIMDAO_DATE) {
+	if (columnType == SQLITE_DATE) {
 		const char *text = (const char *)sqlite3_column_text(statement, column);
 		if (text != NULL) {
 			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
