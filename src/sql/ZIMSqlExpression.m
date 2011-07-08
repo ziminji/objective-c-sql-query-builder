@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#import <sqlite3.h> // Requires libsqlite3.dylib
 #import "NSString+ZIMExtString.h"
 #import "ZIMSqlExpression.h"
 #import "ZIMSqlSelectStatement.h"
@@ -26,7 +27,10 @@ NSString *ZIMSqlDefaultValue(id value) {
 		return [NSString stringWithFormat: @"DEFAULT %@", value];
 	}
 	else if ([value isKindOfClass: [NSString class]]) {
-		return [NSString stringWithFormat: @"DEFAULT '%@'", [[(NSString *)value stringByReplacingOccurrencesOfString: @"\\" withString: @"\\\\"] stringByReplacingOccurrencesOfString: @"\'" withString: @"\\\'"]];
+		char *escapedValue = sqlite3_mprintf("DEFAULT '%q'", [(NSString *)value UTF8String]);
+        NSString *string = [NSString stringWithUTF8String: (const char *)escapedValue];
+        sqlite3_free(escapedValue);
+		return string;
 	}
 	else if ([value isKindOfClass: [NSData class]]) {
 		NSData *data = (NSData *)value;
@@ -186,7 +190,10 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 		return [NSString stringWithFormat: @"%@", value];
 	}
 	else if ([value isKindOfClass: [NSString class]]) {
-		return [NSString stringWithFormat: @"'%@'", [(NSString *)value stringByReplacingOccurrencesOfString: @"'" withString: @"''"]];
+        char *escapedValue = sqlite3_mprintf("'%q'", [(NSString *)value UTF8String]);
+        NSString *string = [NSString stringWithUTF8String: (const char *)escapedValue];
+        sqlite3_free(escapedValue);
+		return string;
 	}
 	else if ([value isKindOfClass: [NSData class]]) {
 		NSData *data = (NSData *)value;

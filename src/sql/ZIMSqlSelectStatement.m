@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#import "NSString+ZIMExtString.h"
 #import "ZIMSqlSelectStatement.h"
 
 @implementation ZIMSqlSelectStatement
