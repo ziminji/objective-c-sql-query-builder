@@ -37,7 +37,7 @@
  @discussion		This method creates a message digest using the sha1 algorithm.
  @param string		The string to be hashed.
  @return			A string representing the message digest.
- @updated			2011-07-07
+ @updated			2011-07-08
  */
 + (NSString *) hashStringWithSHA1: (NSString *)string;
 
