@@ -74,9 +74,10 @@ Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#aaedde0f875533c61d7dd039d8516adf7">prepareAlias:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a7dd6dd5442d4ba58bfc5d16f0a18051e">prepareConnector:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a961fa6c087fc0c25c1d3747da74f9eb6">prepareEnclosure:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#aa2432331aee34a8654b018d49adfb3b8">prepareJoinType:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#ab3b2092c67dfe87ebee84dcfceb5f2b0">prepareIdentifier:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#aa2432331aee34a8654b018d49adfb3b8">prepareJoinType:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSInteger)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#acd93e1663c240b9bf67d7cd8768d74df">prepareNaturalNumber:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a3eff915a6790ce871bca4da44687f77d">prepareSortOrder:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a92b265f70057cea3871dc47115be0d5e">prepareValue:</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
@@ -106,7 +107,7 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The prepared token. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-25 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-02 </dd></dl>
 
 </div>
 </div>
@@ -245,6 +246,33 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a3eff915a6790ce871bca4da44687f77d"></a><!-- doxytag: member="ZIMSqlExpression::prepareSortOrder:" ref="a3eff915a6790ce871bca4da44687f77d" args="(BOOL descending)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) prepareSortOrder: </td>
+          <td></td>
+          <td class="paramtype">(BOOL)&#160;</td>
+          <td class="paramname"><em>descending</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>prepareSortOrder: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will prepare a sort order token for an SQL statement. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">descending</td><td>This will determine whether the token represents a descending tkoen or an ascending token. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared sort order token. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-02 </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a92b265f70057cea3871dc47115be0d5e"></a><!-- doxytag: member="ZIMSqlExpression::prepareValue:" ref="a92b265f70057cea3871dc47115be0d5e" args="(id value)" -->
 <div class="memitem">
 <div class="memproto">
@@ -268,7 +296,8 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The prepared value. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-16 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-02 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite">http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite</a> </dd></dl>
 
 </div>
 </div>
@@ -291,7 +320,7 @@ Static Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Jun 30 2011 23:03:59 for objective-c-sql-query-builder by&#160;
+<hr class="footer"/><address class="footer"><small>Generated by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

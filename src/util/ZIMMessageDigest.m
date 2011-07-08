@@ -36,7 +36,7 @@
 	CC_SHA1(cString, strlen(cString), digest);
 	NSMutableString *hash = [NSMutableString stringWithCapacity: CC_SHA1_DIGEST_LENGTH * 2];
 	for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
-		[hash appendFormat:@"%02X", digest[i]];
+		[hash appendFormat: @"%02X", digest[i]];
 	}
 	return [hash lowercaseString];
 }
