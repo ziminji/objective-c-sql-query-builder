@@ -195,7 +195,8 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare a value for an SQL statement.
  @param value			The value to be prepared.
  @return				The prepared value.
- @updated				2011-07-02
+ @updated				2011-07-08
+ @see					http://codingrecipes.com/objective-c-a-function-for-escaping-values-before-inserting-into-sqlite
  @see					http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite
  */
 + (NSString *) prepareValue: (id)value;
