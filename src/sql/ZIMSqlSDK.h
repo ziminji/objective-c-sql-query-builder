@@ -19,6 +19,7 @@
 #import "ZIMSqlAlterTableStatement.h"
 #import "ZIMSqlAnalyzeStatement.h"
 #import "ZIMSqlAttachStatement.h"
+#import "ZIMSqlCreateIndexStatement.h"
 #import "ZIMSqlCreateTableStatement.h"
 #import "ZIMSqlCreateViewStatement.h"
 #import "ZIMSqlDeleteStatement.h"
