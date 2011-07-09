@@ -28,8 +28,8 @@ NSString *ZIMSqlDefaultValue(id value) {
 	}
 	else if ([value isKindOfClass: [NSString class]]) {
 		char *escapedValue = sqlite3_mprintf("DEFAULT '%q'", [(NSString *)value UTF8String]);
-        NSString *string = [NSString stringWithUTF8String: (const char *)escapedValue];
-        sqlite3_free(escapedValue);
+		NSString *string = [NSString stringWithUTF8String: (const char *)escapedValue];
+		sqlite3_free(escapedValue);
 		return string;
 	}
 	else if ([value isKindOfClass: [NSData class]]) {
@@ -160,6 +160,16 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	return abs(number);
 }
 
++ (NSString *) prepareOperator: (NSString *)operator ofType: (NSString *)type {
+	const NSSet *setOperators = [NSSet setWithObjects: ZIMSqlOperatorExcept, ZIMSqlOperatorIntersect, ZIMSqlOperatorUnion, ZIMSqlOperatorUnionAll, nil];
+	type = [type uppercaseString];
+	operator = [operator uppercaseString];
+	if ([type isEqualToString: @"SET"] && ![setOperators containsObject: operator]) {
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid set operator token provided." userInfo: nil];
+	}
+	return operator;
+}
+
 + (NSString *) prepareSortOrder: (BOOL)descending {
 	return (descending) ? @"DESC" : @"ASC";
 }
@@ -190,9 +200,9 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 		return [NSString stringWithFormat: @"%@", value];
 	}
 	else if ([value isKindOfClass: [NSString class]]) {
-        char *escapedValue = sqlite3_mprintf("'%q'", [(NSString *)value UTF8String]);
-        NSString *string = [NSString stringWithUTF8String: (const char *)escapedValue];
-        sqlite3_free(escapedValue);
+		char *escapedValue = sqlite3_mprintf("'%q'", [(NSString *)value UTF8String]);
+		NSString *string = [NSString stringWithUTF8String: (const char *)escapedValue];
+		sqlite3_free(escapedValue);
 		return string;
 	}
 	else if ([value isKindOfClass: [NSData class]]) {

@@ -77,6 +77,7 @@ Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#ab3b2092c67dfe87ebee84dcfceb5f2b0">prepareIdentifier:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#aa2432331aee34a8654b018d49adfb3b8">prepareJoinType:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSInteger)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#acd93e1663c240b9bf67d7cd8768d74df">prepareNaturalNumber:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a098fec6b21df31197a26db3454748601">prepareOperator:ofType:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a3eff915a6790ce871bca4da44687f77d">prepareSortOrder:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a92b265f70057cea3871dc47115be0d5e">prepareValue:</a></td></tr>
 </table>
@@ -246,6 +247,44 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a098fec6b21df31197a26db3454748601"></a><!-- doxytag: member="ZIMSqlExpression::prepareOperator:ofType:" ref="a098fec6b21df31197a26db3454748601" args="(NSString *operator,[ofType] NSString *type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) prepareOperator: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>operator</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">ofType:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>prepareOperator:type </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will prepare an operator for an SQL statement. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">operator</td><td>The operator to be prepared. </td></tr>
+    <tr><td class="paramname">type</td><td>The type of operator. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared operator. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-09 </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a3eff915a6790ce871bca4da44687f77d"></a><!-- doxytag: member="ZIMSqlExpression::prepareSortOrder:" ref="a3eff915a6790ce871bca4da44687f77d" args="(BOOL descending)" -->
 <div class="memitem">
 <div class="memproto">
@@ -296,8 +335,12 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The prepared value. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-02 </dd></dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite">http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite</a> </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-09 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/c3ref/mprintf.html">http://www.sqlite.org/c3ref/mprintf.html</a> </dd>
+<dd>
+<a href="http://codingrecipes.com/objective-c-a-function-for-escaping-values-before-inserting-into-sqlite">http://codingrecipes.com/objective-c-a-function-for-escaping-values-before-inserting-into-sqlite</a> </dd>
+<dd>
+<a href="http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite">http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite</a> </dd></dl>
 
 </div>
 </div>
