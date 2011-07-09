@@ -77,11 +77,11 @@
 #define ZIMSqlOperatorBetween					@"BETWEEN"
 #define ZIMSqlOperatorNotBetween				@"NOT BETWEEN"
 
-// Compound Operators
+// Set Operators
 #define ZIMSqlOperatorExcept					@"EXCEPT"
 #define ZIMSqlOperatorIntersect					@"INTERSECT"
 #define ZIMSqlOperatorUnion						@"UNION"
-#define ZIMSqlOperatorUnionALL					@"UNION ALL"
+#define ZIMSqlOperatorUnionAll					@"UNION ALL"
 
 // Default Values -- http://forums.realsoftware.com/viewtopic.php?f=3&t=35179
 #define ZIMSqlDefaultValueIsAutoIncremented		@"PRIMARY KEY AUTOINCREMENT NOT NULL"
@@ -182,6 +182,15 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  */
 + (NSInteger) prepareNaturalNumber: (NSInteger)number;
 /*!
+ @method				prepareOperator:type
+ @discussion			This method will prepare an operator for an SQL statement.
+ @param operator		The operator to be prepared.
+ @param type			The type of operator.
+ @return				The prepared operator.
+ @updated				2011-07-09
+ */
++ (NSString *) prepareOperator: (NSString *)operator ofType: (NSString *)type;
+/*!
  @method				prepareSortOrder:
  @discussion			This method will prepare a sort order token for an SQL statement.
  @param descending		This will determine whether the token represents a descending tkoen
@@ -195,7 +204,8 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare a value for an SQL statement.
  @param value			The value to be prepared.
  @return				The prepared value.
- @updated				2011-07-08
+ @updated				2011-07-09
+ @see					http://www.sqlite.org/c3ref/mprintf.html
  @see					http://codingrecipes.com/objective-c-a-function-for-escaping-values-before-inserting-into-sqlite
  @see					http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite
  */
