@@ -245,11 +245,7 @@
 	if (![[[NSString firstTokenInString: statement scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r\t"]] uppercaseString] isEqualToString: @"SELECT"]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May only combine a select statement." userInfo: nil];
 	}
-	operator = [operator uppercaseString];
-	if (![[NSSet setWithObjects: ZIMSqlOperatorExcept, ZIMSqlOperatorIntersect, ZIMSqlOperatorUnion, ZIMSqlOperatorUnionALL, nil] isSubsetOfSet: [NSSet setWithObject: operator]]) {
-		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid operator token provided." userInfo: nil];
-	}
-	[_combine addObject: [NSString stringWithFormat: @"%@ %@", operator, statement]];
+	[_combine addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareOperator: operator ofType: @"SET"], statement]];
 }
 
 - (NSString *) statement {
