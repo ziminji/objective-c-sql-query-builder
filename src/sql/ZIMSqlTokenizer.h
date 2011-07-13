@@ -40,11 +40,11 @@
 /*!
  @method				initWithSqlStatement:
  @discussion			This method initialize the class with the specified SQL statement.
- @param statement		The SQL statement to be tokenized.
+ @param sql				The SQL statement to be tokenized.
  @return				An instance of this class.
  @updated				2011-07-13
  */
-- (id) initWithSqlStatement: (NSString *)statement;
+- (id) initWithSqlStatement: (NSString *)sql;
 
 /*!
  @method				objectAtIndex:
