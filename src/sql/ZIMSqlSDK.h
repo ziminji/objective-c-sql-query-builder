@@ -35,5 +35,6 @@
 #import "ZIMSqlSelectStatement.h"
 #import "ZIMSqlShowTablesStatement.h"
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlTokenizer.h"
 #import "ZIMSqlTruncateTableStatement.h"
 #import "ZIMSqlUpdateStatement.h"

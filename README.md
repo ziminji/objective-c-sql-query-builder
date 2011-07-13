@@ -41,6 +41,7 @@ The following is a short-list of some of the features:
 * Sanitizes data.
 * Handles most complex queries.
 * Works with raw SQL.
+* Has a SQLite tokenizer.
 * Offers Object Relational Mapping (ORM) with composite primary keys.
 * Can auto-generate models (i.e. Active Records) for each table in the SQLite database via a BASH script.
 * Handles foreign keys via true lazy loading.
@@ -132,7 +133,7 @@ so that you can be notified when such updates are made.
 This project is under heavy development.  There are development plans to add:
 
 * More SQL builder classes;
-* More utilities (e.g. classes to handle imports, exports, pagination, tokenization, partitioning, and migration);
+* More utilities (e.g. classes to handle imports, exports, pagination, partitioning, and migration);
 * The ability to process more than one SQL statement at a time in the Data Access Object (DAO);
 * A database encryption layer for password protecting an SQLite database;
 * Unit-tests;
