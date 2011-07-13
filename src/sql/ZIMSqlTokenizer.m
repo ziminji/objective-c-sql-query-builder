@@ -311,22 +311,22 @@
  * @see http://cocoawithlove.com/2008/05/implementing-countbyenumeratingwithstat.html
  * @see http://www.mikeash.com/pyblog/friday-qa-2010-04-16-implementing-fast-enumeration.html
  */
-- (NSUInteger) countByEnumeratingWithState: (NSFastEnumerationState *)state objects: (id *)stackbuf count: (NSUInteger)length {
-	NSUInteger currentState = (NSUInteger)state->state;
+- (NSUInteger) countByEnumeratingWithState: (NSFastEnumerationState *)state objects: (id *)stackbuf count: (NSUInteger)batchCount {
+	NSUInteger arrayIndex = (NSUInteger)state->state;
 	NSUInteger arrayCount = [_tuples count];
-	NSUInteger batchCount = 0;
+	NSUInteger batchIndex = 0;
 
-	while ((currentState < arrayCount) && (batchCount < length)) {
-		stackbuf[batchCount] = [_tuples objectAtIndex: currentState];
-		currentState++;
-		batchCount++;
+	while ((arrayIndex < arrayCount) && (batchIndex < batchCount)) {
+		stackbuf[batchIndex] = [_tuples objectAtIndex: arrayIndex];
+		arrayIndex++;
+		batchIndex++;
 	}
 
-	state->state = (unsigned long)currentState;
+	state->state = (unsigned long)arrayIndex;
 	state->itemsPtr = stackbuf;
 	state->mutationsPtr = (unsigned long *)self;
 	
-	return batchCount;
+	return batchIndex;
 }
 
 @end
