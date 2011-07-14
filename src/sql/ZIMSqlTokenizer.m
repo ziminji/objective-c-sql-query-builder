@@ -18,6 +18,8 @@
 
 @implementation ZIMSqlTokenizer
 
+static NSSet *_keywords = nil;
+
 - (id) initWithSqlStatement: (NSString *)sql {
 	if (self = [super init]) {
 		_tuples = [[NSMutableArray alloc] init];
@@ -252,22 +254,26 @@
 				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", type, @"type", nil]];
 				//NSLog(@"%s", token);
 			}
-			else if (((ch >= 'a') && (ch <= 'z')) || ((ch >= 'A') && (ch <= 'Z')) || (ch == '_')) { // "identifier" token
+			else if (((ch >= 'a') && (ch <= 'z')) || ((ch >= 'A') && (ch <= 'Z')) || (ch == '_')) { // "keyword" token or "identifier" token
 				int start = position;
+				char next;
 				do {
 					position++;
-				} while((position < length) && !(((ch >= 'a') && (ch <= 'z')) || ((ch >= 'A') && (ch <= 'Z')) || (ch == '_') || ((ch >= '0') && (ch <= '9'))));
+					next = statement[position];
+				} while((position <= length) && (((next >= 'a') && (next <= 'z')) || ((next >= 'A') && (next <= 'Z')) || (next == '_') || ((next >= '0') && (next <= '9'))));
 				int size = position - start;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
-				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenIdentifier, @"type", nil]];
+				NSString *identifier = [NSString stringWithFormat: @"%s", token];
+				NSString *type = ([ZIMSqlTokenizer isKeyword: identifier]) ? ZIMSqlTokenKeyword : ZIMSqlTokenIdentifier;
+				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: identifier, @"token", type, @"type", nil]];
 				//NSLog(@"%s", token);
 			}
 			else { // miscellaneous token
+				NSString *token = [NSString stringWithFormat: @"%c", ch];
 				NSString *type;
-				char token = ch;
-				switch (token) {
+				switch (ch) {
 					case '+':
 					case '*':
 					case '%':
@@ -282,10 +288,10 @@
 						type = ZIMSqlTokenTerminal;
 						break;
 					default:
-						type = [NSString stringWithFormat: @"%c", token];
+						type = token;
 						break;
 				}
-				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%c", token], @"token", type, @"type", nil]];
+				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: token, @"token", type, @"type", nil]];
 				position++;
 				//NSLog(@"%c", token);
 			}
@@ -311,22 +317,41 @@
  * @see http://cocoawithlove.com/2008/05/implementing-countbyenumeratingwithstat.html
  * @see http://www.mikeash.com/pyblog/friday-qa-2010-04-16-implementing-fast-enumeration.html
  */
-- (NSUInteger) countByEnumeratingWithState: (NSFastEnumerationState *)state objects: (id *)stackbuf count: (NSUInteger)batchCount {
+- (NSUInteger) countByEnumeratingWithState: (NSFastEnumerationState *)state objects: (id *)buffer count: (NSUInteger)bufferSize {
 	NSUInteger arrayIndex = (NSUInteger)state->state;
-	NSUInteger arrayCount = [_tuples count];
-	NSUInteger batchIndex = 0;
+	NSUInteger arraySize = [_tuples count];
+	NSUInteger bufferIndex = 0;
 
-	while ((arrayIndex < arrayCount) && (batchIndex < batchCount)) {
-		stackbuf[batchIndex] = [_tuples objectAtIndex: arrayIndex];
+	while ((arrayIndex < arraySize) && (bufferIndex < bufferSize)) {
+		buffer[bufferIndex] = [_tuples objectAtIndex: arrayIndex];
 		arrayIndex++;
-		batchIndex++;
+		bufferIndex++;
 	}
 
 	state->state = (unsigned long)arrayIndex;
-	state->itemsPtr = stackbuf;
+	state->itemsPtr = buffer;
 	state->mutationsPtr = (unsigned long *)self;
 	
-	return batchIndex;
+	return bufferIndex;
+}
+
++ (BOOL) isKeyword: (NSString *)token {
+	if (_keywords == nil) {
+		_keywords = [NSSet setWithObjects: @"ABORT", @"ACTION", @"ADD", @"AFTER", @"ALL", @"ALTER", @"ANALYZE", @"AND",	@"AS",
+			@"ASC", @"ATTACH", @"AUTOINCREMENT", @"BEFORE", @"BEGIN", @"BETWEEN", @"BY", @"CASCADE", @"CASE", @"CAST", @"CHECK",
+			@"COLLATE", @"COLUMN", @"COMMIT", @"CONFLICT", @"CONSTRAINT", @"CREATE", @"CROSS", @"CURRENT_DATE", @"CURRENT_TIME",
+			@"CURRENT_TIMESTAMP", @"DATABASE", @"DEFAULT", @"DEFERRABLE", @"DEFERRED", @"DELETE", @"DESC", @"DETACH", @"DISTINCT",
+			@"DROP", @"EACH", @"ELSE", @"END", @"ESCAPE", @"EXCEPT", @"EXCLUSIVE", @"EXISTS", @"EXPLAIN", @"FAIL", @"FOR", @"FOREIGN",
+			@"FROM", @"FULL", @"GLOB", @"GROUP", @"HAVING", @"IF", @"IGNORE", @"IMMEDIATE", @"IN", @"INDEX", @"INDEXED", @"INITIALLY",
+			@"INNER", @"INSERT", @"INSTEAD", @"INTERSECT", @"INTO", @"IS", @"ISNULL", @"JOIN", @"KEY", @"LEFT", @"LIKE", @"LIMIT",
+			@"MATCH", @"NATURAL", @"NO", @"NOT", @"NOTNULL", @"NULL", @"OF", @"OFFSET", @"ON", @"OR", @"ORDER", @"OUTER", @"PLAN",
+			@"PRAGMA", @"PRIMARY", @"QUERY", @"RAISE", @"REFERENCES", @"REGEXP", @"REINDEX", @"RELEASE", @"RENAME", @"REPLACE",
+			@"RESTRICT", @"RIGHT", @"ROLLBACK", @"ROW", @"SAVEPOINT", @"SELECT", @"SET", @"TABLE", @"TEMP", @"TEMPORARY", @"THEN",
+			@"TO", @"TRANSACTION", @"TRIGGER", @"UNION", @"UNIQUE", @"UPDATE", @"USING", @"VACUUM", @"VALUES", @"VIEW", @"VIRTUAL",
+			@"WHEN", @"WHERE", nil
+		];
+	}
+	return [_keywords containsObject: [token uppercaseString]];
 }
 
 @end
