@@ -60,6 +60,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">ZIMSqlTokenizer Class Reference</div>  </div>
@@ -76,7 +77,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_tokenizer.html#aa3955b6053c3374018581fcca2597eff">objectAtIndex:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSUInteger)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_tokenizer.html#a55142cd17265bf777760baae87d4cf7a">count</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_tokenizer.html#ae4bb7b1de031f22809ee49cadf2adf5e">dealloc</a><code> [implementation]</code></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(NSUInteger)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_tokenizer.html#a813347f12b679e6d4485070efb118a5e">countByEnumeratingWithState:objects:count:</a><code> [implementation]</code></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(NSUInteger)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_tokenizer.html#aa9e0614d41b0a1f13869760b1ad5c9ff">countByEnumeratingWithState:objects:count:</a><code> [implementation]</code></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_tokenizer.html#a26fc62d14f081cde1307860b90b5659b">isKeyword:</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_tokenizer.html#af4d89b2441c34efbc82956a2c9e8e8b7">_tuples</a></td></tr>
@@ -106,7 +110,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a813347f12b679e6d4485070efb118a5e"></a><!-- doxytag: member="ZIMSqlTokenizer::countByEnumeratingWithState:objects:count:" ref="a813347f12b679e6d4485070efb118a5e" args="(NSFastEnumerationState *state,[objects] id *stackbuf,[count] NSUInteger batchCount)" -->
+<a class="anchor" id="aa9e0614d41b0a1f13869760b1ad5c9ff"></a><!-- doxytag: member="ZIMSqlTokenizer::countByEnumeratingWithState:objects:count:" ref="aa9e0614d41b0a1f13869760b1ad5c9ff" args="(NSFastEnumerationState *state,[objects] id *buffer,[count] NSUInteger bufferSize)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -120,13 +124,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey">objects:</td>
           <td></td>
           <td class="paramtype">(id *)&#160;</td>
-          <td class="paramname"><em>stackbuf</em></td>
+          <td class="paramname"><em>buffer</em></td>
         </tr>
         <tr>
           <td class="paramkey">count:</td>
           <td></td>
           <td class="paramtype">(NSUInteger)&#160;</td>
-          <td class="paramname"><em>batchCount</em>&#160;</td>
+          <td class="paramname"><em>bufferSize</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -178,7 +182,38 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-13 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-14 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_expr.html">http://www.sqlite.org/lang_expr.html</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a26fc62d14f081cde1307860b90b5659b"></a><!-- doxytag: member="ZIMSqlTokenizer::isKeyword:" ref="a26fc62d14f081cde1307860b90b5659b" args="(NSString *token)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (BOOL) isKeyword: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>token</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>isKeyword: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method returns a boolean indicating whether the token is a reserved keyword according to SQLite 3 standards. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">token</td><td>The token to be evaluated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A boolean value indicating whether the token is a reserved keyword. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-14 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_keywords.html">http://www.sqlite.org/lang_keywords.html</a> </dd>
+<dd>
+<a href="http://cpan.uwinnipeg.ca/htdocs/SQL-ReservedWords/SQL/ReservedWords/SQLite.pm.html">http://cpan.uwinnipeg.ca/htdocs/SQL-ReservedWords/SQL/ReservedWords/SQLite.pm.html</a> </dd></dl>
 
 </div>
 </div>
