@@ -18,6 +18,7 @@
 #define ZIMSqlTokenHexadecimal					@"HEXADECIMAL"
 #define ZIMSqlTokenIdentifier					@"IDENTIFIER"
 #define ZIMSqlTokenInteger						@"INTEGER"
+#define ZIMSqlTokenKeyword						@"KEYWORD"
 #define ZIMSqlTokenLiteral						@"LITERAL"
 #define ZIMSqlTokenOperator						@"OPERATOR"
 #define ZIMSqlTokenParameter					@"PARAMETER"
@@ -42,10 +43,10 @@
  @discussion			This method initialize the class with the specified SQL statement.
  @param sql				The SQL statement to be tokenized.
  @return				An instance of this class.
- @updated				2011-07-13
+ @updated				2011-07-14
+ @see					http://www.sqlite.org/lang_expr.html
  */
 - (id) initWithSqlStatement: (NSString *)sql;
-
 /*!
  @method				objectAtIndex:
  @discussion			This method returns the object located at index.
@@ -54,7 +55,6 @@
  @updated				2011-07-13
  */
 - (id) objectAtIndex: (NSUInteger)index;
-
 /*!
  @method				count
  @discussion			This method returns the number of objects currently in the array.
@@ -62,5 +62,16 @@
  @updated				2011-07-13
  */
 - (NSUInteger) count;
+/*!
+ @method				isKeyword:
+ @discussion			This method returns a boolean indicating whether the token is a reserved keyword
+ 						according to SQLite 3 standards.
+ @param token			The token to be evaluated.
+ @return				A boolean value indicating whether the token is a reserved keyword.
+ @updated				2011-07-14
+ @see					http://www.sqlite.org/lang_keywords.html
+ @see					http://cpan.uwinnipeg.ca/htdocs/SQL-ReservedWords/SQL/ReservedWords/SQLite.pm.html
+ */
++ (BOOL) isKeyword: (NSString *)token;
 
 @end
