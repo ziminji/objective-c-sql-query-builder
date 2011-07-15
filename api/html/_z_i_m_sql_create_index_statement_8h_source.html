@@ -76,23 +76,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a>00015 <span class="comment"> */</span>
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017 <span class="preprocessor">#import &quot;<a class="code" href="_z_i_m_sql_statement_8h.html">ZIMSqlStatement.h</a>&quot;</span>
-<a name="l00018"></a>00018 
-<a name="l00025"></a><a class="code" href="interface_z_i_m_sql_create_index_statement.html">00025</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_create_index_statement.html">ZIMSqlCreateIndexStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>&gt; {
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027         <span class="keyword">@protected</span>
-<a name="l00028"></a><a class="code" href="interface_z_i_m_sql_create_index_statement.html#a219a0229530de8e9dfbc6fdca1f459d4">00028</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_create_index_statement.html#a219a0229530de8e9dfbc6fdca1f459d4">_index</a>;
-<a name="l00029"></a><a class="code" href="interface_z_i_m_sql_create_index_statement.html#acf868597c1024994c12f8d5089528831">00029</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_create_index_statement.html#acf868597c1024994c12f8d5089528831">_table</a>;
-<a name="l00030"></a><a class="code" href="interface_z_i_m_sql_create_index_statement.html#aaa44c820f637de53a41e9696aa8569ba">00030</a>                 BOOL <a class="code" href="interface_z_i_m_sql_create_index_statement.html#aaa44c820f637de53a41e9696aa8569ba">_unique</a>;
-<a name="l00031"></a><a class="code" href="interface_z_i_m_sql_create_index_statement.html#a02e421b0c4e8d974c4144a56706eada3">00031</a>                 NSMutableSet *<a class="code" href="interface_z_i_m_sql_create_index_statement.html#a02e421b0c4e8d974c4144a56706eada3">_column</a>;
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 }
-<a name="l00041"></a>00041 - (void) index: (<a class="code" href="class_n_s_string.html">NSString</a> *)index on: (<a class="code" href="class_n_s_string.html">NSString</a> *)table;
-<a name="l00048"></a>00048 - (void) unique: (BOOL)unique;
-<a name="l00055"></a>00055 - (void) column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column;
-<a name="l00062"></a>00062 - (void) columns: (NSSet *)columns;
-<a name="l00069"></a>00069 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071 <span class="keyword">@end</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#import &quot;<a class="code" href="_z_i_m_sql_data_definition_command_8h.html">ZIMSqlDataDefinitionCommand.h</a>&quot;</span>
+<a name="l00019"></a>00019 
+<a name="l00026"></a><a class="code" href="interface_z_i_m_sql_create_index_statement.html">00026</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_create_index_statement.html">ZIMSqlCreateIndexStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>, <a class="code" href="protocol_z_i_m_sql_data_definition_command-p.html">ZIMSqlDataDefinitionCommand</a>&gt; {
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028         <span class="keyword">@protected</span>
+<a name="l00029"></a><a class="code" href="interface_z_i_m_sql_create_index_statement.html#a219a0229530de8e9dfbc6fdca1f459d4">00029</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_create_index_statement.html#a219a0229530de8e9dfbc6fdca1f459d4">_index</a>;
+<a name="l00030"></a><a class="code" href="interface_z_i_m_sql_create_index_statement.html#acf868597c1024994c12f8d5089528831">00030</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_create_index_statement.html#acf868597c1024994c12f8d5089528831">_table</a>;
+<a name="l00031"></a><a class="code" href="interface_z_i_m_sql_create_index_statement.html#aaa44c820f637de53a41e9696aa8569ba">00031</a>                 BOOL <a class="code" href="interface_z_i_m_sql_create_index_statement.html#aaa44c820f637de53a41e9696aa8569ba">_unique</a>;
+<a name="l00032"></a><a class="code" href="interface_z_i_m_sql_create_index_statement.html#a02e421b0c4e8d974c4144a56706eada3">00032</a>                 NSMutableSet *<a class="code" href="interface_z_i_m_sql_create_index_statement.html#a02e421b0c4e8d974c4144a56706eada3">_column</a>;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 }
+<a name="l00042"></a>00042 - (void) index: (<a class="code" href="class_n_s_string.html">NSString</a> *)index on: (<a class="code" href="class_n_s_string.html">NSString</a> *)table;
+<a name="l00049"></a>00049 - (void) unique: (BOOL)unique;
+<a name="l00056"></a>00056 - (void) column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column;
+<a name="l00063"></a>00063 - (void) columns: (NSSet *)columns;
+<a name="l00070"></a>00070 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->

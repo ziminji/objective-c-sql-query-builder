@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataDefinitionCommand.h"
 
 /*!
  @class					ZIMSqlDropIndexStatement
  @discussion			This class represents an SQL drop index statement.
- @updated				2011-04-02
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_dropindex.html
  */
-@interface ZIMSqlDropIndexStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlDropIndexStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
 	
 	@protected
 		NSString *_index;

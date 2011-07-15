@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataDefinitionCommand.h"
 
 /*!
  @class					ZIMSqlCreateTableStatement
  @discussion			This class represents an SQL create table statement.
- @updated				2011-04-07
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_createtable.html
  */
-@interface ZIMSqlCreateTableStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlCreateTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
 
 	@protected
 		NSString *_table;

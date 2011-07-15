@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataDefinitionCommand.h"
 
 /*!
  @class					ZIMSqlDropViewStatement
  @discussion			This class represents an SQL drop view statement.
- @updated				2011-04-02
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_dropview.html
  */
-@interface ZIMSqlDropViewStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlDropViewStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
 	
 	@protected
 		NSString *_view;

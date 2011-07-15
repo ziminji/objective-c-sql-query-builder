@@ -76,17 +76,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00015"></a>00015 <span class="comment"> */</span>
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017 <span class="preprocessor">#import &quot;<a class="code" href="_z_i_m_sql_statement_8h.html">ZIMSqlStatement.h</a>&quot;</span>
-<a name="l00018"></a>00018 
-<a name="l00026"></a><a class="code" href="interface_z_i_m_sql_truncate_table_statement.html">00026</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_truncate_table_statement.html">ZIMSqlTruncateTableStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>&gt; {
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028         <span class="keyword">@protected</span>
-<a name="l00029"></a><a class="code" href="interface_z_i_m_sql_truncate_table_statement.html#a0cc7250c829f98d99db2672a3027d8c4">00029</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_truncate_table_statement.html#a0cc7250c829f98d99db2672a3027d8c4">_table</a>;
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 }
-<a name="l00038"></a>00038 - (void) table: (<a class="code" href="class_n_s_string.html">NSString</a> *)table;
-<a name="l00045"></a>00045 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047 <span class="keyword">@end</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#import &quot;<a class="code" href="_z_i_m_sql_data_definition_command_8h.html">ZIMSqlDataDefinitionCommand.h</a>&quot;</span>
+<a name="l00019"></a>00019 
+<a name="l00027"></a><a class="code" href="interface_z_i_m_sql_truncate_table_statement.html">00027</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_truncate_table_statement.html">ZIMSqlTruncateTableStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>, <a class="code" href="protocol_z_i_m_sql_data_definition_command-p.html">ZIMSqlDataDefinitionCommand</a>&gt; {
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029         <span class="keyword">@protected</span>
+<a name="l00030"></a><a class="code" href="interface_z_i_m_sql_truncate_table_statement.html#a0cc7250c829f98d99db2672a3027d8c4">00030</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_truncate_table_statement.html#a0cc7250c829f98d99db2672a3027d8c4">_table</a>;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 }
+<a name="l00039"></a>00039 - (void) table: (<a class="code" href="class_n_s_string.html">NSString</a> *)table;
+<a name="l00046"></a>00046 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->

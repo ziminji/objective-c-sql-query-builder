@@ -15,6 +15,7 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataManipulationCommand.h"
 
 #define ZIMSqlExplainMachineInstructions		0
 #define ZIMSqlExplainHighLevelInformation		1
@@ -22,10 +23,10 @@
 /*!
  @class					ZIMSqlExplainStatement
  @discussion			This class represents an SQL explain statement.
- @updated				2011-06-26
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_explain.html
  */
-@interface ZIMSqlExplainStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlExplainStatement : NSObject <ZIMSqlStatement, ZIMSqlDataManipulationCommand> {
 
 	@protected
 		NSInteger _level;

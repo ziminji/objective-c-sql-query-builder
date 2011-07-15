@@ -15,15 +15,16 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataDefinitionCommand.h"
 
 /*!
  @class					ZIMSqlTruncateTableStatement
  @discussion			This class represents an SQL truncate table statement.
- @updated				2011-04-12
+ @updated				2011-07-15
  @see					http://dev.mysql.com/doc/refman/5.0/en/truncate-table.html
  @see					http://stackoverflow.com/questions/3443630/reset-the-row-number-count-in-sqlite3-mysql
  */
-@interface ZIMSqlTruncateTableStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlTruncateTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
 
 	@protected
 		NSString *_table;
