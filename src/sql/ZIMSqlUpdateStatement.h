@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataManipulationCommand.h"
 
 /*!
  @class					ZIMSqlUpdateStatement
  @discussion			This class represents an SQL update statement.
- @updated				2011-04-02
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_update.html
  */
-@interface ZIMSqlUpdateStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlUpdateStatement : NSObject <ZIMSqlStatement, ZIMSqlDataManipulationCommand> {
 
 	@protected
 		NSString *_table;

@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataDefinitionCommand.h"
 
 /*!
  @class					ZIMSqlCreateIndexStatement
  @discussion			This class represents an SQL create index statement.
- @updated				2011-07-09
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_createindex.html
  */
-@interface ZIMSqlCreateIndexStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlCreateIndexStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
 
 	@protected
 		NSString *_index;

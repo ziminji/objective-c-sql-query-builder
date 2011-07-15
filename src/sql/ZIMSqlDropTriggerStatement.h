@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataDefinitionCommand.h"
 
 /*!
  @class					ZIMSqlDropTriggerStatement
  @discussion			This class represents an SQL drop trigger statement.
- @updated				2011-04-02
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_droptrigger.html
  */
-@interface ZIMSqlDropTriggerStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlDropTriggerStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
 	
 	@protected
 		NSString *_trigger;

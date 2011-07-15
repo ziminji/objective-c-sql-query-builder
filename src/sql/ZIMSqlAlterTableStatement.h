@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataDefinitionCommand.h"
 
 /*!
  @class					ZIMSqlAlterTableStatement
  @discussion			This class represents an SQL alter table statement.
- @updated				2011-04-07
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_altertable.html
  */
-@interface ZIMSqlAlterTableStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlAlterTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
 
 	@protected
 		NSString *_table;

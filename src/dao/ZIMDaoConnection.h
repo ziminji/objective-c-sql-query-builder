@@ -40,7 +40,8 @@
 						the resource directory to the working directory; otherwise, the data source will be
 						created in the working directory.
  @param dataSource		The file name of the database to be used.
- @updated				2011-03-30
+ @return				An instance of this class.
+ @updated				2011-07-14
  */
 - (id) initWithDataSource: (NSString *)dataSource;
 /*!
@@ -52,7 +53,8 @@
 						created in the working directory.
  @param dataSource		The file name of the database to be used.
  @param multithreading	This determines whether locks should be used.
- @updated				2011-07-05
+ @return				An instance of this class.
+ @updated				2011-07-14
  */
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!

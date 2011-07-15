@@ -90,6 +90,9 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 
 @implementation ZIMSqlExpression
 
+static NSSet *_joinTypes = nil;
+static NSSet *_setOperators = nil;
+
 + (NSString *) prepareAlias: (NSString *)token {
 	NSCharacterSet *removables = [NSCharacterSet characterSetWithCharactersInString: @";\"'`[]\n\r\t"];
 	token = [[token componentsSeparatedByCharactersInSet: removables] componentsJoinedByString: @""];
@@ -140,7 +143,9 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 }
 
 + (NSString *) prepareJoinType: (NSString *)token {
-	const NSSet *joinTypes = [NSSet setWithObjects: ZIMSqlJoinTypeCross, ZIMSqlJoinTypeInner, ZIMSqlJoinTypeLeft, ZIMSqlJoinTypeLeftOuter, ZIMSqlJoinTypeNatural, ZIMSqlJoinTypeNaturalCross, ZIMSqlJoinTypeNaturalInner, ZIMSqlJoinTypeNaturalLeft, ZIMSqlJoinTypeNaturalLeftOuter, nil];
+	if (_joinTypes == nil) {
+		_joinTypes = [NSSet setWithObjects: ZIMSqlJoinTypeCross, ZIMSqlJoinTypeInner, ZIMSqlJoinTypeLeft, ZIMSqlJoinTypeLeftOuter, ZIMSqlJoinTypeNatural, ZIMSqlJoinTypeNaturalCross, ZIMSqlJoinTypeNaturalInner, ZIMSqlJoinTypeNaturalLeft, ZIMSqlJoinTypeNaturalLeftOuter, nil];
+	}
 	if ((token == nil) || [token isEqualToString: ZIMSqlJoinTypeNone]) {
 		token = ZIMSqlJoinTypeInner;
 	}
@@ -150,7 +155,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	else {
 		token = [token uppercaseString];
 	}
-	if (![joinTypes containsObject: token])	{
+	if (![_joinTypes containsObject: token])	{
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid join type token provided." userInfo: nil];
 	}
 	return token;
@@ -161,10 +166,12 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 }
 
 + (NSString *) prepareOperator: (NSString *)operator ofType: (NSString *)type {
-	const NSSet *setOperators = [NSSet setWithObjects: ZIMSqlOperatorExcept, ZIMSqlOperatorIntersect, ZIMSqlOperatorUnion, ZIMSqlOperatorUnionAll, nil];
+	if (_setOperators == nil) {
+		_setOperators = [NSSet setWithObjects: ZIMSqlOperatorExcept, ZIMSqlOperatorIntersect, ZIMSqlOperatorUnion, ZIMSqlOperatorUnionAll, nil];
+	}
 	type = [type uppercaseString];
 	operator = [operator uppercaseString];
-	if ([type isEqualToString: @"SET"] && ![setOperators containsObject: operator]) {
+	if ([type isEqualToString: @"SET"] && ![_setOperators containsObject: operator]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid set operator token provided." userInfo: nil];
 	}
 	return operator;

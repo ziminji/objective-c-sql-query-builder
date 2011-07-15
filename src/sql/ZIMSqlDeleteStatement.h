@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataManipulationCommand.h"
 
 /*!
  @class					ZIMSqlDeleteStatement
  @discussion			This class represents an SQL delete statement.
- @updated				2011-04-07
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_delete.html
  */
-@interface ZIMSqlDeleteStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlDeleteStatement : NSObject <ZIMSqlStatement, ZIMSqlDataManipulationCommand> {
 
 	@protected
 		NSString *_table;

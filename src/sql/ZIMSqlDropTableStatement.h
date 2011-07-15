@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataDefinitionCommand.h"
 
 /*!
  @class					ZIMSqlDropTableStatement
  @discussion			This class represents an SQL drop table statement.
- @updated				2011-04-02
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_droptable.html
  */
-@interface ZIMSqlDropTableStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlDropTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
 
 	@protected
 		NSString *_table;
