@@ -34,7 +34,8 @@
  @method				initWithDataSource:
  @discussion			This constructor creates an instance of this class with the specified model.
  @param model			The model's class.
- @updated				2011-05-01
+ @return				An instance of this class.
+ @updated				2011-07-14
  */
 - (id) initWithModel: (Class)model;
 /*!

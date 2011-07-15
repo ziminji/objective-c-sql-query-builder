@@ -170,7 +170,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare a join type token for an SQL statement.
  @param token			The token to be prepared.
  @return				The prepared token.
- @updated				2011-06-27
+ @updated				2011-07-15
  */
 + (NSString *) prepareJoinType: (NSString *)token;
 /*!
@@ -187,7 +187,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @param operator		The operator to be prepared.
  @param type			The type of operator.
  @return				The prepared operator.
- @updated				2011-07-09
+ @updated				2011-07-15
  */
 + (NSString *) prepareOperator: (NSString *)operator ofType: (NSString *)type;
 /*!

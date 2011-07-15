@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataManipulationCommand.h"
 
 /*!
  @class					ZIMSqlInsertStatement
  @discussion			This class represents an SQL insert statement.
- @updated				2011-04-07
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_insert.html
  */
-@interface ZIMSqlInsertStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlInsertStatement : NSObject <ZIMSqlStatement, ZIMSqlDataManipulationCommand> {
 
 	@protected
 		NSString *_table;

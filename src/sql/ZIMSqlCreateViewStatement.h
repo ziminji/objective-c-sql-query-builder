@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataDefinitionCommand.h"
 
 /*!
  @class					ZIMSqlCreateViewStatement
  @discussion			This class represents an SQL create view statement.
- @updated				2011-06-26
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_createview.html
  */
-@interface ZIMSqlCreateViewStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlCreateViewStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
 	
 	@protected
 		NSString *_view;

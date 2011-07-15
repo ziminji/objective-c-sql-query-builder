@@ -15,14 +15,15 @@
  */
 
 #import "ZIMSqlStatement.h"
+#import "ZIMSqlDataManipulationCommand.h"
 
 /*!
  @class					ZIMSqlSelectStatement
  @discussion			This class represents an SQL select statement.
- @updated				2011-06-23
+ @updated				2011-07-15
  @see					http://www.sqlite.org/lang_select.html
  */
-@interface ZIMSqlSelectStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlSelectStatement : NSObject <ZIMSqlStatement, ZIMSqlDataManipulationCommand> {
 
 	@protected
 		BOOL _distinct;
