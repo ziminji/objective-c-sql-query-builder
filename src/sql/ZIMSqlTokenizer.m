@@ -146,7 +146,7 @@ static NSSet *_keywords = nil;
 				}			
 				else {
 					lookahead += 2;
-					while ((lookahead <= length) && (statement[lookahead - 1] != '*') && (statement[lookahead] != '/')) {
+					while ((lookahead <= length) && !((statement[lookahead - 1] == '*') && (statement[lookahead] == '/'))) {
 						lookahead++;
 					}
 					lookahead++;
@@ -187,14 +187,13 @@ static NSSet *_keywords = nil;
 			}
 			else if (ch == '\'') { // "literal" token
 				int lookahead = position + 1;
-				int counter = 0;
 				while (lookahead <= length) {
 					if (statement[lookahead] == '\'') {
-						if ((counter % 2) == 0) {
+						if ((lookahead == length) || (statement[lookahead + 1] != '\'')) {
 							lookahead++;
 							break;
 						}
-						counter++;
+						lookahead++;
 					}
 					lookahead++;
 				}
