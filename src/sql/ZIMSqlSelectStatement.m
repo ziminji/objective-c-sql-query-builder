@@ -102,6 +102,44 @@
 	}
 }
 
+- (void) joinOn: (NSString *)column operator: (NSString *)operator value: (id)value {
+	NSUInteger length = [_join count];
+	if (length > 0) {
+		NSUInteger index = length - 1;
+		NSMutableArray *joinCondition = (NSMutableArray *)[[_join objectAtIndex: index] objectAtIndex: 2];
+		if ([joinCondition count] > 0) {
+			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May not declare two different types of constraints on a JOIN statement." userInfo: nil];
+		}
+		joinCondition = (NSMutableArray *)[[_join objectAtIndex: index] objectAtIndex: 1];
+		[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column], [operator uppercaseString], [ZIMSqlExpression prepareValue: value]]];
+
+		operator = [operator uppercaseString];
+		if ([operator isEqualToString: ZIMSqlOperatorBetween] || [operator isEqualToString: ZIMSqlOperatorNotBetween]) {
+			if (![value isKindOfClass: [NSArray class]]) {
+				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
+			}
+			[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@ AND %@", [ZIMSqlExpression prepareIdentifier: column], operator, [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 1]]]];
+		}
+		else {
+			if (([operator isEqualToString: ZIMSqlOperatorIn] || [operator isEqualToString: ZIMSqlOperatorNotIn]) && ![value isKindOfClass: [NSArray class]]) {
+				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
+			}
+			else if ([value isKindOfClass: [NSNull class]]) {
+				if ([operator isEqualToString: ZIMSqlOperatorEqualTo]) {
+					operator = ZIMSqlOperatorIs;
+				}
+				else if ([operator isEqualToString: ZIMSqlOperatorNotEqualTo] || [operator isEqualToString: @"!="]) {
+					operator = ZIMSqlOperatorIsNot;
+				}
+			}
+			[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column], operator, [ZIMSqlExpression prepareValue: value]]];
+		}
+	}
+	else {
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Must declare a JOIN clause before declaring a constraint." userInfo: nil];
+	}
+}
+
 - (void) joinUsing: (NSString *)column {
 	NSUInteger length = [_join count];
 	if (length > 0) {

@@ -110,18 +110,27 @@
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type;
 /*!
  @method				joinOn:operator:column:
- @discussion			This method will add a join condition to the SQL statement.
- @param column1			The column to be tesed on.
+ @discussion			This method will add a join condition to the last defined join clause.
+ @param column1			The column to be tested.
  @param operator		The operator to be used.
  @param column2			The column to be tested on.
- @updated				2011-04-01
+ @updated				2011-07-15
  */
 - (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
 /*!
+ @method				joinOn:operator:value:
+ @discussion			This method will add a join condition to the last defined join clause.
+ @param column			The column to be tested.
+ @param operator		The operator to be used.
+ @param value			The value to be compared.
+ @updated				2011-07-15
+ */
+- (void) joinOn: (NSString *)column operator: (NSString *)operator value: (id)value;
+/*!
  @method				joinUsing:
- @discussion			This method will add a join condition to the SQL statement.
- @param column			The column to be used.
- @updated				2011-04-01
+ @discussion			This method will add a join condition to the last defined join clause.
+ @param column			The column to be tested.
+ @updated				2011-07-15
  */
 - (void) joinUsing: (NSString *)column;
 /*!
