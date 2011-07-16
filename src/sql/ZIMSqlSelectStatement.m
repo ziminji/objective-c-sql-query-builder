@@ -111,8 +111,6 @@
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May not declare two different types of constraints on a JOIN statement." userInfo: nil];
 		}
 		joinCondition = (NSMutableArray *)[[_join objectAtIndex: index] objectAtIndex: 1];
-		[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column], [operator uppercaseString], [ZIMSqlExpression prepareValue: value]]];
-
 		operator = [operator uppercaseString];
 		if ([operator isEqualToString: ZIMSqlOperatorBetween] || [operator isEqualToString: ZIMSqlOperatorNotBetween]) {
 			if (![value isKindOfClass: [NSArray class]]) {
