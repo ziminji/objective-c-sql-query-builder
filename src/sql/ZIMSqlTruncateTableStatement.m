@@ -19,7 +19,7 @@
 @implementation ZIMSqlTruncateTableStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_table = nil;
 	}
 	return self;

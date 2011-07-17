@@ -19,7 +19,7 @@
 @implementation ZIMSqlDeleteStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_table = nil;
 		_where = [[NSMutableArray alloc] init];
 		_orderBy = [[NSMutableArray alloc] init];

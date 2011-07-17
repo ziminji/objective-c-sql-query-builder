@@ -19,7 +19,7 @@
 @implementation ZIMSqlDetachStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		// do nothing
 	}
 	return self;
