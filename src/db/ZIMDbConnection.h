@@ -18,11 +18,11 @@
 #import <sqlite3.h> // Requires libsqlite3.dylib
 
 /*!
- @class					ZIMDaoConnection
- @discussion			This class represents an SQL statements.
- @updated				2011-06-29
+ @class					ZIMDbConnection
+ @discussion			This class represents an SQLite database connection.
+ @updated				2011-07-16
  */
-@interface ZIMDaoConnection : NSObject {
+@interface ZIMDbConnection : NSObject {
 
 	@protected
 		NSString *_dataSource;
@@ -145,7 +145,7 @@
  @param dataSource		The file name of the database to be used.
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-04-03
+ @updated				2011-07-16
  @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  */
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql;
@@ -155,7 +155,7 @@
  @param dataSource		The file name of the database to be used.
  @param sql				The SQL statement to be used.
  @return				The result set.
- @updated				2011-03-30
+ @updated				2011-07-16
  */
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql;
 /*!
@@ -167,7 +167,7 @@
 						accessible instance variables and does not necessarily have to conform
 						to the Active Record design pattern.
  @return				The result set.
- @updated				2011-04-03
+ @updated				2011-07-16
  */
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql asObject: (Class)model;
 

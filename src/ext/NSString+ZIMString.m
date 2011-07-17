@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-#import "NSString+ZIMExtString.h"
+#import "NSString+ZIMString.h"
 
-@implementation NSString (ZIMExtString)
+@implementation NSString (ZIMString)
 
 + (NSString *) capitalizeFirstCharacterInString: (NSString *)string {
 	return [string stringByReplacingCharactersInRange: NSMakeRange(0, 1) withString: [[string substringToIndex: 1] uppercaseString]];

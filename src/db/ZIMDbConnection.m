@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#import "NSString+ZIMExtString.h"
-#import "ZIMDaoConnection.h"
+#import "NSString+ZIMString.h"
+#import "ZIMDbConnection.h"
 
 // Defines the integer value for the table column datatype
 #if !defined(SQLITE_DATE)
@@ -23,11 +23,11 @@
 #endif
 
 /*!
- @category		ZIMDaoConnection (Private)
+ @category		ZIMDbConnection (Private)
  @discussion	This category defines the prototpes for this class's private methods.
  @updated		2011-06-29
  */
-@interface ZIMDaoConnection (Private)
+@interface ZIMDbConnection (Private)
 /*!
  @method			selectorForSettingColumnName:
  @discussion		This method will make a "set" selector for the specified column.
@@ -59,7 +59,7 @@
 - (id) columnValueAtIndex: (int)column withColumnType: (int)columnType inStatement: (sqlite3_stmt *)statement;
 @end
 
-@implementation ZIMDaoConnection
+@implementation ZIMDbConnection
 
 - (id) initWithDataSource: (NSString *)dataSource {
 	return [self initWithDataSource: dataSource withMultithreadingSupport: NO];
@@ -73,7 +73,7 @@
 		NSString *database = [config objectForKey: @"database"];
 		if ((type == nil) || ![[type lowercaseString] isEqualToString: @"sqlite"] || (database == nil)) {
 			[config release];
-			@throw [NSException exceptionWithName: @"ZIMDaoException" reason: @"Failed to load data source." userInfo: nil];
+			@throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to load data source." userInfo: nil];
 		}
 		NSFileManager *fileManager = [[NSFileManager alloc] init];
 		NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
@@ -84,7 +84,7 @@
 				if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
 					[fileManager release];
 					[config release];
-					@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
+					@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
 				}
 			}
 		}
@@ -112,7 +112,7 @@
 - (void) open {
 	if (sqlite3_open([_dataSource UTF8String], &_database) != SQLITE_OK) {
 		sqlite3_close(_database);
-		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to open database connection. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+		@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to open database connection. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
 	}
 	_isConnected = YES;
 }
@@ -132,7 +132,7 @@
 		if (_mutex != nil) {
 			[_mutex unlock];
 		}
-		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: @"Failed to execute SQL statement because privileges have been restricted." userInfo: nil];
+		@throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to execute SQL statement because privileges have been restricted." userInfo: nil];
 	}
 
 	sqlite3_stmt *statement = NULL;
@@ -142,7 +142,7 @@
 		if (_mutex != nil) {
 			[_mutex unlock];
 		}
-		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to execute SQL statement. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+		@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to execute SQL statement. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
 	}
 
 	NSNumber *result = nil;
@@ -179,7 +179,7 @@
 		if (_mutex != nil) {
 			[_mutex unlock];
 		}
-		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: @"Failed to perform query with SQL statement because privileges have been restricted." userInfo: nil];
+		@throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to perform query with SQL statement because privileges have been restricted." userInfo: nil];
 	}
 
 	sqlite3_stmt *statement = NULL;
@@ -191,7 +191,7 @@
 			[_mutex unlock];
 		}
 		
-		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to perform query with SQL statement. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+		@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to perform query with SQL statement. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
 	}
 
 	NSMutableArray *columnNames = [[NSMutableArray alloc] init];
@@ -222,7 +222,7 @@
 						[_mutex unlock];
 					}
 					
-					@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to perform query with SQL statement because column '%@' could not be found in model.", columnName] userInfo: nil];
+					@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to perform query with SQL statement because column '%@' could not be found in model.", columnName] userInfo: nil];
 				}
 				else {
 					[columnNames addObject: columnName];
@@ -346,7 +346,7 @@
 
 - (void) close {
 	if (sqlite3_close(_database) != SQLITE_OK) {
-		@throw [NSException exceptionWithName: @"ZIMDaoException" reason: [NSString stringWithFormat: @"Failed to close database connection. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+		@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to close database connection. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
 	}
 	_isConnected = NO;
 }
@@ -360,21 +360,21 @@
 }
 
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql {
-	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
+	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSNumber *result = [connection execute: sql];
 	[connection release];
 	return result;
 }
 
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql {
-	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
+	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSArray *records = [connection query: sql];
 	[connection release];
 	return records;
 }
 
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql asObject: (Class)model {
-	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
+	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSArray *records = [connection query: sql asObject: model];
 	[connection release];
 	return records;

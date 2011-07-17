@@ -92,7 +92,9 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_select_statement.html#a2083fe8249382f58fd37a9853f2204a7">join:alias:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_select_statement.html#a1d5013625cbce804922d48e55a6cb6c1">join:alias:type:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_select_statement.html#a640e91cfd341d89048e4f9ef31e29a12">joinOn:operator:column:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_select_statement.html#aead287dc76ba5b881b33324493ec3224">joinOn:operator:column:connector:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_select_statement.html#a7225553006f59abca2ef8d545188573e">joinOn:operator:value:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_select_statement.html#afc7b089668a096af0a163c1f5169e059">joinOn:operator:value:connector:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_select_statement.html#ace58637422cfd6c28193df01db605105">joinUsing:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_select_statement.html#a57a71817c7c62d010edaa1d6f4698403">whereBlock:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_select_statement.html#aee94a2316edfc0658e28797e0eff9534">whereBlock:connector:</a></td></tr>
@@ -784,7 +786,58 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-15 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-16 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aead287dc76ba5b881b33324493ec3224"></a><!-- doxytag: member="ZIMSqlSelectStatement::joinOn:operator:column:connector:" ref="aead287dc76ba5b881b33324493ec3224" args="(NSString *column1,[operator] NSString *operator,[column] NSString *column2,[connector] NSString *connector)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) joinOn: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>column1</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">operator:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>operator</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">column:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>column2</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">connector:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>connector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>joinOn:operator:column:connector: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will add a join condition to the last defined join clause. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">column1</td><td>The column to be tested. </td></tr>
+    <tr><td class="paramname">operator</td><td>The operator to be used. </td></tr>
+    <tr><td class="paramname">column2</td><td>The column to be tested on. </td></tr>
+    <tr><td class="paramname">connector</td><td>The connector to be used. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-16 </dd></dl>
 
 </div>
 </div>
@@ -828,7 +881,58 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-15 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-16 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afc7b089668a096af0a163c1f5169e059"></a><!-- doxytag: member="ZIMSqlSelectStatement::joinOn:operator:value:connector:" ref="afc7b089668a096af0a163c1f5169e059" args="(NSString *column,[operator] NSString *operator,[value] id value,[connector] NSString *connector)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) joinOn: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>column</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">operator:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>operator</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">value:</td>
+          <td></td>
+          <td class="paramtype">(id)&#160;</td>
+          <td class="paramname"><em>value</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">connector:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>connector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>joinOn:operator:value:connector: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will add a join condition to the last defined join clause. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">column</td><td>The column to be tested. </td></tr>
+    <tr><td class="paramname">operator</td><td>The operator to be used. </td></tr>
+    <tr><td class="paramname">value</td><td>The value to be compared. </td></tr>
+    <tr><td class="paramname">connector</td><td>The connector to be used. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-16 </dd></dl>
 
 </div>
 </div>

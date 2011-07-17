@@ -2,15 +2,15 @@
 
 This Objective-C based project is divided up into four parts.  The first part consists of a set of Objective-C
 classes that handle communications with an SQLite database.  Inside the "src" folder, these Objective-C classes
-are further subdivided into five folders.  The "dao" folder contains an SQLite wrapper class that easily manages
-the database connection.  The "ext" folder contains some class extensions. The "sql" folder contains a collection
-of SQL builder classes that can be used to construct well-formed SQL statements for SQLite via a plethora of
-convenience methods similar to those found in LINQ.  Likewise, the "orm" folder has an assortment of classes that
-can control and manipulate data within an SQLite database via the Active Record design pattern. And, the "util"
-folder contains a set of various helper classes.  The second part consists of an easy-to-read API, which both
-documents and diagrams each class.  The third part consists of a BASH script that can be used to generate the
-necessary ORM models using the SQLite's database schema.  The fourth part consists of the database configuration
-files for the DAO.
+are further subdivided into five folders.  The "db" folder (formerly, the "dao" folder) contains an SQLite wrapper
+class that easily manages the database connection.  The "ext" folder contains some class extensions. The "sql"
+folder contains a collection of SQL builder classes that can be used to construct well-formed SQL statements for
+SQLite via a plethora of convenience methods similar to those found in LINQ.  Likewise, the "orm" folder has an
+assortment of classes that can control and manipulate data within an SQLite database via the Active Record design
+pattern. And, the "util" folder contains a set of various helper classes.  The second part consists of an easy-to-read
+API, which both documents and diagrams each class.  The third part consists of a BASH script that can be used to
+generate the necessary ORM models using the SQLite's database schema.  The fourth part consists of the database
+configuration files for the database connection.
 
 All classes are designed to be used in iPhone/iOS applications.
 
@@ -70,9 +70,9 @@ A lot of work has gone into making the classes in this repository as independent
 dependencies just can't be avoided.  To make life easier, the following SDK import files have been created to
 make the implementation process as painless as possible:
 
-* ZIMDaoSDK.h
-* ZIMSqlSDK.h
-* ZIMOrmSDK.h
+* ZIMDaoSdk.h
+* ZIMSqlSdk.h
+* ZIMOrmSdk.h
 
 Based on which SDK is needed, only those classes listed (i.e. imported) in the SDK import file are needed to be
 added to the respective Xcode project.
