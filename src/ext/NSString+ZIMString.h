@@ -17,11 +17,11 @@
 #import <Foundation/Foundation.h>
 
 /*!
- @category			NSString (ZIMExtString)
+ @category			NSString (ZIMString)
  @discussion		This category extends the functionality of the NSString class.
- @updated			2011-06-29
+ @updated			2011-07-16
  */
-@interface NSString (ZIMExtString)
+@interface NSString (ZIMString)
 /*!
  @method			capitalizeFirstCharacterInString:
  @discussion		This method will capitalize the first letter in the specified string.

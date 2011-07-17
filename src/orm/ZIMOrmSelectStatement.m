@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "ZIMDaoConnection.h"
+#import "ZIMDbConnection.h"
 #import "ZIMOrmModel.h"
 #import "ZIMOrmSelectStatement.h"
 
@@ -134,7 +134,7 @@
 }
 
 - (NSArray *) query {
-	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [_model dataSource] withMultithreadingSupport: NO];
+	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [_model dataSource] withMultithreadingSupport: NO];
 	NSArray *records = [connection query: [_sql statement] asObject: _model];
 	[connection release];
 	return records;

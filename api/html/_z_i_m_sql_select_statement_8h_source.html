@@ -104,29 +104,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00101"></a>00101 - (void) join: (<a class="code" href="class_n_s_string.html">NSString</a> *)table alias: (<a class="code" href="class_n_s_string.html">NSString</a> *)alias;
 <a name="l00110"></a>00110 - (void) join: (<a class="code" href="class_n_s_string.html">NSString</a> *)table alias: (<a class="code" href="class_n_s_string.html">NSString</a> *)alias type: (<a class="code" href="class_n_s_string.html">NSString</a> *)type;
 <a name="l00119"></a>00119 - (void) joinOn: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2;
-<a name="l00128"></a>00128 - (void) joinOn: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value;
-<a name="l00135"></a>00135 - (void) joinUsing: (<a class="code" href="class_n_s_string.html">NSString</a> *)column;
-<a name="l00142"></a>00142 - (void) whereBlock: (<a class="code" href="class_n_s_string.html">NSString</a> *)brace;
-<a name="l00150"></a>00150 - (void) whereBlock: (<a class="code" href="class_n_s_string.html">NSString</a> *)brace connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
-<a name="l00159"></a>00159 - (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2;
-<a name="l00169"></a>00169 - (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2 connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
-<a name="l00178"></a>00178 - (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value; <span class="comment">// wrap primitives with NSNumber</span>
-<a name="l00188"></a>00188 <span class="comment"></span>- (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector; <span class="comment">// wrap primitives with NSNumber</span>
-<a name="l00195"></a>00195 <span class="comment"></span>- (void) groupBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column;
-<a name="l00202"></a>00202 - (void) groupByHavingBlock: (<a class="code" href="class_n_s_string.html">NSString</a> *)brace;
-<a name="l00210"></a>00210 - (void) groupByHavingBlock: (<a class="code" href="class_n_s_string.html">NSString</a> *)brace connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
-<a name="l00219"></a>00219 - (void) groupByHaving: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2;
-<a name="l00229"></a>00229 - (void) groupByHaving: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2 connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
-<a name="l00238"></a>00238 - (void) groupByHaving: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value; <span class="comment">// wrap primitives with NSNumber</span>
-<a name="l00248"></a>00248 <span class="comment"></span>- (void) groupByHaving: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector; <span class="comment">// wrap primitives with NSNumber</span>
-<a name="l00255"></a>00255 <span class="comment"></span>- (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column;
-<a name="l00263"></a>00263 - (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column descending: (BOOL)descending;
-<a name="l00270"></a>00270 - (void) limit: (NSInteger)limit;
-<a name="l00277"></a>00277 - (void) offset: (NSInteger)offset;
-<a name="l00285"></a>00285 - (void) combine: (<a class="code" href="class_n_s_string.html">NSString</a> *)statement operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator;
-<a name="l00292"></a>00292 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
-<a name="l00293"></a>00293 
-<a name="l00294"></a>00294 <span class="keyword">@end</span>
+<a name="l00129"></a>00129 - (void) joinOn: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2 connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
+<a name="l00138"></a>00138 - (void) joinOn: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value;
+<a name="l00148"></a>00148 - (void) joinOn: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
+<a name="l00155"></a>00155 - (void) joinUsing: (<a class="code" href="class_n_s_string.html">NSString</a> *)column;
+<a name="l00162"></a>00162 - (void) whereBlock: (<a class="code" href="class_n_s_string.html">NSString</a> *)brace;
+<a name="l00170"></a>00170 - (void) whereBlock: (<a class="code" href="class_n_s_string.html">NSString</a> *)brace connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
+<a name="l00179"></a>00179 - (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2;
+<a name="l00189"></a>00189 - (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2 connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
+<a name="l00198"></a>00198 - (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value; <span class="comment">// wrap primitives with NSNumber</span>
+<a name="l00208"></a>00208 <span class="comment"></span>- (void) where: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector; <span class="comment">// wrap primitives with NSNumber</span>
+<a name="l00215"></a>00215 <span class="comment"></span>- (void) groupBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column;
+<a name="l00222"></a>00222 - (void) groupByHavingBlock: (<a class="code" href="class_n_s_string.html">NSString</a> *)brace;
+<a name="l00230"></a>00230 - (void) groupByHavingBlock: (<a class="code" href="class_n_s_string.html">NSString</a> *)brace connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
+<a name="l00239"></a>00239 - (void) groupByHaving: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2;
+<a name="l00249"></a>00249 - (void) groupByHaving: (<a class="code" href="class_n_s_string.html">NSString</a> *)column1 operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator column: (<a class="code" href="class_n_s_string.html">NSString</a> *)column2 connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector;
+<a name="l00258"></a>00258 - (void) groupByHaving: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value; <span class="comment">// wrap primitives with NSNumber</span>
+<a name="l00268"></a>00268 <span class="comment"></span>- (void) groupByHaving: (<a class="code" href="class_n_s_string.html">NSString</a> *)column operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator value: (<span class="keywordtype">id</span>)value connector: (<a class="code" href="class_n_s_string.html">NSString</a> *)connector; <span class="comment">// wrap primitives with NSNumber</span>
+<a name="l00275"></a>00275 <span class="comment"></span>- (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column;
+<a name="l00283"></a>00283 - (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column descending: (BOOL)descending;
+<a name="l00290"></a>00290 - (void) limit: (NSInteger)limit;
+<a name="l00297"></a>00297 - (void) offset: (NSInteger)offset;
+<a name="l00305"></a>00305 - (void) combine: (<a class="code" href="class_n_s_string.html">NSString</a> *)statement operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator;
+<a name="l00312"></a>00312 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
+<a name="l00313"></a>00313 
+<a name="l00314"></a>00314 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
