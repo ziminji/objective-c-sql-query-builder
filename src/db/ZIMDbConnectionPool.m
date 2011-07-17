@@ -47,7 +47,7 @@
 	@synchronized(self) {
 		connection = [_connections objectForKey: dataSource];
 		if (connection == nil) {
-			connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource];
+			connection = [[[ZIMDbConnection alloc] initWithDataSource: dataSource] autorelease];
 			[_connections setObject: connection forKey: dataSource];
 		}
 		else {
