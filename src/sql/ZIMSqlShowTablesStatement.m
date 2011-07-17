@@ -19,7 +19,7 @@
 @implementation ZIMSqlShowTablesStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_clause = nil;
 	}
 	return self;

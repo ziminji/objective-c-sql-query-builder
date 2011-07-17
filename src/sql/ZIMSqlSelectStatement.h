@@ -114,18 +114,38 @@
  @param column1			The column to be tested.
  @param operator		The operator to be used.
  @param column2			The column to be tested on.
- @updated				2011-07-15
+ @updated				2011-07-16
  */
 - (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
+/*!
+ @method				joinOn:operator:column:connector:
+ @discussion			This method will add a join condition to the last defined join clause.
+ @param column1			The column to be tested.
+ @param operator		The operator to be used.
+ @param column2			The column to be tested on.
+ @param connector		The connector to be used.
+ @updated				2011-07-16
+ */
+- (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
 /*!
  @method				joinOn:operator:value:
  @discussion			This method will add a join condition to the last defined join clause.
  @param column			The column to be tested.
  @param operator		The operator to be used.
  @param value			The value to be compared.
- @updated				2011-07-15
+ @updated				2011-07-16
  */
 - (void) joinOn: (NSString *)column operator: (NSString *)operator value: (id)value;
+/*!
+ @method				joinOn:operator:value:connector:
+ @discussion			This method will add a join condition to the last defined join clause.
+ @param column			The column to be tested.
+ @param operator		The operator to be used.
+ @param value			The value to be compared.
+ @param connector		The connector to be used.
+ @updated				2011-07-16
+ */
+- (void) joinOn: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector;
 /*!
  @method				joinUsing:
  @discussion			This method will add a join condition to the last defined join clause.

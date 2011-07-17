@@ -19,7 +19,7 @@
 @implementation ZIMSqlInsertStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_table = nil;
 		_column = [[NSMutableDictionary alloc] init];
 	}

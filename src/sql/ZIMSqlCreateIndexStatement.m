@@ -19,7 +19,7 @@
 @implementation ZIMSqlCreateIndexStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_unique = NO;
 		_index = nil;
 		_table = nil;

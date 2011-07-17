@@ -19,7 +19,7 @@
 @implementation ZIMSqlAlterTableStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_table = nil;
 		_clause = nil;
 	}
