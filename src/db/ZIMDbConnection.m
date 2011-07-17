@@ -110,11 +110,15 @@
 }
 
 - (void) open {
-	if (sqlite3_open([_dataSource UTF8String], &_database) != SQLITE_OK) {
-		sqlite3_close(_database);
-		@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to open database connection. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+	@synchronized(self) {
+		if (!_isConnected) {
+			if (sqlite3_open([_dataSource UTF8String], &_database) != SQLITE_OK) {
+				sqlite3_close(_database);
+				@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to open database connection. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+			}
+			_isConnected = YES;
+		}
 	}
-	_isConnected = YES;
 }
 
 - (NSNumber *) beginTransaction {
@@ -345,10 +349,14 @@
 }
 
 - (void) close {
-	if (sqlite3_close(_database) != SQLITE_OK) {
-		@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to close database connection. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+	@synchronized(self) {
+		if (_isConnected) {
+			if (sqlite3_close(_database) != SQLITE_OK) {
+				@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to close database connection. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+			}
+			_isConnected = NO;
+		}
 	}
-	_isConnected = NO;
 }
 
 - (void) dealloc {

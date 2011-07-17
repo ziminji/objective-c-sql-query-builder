@@ -39,9 +39,9 @@
 						exist in the working directoy, an attempt will be made to copy the data source from
 						the resource directory to the working directory; otherwise, the data source will be
 						created in the working directory.
- @param dataSource		The file name of the database to be used.
+ @param dataSource		The file name of the database's PLIST to be used.
  @return				An instance of this class.
- @updated				2011-07-14
+ @updated				2011-07-16
  */
 - (id) initWithDataSource: (NSString *)dataSource;
 /*!
@@ -51,7 +51,7 @@
 						exist in the working directoy, an attempt will be made to copy the data source from
 						the resource directory to the working directory; otherwise, the data source will be
 						created in the working directory.
- @param dataSource		The file name of the database to be used.
+ @param dataSource		The file name of the database's PLIST to be used.
  @param multithreading	This determines whether locks should be used.
  @return				An instance of this class.
  @updated				2011-07-16
@@ -60,7 +60,7 @@
 /*!
  @method				open
  @discussion			This method will open a connection to the database.
- @updated				2011-03-23
+ @updated				2011-07-16
  */
 - (void) open;
 /*!
@@ -136,7 +136,7 @@
 /*!
  @method				close
  @discussion			This method will close an open database connection.
- @updated				2011-03-23
+ @updated				2011-07-16
  */
 - (void) close;
 /*!
