@@ -232,7 +232,7 @@
  @method				query
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-04-02
+ @updated				2011-07-16
  */
 - (NSArray *) query;
 

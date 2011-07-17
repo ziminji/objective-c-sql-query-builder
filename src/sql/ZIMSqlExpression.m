@@ -15,7 +15,7 @@
  */
 
 #import <sqlite3.h> // Requires libsqlite3.dylib
-#import "NSString+ZIMExtString.h"
+#import "NSString+ZIMString.h"
 #import "ZIMSqlExpression.h"
 #import "ZIMSqlSelectStatement.h"
 

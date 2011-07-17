@@ -16,7 +16,7 @@
 
 #import <CommonCrypto/CommonDigest.h>
 #import <objc/runtime.h>
-#import "ZIMDaoConnection.h"
+#import "ZIMDbConnection.h"
 #import "ZIMOrmModel.h"
 #import "ZIMSqlDeleteStatement.h"
 #import "ZIMSqlInsertStatement.h"
@@ -67,7 +67,7 @@
 	if (![ZIMOrmModel isModel: model]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
 	}
-	ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [model dataSource] withMultithreadingSupport: NO];
+	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [model dataSource] withMultithreadingSupport: NO];
 	ZIMSqlSelectStatement *sql = [[ZIMSqlSelectStatement alloc] init];
 	[sql from: [model table]];
 	NSArray *primaryKey = [[self class] primaryKey];
@@ -95,7 +95,7 @@
 	}
 	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
-		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
+		ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [[self class] dataSource]];
 		[connection beginTransaction];
 		ZIMSqlDeleteStatement *sql = [[ZIMSqlDeleteStatement alloc] init];
 		[sql table: [[self class] table]];
@@ -133,7 +133,7 @@
 			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
 		}
 		[sql limit: 1];
-		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
+		ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [[self class] dataSource]];
 		[connection beginTransaction];
 		NSArray *records = [connection query: [sql statement]];
 		[connection commitTransaction];
@@ -159,7 +159,7 @@
 	}
 	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
-		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
+		ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [[self class] dataSource]];
 		[connection beginTransaction];
 		NSMutableDictionary *columns = [[NSMutableDictionary alloc] initWithDictionary: [[self class] columns]];
 		NSString *hashCode = [self hashCode];
