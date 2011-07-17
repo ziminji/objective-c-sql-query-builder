@@ -17,3 +17,4 @@
 #import "NSString+ZIMString.h"
 
 #import "ZIMDbConnection.h"
+#import "ZIMDbConnectionPool.h"

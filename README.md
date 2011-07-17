@@ -1,16 +1,16 @@
 # Objective-C SQL Query Builder
 
-This Objective-C based project is divided up into four parts.  The first part consists of a set of Objective-C
-classes that handle communications with an SQLite database.  Inside the "src" folder, these Objective-C classes
-are further subdivided into five folders.  The "db" folder (formerly, the "dao" folder) contains an SQLite wrapper
-class that easily manages the database connection.  The "ext" folder contains some class extensions. The "sql"
-folder contains a collection of SQL builder classes that can be used to construct well-formed SQL statements for
-SQLite via a plethora of convenience methods similar to those found in LINQ.  Likewise, the "orm" folder has an
-assortment of classes that can control and manipulate data within an SQLite database via the Active Record design
-pattern. And, the "util" folder contains a set of various helper classes.  The second part consists of an easy-to-read
-API, which both documents and diagrams each class.  The third part consists of a BASH script that can be used to
-generate the necessary ORM models using the SQLite's database schema.  The fourth part consists of the database
-configuration files for the database connection.
+This Objective-C SQLite projects is a lightweight library that offers more than just a set of SQLite wrapper classes.
+It is divided up into four parts.  The first part consists of a set of Objective-C classes that handle communications
+with an SQLite database.  Inside the "src" folder, these Objective-C classes are further subdivided into five folders.
+The "db" folder (formerly, the "dao" folder) contains an SQLite wrapper class that easily manages the database connection.
+The "ext" folder contains some class extensions. The "sql" folder contains a collection of SQL builder classes that can
+be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar to those found
+in LINQ.  Likewise, the "orm" folder has an assortment of classes that can control and manipulate data within an SQLite
+database via the Active Record design pattern. And, the "util" folder contains a set of various helper classes.  The
+second part consists of an easy-to-read API, which both documents and diagrams each Objective-C class.  The third part
+consists of a BASH script that can be used to generate the necessary ORM models using the SQLite's database schema.  The
+fourth part consists of the database configuration files for the SQLite database connection.
 
 All classes are designed to be used in iPhone/iOS applications.
 
@@ -19,33 +19,33 @@ All classes are designed to be used in iPhone/iOS applications.
 The goal of this project is to make these classes the "de facto" standard for communicating with SQLite databases on
 iPhone/iOS devices.
 
-After looking at other Objective-C SQLite projects, it was obvious that there was a need for a lightweight Objective-C
-library that offers more than just a set of SQLite wrapper classes.  It was even more apparent that classes needed to
-be written very cleanly and with clear naming conventions similar to those in LINQ.  With the abundance of third-party
-libraries for Objective-C, iPhone/iOS developers are craving libraries that are simple to learn and are intuitive.
-Therefore, the classes in this repository are written with these observations in mind.
+With the abundance of third-party libraries for Objective-C, it was apparent that a successful SQLite library needs to
+be simple to learn and intuitive.  It also must be cleanly written with clear naming conventions and must be well-documented
+for too many SQLite libraries are hard to understand and are not user-friendly.  For these reasons, this SQLite library was
+written.
 
 ## Features
 
 The following is a short-list of some of the features:
 
-* Implements a very simple, but powerful, Data Access Object (DAO) that wraps the sqlite3 C based functions.
+* Cleanly wraps-up the sqlite3 C based functions.
 * Automatically places the SQLite database in the "Document" directory.
-* Provides multi-threading support in the DAO to deal with asynchronous SQLite calls;
+* Provides multi-threading support for asynchronous SQLite database calls;
 * Utilizes a PLIST file for setting up connection configurations;
 * Allows database privileges to be restricted.
-* Executes an SQL statement with one line of code.
-* Has a large collection of SQL builder classes with methods that mimic their SQL equivalent.
-* Helps ensure that SQL is well-formed.
+* Has an easy to use SQLite database connection pool.
+* Capable of executing an SQL statement with one line of code.
+* Has a huge collection of SQL builder classes with methods that mimic their SQL statement equivalents.
+* Helps ensure that SQL statement are well-formed.
 * Supports all major Objective-C datatypes, including NSNull, NSNumber, NSDecimalNumber, NSString, NSData, and NSDate.
-* Sanitizes data.
-* Handles most complex queries.
-* Works with raw SQL.
-* Has a SQLite tokenizer.
-* Offers Object Relational Mapping (ORM) with composite primary keys.
-* Can auto-generate models (i.e. Active Records) for each table in the SQLite database via a BASH script.
+* Sanitizes data using best practices.
+* Handles most complex queries and works with raw SQL statements.
+* Has a powerful SQLite tokenizer.
+* Has a data access layer (DAL) that offers Object Relational Mapping (ORM).
+* Data access objects (DAO) handle composite primary keys.
+* Via a Bash script, models (i.e. Active Records) can be auto-generated for each table in the SQLite database.
 * Handles foreign keys via true lazy loading.
-* Requires only those classes that are needed.  Great for mobile development.
+* Requires only those Objective-C classes that are absolutely needed.
 * Classes are easily extendible.
 * Has clear API documentation generated via [Doxygen](http://www.stack.nl/~dimitri/doxygen/).
 
@@ -90,10 +90,10 @@ respective ".h" file.  You can also find more information on this repository's W
 
 ### Tutorials / Examples
 
-Checkout this repository's Wiki for a handful of examples.  There, you will find examples on how to make an SQLite
-database connection using the Data Access Object (DAO) and how to build Create, Read, Update, and Delete (CRUD)
-statements.  The Wiki also has tutorials on how to use Object Relational Mapping (ORM) and how to generate the
-necessary models (i.e. active records).
+Checkout this SQLite repository's Wiki for a handful of examples.  There, you will find examples on how to make
+an SQLite database connection and how to build DCL, DDL, DML, and TCL commands (including Create, Read, Update,
+and Delete (CRUD) statements).  The Wiki also has tutorials on how to use Object Relational Mapping (ORM) and
+how to generate the necessary models (i.e. active records).
 
 ### Further Assistance
 
@@ -105,13 +105,13 @@ You can also seek assistance via the blogs.  A great Web site for community assi
 
 ## Reporting Bugs & Making Recommendations
 
-Help debug the Objective-C classes in repository by reporting any bugs.  The more detailed the report the better.  If
-you have a bug-fix or a unit-test, please create an issue under the "Issues" tab of this repository and someone will
-follow-up with it as soon as possible.
+Help debug the code in repository by reporting any bugs.  The more detailed the report the better.  If you have a bug-fix
+or a unit-test, please create an issue under the "Issues" tab of this repository and someone will follow-up with it as
+soon as possible.
 
-Likewise, if you would like to make a recommendation on how to improve these classes, take the time to send a message
-so that it can be considered for an upcoming release.  Or, if you would like to contribute to the development of this
-repository, go ahead and create a fork.
+Likewise, if you would like to make a recommendation on how to improve the code in this repository, take the time to send
+a message so that it can be considered for an upcoming release.  Or, if you would like to contribute to the development of
+this Objective-C SQLite repository, go ahead and create a fork.
 
 You can also email any bug-fixes, unit-tests, or recommendations to oss@ziminji.com.
 
@@ -125,16 +125,17 @@ At the current time, there are no known bugs.
 
 ### Updates
 
-This project is updated frequently with bug-fixes and new features.  Be sure to add this repository to your watch list
-so that you can be notified when such updates are made.
+This Objective-C SQLite project is updated frequently with bug-fixes and new features.  Be sure to add this repository
+to your watch list so that you can be notified when such updates are made.
 
 ## Future Development
 
 This project is under heavy development.  There are development plans to add:
 
 * More SQL builder classes;
-* More utilities (e.g. classes to handle imports, exports, pagination, partitioning, and migration);
-* The ability to process more than one SQL statement at a time in the Data Access Object (DAO);
+* The ability to parse raw SQLite statements into their equivalent SQL builder classes;
+* The ability to process more than one SQL statement at a time;
+* More utilities (e.g. classes to handle validation, filters, imports, exports, pagination, partitioning, and migration);
 * A database encryption layer for password protecting an SQLite database;
 * Unit-tests;
 * Additional tutorials and examples.
