@@ -21,7 +21,7 @@
 static NSSet *_keywords = nil;
 
 - (id) initWithSqlStatement: (NSString *)sql {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_tuples = [[NSMutableArray alloc] init];
 
 		const char *statement = [sql UTF8String];

@@ -30,7 +30,7 @@
 #endif
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_saved = nil;
 	}
 	return self;
@@ -111,7 +111,7 @@
 		[connection execute: [sql statement]];
 		[sql release];
 		_saved = nil;
-		[connection commit];
+		[connection commitTransaction];
 		[connection release];
 	}
 	else {
@@ -136,7 +136,7 @@
 		ZIMDaoConnection *connection = [[ZIMDaoConnection alloc] initWithDataSource: [[self class] dataSource]];
 		[connection beginTransaction];
 		NSArray *records = [connection query: [sql statement]];
-		[connection commit];
+		[connection commitTransaction];
 		[connection release];
 		[sql release];
 		if ([records count] != 1) {
@@ -232,7 +232,7 @@
 			}
 		}
 		[columns release];
-		[connection commit];
+		[connection commitTransaction];
 		[connection release];
 	}
 	else {

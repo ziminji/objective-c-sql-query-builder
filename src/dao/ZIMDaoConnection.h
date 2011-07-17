@@ -54,7 +54,7 @@
  @param dataSource		The file name of the database to be used.
  @param multithreading	This determines whether locks should be used.
  @return				An instance of this class.
- @updated				2011-07-14
+ @updated				2011-07-16
  */
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!
@@ -103,21 +103,21 @@
  */
 - (NSArray *) query: (NSString *)sql asObject: (Class)model;
 /*!
- @method				rollback
+ @method				rollbackTransaction
  @discussion			This method will rollback a transaction.
  @return				Whether the transaction was rollbacked.
- @updated				2011-06-23
+ @updated				2011-07-16
  @see					http://www.sqlite.org/lang_transaction.html
  */
-- (NSNumber *) rollback;
+- (NSNumber *) rollbackTransaction;
 /*!
- @method				commit
+ @method				commitTransaction
  @discussion			This method will commit a transaction.
  @return				Whether the transaction has been committed.
- @updated				2011-06-23
+ @updated				2011-07-16
  @see					http://www.sqlite.org/lang_transaction.html
  */
-- (NSNumber *) commit;
+- (NSNumber *) commitTransaction;
 /*!
  @method				vacuum
  @discussion			The method will rebuild the entire database.

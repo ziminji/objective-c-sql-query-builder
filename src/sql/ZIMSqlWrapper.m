@@ -19,7 +19,7 @@
 @implementation ZIMSqlWrapper
 
 - (id) initWithSqlStatement: (NSString *)sql {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_statement = sql;
 	}
 	return self;

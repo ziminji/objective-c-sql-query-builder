@@ -19,7 +19,7 @@
 @implementation ZIMSqlDropTriggerStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_trigger = nil;
 		_exists = NO;
 	}

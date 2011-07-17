@@ -80,19 +80,19 @@
 /*!
  @method				delete
  @discussion			This method deletes the record matching the primary key.
- @updated				2011-06-25
+ @updated				2011-07-16
  */
 - (void) delete;
 /*!
  @method				load
  @discussion			This method will load/reload the record matching the primary key.
- @updated				2011-06-25
+ @updated				2011-07-16
  */
 - (void) load;
 /*!
  @method				save
  @discussion			This method either creates or updates the record matching the primary key.
- @updated				2011-06-25
+ @updated				2011-07-16
  */
 - (void) save;
 /*!

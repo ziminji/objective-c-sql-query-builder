@@ -19,7 +19,7 @@
 @implementation ZIMSqlDropTableStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_table = nil;
 		_exists = NO;
 	}

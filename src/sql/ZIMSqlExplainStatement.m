@@ -19,7 +19,7 @@
 @implementation ZIMSqlExplainStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_level = 0;
 		_statement = nil;
 	}

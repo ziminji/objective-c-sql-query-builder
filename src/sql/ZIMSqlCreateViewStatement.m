@@ -19,7 +19,7 @@
 @implementation ZIMSqlCreateViewStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_view = nil;
 		_temporary = NO;
 		_statement = nil;

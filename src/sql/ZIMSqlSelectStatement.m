@@ -20,7 +20,7 @@
 @implementation ZIMSqlSelectStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_distinct = NO;
 		_column = [[NSMutableArray alloc] init];
 		_table = [[NSMutableArray alloc] init];
@@ -87,6 +87,10 @@
 }
 
 - (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
+	[self joinOn: column1 operator: operator column: column2 connector: ZIMSqlConnectorAnd];
+}
+
+- (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector {
 	NSUInteger length = [_join count];
 	if (length > 0) {
 		NSUInteger index = length - 1;
@@ -95,7 +99,7 @@
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May not declare two different types of constraints on a JOIN statement." userInfo: nil];
 		}
 		joinCondition = (NSMutableArray *)[[_join objectAtIndex: index] objectAtIndex: 1];
-		[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column1], [operator uppercaseString], [ZIMSqlExpression prepareIdentifier: column2]]];
+		[joinCondition addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column1], [operator uppercaseString], [ZIMSqlExpression prepareIdentifier: column2]], nil]];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Must declare a JOIN clause before declaring a constraint." userInfo: nil];
@@ -103,6 +107,10 @@
 }
 
 - (void) joinOn: (NSString *)column operator: (NSString *)operator value: (id)value {
+	[self joinOn: column operator: operator value: value connector: ZIMSqlConnectorAnd];
+}
+
+- (void) joinOn: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
 	NSUInteger length = [_join count];
 	if (length > 0) {
 		NSUInteger index = length - 1;
@@ -116,7 +124,7 @@
 			if (![value isKindOfClass: [NSArray class]]) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Operator requires the value to be declared as an array." userInfo: nil];
 			}
-			[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@ AND %@", [ZIMSqlExpression prepareIdentifier: column], operator, [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 1]]]];
+			[joinCondition addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@ AND %@", [ZIMSqlExpression prepareIdentifier: column], operator, [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 0]], [ZIMSqlExpression prepareValue: [(NSArray *)value objectAtIndex: 1]]], nil]];
 		}
 		else {
 			if (([operator isEqualToString: ZIMSqlOperatorIn] || [operator isEqualToString: ZIMSqlOperatorNotIn]) && ![value isKindOfClass: [NSArray class]]) {
@@ -130,7 +138,7 @@
 					operator = ZIMSqlOperatorIsNot;
 				}
 			}
-			[joinCondition addObject: [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column], operator, [ZIMSqlExpression prepareValue: value]]];
+			[joinCondition addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column], operator, [ZIMSqlExpression prepareValue: value]], nil]];
 		}
 	}
 	else {
@@ -309,7 +317,17 @@
 		[sql appendFormat: @" %@", [join objectAtIndex: 0]];
 		NSArray *joinCondition = (NSArray *)[join objectAtIndex: 1];
 		if ([joinCondition count] > 0) {
-			[sql appendFormat: @" ON (%@)", [joinCondition componentsJoinedByString: @" AND "]];
+            [sql appendString: @" ON ("];
+            int i = 0;
+            for (NSArray *joinParts in joinCondition) {
+                NSString *onClause = [joinParts objectAtIndex: 1];
+                if (i > 0) {
+                    [sql appendFormat: @" %@ ", [joinParts objectAtIndex: 0]];
+                }
+                [sql appendString: onClause];
+                i++;
+            }
+            [sql appendString: @")"];
 		}
 		else {
 			joinCondition = (NSArray *)[join objectAtIndex: 2];

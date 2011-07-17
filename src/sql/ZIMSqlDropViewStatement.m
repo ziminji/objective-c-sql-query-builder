@@ -19,7 +19,7 @@
 @implementation ZIMSqlDropViewStatement
 
 - (id) init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_view = nil;
 		_exists = NO;
 	}

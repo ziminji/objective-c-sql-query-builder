@@ -66,7 +66,7 @@
 }
 
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		dataSource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: dataSource];
 		NSDictionary *config = [[NSDictionary alloc] initWithContentsOfFile: dataSource];
 		NSString *type = [config objectForKey: @"type"];
@@ -75,7 +75,7 @@
 			[config release];
 			@throw [NSException exceptionWithName: @"ZIMDaoException" reason: @"Failed to load data source." userInfo: nil];
 		}
-		NSFileManager *fileManager = [NSFileManager defaultManager];
+		NSFileManager *fileManager = [[NSFileManager alloc] init];
 		NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
 		if (![fileManager fileExistsAtPath: workingPath]) {
 			NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
@@ -328,11 +328,11 @@
 	return [NSNull null];
 }
 
-- (NSNumber *) rollback {
+- (NSNumber *) rollbackTransaction {
 	return [self execute: @"ROLLBACK TRANSACTION;"];
 }
 
-- (NSNumber *) commit {
+- (NSNumber *) commitTransaction {
 	return [self execute: @"COMMIT TRANSACTION;"];
 }
 
