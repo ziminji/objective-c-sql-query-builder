@@ -25,7 +25,7 @@
 /*!
  @category		ZIMDbConnection (Private)
  @discussion	This category defines the prototpes for this class's private methods.
- @updated		2011-06-29
+ @updated		2011-07-16
  */
 @interface ZIMDbConnection (Private)
 /*!
