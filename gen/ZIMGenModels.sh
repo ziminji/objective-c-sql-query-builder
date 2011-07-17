@@ -291,7 +291,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		# Generates the class's constructor method.
 		##
 		echo -e "\n- (id) init {" 1>> $MODEL_M
-		echo -e "\tif (self = [super init]) {" 1>> $MODEL_M
+		echo -e "\tif ((self = [super init])) {" 1>> $MODEL_M
 		echo -e "\t\t_saved = nil;" 1>> $MODEL_M
 		echo -e "\t}" 1>> $MODEL_M
 		echo -e "\treturn self;" 1>> $MODEL_M
