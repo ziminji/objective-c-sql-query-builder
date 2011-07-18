@@ -18,12 +18,12 @@
 
 /*!
  @class				ZIMMessageDigest
- @discussion		This class creates a message digest algorithmically from a string and represents that
-					string uniquely. If the string changes, the message digest will change.
- @updated			2011-07-07
+ @discussion		This class creates a message digest algorithmically from a string.
+ @updated			2011-07-17
  */
-@interface ZIMMessageDigest : NSObject { }
+@interface ZIMMessageDigest : NSObject {
 
+}
 /*!
  @method			hashStringWithMD5:
  @discussion		This method creates a message digest using the md5 algorithm.

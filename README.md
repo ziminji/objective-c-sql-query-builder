@@ -36,6 +36,7 @@ The following is a short-list of some of the features:
 * Has an easy to use SQLite database connection pool.
 * Capable of executing an SQL statement with one line of code.
 * Has a huge collection of SQL builder classes with methods that mimic their SQL statement equivalents.
+* Converts XML to DDL/SQL statements.
 * Helps ensure that SQL statement are well-formed.
 * Supports all major Objective-C datatypes, including NSNull, NSNumber, NSDecimalNumber, NSString, NSData, and NSDate.
 * Sanitizes data using best practices.
