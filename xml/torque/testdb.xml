@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database.dtd">
+<database name="testdb">
+  <table name="author">
+    <column name="author_id"
+            type="INTEGER"
+            primaryKey="true"
+            required="true"/>
+    <column name="name"
+            type="VARCHAR"
+            size="50"
+            required="true"/>
+    <column name="organisation"
+            type="VARCHAR"
+            size="50"
+            required="false"/>
+  </table>
+
+  <table name="book">
+    <column name="book_id"
+            type="INTEGER"
+            required="true"
+            primaryKey="true"
+            autoIncrement="true"/>
+    <column name="isbn"
+            type="VARCHAR"
+            size="15"
+            required="true"/>
+    <column name="author_id"
+            type="INTEGER"
+            required="true"/>
+    <column name="title"
+            type="VARCHAR"
+            size="255"
+            defaultValue="N/A"
+            required="true"/>
+
+    <foreign-key foreignTable="author">
+      <reference local="author_id" foreign="author_id"/>
+    </foreign-key>  
+
+    <index name="book_isbn">
+      <index-column name="isbn"/>
+    </index>
+  </table>
+</database>

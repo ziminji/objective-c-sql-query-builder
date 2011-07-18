@@ -36,13 +36,13 @@
 }
 /*!
  @method				initWithXML:error:
- @discussion			This method initializes the class via an XML file following Berlios' "XML to DDL" schema.
+ @discussion			This method initializes the class via an XML file following Torque's "XML to DDL" schema.
  @param data            The UTF-8 encoded string of XML.
  @param error           Used when an error occurs while processing the XML data. May be NULL.
  @return                An instance of this class.
  @updated				2011-07-18
- @see                   http://xml2ddl.berlios.de/
- @see					http://xml2ddl.berlios.de/testdetails.html
+ @see					http://db.apache.org/ddlutils/
+ @see					http://db.apache.org/ddlutils/schema/
  */
 - (id) initWithXML: (NSData *)data error: (NSError **)error;
 /*!
