@@ -61,10 +61,6 @@
 
 @implementation ZIMDbConnection
 
-- (id) initWithDataSource: (NSString *)dataSource {
-	return [self initWithDataSource: dataSource withMultithreadingSupport: NO];
-}
-
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
 	if ((self = [super init])) {
 		dataSource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: dataSource];
@@ -107,6 +103,10 @@
 		[self open];
 	}
 	return self;
+}
+
+- (id) initWithDataSource: (NSString *)dataSource {
+	return [self initWithDataSource: dataSource withMultithreadingSupport: NO];
 }
 
 - (void) open {

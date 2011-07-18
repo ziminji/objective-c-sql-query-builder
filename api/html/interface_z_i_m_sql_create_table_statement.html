@@ -82,6 +82,8 @@ Inheritance diagram for ZIMSqlCreateTableStatement:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ade3f335d51e0de75104c933447ed16ce">initWithXML:error:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ac1b65ab837b5293b0742d94884d1cc14">init</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a0cf8efec5da18becf3a910635b71b70c">table:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a910a47275af2fec7900cee3af002f06c">table:temporary:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#af19bbac8b15a9a126fd5e8792e21489c">column:type:</a></td></tr>
@@ -91,8 +93,9 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a6ac8b08f3330b8a68e7d429dbeaf70ca">primaryKey:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ae367b1fcef9c10778d1eb57bfa734c77">unique:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#abe64d6ba57a6f3042a001a0b631ec7ee">statement</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ac1b65ab837b5293b0742d94884d1cc14">init</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ac5fa59eaa6f08ec22888d091be2518f1">dealloc</a><code> [implementation]</code></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#aa7c65375d48732c9aee66d51db362c05">parser:didStartElement:namespaceURI:qualifiedName:attributes:</a><code> [implementation]</code></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a68d926f3610bbfa354855d0ebece13e7">parser:parseErrorOccurred:</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#a2ebe11184292ff211f43fa721432d5a0">_table</a></td></tr>
@@ -100,10 +103,11 @@ Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableDictionary *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#acc53d80853522ca190545f1b06d2aa64">_column</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#a2e626d2e8eece5e9cd2f4151ec3ef4c6">_primaryKey</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#a818a6f7652877a55e78f0f1c84416b34">_unique</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSError **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#af0fd90aa67fa5d348a1a8a7873ce3509">_error</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL create table statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-15 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-17 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_createtable.html">http://www.sqlite.org/lang_createtable.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="af19bbac8b15a9a126fd5e8792e21489c"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::column:type:" ref="af19bbac8b15a9a126fd5e8792e21489c" args="(NSString *column,[type] NSString *type)" -->
@@ -299,7 +303,124 @@ Protected Attributes</h2></td></tr>
           <td class="memname">- (id) init </td>
           <td></td>
           <td class="paramname"></td>
-          <td><code> [implementation]</code></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>init </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method initializes the class. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-17 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ade3f335d51e0de75104c933447ed16ce"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::initWithXML:error:" ref="ade3f335d51e0de75104c933447ed16ce" args="(NSData *data,[error] NSError **error)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (id) initWithXML: </td>
+          <td></td>
+          <td class="paramtype">(NSData *)&#160;</td>
+          <td class="paramname"><em>data</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">error:</td>
+          <td></td>
+          <td class="paramtype">(NSError **)&#160;</td>
+          <td class="paramname"><em>error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>initWithXML:error: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method initializes the class via an XML file following Berlios' "XML to DDL" schema. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The UTF-8 encoded string of XML. </td></tr>
+    <tr><td class="paramname">error</td><td>Used when an error occurs while processing the XML data. May be NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-18 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://xml2ddl.berlios.de/">http://xml2ddl.berlios.de/</a> </dd>
+<dd>
+<a href="http://xml2ddl.berlios.de/testdetails.html">http://xml2ddl.berlios.de/testdetails.html</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa7c65375d48732c9aee66d51db362c05"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::parser:didStartElement:namespaceURI:qualifiedName:attributes:" ref="aa7c65375d48732c9aee66d51db362c05" args="(NSXMLParser *parser,[didStartElement] NSString *element,[namespaceURI] NSString *namespaceURI,[qualifiedName] NSString *qualifiedName,[attributes] NSDictionary *attributes)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) parser: </td>
+          <td></td>
+          <td class="paramtype">(NSXMLParser *)&#160;</td>
+          <td class="paramname"><em>parser</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">didStartElement:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>element</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">namespaceURI:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>namespaceURI</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">qualifiedName:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>qualifiedName</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">attributes:</td>
+          <td></td>
+          <td class="paramtype">(NSDictionary *)&#160;</td>
+          <td class="paramname"><em>attributes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td><code> [implementation]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a68d926f3610bbfa354855d0ebece13e7"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::parser:parseErrorOccurred:" ref="a68d926f3610bbfa354855d0ebece13e7" args="(NSXMLParser *parser,[parseErrorOccurred] NSError *error)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) parser: </td>
+          <td></td>
+          <td class="paramtype">(NSXMLParser *)&#160;</td>
+          <td class="paramname"><em>parser</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">parseErrorOccurred:</td>
+          <td></td>
+          <td class="paramtype">(NSError *)&#160;</td>
+          <td class="paramname"><em>error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td><code> [implementation]</code></td>
         </tr>
       </table>
 </div>
@@ -451,6 +572,19 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">- (NSMutableDictionary*) <a class="el" href="interface_z_i_m_sql_create_table_statement.html#acc53d80853522ca190545f1b06d2aa64">_column</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af0fd90aa67fa5d348a1a8a7873ce3509"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::_error" ref="af0fd90aa67fa5d348a1a8a7873ce3509" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSError**) <a class="el" href="interface_z_i_m_sql_create_table_statement.html#af0fd90aa67fa5d348a1a8a7873ce3509">_error</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>

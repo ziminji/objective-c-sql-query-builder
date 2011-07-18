@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+    <table name="person">
+        <columns>
+            <column name="pk" type="integer" key="1" />
+            <column name="firstName" type="varchar" size="35" />
+            <column name="lastName" type="varchar" size="35" />
+            <column name="isActive" type="tinyint" size="1" default="1" />
+        </columns>
+    </table>
+</schema>

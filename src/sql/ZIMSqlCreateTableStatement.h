@@ -20,10 +20,10 @@
 /*!
  @class					ZIMSqlCreateTableStatement
  @discussion			This class represents an SQL create table statement.
- @updated				2011-07-15
+ @updated				2011-07-17
  @see					http://www.sqlite.org/lang_createtable.html
  */
-@interface ZIMSqlCreateTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
+@interface ZIMSqlCreateTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
 
 	@protected
 		NSString *_table;
@@ -31,8 +31,27 @@
 		NSMutableDictionary *_column;
 		NSString *_primaryKey;
 		NSString *_unique;
+        NSError **_error;
 
 }
+/*!
+ @method				initWithXML:error:
+ @discussion			This method initializes the class via an XML file following Berlios' "XML to DDL" schema.
+ @param data            The UTF-8 encoded string of XML.
+ @param error           Used when an error occurs while processing the XML data. May be NULL.
+ @return                An instance of this class.
+ @updated				2011-07-18
+ @see                   http://xml2ddl.berlios.de/
+ @see					http://xml2ddl.berlios.de/testdetails.html
+ */
+- (id) initWithXML: (NSData *)data error: (NSError **)error;
+/*!
+ @method				init
+ @discussion			This method initializes the class.
+ @return                An instance of this class.
+ @updated				2011-07-17
+ */
+- (id) init;
 /*!
  @method				table:
  @discussion			This method sets the name for the table in the SQL statement.
