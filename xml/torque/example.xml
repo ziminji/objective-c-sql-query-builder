@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database.dtd">
+<database name="defaultdb">
+    <table name="person">
+		<column name="pk" type="INTEGER" size="11" primaryKey="true" required="true" />
+        <column name="firstName" type="VARCHAR" size="35" required="false" />
+        <column name="lastName" type="VARCHAR" size="35" required="false" />
+        <column name="isActive" type="TINYINT" size="1" defaultValue="1" required="true" />
+    </table>
+</database>

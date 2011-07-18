@@ -153,21 +153,21 @@
         NSString *columnType = [[attributes objectForKey: @"type"] uppercaseString];
         NSString *columnSize = [attributes objectForKey: @"size"];
         if (columnSize != nil) {
-            NSString *columnPrecision = [attributes objectForKey: @"precision"];
-            if (columnPrecision != nil) {
-                columnType = [NSString stringWithFormat: @"%@(%@, %@)", columnType, columnPrecision, columnSize];
+            NSString *columnScale = [attributes objectForKey: @"scale"];
+            if (columnScale != nil) {
+                columnType = [NSString stringWithFormat: @"%@(%@, %@)", columnType, columnSize, columnScale];
             }
             else {
                 columnType = [NSString stringWithFormat: @"%@(%@)", columnType, columnSize];
             }
         }
-        NSString *columnValue = [attributes objectForKey: @"autoincrement"];
+        NSString *columnValue = [attributes objectForKey: @"autoIncrement"];
         if ((columnValue != nil) && [[columnValue uppercaseString] boolValue]) {
             [self column: columnName type: columnType defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
         }
         else {
-            NSString *columnKey = [attributes objectForKey: @"key"];
-            if (columnKey != nil) {
+            NSString *columnPrimaryKey = [attributes objectForKey: @"primaryKey"];
+            if ((columnPrimaryKey != nil) && [[columnPrimaryKey uppercaseString] boolValue]) {
                 if (_primaryKey != nil) {
                     _primaryKey = [_primaryKey substringWithRange: NSMakeRange(13, [_primaryKey length] - 14)];
                     _primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@, %@)", _primaryKey, columnName];
@@ -176,7 +176,7 @@
                     _primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@)", columnName];
                 }
             }
-            columnValue = [attributes objectForKey: @"default"];
+            columnValue = [attributes objectForKey: @"defaultValue"];
             if (columnValue != nil) {
                 [self column: columnName type: columnType defaultValue: ZIMSqlDefaultValue(columnValue)];
             }
