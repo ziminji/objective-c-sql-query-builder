@@ -1,7 +1,7 @@
 # Objective-C SQL Query Builder
 
 This Objective-C SQLite projects is a lightweight library that offers more than just a set of SQLite wrapper classes.
-It is divided up into four parts.  The first part consists of a set of Objective-C classes that handle communications
+It is divided up into five parts.  The first part consists of a set of Objective-C classes that handle communications
 with an SQLite database.  Inside the "src" folder, these Objective-C classes are further subdivided into five folders.
 The "db" folder (formerly, the "dao" folder) contains an SQLite wrapper class that easily manages the database connection.
 The "ext" folder contains some class extensions. The "sql" folder contains a collection of SQL builder classes that can
@@ -10,7 +10,8 @@ in LINQ.  Likewise, the "orm" folder has an assortment of classes that can contr
 database via the Active Record design pattern. And, the "util" folder contains a set of various helper classes.  The
 second part consists of an easy-to-read API, which both documents and diagrams each Objective-C class.  The third part
 consists of a BASH script that can be used to generate the necessary ORM models using the SQLite's database schema.  The
-fourth part consists of the database configuration files for the SQLite database connection.
+fourth part consists of the database configuration files for the SQLite database connection.  The final part has the
+schema for handling XML to DDL.
 
 All classes are designed to be used in iPhone/iOS applications.
 
