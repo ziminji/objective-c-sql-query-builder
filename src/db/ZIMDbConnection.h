@@ -42,7 +42,7 @@
  @param dataSource		The file name of the database's PLIST to be used.
  @param multithreading	This determines whether locks should be used.
  @return				An instance of this class.
- @updated				2011-07-16
+ @updated				2011-07-20
  */
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!

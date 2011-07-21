@@ -26,7 +26,7 @@
 @implementation ZIMOrmModel
 
 #if !defined(ZIMOrmDataSource)
-	#define ZIMOrmDataSource @"sqlite.plist" // Define this pre-processing instruction "ZIMOrmDataSource" in <project-name>_Prefix.pch
+    #define ZIMOrmDataSource @"live" // Override this pre-processing instruction in your <project-name>_Prefix.pch
 #endif
 
 - (id) init {

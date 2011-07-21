@@ -105,10 +105,10 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 	##
 	. $1
 
-	##
-	# Constructs the name for the database's ".plist" file.
-	##
-	PLIST="${database%%.*}.plist"
+    ##
+    # Extract the name of the data source.
+    ##
+    DATA_SOURCE="${database%%.*}"
 
 	##
 	# Fetches an array of table names from the specified datatbase (@see http://mailliststock.wordpress.com/2007/03/01/sqlite-examples-with-bash-perl-and-python/)
@@ -313,7 +313,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		# Generates a method to return the data source.
 		##
 		echo "+ (NSString *) dataSource {" 1>> $MODEL_M
-		echo -e "\treturn @\"$PLIST\";" 1>> $MODEL_M
+		echo -e "\treturn @\"$DATA_SOURCE\";" 1>> $MODEL_M
 		echo -e "}\n" 1>> $MODEL_M
 
 		##
@@ -355,12 +355,19 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		echo "@end" 1>> $MODEL_M
 	done
 
+    ##
+    # Constructs the name for the database's ".plist" file.
+    ##
+    PLIST="db.plist"
+
 	##
 	# Generates the PLIST configuration file for the database.
 	##
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" 1> $PLIST
 	echo "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">" 1>> $PLIST
 	echo "<plist version=\"1.0\">" 1>> $PLIST
+    echo -e "<dict>" 1>> $PLIST
+    echo -e "\t<key>$DATA_SOURCE</key>" 1>> $PLIST
 	echo -e "\t<dict>" 1>> $PLIST
 	echo -e "\t\t<key>type</key>" 1>> $PLIST
 	echo -e "\t\t<string>SQLite</string>" 1>> $PLIST
@@ -374,7 +381,8 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 	echo -e "\t\t\t<string>DELETE</string>" 1>> $PLIST
 	echo -e "\t\t</array>" 1>> $PLIST
 	echo -e "\t</dict>" 1>> $PLIST
-	echo "</plist>" 1>> $PLIST
+	echo -e "</dict>" 1>> $PLIST
+    echo "</plist>" 1>> $PLIST
 
 	##
 	# Indicates that the BASH script is done.

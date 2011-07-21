@@ -61,42 +61,46 @@
 
 @implementation ZIMDbConnection
 
+#if !defined(ZIMDbPropertyList)
+    #define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch
+#endif
+
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
 	if ((self = [super init])) {
-		dataSource = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: dataSource];
-		NSDictionary *config = [[NSDictionary alloc] initWithContentsOfFile: dataSource];
-		NSString *type = [config objectForKey: @"type"];
-		NSString *database = [config objectForKey: @"database"];
-		if ((type == nil) || ![[type lowercaseString] isEqualToString: @"sqlite"] || (database == nil)) {
-			[config release];
-			@throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to load data source." userInfo: nil];
-		}
-		NSFileManager *fileManager = [[NSFileManager alloc] init];
-		NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
-		if (![fileManager fileExistsAtPath: workingPath]) {
-			NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
-			if ([fileManager fileExistsAtPath: resourcePath]) {
-				NSError *error;
-				if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
-					[fileManager release];
-					[config release];
-					@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
-				}
-			}
-		}
-		_dataSource = [workingPath copy];
-		[fileManager release];
-		NSArray *privileges = [config objectForKey: @"privileges"];
-		if (privileges != nil) {
-			_privileges = [[NSMutableSet alloc] init];
-			for (NSString *privilege in privileges) {
-				[_privileges addObject: [privilege uppercaseString]];
-			}
-			[_privileges addObject: @"BEGIN"];
-			[_privileges addObject: @"ROLLBACK"];
-			[_privileges addObject: @"COMMIT"];
-		}
-		[config release];
+		NSString *plist = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: ZIMDbPropertyList];
+		NSDictionary *config = [[NSDictionary dictionaryWithContentsOfFile: plist] objectForKey: dataSource];
+		if (config == nil) {
+            @throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to load data source." userInfo: nil];
+        }
+        NSString *type = [config objectForKey: @"type"];
+        NSString *database = [config objectForKey: @"database"];
+        if ((type == nil) || ![[type lowercaseString] isEqualToString: @"sqlite"] || (database == nil)) {
+            @throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to load data source." userInfo: nil];
+        }
+        NSFileManager *fileManager = [[NSFileManager alloc] init];
+        NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
+        if (![fileManager fileExistsAtPath: workingPath]) {
+            NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
+            if ([fileManager fileExistsAtPath: resourcePath]) {
+                NSError *error;
+                if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
+                    [fileManager release];
+                    @throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
+                }
+            }
+        }
+        _dataSource = [workingPath copy];
+        [fileManager release];
+        NSArray *privileges = [config objectForKey: @"privileges"];
+        if (privileges != nil) {
+            _privileges = [[NSMutableSet alloc] init];
+            for (NSString *privilege in privileges) {
+                [_privileges addObject: [privilege uppercaseString]];
+            }
+            [_privileges addObject: @"BEGIN"];
+            [_privileges addObject: @"ROLLBACK"];
+            [_privileges addObject: @"COMMIT"];
+        }
 		if (multithreading) {
 			_mutex = [[NSLock alloc] init];
 		}
