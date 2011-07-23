@@ -17,11 +17,6 @@
 #import "NSString+ZIMString.h"
 #import "ZIMDbConnection.h"
 
-// Defines the integer value for the table column datatype
-#if !defined(SQLITE_DATE)
-	#define SQLITE_DATE				6
-#endif
-
 /*!
  @category		ZIMDbConnection (Private)
  @discussion	This category defines the prototpes for this class's private methods.
@@ -60,6 +55,10 @@
 @end
 
 @implementation ZIMDbConnection
+
+#if !defined(SQLITE_DATE)
+	#define SQLITE_DATE 6 // Defines the integer value for the table column datatype
+#endif
 
 #if !defined(ZIMDbPropertyList)
     #define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch

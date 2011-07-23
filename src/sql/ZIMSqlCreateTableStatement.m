@@ -18,19 +18,21 @@
 
 @implementation ZIMSqlCreateTableStatement
 
-- (id) initWithXML: (NSData *)data error: (NSError **)error {
+- (id) initWithXML: (NSData *)xml error: (NSError **)error {
 	if ((self = [super init])) {
 		_table = nil;
 		_temporary = NO;
 		_column = [[NSMutableDictionary alloc] init];
 		_primaryKey = nil;
 		_unique = nil;
-        if (data != nil) {
-            _error = error;
-            NSXMLParser *parser = [[NSXMLParser alloc] initWithData: data];
-            [parser setDelegate: self];
-            [parser parse];
-            [parser release];
+        //_depth = 0;
+        _counter = 0;
+        _error = error;
+        if (xml != nil) {
+			NSXMLParser *parser = [[NSXMLParser alloc] initWithData: xml];
+			[parser setDelegate: self];
+			[parser parse];
+			[parser release];
 		}
 	}
 	return self;
@@ -145,45 +147,53 @@
 }
 
 - (void) parser: (NSXMLParser *)parser didStartElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName attributes: (NSDictionary *)attributes {
-    if ([element isEqualToString: @"table"]) {
-        [self table: [attributes objectForKey: @"name"]];
-    }
-    else if ([element isEqualToString: @"column"]) {
-        NSString *columnName = [attributes objectForKey: @"name"];
-        NSString *columnType = [[attributes objectForKey: @"type"] uppercaseString];
-        NSString *columnSize = [attributes objectForKey: @"size"];
-        if (columnSize != nil) {
-            NSString *columnScale = [attributes objectForKey: @"scale"];
-            if (columnScale != nil) {
-                columnType = [NSString stringWithFormat: @"%@(%@, %@)", columnType, columnSize, columnScale];
-            }
-            else {
-                columnType = [NSString stringWithFormat: @"%@(%@)", columnType, columnSize];
-            }
+    if (_counter < 1) {
+        if ([element isEqualToString: @"table"]) {
+            [self table: [attributes objectForKey: @"name"]];
         }
-        NSString *columnValue = [attributes objectForKey: @"autoIncrement"];
-        if ((columnValue != nil) && [[columnValue uppercaseString] boolValue]) {
-            [self column: columnName type: columnType defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
-        }
-        else {
-            NSString *columnPrimaryKey = [attributes objectForKey: @"primaryKey"];
-            if ((columnPrimaryKey != nil) && [[columnPrimaryKey uppercaseString] boolValue]) {
-                if (_primaryKey != nil) {
-                    _primaryKey = [_primaryKey substringWithRange: NSMakeRange(13, [_primaryKey length] - 14)];
-                    _primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@, %@)", _primaryKey, columnName];
+        else if ([element isEqualToString: @"column"]) {
+            NSString *columnName = [attributes objectForKey: @"name"];
+            NSString *columnType = [[attributes objectForKey: @"type"] uppercaseString];
+            NSString *columnSize = [attributes objectForKey: @"size"];
+            if (columnSize != nil) {
+                NSString *columnScale = [attributes objectForKey: @"scale"];
+                if (columnScale != nil) {
+                    columnType = [NSString stringWithFormat: @"%@(%@, %@)", columnType, columnSize, columnScale];
                 }
                 else {
-                    _primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@)", columnName];
+                    columnType = [NSString stringWithFormat: @"%@(%@)", columnType, columnSize];
                 }
             }
-            columnValue = [attributes objectForKey: @"defaultValue"];
-            if (columnValue != nil) {
-                [self column: columnName type: columnType defaultValue: ZIMSqlDefaultValue(columnValue)];
+            NSString *columnValue = [attributes objectForKey: @"autoIncrement"];
+            if ((columnValue != nil) && [[columnValue uppercaseString] boolValue]) {
+                [self column: columnName type: columnType defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
             }
             else {
-                [self column: columnName type: columnType];
+                NSString *columnPrimaryKey = [attributes objectForKey: @"primaryKey"];
+                if ((columnPrimaryKey != nil) && [[columnPrimaryKey uppercaseString] boolValue]) {
+                    if (_primaryKey != nil) {
+                        _primaryKey = [_primaryKey substringWithRange: NSMakeRange(13, [_primaryKey length] - 14)];
+                        _primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@, %@)", _primaryKey, columnName];
+                    }
+                    else {
+                        _primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@)", columnName];
+                    }
+                }
+                columnValue = [attributes objectForKey: @"defaultValue"];
+                if (columnValue != nil) {
+                    [self column: columnName type: columnType defaultValue: ZIMSqlDefaultValue(columnValue)];
+                }
+                else {
+                    [self column: columnName type: columnType];
+                }
             }
         }
+    }
+}
+
+- (void) parser: (NSXMLParser *)parser didEndElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName {
+    if ([element isEqualToString: @"table"]) {
+        _counter++;
     }
 }
 

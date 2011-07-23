@@ -20,16 +20,39 @@
 /*!
  @class					ZIMSqlAlterTableStatement
  @discussion			This class represents an SQL alter table statement.
- @updated				2011-07-15
+ @updated				2011-07-23
  @see					http://www.sqlite.org/lang_altertable.html
  */
-@interface ZIMSqlAlterTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
+@interface ZIMSqlAlterTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
 
 	@protected
 		NSString *_table;
 		NSString *_clause;
+		NSMutableDictionary *_schema;
+        //NSInteger _depth;
+		NSInteger _counter;
+		NSError **_error;
 
 }
+/*!
+ @method				initWithXML:withChanges:error:
+ @discussion			This method initializes the class via an XML file following Torque's "XML to DDL" schema.
+ @param before			The UTF-8 encoded string of XML.
+ @param after			The UTF-8 encoded string of XML with the changes.
+ @param error           Used when an error occurs while processing the XML data. May be NULL.
+ @return                An instance of this class.
+ @updated				2011-07-23
+ @see					http://db.apache.org/ddlutils/
+ @see					http://db.apache.org/ddlutils/schema/
+ */
+- (id) initWithXML: (NSData *)before withChanges: (NSData *)after error: (NSError **)error;
+/*!
+ @method				init
+ @discussion			This method initializes the class.
+ @return                An instance of this class.
+ @updated				2011-07-23
+ */
+- (id) init;
 /*!
  @method				table:
  @discussion			This method will set the table used in the SQL statement.
