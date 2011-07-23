@@ -78,18 +78,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00017"></a>00017 <span class="preprocessor">#import &quot;<a class="code" href="_z_i_m_sql_statement_8h.html">ZIMSqlStatement.h</a>&quot;</span>
 <a name="l00018"></a>00018 <span class="preprocessor">#import &quot;<a class="code" href="_z_i_m_sql_data_definition_command_8h.html">ZIMSqlDataDefinitionCommand.h</a>&quot;</span>
 <a name="l00019"></a>00019 
-<a name="l00026"></a><a class="code" href="interface_z_i_m_sql_drop_index_statement.html">00026</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_drop_index_statement.html">ZIMSqlDropIndexStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>, <a class="code" href="protocol_z_i_m_sql_data_definition_command-p.html">ZIMSqlDataDefinitionCommand</a>&gt; {
+<a name="l00026"></a><a class="code" href="interface_z_i_m_sql_drop_index_statement.html">00026</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_drop_index_statement.html">ZIMSqlDropIndexStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>, <a class="code" href="protocol_z_i_m_sql_data_definition_command-p.html">ZIMSqlDataDefinitionCommand</a>, NSXMLParserDelegate&gt; {
 <a name="l00027"></a>00027         
 <a name="l00028"></a>00028         <span class="keyword">@protected</span>
 <a name="l00029"></a><a class="code" href="interface_z_i_m_sql_drop_index_statement.html#a1baa51789be89ce09b81bc6fc954cd87">00029</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_drop_index_statement.html#a1baa51789be89ce09b81bc6fc954cd87">_index</a>;
 <a name="l00030"></a><a class="code" href="interface_z_i_m_sql_drop_index_statement.html#aa143c3293b396d3c800a21787abafa65">00030</a>                 BOOL <a class="code" href="interface_z_i_m_sql_drop_index_statement.html#aa143c3293b396d3c800a21787abafa65">_exists</a>;
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032 }
-<a name="l00039"></a>00039 - (void) index: (<a class="code" href="class_n_s_string.html">NSString</a> *)index;
-<a name="l00047"></a>00047 - (void) index: (<a class="code" href="class_n_s_string.html">NSString</a> *)index exists: (BOOL)exists;
-<a name="l00054"></a>00054 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="keyword">@end</span>
+<a name="l00031"></a>00031         <span class="comment">//NSInteger _depth;</span>
+<a name="l00032"></a><a class="code" href="interface_z_i_m_sql_drop_index_statement.html#a90bed4c9f69f12ea2a73a446ef9c215a">00032</a>                 NSInteger <a class="code" href="interface_z_i_m_sql_drop_index_statement.html#a90bed4c9f69f12ea2a73a446ef9c215a">_counter</a>;
+<a name="l00033"></a><a class="code" href="interface_z_i_m_sql_drop_index_statement.html#a2bb94f250a896ba54192649ed3e9b3a4">00033</a>                 NSError **<a class="code" href="interface_z_i_m_sql_drop_index_statement.html#a2bb94f250a896ba54192649ed3e9b3a4">_error</a>;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 }
+<a name="l00046"></a>00046 - (id) initWithXML: (NSData *)xml error: (NSError **)error;
+<a name="l00053"></a>00053 - (id) init;
+<a name="l00060"></a>00060 - (void) index: (<a class="code" href="class_n_s_string.html">NSString</a> *)index;
+<a name="l00068"></a>00068 - (void) index: (<a class="code" href="class_n_s_string.html">NSString</a> *)index exists: (BOOL)exists;
+<a name="l00075"></a>00075 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
