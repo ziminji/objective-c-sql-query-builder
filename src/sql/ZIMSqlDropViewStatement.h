@@ -20,16 +20,37 @@
 /*!
  @class					ZIMSqlDropViewStatement
  @discussion			This class represents an SQL drop view statement.
- @updated				2011-07-15
+ @updated				2011-07-23
  @see					http://www.sqlite.org/lang_dropview.html
  */
-@interface ZIMSqlDropViewStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
+@interface ZIMSqlDropViewStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
 	
 	@protected
 		NSString *_view;
 		BOOL _exists;
-	
+        //NSInteger _depth;
+        NSInteger _counter;
+        NSError **_error;
+
 }
+/*!
+ @method				initWithXML:error:
+ @discussion			This method initializes the class via an XML file following Torque's "XML to DDL" schema.
+ @param xml	            The UTF-8 encoded string of XML.
+ @param error           Used when an error occurs while processing the XML data. May be NULL.
+ @return                An instance of this class.
+ @updated				2011-07-23
+ @see					http://db.apache.org/ddlutils/
+ @see					http://db.apache.org/ddlutils/schema/
+ */
+- (id) initWithXML: (NSData *)xml error: (NSError **)error;
+/*!
+ @method				init
+ @discussion			This method initializes the class.
+ @return                An instance of this class.
+ @updated				2011-07-23
+ */
+- (id) init;
 /*!
  @method				view:
  @discussion			This method will set the view used in the SQL statement.
