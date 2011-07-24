@@ -28,7 +28,8 @@
 	@protected
 		NSString *_table;
 		BOOL _temporary;
-		NSMutableDictionary *_column;
+		NSMutableDictionary *_columnDictionary;
+		NSMutableArray *_columnArray;
 		NSString *_primaryKey;
 		NSString *_unique;
         //NSInteger _depth;
@@ -75,7 +76,7 @@
  @discussion			This method will create a column with the specified parameters.
  @param column			The column to be created.
  @param type			The datatype of the column.
- @updated				2011-03-26
+ @updated				2011-07-23
  */
 - (void) column: (NSString *)column type: (NSString *)type;
 /*!
@@ -84,7 +85,7 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param value			The default value to be used when no data is provided.
- @updated				2011-06-26
+ @updated				2011-07-23
  */
 - (void) column: (NSString *)column type: (NSString *)type defaultValue: (NSString *)value;
 /*!
@@ -93,7 +94,7 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param primaryKey		This marks the specified column as the primary key.
- @updated				2011-03-27
+ @updated				2011-07-23
  */
 - (void) column: (NSString *)column type: (NSString *)type primaryKey: (BOOL)primaryKey;
 /*!
@@ -103,7 +104,7 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param unique			This constrains the column to only unique values.
- @updated				2011-03-27
+ @updated				2011-07-23
  */
 - (void) column: (NSString *)column type: (NSString *)type unique: (BOOL)unique;
 /*!
@@ -124,7 +125,7 @@
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-03-26
+ @updated				2011-07-23
  */
 - (NSString *) statement;
 
