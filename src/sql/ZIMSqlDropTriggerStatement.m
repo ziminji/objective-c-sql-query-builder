@@ -18,12 +18,26 @@
 
 @implementation ZIMSqlDropTriggerStatement
 
-- (id) init {
+- (id) initWithXML: (NSData *)xml error: (NSError **)error {
 	if ((self = [super init])) {
 		_trigger = nil;
 		_exists = NO;
+        //_depth = 0;
+        _counter = 0;
+        _error = error;
+        if (xml != nil) {
+			NSXMLParser *parser = [[NSXMLParser alloc] initWithData: xml];
+			[parser setDelegate: self];
+			[parser parse];
+			[parser release];
+		}
 	}
 	return self;
+}
+
+- (id) init {
+    NSError *error;
+    return [self initWithXML: nil error: &error];
 }
 
 - (void) dealloc {
@@ -53,6 +67,26 @@
 	[sql appendString: @";"];
 	
 	return sql;
+}
+
+- (void) parser: (NSXMLParser *)parser didStartElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName attributes: (NSDictionary *)attributes {
+    if (_counter < 1) {
+        if ([element isEqualToString: @"trigger"]) {
+            [self trigger: [attributes objectForKey: @"name"]];
+        }
+    }
+}
+
+- (void) parser: (NSXMLParser *)parser didEndElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName {
+    if ([element isEqualToString: @"trigger"]) {
+		_counter++;
+	}
+}
+
+- (void) parser: (NSXMLParser *)parser parseErrorOccurred: (NSError *)error {
+    if (_error) {
+        *_error = error;
+    }
 }
 
 @end
