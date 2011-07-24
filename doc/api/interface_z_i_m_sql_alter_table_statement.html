@@ -82,7 +82,7 @@ Inheritance diagram for ZIMSqlAlterTableStatement:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ab40ebc25f2d611728762171130431066">initWithXML:withChanges:error:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a815399b625951cc09d154e62cf878333">initWithXmlSchema:withChanges:error:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a172b4da5863f1c2f09d878d8fa6fc1ef">init</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ae83fc88619b8a66f255c5ebdb048a59b">table:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a68196c0a85fed6fb53a1654201a04c30">autoincrement:</a></td></tr>
@@ -356,16 +356,16 @@ Protected Attributes</h2></td></tr>
 <dl class="user"><dt><b>Signature:</b></dt><dd>init </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method initializes the class. </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-23 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-24 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ab40ebc25f2d611728762171130431066"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::initWithXML:withChanges:error:" ref="ab40ebc25f2d611728762171130431066" args="(NSData *before,[withChanges] NSData *after,[error] NSError **error)" -->
+<a class="anchor" id="a815399b625951cc09d154e62cf878333"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::initWithXmlSchema:withChanges:error:" ref="a815399b625951cc09d154e62cf878333" args="(NSData *before,[withChanges] NSData *after,[error] NSError **error)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (id) initWithXML: </td>
+          <td class="memname">- (id) initWithXmlSchema: </td>
           <td></td>
           <td class="paramtype">(NSData *)&#160;</td>
           <td class="paramname"><em>before</em></td>
@@ -390,8 +390,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="user"><dt><b>Signature:</b></dt><dd>initWithXML:withChanges:error: </dd></dl>
-<dl class="user"><dt><b>Discussion:</b></dt><dd>This method initializes the class via an XML file following Torque's "XML to DDL" schema. </dd></dl>
+<dl class="user"><dt><b>Signature:</b></dt><dd>initWithXmlSchema:withChanges:error: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method initializes the class via an XML file following Ziminji's "XML to DDL" schema. </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">before</td><td>The UTF-8 encoded string of XML. </td></tr>
@@ -401,7 +401,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-23 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-24 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://db.apache.org/ddlutils/">http://db.apache.org/ddlutils/</a> </dd>
 <dd>
 <a href="http://db.apache.org/ddlutils/schema/">http://db.apache.org/ddlutils/schema/</a> </dd></dl>

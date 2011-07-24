@@ -38,21 +38,21 @@
 
 }
 /*!
- @method				initWithXML:error:
- @discussion			This method initializes the class via an XML file following Torque's "XML to DDL" schema.
+ @method				initWithXmlSchema:error:
+ @discussion			This method initializes the class via an XML file following Ziminji's "XML to DDL" schema.
  @param xml	            The UTF-8 encoded string of XML.
  @param error           Used when an error occurs while processing the XML data. May be NULL.
  @return                An instance of this class.
- @updated				2011-07-23
+ @updated				2011-07-24
  @see					http://db.apache.org/ddlutils/
  @see					http://db.apache.org/ddlutils/schema/
  */
-- (id) initWithXML: (NSData *)xml error: (NSError **)error;
+- (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error;
 /*!
  @method				init
  @discussion			This method initializes the class.
  @return                An instance of this class.
- @updated				2011-07-17
+ @updated				2011-07-24
  */
 - (id) init;
 /*!
