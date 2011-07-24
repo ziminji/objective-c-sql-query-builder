@@ -37,7 +37,7 @@
  @param column		The column index.
  @param statement	The prepared SQL statement.
  @return			The integer value of the data type for the specified column.
- @updated			2011-07-05
+ @updated			2011-07-24
  @see				http://www.sqlite.org/datatype3.html
  @see				http://www.sqlite.org/c3ref/c_blob.html
  */
@@ -269,12 +269,12 @@
 
 - (int) columnTypeAtIndex: (int)column inStatement: (sqlite3_stmt *)statement {
 	// Declared Datetype - http://www.sqlite.org/datatype3.html (section 2.2 table column 1)
-	const NSSet *intTypes  = [NSSet setWithObjects: @"BIGINT", @"BOOL", @"BOOLEAN", @"INT", @"INT2", @"INT8", @"INTEGER", @"MEDIUMINT", @"SMALLINT", @"TINYINT", @"UNSIGNED BIG INT", nil];
-	const NSSet *realTypes = [NSSet setWithObjects: @"DECIMAL", @"DOUBLE", @"DOUBLE PRECISION", @"FLOAT", @"NUMERIC", @"REAL", nil];
-	const NSSet *strTypes  = [NSSet setWithObjects: @"CHAR", @"CHARACTER", @"CLOB", @"NATIONAL VARYING CHARACTER", @"NATIVE CHARACTER", @"NCHAR", @"NVARCHAR", @"TEXT", @"VARCHAR", @"VARIANT", @"VARYING CHARACTER", nil];
-	const NSSet *binTypes  = [NSSet setWithObjects: @"BLOB", nil];
+	const NSSet *blobTypes = [NSSet setWithObjects: @"BINARY", @"BLOB", @"VARBINARY", nil];
+	const NSSet *charTypes = [NSSet setWithObjects: @"CHAR", @"CHARACTER", @"CLOB", @"NATIONAL VARYING CHARACTER", @"NATIVE CHARACTER", @"NCHAR", @"NVARCHAR", @"TEXT", @"VARCHAR", @"VARIANT", @"VARYING CHARACTER", nil];
+	const NSSet *dateTypes = [NSSet setWithObjects: @"DATE", @"DATETIME", @"TIME", @"TIMESTAMP", nil];
+	const NSSet *intTypes  = [NSSet setWithObjects: @"BIGINT", @"BIT", @"BOOL", @"BOOLEAN", @"INT", @"INT2", @"INT8", @"INTEGER", @"MEDIUMINT", @"SMALLINT", @"TINYINT", nil];
 	const NSSet *nullTypes = [NSSet setWithObjects: @"NULL", nil];
-	const NSSet *dateTypes = [NSSet setWithObjects: @"DATE", @"DATETIME", @"TIMESTAMP", nil];
+	const NSSet *realTypes = [NSSet setWithObjects: @"DECIMAL", @"DOUBLE", @"DOUBLE PRECISION", @"FLOAT", @"NUMERIC", @"REAL", nil];
 	// Determine data type of the column - http://www.sqlite.org/c3ref/c_blob.html
 	const char *columnType = (const char *)sqlite3_column_decltype(statement, column);
 	if (columnType != NULL) {
@@ -283,16 +283,20 @@
 		if (end.location != NSNotFound) {
 			dataType = [dataType substringWithRange: NSMakeRange(0, end.location)];
 		}
+		if ([dataType hasPrefix: @"UNSIGNED"]) {
+			dataType = [dataType substringWithRange: NSMakeRange(0, 8)];
+		}
+		dataType = [dataType stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
 		if ([intTypes containsObject: dataType]) {
 			return SQLITE_INTEGER;
 		}
 		if ([realTypes containsObject: dataType]) {
 			return SQLITE_FLOAT;
 		}
-		if ([strTypes containsObject: dataType]) {
+		if ([charTypes containsObject: dataType]) {
 			return SQLITE_TEXT;
 		}
-		if ([binTypes containsObject: dataType]) {
+		if ([blobTypes containsObject: dataType]) {
 			return SQLITE_BLOB;
 		}
 		if ([nullTypes containsObject: dataType]) {

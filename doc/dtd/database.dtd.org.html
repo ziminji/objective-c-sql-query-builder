@@ -5,13 +5,12 @@
 <title>database.dtd</title>
 </head><body>
 <p class='DTDSource'><b><code>database.dtd</code></b>: <a href='database.dtd.html'>Elements</a> - Entities - <a href='database.dtd.org.html'>Source</a> | <a href='intro.html'>Intro</a> - <a href='elementsIndex.html'>Index</a><br /><a href='index.html' target='_top'>FRAMES</a>&nbsp;/&nbsp;<a href='database.dtd.org.html' target='_top'>NO FRAMES</a></p><pre id='dtd_source'><span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment"> Licensed to the Apache Software Foundation (ASF) under one</span>
-<span class="dtd_comment"> or more contributor license agreements.  See the NOTICE file</span>
-<span class="dtd_comment"> distributed with this work for additional information</span>
-<span class="dtd_comment"> regarding copyright ownership.  The ASF licenses this file</span>
-<span class="dtd_comment"> to you under the Apache License, Version 2.0 (the</span>
-<span class="dtd_comment"> &quot;License&quot;); you may not use this file except in compliance</span>
-<span class="dtd_comment"> with the License.  You may obtain a copy of the License at</span>
+<span class="dtd_comment"> Copyright 2011 Ziminji&lt;br /&gt;</span>
+<span class="dtd_comment"> Copyright 2007 Apache Software Foundation (ASF)</span>
+
+<span class="dtd_comment"> Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="dtd_comment"> you may not use this file except in compliance with the License.</span>
+<span class="dtd_comment"> You may obtain a copy of the License at:</span>
 
 <span class="dtd_comment">   http://www.apache.org/licenses/LICENSE-2.0</span>
 
@@ -21,183 +20,213 @@
 <span class="dtd_comment"> KIND, either express or implied.  See the License for the</span>
 <span class="dtd_comment"> specific language governing permissions and limitations</span>
 <span class="dtd_comment"> under the License.</span>
-<span class="dtd_comment">--&gt;</span>
-<span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment">    Torque XML database schema DTD</span>
-<span class="dtd_comment">    $Id: database.dtd 584517 2007-10-14 09:00:14Z tfischer $</span>
-<span class="dtd_comment">--&gt;</span>
 
-<span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment">For: database.defaultIdMethod and table.idMethod</span>
-
-<span class="dtd_comment">Do not use autoincrement or sequence. They are deprecated in favor of</span>
-<span class="dtd_comment">using native which will use the Connection pool to determine</span>
-<span class="dtd_comment">which database it is talking to (yes, it knows that) and then use</span>
-<span class="dtd_comment">whatever native database methodology for insert increments that it can.</span>
-<span class="dtd_comment">Otherwise, you should use idbroker or none. none is good if you have a</span>
-<span class="dtd_comment">table that is just a join table. idbroker is good if you want a</span>
-<span class="dtd_comment">centralized repository for brokering out clumps of id's in a database</span>
-<span class="dtd_comment">agnostic way.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@title</span><span class="dtd_comment">                 Ziminji's XML database schema DTD for SQLite</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@doctype</span><span class="dtd_comment">               database SYSTEM &quot;xml/schema/database.dtd&quot;</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@hidden</span><span class="dtd_comment">                Updated: 2011-07-24</span>
 <span class="dtd_comment">--&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
-
-<span class="dtd_comment">defaultJavaNamingMethod determines how a table or column name,</span>
-<span class="dtd_comment">from the name attribute in the xml database file, is converted to a</span>
-<span class="dtd_comment">Java class or method name.</span>
-
-<span class="dtd_comment">     nochange   - indicates not change is performed.</span>
-<span class="dtd_comment">     underscore - Underscores and dots are removed, first letter is</span>
-<span class="dtd_comment">              capitalized, first letter after an underscore</span>
-<span class="dtd_comment">              is capitalized, first letter after a dot is capitalized,</span>
-<span class="dtd_comment">              the rest of the letters are converted to lowercase.</span>
-<span class="dtd_comment">     underscoreOmitSchema - The section of the name before and including</span>
-<span class="dtd_comment">              the last dot in the name is removed. For the remaining part,</span>
-<span class="dtd_comment">              underscores are removed, first letter is capitalized,</span>
-<span class="dtd_comment">              first letter after an underscore is capitalized,</span>
-<span class="dtd_comment">              the rest of the letters are converted to lowercase.</span>
-<span class="dtd_comment">     javaname   - same as underscore, but no letters are converted</span>
-<span class="dtd_comment">              to lowercase.</span>
+<span class="dtd_comment"> This defines the &lt;code&gt;database&lt;/code&gt; element as the root element.</span>
+<span class="dtd_comment"> </span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@root</span>
 <span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">database</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">index</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">table</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">trigger</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">view</span><span class="dtd_plain">*)</span><span class="dtd_tag_symbols">&gt;</span>
 
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">database</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">option</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">external-schema</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">domain</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">table</span><span class="dtd_plain">+)</span><span class="dtd_tag_symbols">&gt;</span>
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines the &lt;code&gt;database&lt;/code&gt; element's attributes.</span>
+
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the database.</span>
+<span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">database</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">defaultIdMethod</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">idbroker</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">native</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">none</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;none&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">defaultJavaType</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">object</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">primitive</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;primitive&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">package</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">baseClass</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">basePeer</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">defaultJavaNamingMethod</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">nochange</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">underscore</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">underscoreOmitSchema</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">javaname</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;underscore&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">heavyIndexing</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">true</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">false</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_tag_symbols">&gt;</span>
-
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">option</span><span class="dtd_plain"> </span><span class="dtd_keyword">EMPTY</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">option</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">key</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">value</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_tag_symbols">&gt;</span>
-
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">external-schema</span><span class="dtd_plain"> </span><span class="dtd_keyword">EMPTY</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">external-schema</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">filename</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_tag_symbols">&gt;</span>
-
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">domain</span><span class="dtd_plain"> </span><span class="dtd_keyword">EMPTY</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">domain</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">type</span>
-<span class="dtd_plain">    (</span>
-<span class="dtd_plain">          </span><span class="dtd_attribute_name">BIT</span><span class="dtd_plain">  | </span><span class="dtd_attribute_name">TINYINT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">SMALLINT</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">INTEGER</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">BIGINT</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">FLOAT</span>
-<span class="dtd_plain">        | </span><span class="dtd_attribute_name">REAL</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">NUMERIC</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">DECIMAL</span><span class="dtd_plain">     | </span><span class="dtd_attribute_name">CHAR</span><span class="dtd_plain">       | </span><span class="dtd_attribute_name">VARCHAR</span><span class="dtd_plain">   | </span><span class="dtd_attribute_name">LONGVARCHAR</span>
-<span class="dtd_plain">        | </span><span class="dtd_attribute_name">DATE</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">TIME</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">TIMESTAMP</span><span class="dtd_plain">   | </span><span class="dtd_attribute_name">BINARY</span><span class="dtd_plain">     | </span><span class="dtd_attribute_name">VARBINARY</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">LONGVARBINARY</span>
-<span class="dtd_plain">        | </span><span class="dtd_attribute_name">NULL</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">OTHER</span><span class="dtd_plain">   | </span><span class="dtd_attribute_name">JAVA_OBJECT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">DISTINCT</span><span class="dtd_plain">   | </span><span class="dtd_attribute_name">STRUCT</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">ARRAY</span>
-<span class="dtd_plain">        | </span><span class="dtd_attribute_name">BLOB</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">CLOB</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">REF</span><span class="dtd_plain">         | </span><span class="dtd_attribute_name">BOOLEANINT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">BOOLEANCHAR</span>
-<span class="dtd_plain">        | </span><span class="dtd_attribute_name">DOUBLE</span>
-<span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;VARCHAR&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">size</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">scale</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">default</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_tag_symbols">&gt;</span>
-
 
 <span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment">     note: the interface=&quot;true&quot;, requires that useManagers=true in the</span>
-<span class="dtd_comment">     properties file.</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;index&lt;/code&gt; element.</span>
 <span class="dtd_comment">--&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">table</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">option</span><span class="dtd_plain">*,</span><span class="dtd_attribute_name">column</span><span class="dtd_plain">+,(</span><span class="dtd_attribute_name">foreign-key</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">index</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">unique</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">id-method-parameter</span><span class="dtd_plain">)*)</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">table</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">javaName</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">idMethod</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">idbroker</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">native</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">none</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">null</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;null&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">skipSql</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">true</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">false</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">abstract</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">true</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">false</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">baseClass</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">basePeer</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">alias</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">interface</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">javaNamingMethod</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">nochange</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">underscore</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">underscoreOmitSchema</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">javaname</span><span class="dtd_plain">) </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">heavyIndexing</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">true</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">false</span><span class="dtd_plain">) </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_tag_symbols">&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">index</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">column</span><span class="dtd_plain">+)</span><span class="dtd_tag_symbols">&gt;</span>
 
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">id-method-parameter</span><span class="dtd_plain"> </span><span class="dtd_keyword">EMPTY</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">id-method-parameter</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_attribute_value">&quot;default&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">value</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_tag_symbols">&gt;</span>
-
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">column</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">option</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">inheritance</span><span class="dtd_plain">*)</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">column</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">javaName</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">primaryKey</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">true</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">false</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">required</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">true</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">false</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">protected</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">true</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">false</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">domain</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">type</span>
-<span class="dtd_plain">    (</span>
-<span class="dtd_plain">          </span><span class="dtd_attribute_name">BIT</span><span class="dtd_plain">  | </span><span class="dtd_attribute_name">TINYINT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">SMALLINT</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">INTEGER</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">BIGINT</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">FLOAT</span>
-<span class="dtd_plain">        | </span><span class="dtd_attribute_name">REAL</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">NUMERIC</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">DECIMAL</span><span class="dtd_plain">     | </span><span class="dtd_attribute_name">CHAR</span><span class="dtd_plain">       | </span><span class="dtd_attribute_name">VARCHAR</span><span class="dtd_plain">   | </span><span class="dtd_attribute_name">LONGVARCHAR</span>
-<span class="dtd_plain">        | </span><span class="dtd_attribute_name">DATE</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">TIME</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">TIMESTAMP</span><span class="dtd_plain">   | </span><span class="dtd_attribute_name">BINARY</span><span class="dtd_plain">     | </span><span class="dtd_attribute_name">VARBINARY</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">LONGVARBINARY</span>
-<span class="dtd_plain">        | </span><span class="dtd_attribute_name">NULL</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">OTHER</span><span class="dtd_plain">   | </span><span class="dtd_attribute_name">JAVA_OBJECT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">DISTINCT</span><span class="dtd_plain">   | </span><span class="dtd_attribute_name">STRUCT</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">ARRAY</span>
-<span class="dtd_plain">        | </span><span class="dtd_attribute_name">BLOB</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">CLOB</span><span class="dtd_plain">    | </span><span class="dtd_attribute_name">REF</span><span class="dtd_plain">         | </span><span class="dtd_attribute_name">BOOLEANINT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">BOOLEANCHAR</span>
-<span class="dtd_plain">        | </span><span class="dtd_attribute_name">DOUBLE</span>
-<span class="dtd_plain">    ) </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">javaType</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">object</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">primitive</span><span class="dtd_plain">) </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">size</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">scale</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">default</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">autoIncrement</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">true</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">false</span><span class="dtd_plain">) </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">inheritance</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">single</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">false</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">inputValidator</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">javaNamingMethod</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">nochange</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">underscore</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">javaname</span><span class="dtd_plain">) </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_tag_symbols">&gt;</span>
-
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">inheritance</span><span class="dtd_plain"> </span><span class="dtd_keyword">EMPTY</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">inheritance</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">key</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">class</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">extends</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_tag_symbols">&gt;</span>
-
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">foreign-key</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">option</span><span class="dtd_plain">*,</span><span class="dtd_attribute_name">reference</span><span class="dtd_plain">+)</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">foreign-key</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">foreignTable</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">onUpdate</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">cascade</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">setnull</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">restrict</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">none</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;none&quot;</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">onDelete</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">cascade</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">setnull</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">restrict</span><span class="dtd_plain">|</span><span class="dtd_attribute_name">none</span><span class="dtd_plain">) </span><span class="dtd_attribute_value">&quot;none&quot;</span>
-<span class="dtd_tag_symbols">&gt;</span>
-
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">reference</span><span class="dtd_plain"> </span><span class="dtd_keyword">EMPTY</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">reference</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">local</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">foreign</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_tag_symbols">&gt;</span>
-
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">index</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">option</span><span class="dtd_plain">*,</span><span class="dtd_attribute_name">index-column</span><span class="dtd_plain">+)</span><span class="dtd_tag_symbols">&gt;</span>
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;index&lt;/code&gt; element's attributes.</span>
+<span class="dtd_comment"> </span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the index.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the index.</span>
+<span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">index</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
 <span class="dtd_tag_symbols">&gt;</span>
 
-<span class="dtd_comment">&lt;!-- The index-column's size element is currently ignored</span>
-<span class="dtd_comment">     and will be removed in a further version. --&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">index-column</span><span class="dtd_plain"> </span><span class="dtd_keyword">EMPTY</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">index-column</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">size</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;table&lt;/code&gt; element.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">table</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">column</span><span class="dtd_plain">+, </span><span class="dtd_attribute_name">index</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">foreign-key</span><span class="dtd_plain">*)</span><span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;table&lt;/code&gt; element's attributes.</span>
+<span class="dtd_comment"> </span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the table.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">table</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
 <span class="dtd_tag_symbols">&gt;</span>
 
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">unique</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">option</span><span class="dtd_plain">*,</span><span class="dtd_attribute_name">unique-column</span><span class="dtd_plain">+)</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">unique</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;trigger&lt;/code&gt; element.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">trigger</span><span class="dtd_plain"> (</span><span class="dtd_keyword">#PCDATA</span><span class="dtd_plain">)</span><span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;trigger&lt;/code&gt; element's attributes.</span>
+<span class="dtd_comment"> </span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the trigger.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the trigger.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr temporary</span><span class="dtd_comment">        Indicates whether the trigger is temporary.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr advice</span><span class="dtd_comment">           Indicates when the logic will be triggered.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr of</span><span class="dtd_comment">               The name of the column that triggers the logic (when doing an update).</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr on</span><span class="dtd_comment">               The name of the table that triggers the logic.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">trigger</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">temporary</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">true</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">false</span>
+<span class="dtd_plain">    ) </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">advice</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">before-delete</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">before-insert</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">before-update</span><span class="dtd_plain"> |</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">after-delete</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">after-insert</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">after-delete</span><span class="dtd_plain"> |</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">instead-of-delete</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">instead-of-insert</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">instead-of-delete</span>
+<span class="dtd_plain">    ) </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">of</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">on</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_tag_symbols">&gt;</span>
 
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">unique-column</span><span class="dtd_plain"> </span><span class="dtd_keyword">EMPTY</span><span class="dtd_tag_symbols">&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">unique-column</span>
-<span class="dtd_plain">  </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;view&lt;/code&gt; element.  This element contains an SQL select statement.</span>
+<span class="dtd_comment"> </span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@example</span><span class="dtd_comment">               &lt;view name=&quot;subscriptions&quot;&gt;&lt;![CDATA[ SELECT [person.id], [email.address] FROM [person] LEFT JOIN [email] ON ([email.id] = [person.emailid]); ]]&gt;&lt;/view&gt;</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">view</span><span class="dtd_plain"> (</span><span class="dtd_keyword">#PCDATA</span><span class="dtd_plain">)</span><span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;view&lt;/code&gt; element's attributes.</span>
+<span class="dtd_comment"> </span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the table.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">view</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;column&lt;/code&gt; element.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">column</span><span class="dtd_plain"> (</span><span class="dtd_keyword">EMPTY</span><span class="dtd_plain">)</span><span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;column&lt;/code&gt; element's attributes.</span>
+<span class="dtd_comment"> </span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the column.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr type</span><span class="dtd_comment">             The column's datatype.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr unsigned</span><span class="dtd_comment">         Indicates whether the column's datatype is unsigned.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr size</span><span class="dtd_comment">             The size/precision of the column.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr scale</span><span class="dtd_comment">            The number of digit that may appear after the decimal point.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr primaryKey</span><span class="dtd_comment">       Indicates whether the column is a primary key.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr autoIncrement</span><span class="dtd_comment">    Indicates whether the column is auto incremented.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">column</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">type</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">BINARY</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">BLOB</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">VARBINARY</span><span class="dtd_plain"> |</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">CHAR</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">CHARACTER</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">CLOB</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">NATIONAL_VARYING_CHARACTER</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">NATIVE_CHARACTER</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">NCHAR</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">NVARCHAR</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">TEXT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">VARCHAR</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">VARYING_CHARACTER</span><span class="dtd_plain"> |</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">DATE</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">DATETIME</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">TIME</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">TIMESTAMP</span><span class="dtd_plain"> |</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">BIGINT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">BIT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">BOOL</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">BOOLEAN</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">INT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">INT2</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">INT8</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">INTEGER</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">MEDIUMINT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">SMALLINT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">TINYINT</span><span class="dtd_plain"> |</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">NULL</span><span class="dtd_plain"> |</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">DECIMAL</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">DOUBLE</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">DOUBLE_PRECISION</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">FLOAT</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">NUMERIC</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">REAL</span>
+<span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;NUMERIC&quot;</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">unsigned</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">true</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">false</span>
+<span class="dtd_plain">    ) </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">size</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">scale</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">default</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">nullable</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">true</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">false</span>
+<span class="dtd_plain">    ) </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">key</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">primary</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">unique</span>
+<span class="dtd_plain">    ) </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">auto-increment</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">true</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">false</span>
+<span class="dtd_plain">    ) </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;foreign key&lt;/code&gt; element, which indicates a relation between the table</span>
+<span class="dtd_comment"> this element is declared and another table.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">foreign-key</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">reference</span><span class="dtd_plain">+)</span><span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;column&lt;/code&gt; element's attributes.</span>
+
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of this foreign key. Even though you can leave it empty, </span>
+<span class="dtd_comment">                        we suggest that you always supply a meaningful name for foreign keys.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr foreignTable</span><span class="dtd_comment">     The name of the foreign table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr onUpdate</span><span class="dtd_comment">         Specifies the action to perform when the value in the referenced column</span>
+<span class="dtd_comment">                        in the foreign table is changed:</span>
+<span class="dtd_comment">                        &lt;dl&gt;</span>
+<span class="dtd_comment">                        &lt;dt&gt;cascade&lt;/dt&gt;&lt;dd&gt;Change the value of the local column accordingly.&lt;/dd&gt;</span>
+<span class="dtd_comment">                        &lt;dt&gt;setnull&lt;/dt&gt;&lt;dd&gt;Set the local column to &lt;code&gt;NULL&lt;/code&gt; which </span>
+<span class="dtd_comment">                        effectively removes this specific foreign key relationship.&lt;/dd&gt;</span>
+<span class="dtd_comment">                        &lt;dt&gt;restrict&lt;/dt&gt;&lt;dd&gt;Different databases may interpret this value</span>
+<span class="dtd_comment">                        differently, but usually it is synonymous with &lt;code&gt;none&lt;/code&gt;.&lt;/dd&gt;</span>
+<span class="dtd_comment">                        &lt;dt&gt;none&lt;/dt&gt;&lt;dd&gt;The value of the local column remains unchanged.&lt;/dd&gt;</span>
+<span class="dtd_comment">                        &lt;br&gt;&lt;b&gt;Note: This attribute is currently ignored by DdlUtils.&lt;/b&gt;</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr onDelete</span><span class="dtd_comment">         Specifies the action to perform when the referenced row in the foreign</span>
+<span class="dtd_comment">                        table is deleted:</span>
+<span class="dtd_comment">                        &lt;dl&gt;</span>
+<span class="dtd_comment">                        &lt;dt&gt;cascade&lt;/dt&gt;&lt;dd&gt;Delete the local row.&lt;/dd&gt;</span>
+<span class="dtd_comment">                        &lt;dt&gt;setnull&lt;/dt&gt;&lt;dd&gt;Set the local column to &lt;code&gt;NULL&lt;/code&gt; which </span>
+<span class="dtd_comment">                        effectively removes this specific foreign key relationship.&lt;/dd&gt;</span>
+<span class="dtd_comment">                        &lt;dt&gt;restrict&lt;/dt&gt;&lt;dd&gt;Different databases may interpret this value</span>
+<span class="dtd_comment">                        differently, but usually it is synonymous with &lt;code&gt;none&lt;/code&gt;.&lt;/dd&gt;</span>
+<span class="dtd_comment">                        &lt;dt&gt;none&lt;/dt&gt;&lt;dd&gt;The value of the local column remains unchanged.&lt;/dd&gt;</span>
+<span class="dtd_comment">                        &lt;br&gt;&lt;b&gt;Note: This attribute is currently ignored by DdlUtils.&lt;/b&gt;</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">foreign-key</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">foreignTable</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">onUpdate</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">cascade</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">setnull</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">restrict</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">none</span>
+<span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;none&quot;</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">onDelete</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">cascade</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">setnull</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">restrict</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">none</span>
+<span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;none&quot;</span>
+<span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;reference&lt;/code&gt; element.  A foreign key is specified by one or more</span>
+<span class="dtd_comment"> references which put a column in the current table and a column in the foreign table into</span>
+<span class="dtd_comment"> relation.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">reference</span><span class="dtd_plain"> (</span><span class="dtd_keyword">EMPTY</span><span class="dtd_plain">)</span><span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;reference&lt;/code&gt; element's attributes.</span>
+
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr local</span><span class="dtd_comment">   The name of the column in the current table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr foreign</span><span class="dtd_comment"> The name of the column in the foreign table.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">reference</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">local</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">foreign</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_tag_symbols">&gt;</span>
 </pre>
 </body></html>
