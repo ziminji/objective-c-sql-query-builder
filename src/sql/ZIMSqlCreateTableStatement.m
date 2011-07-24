@@ -167,7 +167,11 @@
         }
         else if ([element isEqualToString: @"column"]) {
             NSString *columnName = [attributes objectForKey: @"name"];
-            NSString *columnType = [[attributes objectForKey: @"type"] uppercaseString];
+            NSString *columnType = [[[attributes objectForKey: @"type"] uppercaseString] stringByReplacingOccurrencesOfString: @"_" withString: @" "];
+			NSString *columnUnsigned = [attributes objectForKey: @"unsigned"];
+			if ((columnUnsigned != nil) && [[columnUnsigned uppercaseString] boolValue]) {
+				columnType = [NSString stringWithFormat: @"UNSIGNED %@", columnType];
+            }
             NSString *columnSize = [attributes objectForKey: @"size"];
             if (columnSize != nil) {
                 NSString *columnScale = [attributes objectForKey: @"scale"];
@@ -178,13 +182,13 @@
                     columnType = [NSString stringWithFormat: @"%@(%@)", columnType, columnSize];
                 }
             }
-            NSString *columnValue = [attributes objectForKey: @"autoIncrement"];
+            NSString *columnValue = [attributes objectForKey: @"auto-increment"];
             if ((columnValue != nil) && [[columnValue uppercaseString] boolValue]) {
                 [self column: columnName type: columnType defaultValue: ZIMSqlDefaultValueIsAutoIncremented];
             }
             else {
-                NSString *columnPrimaryKey = [attributes objectForKey: @"primaryKey"];
-                if ((columnPrimaryKey != nil) && [[columnPrimaryKey uppercaseString] boolValue]) {
+                NSString *columnKey = [attributes objectForKey: @"key"];
+                if ((columnKey != nil) && [[columnKey lowercaseString] isEqualToString: @"primary"]) {
                     if (_primaryKey != nil) {
                         _primaryKey = [_primaryKey substringWithRange: NSMakeRange(13, [_primaryKey length] - 14)];
                         _primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@, %@)", _primaryKey, columnName];
@@ -193,7 +197,7 @@
                         _primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@)", columnName];
                     }
                 }
-                columnValue = [attributes objectForKey: @"defaultValue"];
+                columnValue = [attributes objectForKey: @"default"];
                 if (columnValue != nil) {
                     [self column: columnName type: columnType defaultValue: ZIMSqlDefaultValue(columnValue)];
                 }

@@ -1,0 +1,224 @@
+<!--
+ Copyright 2011 Ziminji<br />
+ Copyright 2007 Apache Software Foundation (ASF)
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at:
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+
+ @title					Ziminji's XML database schema DTD for SQLite
+ @doctype				database SYSTEM "xml/schema/database.dtd"
+ @hidden				Updated: 2011-07-24
+-->
+
+<!--
+ This defines the <code>database</code> element as the root element.
+ 
+ @root
+-->
+<!ELEMENT database (index*, table*, trigger*, view*)>
+
+<!--
+ This defines the <code>database</code> element's attributes.
+
+ @attr name				The name of the database.
+-->
+<!ATTLIST database
+	name CDATA #REQUIRED
+>
+
+<!--
+ This defines a <code>index</code> element.
+-->
+<!ELEMENT index (column+)>
+
+<!--
+ This defines a <code>index</code> element's attributes.
+ 
+ @attr name				The name of the index.
+ @attr description		A simple description of the index.
+-->
+<!ATTLIST index
+	name CDATA #REQUIRED
+	description CDATA #IMPLIED
+>
+
+<!--
+ This defines a <code>table</code> element.
+-->
+<!ELEMENT table (column+, index*, foreign-key*)>
+
+<!--
+ This defines a <code>table</code> element's attributes.
+ 
+ @attr name				The name of the table.
+ @attr description		A simple description of the table.
+-->
+<!ATTLIST table
+	name CDATA #REQUIRED
+	description CDATA #IMPLIED
+>
+
+<!--
+ This defines a <code>trigger</code> element.
+-->
+<!ELEMENT trigger (#PCDATA)>
+
+<!--
+ This defines a <code>trigger</code> element's attributes.
+ 
+ @attr name				The name of the trigger.
+ @attr description		A simple description of the trigger.
+ @attr temporary		Indicates whether the trigger is temporary.
+ @attr advice			Indicates when the logic will be triggered.
+ @attr of				The name of the column that triggers the logic (when doing an update).
+ @attr on				The name of the table that triggers the logic.
+-->
+<!ATTLIST trigger
+	name CDATA #REQUIRED
+	description CDATA #IMPLIED
+	temporary (
+		true | false
+	) #IMPLIED
+	advice (
+		before-delete | before-insert | before-update |
+		after-delete | after-insert | after-delete |
+		instead-of-delete | instead-of-insert | instead-of-delete
+	) #REQUIRED
+	of CDATA #IMPLIED
+	on CDATA #REQUIRED
+>
+
+<!--
+ This defines a <code>view</code> element.  This element contains an SQL select statement.
+ 
+ @example				<view name="subscriptions"><![CDATA[ SELECT [person.id], [email.address] FROM [person] LEFT JOIN [email] ON ([email.id] = [person.emailid]); ]]></view>
+-->
+<!ELEMENT view (#PCDATA)>
+
+<!--
+ This defines a <code>view</code> element's attributes.
+ 
+ @attr name				The name of the table.
+ @attr description		A simple description of the table.
+-->
+<!ATTLIST view
+	name CDATA #REQUIRED
+	description CDATA #IMPLIED
+>
+
+<!--
+ This defines a <code>column</code> element.
+-->
+<!ELEMENT column (EMPTY)>
+
+<!--
+ This defines a <code>column</code> element's attributes.
+ 
+ @attr name				The name of the column.
+ @attr description		A simple description of the table.
+ @attr type				The column's datatype.
+ @attr unsigned			Indicates whether the column's datatype is unsigned.
+ @attr size				The size/precision of the column.
+ @attr scale			The number of digit that may appear after the decimal point.
+ @attr primaryKey		Indicates whether the column is a primary key.
+ @attr autoIncrement	Indicates whether the column is auto incremented.
+-->
+<!ATTLIST column
+	name CDATA #REQUIRED
+	description CDATA #IMPLIED
+	type (
+		BINARY | BLOB | VARBINARY |
+		CHAR | CHARACTER | CLOB | NATIONAL_VARYING_CHARACTER | NATIVE_CHARACTER | NCHAR | NVARCHAR | TEXT | VARCHAR | VARYING_CHARACTER |
+		DATE | DATETIME | TIME | TIMESTAMP |
+		BIGINT | BIT | BOOL | BOOLEAN | INT | INT2 | INT8 | INTEGER | MEDIUMINT | SMALLINT | TINYINT |
+		NULL |
+		DECIMAL | DOUBLE | DOUBLE_PRECISION | FLOAT | NUMERIC | REAL
+	) "NUMERIC"
+	unsigned (
+		true | false
+	) #IMPLIED
+	size CDATA #IMPLIED
+	scale CDATA #IMPLIED
+	default CDATA #IMPLIED
+	nullable (
+		true | false
+	) #IMPLIED
+	key (
+		primary | unique
+	) #IMPLIED
+	auto-increment (
+		true | false
+	) #IMPLIED
+>
+
+<!--
+ This defines a <code>foreign key</code> element, which indicates a relation between the table
+ this element is declared and another table.
+-->
+<!ELEMENT foreign-key (reference+)>
+
+<!--
+ This defines a <code>column</code> element's attributes.
+
+ @attr name				The name of this foreign key. Even though you can leave it empty, 
+                   		we suggest that you always supply a meaningful name for foreign keys.
+ @attr foreignTable		The name of the foreign table.
+ @attr onUpdate			Specifies the action to perform when the value in the referenced column
+                   		in the foreign table is changed:
+                   		<dl>
+                   		<dt>cascade</dt><dd>Change the value of the local column accordingly.</dd>
+                   		<dt>setnull</dt><dd>Set the local column to <code>NULL</code> which 
+                   		effectively removes this specific foreign key relationship.</dd>
+                   		<dt>restrict</dt><dd>Different databases may interpret this value
+                   		differently, but usually it is synonymous with <code>none</code>.</dd>
+                   		<dt>none</dt><dd>The value of the local column remains unchanged.</dd>
+                   		<br><b>Note: This attribute is currently ignored by DdlUtils.</b>
+ @attr onDelete			Specifies the action to perform when the referenced row in the foreign
+                   		table is deleted:
+                   		<dl>
+                   		<dt>cascade</dt><dd>Delete the local row.</dd>
+                   		<dt>setnull</dt><dd>Set the local column to <code>NULL</code> which 
+                   		effectively removes this specific foreign key relationship.</dd>
+                   		<dt>restrict</dt><dd>Different databases may interpret this value
+                   		differently, but usually it is synonymous with <code>none</code>.</dd>
+                   		<dt>none</dt><dd>The value of the local column remains unchanged.</dd>
+                   		<br><b>Note: This attribute is currently ignored by DdlUtils.</b>
+-->
+<!ATTLIST foreign-key
+	foreignTable CDATA #REQUIRED
+	name CDATA #IMPLIED
+	onUpdate (
+		cascade | setnull | restrict | none
+	) "none"
+	onDelete (
+		cascade | setnull | restrict | none
+	) "none"
+>
+
+<!--
+ This defines a <code>reference</code> element.  A foreign key is specified by one or more
+ references which put a column in the current table and a column in the foreign table into
+ relation.
+-->
+<!ELEMENT reference (EMPTY)>
+
+<!--
+ This defines a <code>reference</code> element's attributes.
+
+ @attr local   The name of the column in the current table.
+ @attr foreign The name of the column in the foreign table.
+-->
+<!ATTLIST reference
+	local CDATA #REQUIRED
+	foreign CDATA #REQUIRED
+>
