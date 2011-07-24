@@ -8,10 +8,10 @@ The "ext" folder contains some class extensions. The "sql" folder contains a col
 be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar to those found
 in LINQ.  Likewise, the "orm" folder has an assortment of classes that can control and manipulate data within an SQLite
 database via the Active Record design pattern. And, the "util" folder contains a set of various helper classes.  The
-second part consists of an easy-to-read API, which both documents and diagrams each Objective-C class.  The third part
-consists of a BASH script that can be used to generate the necessary ORM models using the SQLite's database schema.  The
-fourth part consists of the database configuration files for the SQLite database connection.  The final part has the
-schema for handling XML to DDL.
+second part consists of an easy-to-read API, which both documents and diagrams each Objective-C class and XML/DTD file.
+The third part consists of a BASH script that can be used to generate the necessary ORM models using the SQLite's database
+schema.  The fourth part consists of the database configuration files for the SQLite database connection.  The final part
+has the schema for handling XML to DDL.
 
 All classes are designed to be used in iPhone/iOS applications.
 
@@ -87,8 +87,10 @@ To use these Objective-C classes in an Xcode project, add the following framewor
 
 ### Documentation
 
-All classes are heavily documented using [HeaderDoc](http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html#//apple_ref/doc/uid/TP40001215-CH345-SW1).  You can get familiar with each class by simply looking at the API or by opening its
-respective ".h" file.  You can also find more information on this repository's Wiki.
+All classes are heavily documented using [HeaderDoc](http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html#//apple_ref/doc/uid/TP40001215-CH345-SW1).
+You can get familiar with each class by simply looking at the API or by opening its respective ".h" file.  Similarly,
+all XML/DTD files are documented using [DTDDoc](http://dtddoc.sourceforge.net) You can also find more information on
+this repository's Wiki.
 
 ### Tutorials / Examples
 
@@ -135,7 +137,7 @@ to your watch list so that you can be notified when such updates are made.
 This project is under heavy development.  There are development plans to add:
 
 * More SQL builder classes;
-* The ability to parse both "XML to DDL" schema and raw SQLite statements into their SQL equivalents;
+* Improved functionality to parse "XML to DDL" schema and raw SQLite statements into their SQL equivalents;
 * The ability to process more than one SQL statement at a time;
 * More utilities (e.g. classes to handle validation, filters, imports, exports, pagination, partitioning, and migration);
 * A database encryption layer for password protecting an SQLite database;
