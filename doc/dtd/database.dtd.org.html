@@ -37,9 +37,11 @@
 <span class="dtd_comment"> This defines the &lt;code&gt;database&lt;/code&gt; element's attributes.</span>
 
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the database.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the database.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">database</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
 <span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
@@ -114,8 +116,8 @@
 <span class="dtd_comment">&lt;!--</span>
 <span class="dtd_comment"> This defines a &lt;code&gt;view&lt;/code&gt; element's attributes.</span>
 <span class="dtd_comment"> </span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the table.</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the view.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the view.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">view</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
@@ -131,7 +133,7 @@
 <span class="dtd_comment"> This defines a &lt;code&gt;column&lt;/code&gt; element's attributes.</span>
 <span class="dtd_comment"> </span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the column.</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the column.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr type</span><span class="dtd_comment">             The column's datatype.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr unsigned</span><span class="dtd_comment">         Indicates whether the column's datatype is unsigned.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr size</span><span class="dtd_comment">             The size/precision of the column.</span>
@@ -168,17 +170,17 @@
 <span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment"> This defines a &lt;code&gt;foreign key&lt;/code&gt; element, which indicates a relation between the table</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;foreign-key&lt;/code&gt; element, which indicates a relation between the table</span>
 <span class="dtd_comment"> this element is declared and another table.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">foreign-key</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">reference</span><span class="dtd_plain">+)</span><span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment"> This defines a &lt;code&gt;column&lt;/code&gt; element's attributes.</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;foreign-key&lt;/code&gt; element's attributes.</span>
 
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of this foreign key. Even though you can leave it empty, </span>
-<span class="dtd_comment">                        we suggest that you always supply a meaningful name for foreign keys.</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr foreignTable</span><span class="dtd_comment">     The name of the foreign table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the foreign key.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the foreign key.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr foreign-table</span><span class="dtd_comment">    The name of the foreign table.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr onUpdate</span><span class="dtd_comment">         Specifies the action to perform when the value in the referenced column</span>
 <span class="dtd_comment">                        in the foreign table is changed:</span>
 <span class="dtd_comment">                        &lt;dl&gt;</span>
@@ -201,8 +203,9 @@
 <span class="dtd_comment">                        &lt;br&gt;&lt;b&gt;Note: This attribute is currently ignored by DdlUtils.&lt;/b&gt;</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">foreign-key</span>
-<span class="dtd_plain">    </span><span class="dtd_attribute_name">foreignTable</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">foreign-table</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">onUpdate</span><span class="dtd_plain"> (</span>
 <span class="dtd_plain">        </span><span class="dtd_attribute_name">cascade</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">setnull</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">restrict</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">none</span>
 <span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;none&quot;</span>
@@ -221,8 +224,8 @@
 <span class="dtd_comment">&lt;!--</span>
 <span class="dtd_comment"> This defines a &lt;code&gt;reference&lt;/code&gt; element's attributes.</span>
 
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr local</span><span class="dtd_comment">   The name of the column in the current table.</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr foreign</span><span class="dtd_comment"> The name of the column in the foreign table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr local</span><span class="dtd_comment">            The name of the column in the current table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr foreign</span><span class="dtd_comment">          The name of the column in the foreign table.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">reference</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">local</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>

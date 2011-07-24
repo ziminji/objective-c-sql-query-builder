@@ -38,13 +38,18 @@ Root element
 <tr>
 <th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
 <tr><th colspan='3' height='1' class='ruler'></th></tr>
-<tr><td><a href='#database_name'>name</a></td><td></td><td></td></tr></table></td></tr></table></blockquote>
+<tr><td><a href='#database_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#database_name'>name</a></td><td></td><td></td></tr></table></td></tr></table></blockquote>
 <span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#index'>index</a>*, <a href='#table'>table</a>*, <a href='#trigger'>trigger</a>*, <a href='#view'>view</a>*)</p><a name='database_name'></a>
 <br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
 @name</td><td class='rightAttributeTitle'>
 Attribute of <a href='#database'>database</a>
 </td></tr></table>
-<p>This defines the <code>database</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='index'></a>
+<p>This defines the <code>database</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='database_description'></a>
+<br /><table class='attributeTitle' summary="description"><tr><td class='leftAttributeTitle'>
+@description</td><td class='rightAttributeTitle'>
+Attribute of <a href='#database'>database</a>
+</td></tr></table>
+<p>This defines the <code>database</code> element's attributes.</p><a name='index'></a>
 <br /><table class='elementTitle' summary="index"><tr><td class='leftElementTitle'>
 &lt;index&gt;</td><td class='rightElementTitle'>
 Child of <a href='#database'>database</a>, <a href='#table'>table</a>
@@ -254,7 +259,7 @@ Attribute of <a href='#column'>column</a>
 &lt;foreign-key&gt;</td><td class='rightElementTitle'>
 Child of <a href='#table'>table</a>
 </td></tr></table>
-<p>This defines a <code>foreign key</code> element, which indicates a relation between the table
+<p>This defines a <code>foreign-key</code> element, which indicates a relation between the table
 this element is declared and another table.</p><blockquote><table summary='element info'><tr>
 <td class='construct'><table summary="&lt;foreign-key&gt;'s children">
 <thead>
@@ -271,28 +276,33 @@ this element is declared and another table.</p><blockquote><table summary='eleme
 <tr>
 <th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
 <tr><th colspan='3' height='1' class='ruler'></th></tr>
-<tr><td><a href='#foreign-key_foreignTable'>foreignTable</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_onDelete'>onDelete</a></td><td>cascade, setnull, restrict, none</td><td>none</td></tr><tr><td><a href='#foreign-key_onUpdate'>onUpdate</a></td><td>cascade, setnull, restrict, none</td><td>none</td></tr></table></td></tr></table></blockquote>
-<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#reference'>reference</a>+)</p><a name='foreign-key_foreignTable'></a>
-<br /><table class='attributeTitle' summary="foreignTable"><tr><td class='leftAttributeTitle'>
-@foreignTable</td><td class='rightAttributeTitle'>
-Attribute of <a href='#foreign-key'>foreign-key</a>
-</td></tr></table>
-<p>This defines a <code>column</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='foreign-key_name'></a>
+<tr><td><a href='#foreign-key_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_foreign-table'>foreign-table</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_onDelete'>onDelete</a></td><td>cascade, setnull, restrict, none</td><td>none</td></tr><tr><td><a href='#foreign-key_onUpdate'>onUpdate</a></td><td>cascade, setnull, restrict, none</td><td>none</td></tr></table></td></tr></table></blockquote>
+<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#reference'>reference</a>+)</p><a name='foreign-key_name'></a>
 <br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
 @name</td><td class='rightAttributeTitle'>
 Attribute of <a href='#foreign-key'>foreign-key</a>
 </td></tr></table>
-<p>This defines a <code>column</code> element's attributes.</p><a name='foreign-key_onUpdate'></a>
+<p>This defines a <code>foreign-key</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='foreign-key_description'></a>
+<br /><table class='attributeTitle' summary="description"><tr><td class='leftAttributeTitle'>
+@description</td><td class='rightAttributeTitle'>
+Attribute of <a href='#foreign-key'>foreign-key</a>
+</td></tr></table>
+<p>This defines a <code>foreign-key</code> element's attributes.</p><a name='foreign-key_foreign-table'></a>
+<br /><table class='attributeTitle' summary="foreign-table"><tr><td class='leftAttributeTitle'>
+@foreign-table</td><td class='rightAttributeTitle'>
+Attribute of <a href='#foreign-key'>foreign-key</a>
+</td></tr></table>
+<p>This defines a <code>foreign-key</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='foreign-key_onUpdate'></a>
 <br /><table class='attributeTitle' summary="onUpdate"><tr><td class='leftAttributeTitle'>
 @onUpdate</td><td class='rightAttributeTitle'>
 Attribute of <a href='#foreign-key'>foreign-key</a>
 </td></tr></table>
-<p>This defines a <code>column</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: cascade, setnull, restrict, none - <span class='inTextTitle'>Default value</span>: none</p><a name='foreign-key_onDelete'></a>
+<p>This defines a <code>foreign-key</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: cascade, setnull, restrict, none - <span class='inTextTitle'>Default value</span>: none</p><a name='foreign-key_onDelete'></a>
 <br /><table class='attributeTitle' summary="onDelete"><tr><td class='leftAttributeTitle'>
 @onDelete</td><td class='rightAttributeTitle'>
 Attribute of <a href='#foreign-key'>foreign-key</a>
 </td></tr></table>
-<p>This defines a <code>column</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: cascade, setnull, restrict, none - <span class='inTextTitle'>Default value</span>: none</p><a name='reference'></a>
+<p>This defines a <code>foreign-key</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: cascade, setnull, restrict, none - <span class='inTextTitle'>Default value</span>: none</p><a name='reference'></a>
 <br /><table class='elementTitle' summary="reference"><tr><td class='leftElementTitle'>
 &lt;reference&gt;</td><td class='rightElementTitle'>
 Child of <a href='#foreign-key'>foreign-key</a>
@@ -320,9 +330,9 @@ relation.</p><blockquote><table summary='element info'><tr>
 @local</td><td class='rightAttributeTitle'>
 Attribute of <a href='#reference'>reference</a>
 </td></tr></table>
-<p> The name of the column in the current table.</p><p><span class='inTextTitle'>Required</span></p><a name='reference_foreign'></a>
+<p>This defines a <code>reference</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='reference_foreign'></a>
 <br /><table class='attributeTitle' summary="foreign"><tr><td class='leftAttributeTitle'>
 @foreign</td><td class='rightAttributeTitle'>
 Attribute of <a href='#reference'>reference</a>
 </td></tr></table>
-<p>The name of the column in the foreign table.</p><p><span class='inTextTitle'>Required</span></p></body></html>
+<p>This defines a <code>reference</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p></body></html>
