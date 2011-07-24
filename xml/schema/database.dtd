@@ -31,9 +31,11 @@
  This defines the <code>database</code> element's attributes.
 
  @attr name				The name of the database.
+ @attr description		A simple description of the database.
 -->
 <!ATTLIST database
 	name CDATA #REQUIRED
+	description CDATA #IMPLIED
 >
 
 <!--
@@ -108,8 +110,8 @@
 <!--
  This defines a <code>view</code> element's attributes.
  
- @attr name				The name of the table.
- @attr description		A simple description of the table.
+ @attr name				The name of the view.
+ @attr description		A simple description of the view.
 -->
 <!ATTLIST view
 	name CDATA #REQUIRED
@@ -125,7 +127,7 @@
  This defines a <code>column</code> element's attributes.
  
  @attr name				The name of the column.
- @attr description		A simple description of the table.
+ @attr description		A simple description of the column.
  @attr type				The column's datatype.
  @attr unsigned			Indicates whether the column's datatype is unsigned.
  @attr size				The size/precision of the column.
@@ -162,17 +164,17 @@
 >
 
 <!--
- This defines a <code>foreign key</code> element, which indicates a relation between the table
+ This defines a <code>foreign-key</code> element, which indicates a relation between the table
  this element is declared and another table.
 -->
 <!ELEMENT foreign-key (reference+)>
 
 <!--
- This defines a <code>column</code> element's attributes.
+ This defines a <code>foreign-key</code> element's attributes.
 
- @attr name				The name of this foreign key. Even though you can leave it empty, 
-                   		we suggest that you always supply a meaningful name for foreign keys.
- @attr foreignTable		The name of the foreign table.
+ @attr name				The name of the foreign key.
+ @attr description		A simple description of the foreign key.
+ @attr foreign-table	The name of the foreign table.
  @attr onUpdate			Specifies the action to perform when the value in the referenced column
                    		in the foreign table is changed:
                    		<dl>
@@ -195,8 +197,9 @@
                    		<br><b>Note: This attribute is currently ignored by DdlUtils.</b>
 -->
 <!ATTLIST foreign-key
-	foreignTable CDATA #REQUIRED
-	name CDATA #IMPLIED
+	name CDATA #REQUIRED
+	description CDATA #IMPLIED
+	foreign-table CDATA #REQUIRED
 	onUpdate (
 		cascade | setnull | restrict | none
 	) "none"
@@ -215,8 +218,8 @@
 <!--
  This defines a <code>reference</code> element's attributes.
 
- @attr local   The name of the column in the current table.
- @attr foreign The name of the column in the foreign table.
+ @attr local			The name of the column in the current table.
+ @attr foreign			The name of the column in the foreign table.
 -->
 <!ATTLIST reference
 	local CDATA #REQUIRED
