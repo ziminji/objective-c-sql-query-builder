@@ -18,7 +18,7 @@
 
 @implementation ZIMSqlCreateTableStatement
 
-- (id) initWithXML: (NSData *)xml error: (NSError **)error {
+- (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error {
 	if ((self = [super init])) {
 		_table = nil;
 		_temporary = NO;
@@ -41,7 +41,7 @@
 
 - (id) init {
     NSError *error;
-    return [self initWithXML: nil error: &error];
+    return [self initWithXmlSchema: nil error: &error];
 }
 
 - (void) dealloc {
