@@ -89,7 +89,7 @@ To use these Objective-C classes in an Xcode project, add the following framewor
 
 All classes are heavily documented using [HeaderDoc](http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html#//apple_ref/doc/uid/TP40001215-CH345-SW1).
 You can get familiar with each class by simply looking at the API or by opening its respective ".h" file.  Similarly,
-all XML/DTD files are documented using [DTDDoc](http://dtddoc.sourceforge.net) You can also find more information on
+all XML/DTD files are documented using [DTDDoc](http://dtddoc.sourceforge.net). You can also find more information on
 this repository's Wiki.
 
 ### Tutorials / Examples
@@ -125,7 +125,7 @@ Usually, code is not posted to this repository unless it works; however, there a
 even though it still contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this
 README (if they are not already listed under the "Issues" tab).
 
-At the current time, there are no known bugs.
+At the current time, there are no known bugs. However, the "XML to DDL" schema processing is still being developed.
 
 ### Updates
 
