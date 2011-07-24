@@ -101,7 +101,8 @@ Public Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#a2ebe11184292ff211f43fa721432d5a0">_table</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#aef997c62d3f2f7d57f41db60fe66d2e7">_temporary</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NSMutableDictionary *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#acc53d80853522ca190545f1b06d2aa64">_column</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSMutableDictionary *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#af96115bd8f0391f1a38ee89696b76a2c">_columnDictionary</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#a76c98cc9f3b897f4ba829b55fd7e1672">_columnArray</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#a2e626d2e8eece5e9cd2f4151ec3ef4c6">_primaryKey</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#a818a6f7652877a55e78f0f1c84416b34">_unique</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#abd0953163daf55074a6839da8a6d5e8c">_counter</a></td></tr>
@@ -145,7 +146,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-03-26 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-23 </dd></dl>
 
 </div>
 </div>
@@ -189,7 +190,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-26 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-23 </dd></dl>
 
 </div>
 </div>
@@ -233,7 +234,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-03-27 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-23 </dd></dl>
 
 </div>
 </div>
@@ -277,7 +278,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-03-27 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-23 </dd></dl>
 
 </div>
 </div>
@@ -511,7 +512,7 @@ Protected Attributes</h2></td></tr>
 <dl class="user"><dt><b>Signature:</b></dt><dd>statement </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method will return the SQL statement. </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-03-26 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-23 </dd></dl>
 
 <p>Reimplemented from <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>.</p>
 
@@ -607,12 +608,25 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="acc53d80853522ca190545f1b06d2aa64"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::_column" ref="acc53d80853522ca190545f1b06d2aa64" args="" -->
+<a class="anchor" id="a76c98cc9f3b897f4ba829b55fd7e1672"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::_columnArray" ref="a76c98cc9f3b897f4ba829b55fd7e1672" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (NSMutableDictionary*) <a class="el" href="interface_z_i_m_sql_create_table_statement.html#acc53d80853522ca190545f1b06d2aa64">_column</a><code> [protected]</code></td>
+          <td class="memname">- (NSMutableArray*) <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a76c98cc9f3b897f4ba829b55fd7e1672">_columnArray</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af96115bd8f0391f1a38ee89696b76a2c"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::_columnDictionary" ref="af96115bd8f0391f1a38ee89696b76a2c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSMutableDictionary*) <a class="el" href="interface_z_i_m_sql_create_table_statement.html#af96115bd8f0391f1a38ee89696b76a2c">_columnDictionary</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>

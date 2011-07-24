@@ -22,7 +22,8 @@
 	if ((self = [super init])) {
 		_table = nil;
 		_temporary = NO;
-		_column = [[NSMutableDictionary alloc] init];
+		_columnDictionary = [[NSMutableDictionary alloc] init];
+		_columnArray = [[NSMutableArray alloc] init];
 		_primaryKey = nil;
 		_unique = nil;
         //_depth = 0;
@@ -44,7 +45,8 @@
 }
 
 - (void) dealloc {
-	[_column release];
+	[_columnDictionary release];
+	[_columnArray release];
 	[super dealloc];
 }
 
@@ -58,35 +60,47 @@
 }
 
 - (void) column: (NSString *)column type: (NSString *)type {
-	[_column setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
+	if ([_columnDictionary objectForKey: column] == nil) {
+		[_columnArray addObject: column];
+	}
+	[_columnDictionary setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
 }
 
 - (void) column: (NSString *)column type: (NSString *)type defaultValue: (NSString *)value {
-	[_column setObject: [NSString stringWithFormat: @"%@ %@ %@", column, type, value] forKey: column];
+	if ([_columnDictionary objectForKey: column] == nil) {
+		[_columnArray addObject: column];
+	}
+	[_columnDictionary setObject: [NSString stringWithFormat: @"%@ %@ %@", column, type, value] forKey: column];
 }
 
 - (void) column: (NSString *)column type: (NSString *)type primaryKey: (BOOL)primaryKey {
+	if ([_columnDictionary objectForKey: column] == nil) {
+		[_columnArray addObject: column];
+	}
 	if (primaryKey) {
-		[_column setObject: [NSString stringWithFormat: @"%@ %@ PRIMARY KEY", column, type] forKey: column];
+		[_columnDictionary setObject: [NSString stringWithFormat: @"%@ %@ PRIMARY KEY", column, type] forKey: column];
 	}
 	else {
-		[_column setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
+		[_columnDictionary setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
 	}
 }
 
 - (void) column: (NSString *)column type: (NSString *)type unique: (BOOL)unique {
+	if ([_columnDictionary objectForKey: column] == nil) {
+		[_columnArray addObject: column];
+	}
 	if (unique) {
-		[_column setObject: [NSString stringWithFormat: @"%@ %@ UNIQUE", column, type] forKey: column];
+		[_columnDictionary setObject: [NSString stringWithFormat: @"%@ %@ UNIQUE", column, type] forKey: column];
 	}
 	else {
-		[_column setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
+		[_columnDictionary setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
 	}
 }
 
 - (void) primaryKey: (NSArray *)columns {
 	if (columns != nil) {
 		for (NSString *column in columns) {
-			if ([_column objectForKey: column] == nil) {
+			if ([_columnDictionary objectForKey: column] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before primary key can be assigned.", column] userInfo: nil];
 			}
 		}
@@ -100,7 +114,7 @@
 - (void) unique: (NSArray *)columns {
 	if (columns != nil) {
 		for (NSString *column in columns) {
-			if ([_column objectForKey: column] == nil) {
+			if ([_columnDictionary objectForKey: column] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before applying unique constraint.", column] userInfo: nil];
 			}
 		}
@@ -123,12 +137,12 @@
 	[sql appendFormat: @" TABLE %@ (", _table];
 
 	int i = 0;
-	for (NSString *column in _column) {
+	for (NSString *column in _columnArray) {
 		if (i > 0) {
-			[sql appendFormat: @", %@", (NSString *)[_column objectForKey: column]];
+			[sql appendFormat: @", %@", (NSString *)[_columnDictionary objectForKey: column]];
 		}
 		else {
-			[sql appendString: (NSString *)[_column objectForKey: column]];
+			[sql appendString: (NSString *)[_columnDictionary objectForKey: column]];
 		}
 		i++;
 	}
