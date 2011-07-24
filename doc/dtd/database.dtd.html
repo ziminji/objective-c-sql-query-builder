@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv='CONTENT-TYPE' content='text/html; charset=UTF-8' />
+<link rel='StyleSheet' href='DTDDocStyle.css' type='text/css' media='screen' />
+<title>database.dtd</title>
+</head><body>
+<p class='DTDSource'><b><code>database.dtd</code></b>: <a href='database.dtd.html'>Elements</a> - Entities - <a href='database.dtd.org.html'>Source</a> | <a href='intro.html'>Intro</a> - <a href='elementsIndex.html'>Index</a><br /><a href='index.html' target='_top'>FRAMES</a>&nbsp;/&nbsp;<a href='database.dtd.html' target='_top'>NO FRAMES</a></p><h1>database.dtd</h1>
+<p>Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements. See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership. The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at</p><p>http://www.apache.org/licenses/LICENSE-2.0</p><p>Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied. See the License for the
+specific language governing permissions and limitations
+under the License.</p><br />
+<a name='database'></a>
+<br /><table class='elementTitle' summary="database"><tr><td class='leftElementTitle'>
+&lt;database&gt;</td><td class='rightElementTitle'>
+Root element
+</td></tr></table>
+<p>defaultJavaNamingMethod determines how a table or column name,
+from the name attribute in the xml database file, is converted to a
+Java class or method name.</p><p>nochange - indicates not change is performed.
+underscore - Underscores and dots are removed, first letter is
+capitalized, first letter after an underscore
+is capitalized, first letter after a dot is capitalized,
+the rest of the letters are converted to lowercase.
+underscoreOmitSchema - The section of the name before and including
+the last dot in the name is removed. For the remaining part,
+underscores are removed, first letter is capitalized,
+first letter after an underscore is capitalized,
+the rest of the letters are converted to lowercase.
+javaname - same as underscore, but no letters are converted
+to lowercase.</p><blockquote><table summary='element info'><tr>
+<td class='construct'><table summary="&lt;database&gt;'s children">
+<thead>
+<tr><th class='title' colspan='2'>&lt;database&gt;'s children</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+<tr><th class='subtitle'>Name</th><th class='subtitle'>Cardinality</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+</thead>
+<tbody><tr><td><a href='#domain'>domain</a></td><td>Any number</td></tr>
+<tr><td><a href='#external-schema'>external-schema</a></td><td>Any number</td></tr>
+<tr><td><a href='#option'>option</a></td><td>Any number</td></tr>
+<tr><td><a href='#table'>table</a></td><td>At least one</td></tr>
+</tbody></table></td><td class='construct'><table  summary="&lt;database&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;database&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#database_baseClass'>baseClass</a></td><td></td><td></td></tr><tr><td><a href='#database_basePeer'>basePeer</a></td><td></td><td></td></tr><tr><td><a href='#database_defaultIdMethod'>defaultIdMethod</a></td><td>idbroker, native, none</td><td>none</td></tr><tr><td><a href='#database_defaultJavaNamingMethod'>defaultJavaNamingMethod</a></td><td>nochange, underscore, underscoreOmitSchema, javaname</td><td>underscore</td></tr><tr><td><a href='#database_defaultJavaType'>defaultJavaType</a></td><td>object, primitive</td><td>primitive</td></tr><tr><td><a href='#database_heavyIndexing'>heavyIndexing</a></td><td>true, false</td><td>false</td></tr><tr><td><a href='#database_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#database_package'>package</a></td><td></td><td></td></tr></table></td></tr></table></blockquote>
+<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#option'>option</a>*, <a href='#external-schema'>external-schema</a>*, <a href='#domain'>domain</a>*, <a href='#table'>table</a>+)</p><a name='database_name'></a>
+<br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
+@name</td><td class='rightAttributeTitle'>
+Attribute of <a href='#database'>database</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='database_defaultIdMethod'></a>
+<br /><table class='attributeTitle' summary="defaultIdMethod"><tr><td class='leftAttributeTitle'>
+@defaultIdMethod</td><td class='rightAttributeTitle'>
+Attribute of <a href='#database'>database</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: idbroker, native, none - <span class='inTextTitle'>Default value</span>: none</p><a name='database_defaultJavaType'></a>
+<br /><table class='attributeTitle' summary="defaultJavaType"><tr><td class='leftAttributeTitle'>
+@defaultJavaType</td><td class='rightAttributeTitle'>
+Attribute of <a href='#database'>database</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: object, primitive - <span class='inTextTitle'>Default value</span>: primitive</p><a name='database_package'></a>
+<br /><table class='attributeTitle' summary="package"><tr><td class='leftAttributeTitle'>
+@package</td><td class='rightAttributeTitle'>
+Attribute of <a href='#database'>database</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='database_baseClass'></a>
+<br /><table class='attributeTitle' summary="baseClass"><tr><td class='leftAttributeTitle'>
+@baseClass</td><td class='rightAttributeTitle'>
+Attribute of <a href='#database'>database</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='database_basePeer'></a>
+<br /><table class='attributeTitle' summary="basePeer"><tr><td class='leftAttributeTitle'>
+@basePeer</td><td class='rightAttributeTitle'>
+Attribute of <a href='#database'>database</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='database_defaultJavaNamingMethod'></a>
+<br /><table class='attributeTitle' summary="defaultJavaNamingMethod"><tr><td class='leftAttributeTitle'>
+@defaultJavaNamingMethod</td><td class='rightAttributeTitle'>
+Attribute of <a href='#database'>database</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: nochange, underscore, underscoreOmitSchema, javaname - <span class='inTextTitle'>Default value</span>: underscore</p><a name='database_heavyIndexing'></a>
+<br /><table class='attributeTitle' summary="heavyIndexing"><tr><td class='leftAttributeTitle'>
+@heavyIndexing</td><td class='rightAttributeTitle'>
+Attribute of <a href='#database'>database</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: true, false - <span class='inTextTitle'>Default value</span>: false</p><a name='option'></a>
+<br /><table class='elementTitle' summary="option"><tr><td class='leftElementTitle'>
+&lt;option/&gt;</td><td class='rightElementTitle'>
+Child of <a href='#unique'>unique</a>, <a href='#table'>table</a>, <a href='#foreign-key'>foreign-key</a>, <a href='#column'>column</a>, <a href='#database'>database</a>, <a href='#index'>index</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote>
+<table  summary="&lt;option&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;option&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#option_key'>key</a></td><td></td><td></td></tr><tr><td><a href='#option_value'>value</a></td><td></td><td></td></tr></table></blockquote>
+<p class='emptyTagNote'>This element is always empty.</p><a name='option_key'></a>
+<br /><table class='attributeTitle' summary="key"><tr><td class='leftAttributeTitle'>
+@key</td><td class='rightAttributeTitle'>
+Attribute of <a href='#option'>option</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='option_value'></a>
+<br /><table class='attributeTitle' summary="value"><tr><td class='leftAttributeTitle'>
+@value</td><td class='rightAttributeTitle'>
+Attribute of <a href='#option'>option</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='external-schema'></a>
+<br /><table class='elementTitle' summary="external-schema"><tr><td class='leftElementTitle'>
+&lt;external-schema/&gt;</td><td class='rightElementTitle'>
+Child of <a href='#database'>database</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote>
+<table  summary="&lt;external-schema&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;external-schema&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#external-schema_filename'>filename</a></td><td></td><td></td></tr></table></blockquote>
+<p class='emptyTagNote'>This element is always empty.</p><a name='external-schema_filename'></a>
+<br /><table class='attributeTitle' summary="filename"><tr><td class='leftAttributeTitle'>
+@filename</td><td class='rightAttributeTitle'>
+Attribute of <a href='#external-schema'>external-schema</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='domain'></a>
+<br /><table class='elementTitle' summary="domain"><tr><td class='leftElementTitle'>
+&lt;domain/&gt;</td><td class='rightElementTitle'>
+Child of <a href='#database'>database</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote>
+<table  summary="&lt;domain&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;domain&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#domain_default'>default</a></td><td></td><td></td></tr><tr><td><a href='#domain_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#domain_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#domain_scale'>scale</a></td><td></td><td></td></tr><tr><td><a href='#domain_size'>size</a></td><td></td><td></td></tr><tr><td><a href='#domain_type'>type</a></td><td>BIT, TINYINT, SMALLINT, INTEGER, BIGINT, FLOAT, REAL, NUMERIC, DECIMAL, CHAR, VARCHAR, LONGVARCHAR, DATE, TIME, TIMESTAMP, BINARY, VARBINARY, LONGVARBINARY, NULL, OTHER, JAVA_OBJECT, DISTINCT, STRUCT, ARRAY, BLOB, CLOB, REF, BOOLEANINT, BOOLEANCHAR, DOUBLE</td><td>VARCHAR</td></tr></table></blockquote>
+<p class='emptyTagNote'>This element is always empty.</p><a name='domain_name'></a>
+<br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
+@name</td><td class='rightAttributeTitle'>
+Attribute of <a href='#domain'>domain</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='domain_type'></a>
+<br /><table class='attributeTitle' summary="type"><tr><td class='leftAttributeTitle'>
+@type</td><td class='rightAttributeTitle'>
+Attribute of <a href='#domain'>domain</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: BIT, TINYINT, SMALLINT, INTEGER, BIGINT, FLOAT, REAL, NUMERIC, DECIMAL, CHAR, VARCHAR, LONGVARCHAR, DATE, TIME, TIMESTAMP, BINARY, VARBINARY, LONGVARBINARY, NULL, OTHER, JAVA_OBJECT, DISTINCT, STRUCT, ARRAY, BLOB, CLOB, REF, BOOLEANINT, BOOLEANCHAR, DOUBLE - <span class='inTextTitle'>Default value</span>: VARCHAR</p><a name='domain_size'></a>
+<br /><table class='attributeTitle' summary="size"><tr><td class='leftAttributeTitle'>
+@size</td><td class='rightAttributeTitle'>
+Attribute of <a href='#domain'>domain</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='domain_scale'></a>
+<br /><table class='attributeTitle' summary="scale"><tr><td class='leftAttributeTitle'>
+@scale</td><td class='rightAttributeTitle'>
+Attribute of <a href='#domain'>domain</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='domain_default'></a>
+<br /><table class='attributeTitle' summary="default"><tr><td class='leftAttributeTitle'>
+@default</td><td class='rightAttributeTitle'>
+Attribute of <a href='#domain'>domain</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='domain_description'></a>
+<br /><table class='attributeTitle' summary="description"><tr><td class='leftAttributeTitle'>
+@description</td><td class='rightAttributeTitle'>
+Attribute of <a href='#domain'>domain</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='table'></a>
+<br /><table class='elementTitle' summary="table"><tr><td class='leftElementTitle'>
+&lt;table&gt;</td><td class='rightElementTitle'>
+Child of <a href='#database'>database</a>
+</td></tr></table>
+<p>note: the interface="true", requires that useManagers=true in the
+properties file.</p><blockquote><table summary='element info'><tr>
+<td class='construct'><table summary="&lt;table&gt;'s children">
+<thead>
+<tr><th class='title' colspan='2'>&lt;table&gt;'s children</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+<tr><th class='subtitle'>Name</th><th class='subtitle'>Cardinality</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+</thead>
+<tbody><tr><td><a href='#column'>column</a></td><td>At least one</td></tr>
+<tr><td><a href='#foreign-key'>foreign-key</a></td><td>Any number</td></tr>
+<tr><td><a href='#id-method-parameter'>id-method-parameter</a></td><td>Any number</td></tr>
+<tr><td><a href='#index'>index</a></td><td>Any number</td></tr>
+<tr><td><a href='#option'>option</a></td><td>Any number</td></tr>
+<tr><td><a href='#unique'>unique</a></td><td>Any number</td></tr>
+</tbody></table></td><td class='construct'><table  summary="&lt;table&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;table&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#table_abstract'>abstract</a></td><td>true, false</td><td>false</td></tr><tr><td><a href='#table_alias'>alias</a></td><td></td><td></td></tr><tr><td><a href='#table_baseClass'>baseClass</a></td><td></td><td></td></tr><tr><td><a href='#table_basePeer'>basePeer</a></td><td></td><td></td></tr><tr><td><a href='#table_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#table_heavyIndexing'>heavyIndexing</a></td><td>true, false</td><td></td></tr><tr><td><a href='#table_idMethod'>idMethod</a></td><td>idbroker, native, none, null</td><td>null</td></tr><tr><td><a href='#table_interface'>interface</a></td><td></td><td></td></tr><tr><td><a href='#table_javaName'>javaName</a></td><td></td><td></td></tr><tr><td><a href='#table_javaNamingMethod'>javaNamingMethod</a></td><td>nochange, underscore, underscoreOmitSchema, javaname</td><td></td></tr><tr><td><a href='#table_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#table_skipSql'>skipSql</a></td><td>true, false</td><td>false</td></tr></table></td></tr></table></blockquote>
+<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#option'>option</a>*, <a href='#column'>column</a>+, (<a href='#foreign-key'>foreign-key</a> | <a href='#index'>index</a> | <a href='#unique'>unique</a> | <a href='#id-method-parameter'>id-method-parameter</a>)*)</p><a name='table_name'></a>
+<br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
+@name</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='table_javaName'></a>
+<br /><table class='attributeTitle' summary="javaName"><tr><td class='leftAttributeTitle'>
+@javaName</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='table_idMethod'></a>
+<br /><table class='attributeTitle' summary="idMethod"><tr><td class='leftAttributeTitle'>
+@idMethod</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: idbroker, native, none, null - <span class='inTextTitle'>Default value</span>: null</p><a name='table_skipSql'></a>
+<br /><table class='attributeTitle' summary="skipSql"><tr><td class='leftAttributeTitle'>
+@skipSql</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: true, false - <span class='inTextTitle'>Default value</span>: false</p><a name='table_abstract'></a>
+<br /><table class='attributeTitle' summary="abstract"><tr><td class='leftAttributeTitle'>
+@abstract</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: true, false - <span class='inTextTitle'>Default value</span>: false</p><a name='table_baseClass'></a>
+<br /><table class='attributeTitle' summary="baseClass"><tr><td class='leftAttributeTitle'>
+@baseClass</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='table_basePeer'></a>
+<br /><table class='attributeTitle' summary="basePeer"><tr><td class='leftAttributeTitle'>
+@basePeer</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='table_alias'></a>
+<br /><table class='attributeTitle' summary="alias"><tr><td class='leftAttributeTitle'>
+@alias</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='table_interface'></a>
+<br /><table class='attributeTitle' summary="interface"><tr><td class='leftAttributeTitle'>
+@interface</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='table_javaNamingMethod'></a>
+<br /><table class='attributeTitle' summary="javaNamingMethod"><tr><td class='leftAttributeTitle'>
+@javaNamingMethod</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: nochange, underscore, underscoreOmitSchema, javaname</p><a name='table_heavyIndexing'></a>
+<br /><table class='attributeTitle' summary="heavyIndexing"><tr><td class='leftAttributeTitle'>
+@heavyIndexing</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: true, false</p><a name='table_description'></a>
+<br /><table class='attributeTitle' summary="description"><tr><td class='leftAttributeTitle'>
+@description</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='id-method-parameter'></a>
+<br /><table class='elementTitle' summary="id-method-parameter"><tr><td class='leftElementTitle'>
+&lt;id-method-parameter/&gt;</td><td class='rightElementTitle'>
+Child of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote>
+<table  summary="&lt;id-method-parameter&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;id-method-parameter&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#id-method-parameter_name'>name</a></td><td></td><td>default</td></tr><tr><td><a href='#id-method-parameter_value'>value</a></td><td></td><td></td></tr></table></blockquote>
+<p class='emptyTagNote'>This element is always empty.</p><a name='id-method-parameter_name'></a>
+<br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
+@name</td><td class='rightAttributeTitle'>
+Attribute of <a href='#id-method-parameter'>id-method-parameter</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Default value</span>: default</p><a name='id-method-parameter_value'></a>
+<br /><table class='attributeTitle' summary="value"><tr><td class='leftAttributeTitle'>
+@value</td><td class='rightAttributeTitle'>
+Attribute of <a href='#id-method-parameter'>id-method-parameter</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='column'></a>
+<br /><table class='elementTitle' summary="column"><tr><td class='leftElementTitle'>
+&lt;column&gt;</td><td class='rightElementTitle'>
+Child of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote><table summary='element info'><tr>
+<td class='construct'><table summary="&lt;column&gt;'s children">
+<thead>
+<tr><th class='title' colspan='2'>&lt;column&gt;'s children</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+<tr><th class='subtitle'>Name</th><th class='subtitle'>Cardinality</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+</thead>
+<tbody><tr><td><a href='#inheritance'>inheritance</a></td><td>Any number</td></tr>
+<tr><td><a href='#option'>option</a></td><td>Any number</td></tr>
+</tbody></table></td><td class='construct'><table  summary="&lt;column&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;column&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#column_autoIncrement'>autoIncrement</a></td><td>true, false</td><td></td></tr><tr><td><a href='#column_default'>default</a></td><td></td><td></td></tr><tr><td><a href='#column_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#column_domain'>domain</a></td><td></td><td></td></tr><tr><td><a href='#column_inheritance'>inheritance</a></td><td>single, false</td><td>false</td></tr><tr><td><a href='#column_inputValidator'>inputValidator</a></td><td></td><td></td></tr><tr><td><a href='#column_javaName'>javaName</a></td><td></td><td></td></tr><tr><td><a href='#column_javaNamingMethod'>javaNamingMethod</a></td><td>nochange, underscore, javaname</td><td></td></tr><tr><td><a href='#column_javaType'>javaType</a></td><td>object, primitive</td><td></td></tr><tr><td><a href='#column_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#column_primaryKey'>primaryKey</a></td><td>true, false</td><td>false</td></tr><tr><td><a href='#column_protected'>protected</a></td><td>true, false</td><td>false</td></tr><tr><td><a href='#column_required'>required</a></td><td>true, false</td><td>false</td></tr><tr><td><a href='#column_scale'>scale</a></td><td></td><td></td></tr><tr><td><a href='#column_size'>size</a></td><td></td><td></td></tr><tr><td><a href='#column_type'>type</a></td><td>BIT, TINYINT, SMALLINT, INTEGER, BIGINT, FLOAT, REAL, NUMERIC, DECIMAL, CHAR, VARCHAR, LONGVARCHAR, DATE, TIME, TIMESTAMP, BINARY, VARBINARY, LONGVARBINARY, NULL, OTHER, JAVA_OBJECT, DISTINCT, STRUCT, ARRAY, BLOB, CLOB, REF, BOOLEANINT, BOOLEANCHAR, DOUBLE</td><td></td></tr></table></td></tr></table></blockquote>
+<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#option'>option</a>*, <a href='#inheritance'>inheritance</a>*)</p><a name='column_name'></a>
+<br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
+@name</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='column_javaName'></a>
+<br /><table class='attributeTitle' summary="javaName"><tr><td class='leftAttributeTitle'>
+@javaName</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='column_primaryKey'></a>
+<br /><table class='attributeTitle' summary="primaryKey"><tr><td class='leftAttributeTitle'>
+@primaryKey</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: true, false - <span class='inTextTitle'>Default value</span>: false</p><a name='column_required'></a>
+<br /><table class='attributeTitle' summary="required"><tr><td class='leftAttributeTitle'>
+@required</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: true, false - <span class='inTextTitle'>Default value</span>: false</p><a name='column_protected'></a>
+<br /><table class='attributeTitle' summary="protected"><tr><td class='leftAttributeTitle'>
+@protected</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: true, false - <span class='inTextTitle'>Default value</span>: false</p><a name='column_domain'></a>
+<br /><table class='attributeTitle' summary="domain"><tr><td class='leftAttributeTitle'>
+@domain</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='column_type'></a>
+<br /><table class='attributeTitle' summary="type"><tr><td class='leftAttributeTitle'>
+@type</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: BIT, TINYINT, SMALLINT, INTEGER, BIGINT, FLOAT, REAL, NUMERIC, DECIMAL, CHAR, VARCHAR, LONGVARCHAR, DATE, TIME, TIMESTAMP, BINARY, VARBINARY, LONGVARBINARY, NULL, OTHER, JAVA_OBJECT, DISTINCT, STRUCT, ARRAY, BLOB, CLOB, REF, BOOLEANINT, BOOLEANCHAR, DOUBLE</p><a name='column_javaType'></a>
+<br /><table class='attributeTitle' summary="javaType"><tr><td class='leftAttributeTitle'>
+@javaType</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: object, primitive</p><a name='column_size'></a>
+<br /><table class='attributeTitle' summary="size"><tr><td class='leftAttributeTitle'>
+@size</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='column_scale'></a>
+<br /><table class='attributeTitle' summary="scale"><tr><td class='leftAttributeTitle'>
+@scale</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='column_default'></a>
+<br /><table class='attributeTitle' summary="default"><tr><td class='leftAttributeTitle'>
+@default</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='column_autoIncrement'></a>
+<br /><table class='attributeTitle' summary="autoIncrement"><tr><td class='leftAttributeTitle'>
+@autoIncrement</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: true, false</p><a name='column_inheritance'></a>
+<br /><table class='attributeTitle' summary="inheritance"><tr><td class='leftAttributeTitle'>
+@inheritance</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: single, false - <span class='inTextTitle'>Default value</span>: false</p><a name='column_inputValidator'></a>
+<br /><table class='attributeTitle' summary="inputValidator"><tr><td class='leftAttributeTitle'>
+@inputValidator</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='column_javaNamingMethod'></a>
+<br /><table class='attributeTitle' summary="javaNamingMethod"><tr><td class='leftAttributeTitle'>
+@javaNamingMethod</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: nochange, underscore, javaname</p><a name='column_description'></a>
+<br /><table class='attributeTitle' summary="description"><tr><td class='leftAttributeTitle'>
+@description</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='inheritance'></a>
+<br /><table class='elementTitle' summary="inheritance"><tr><td class='leftElementTitle'>
+&lt;inheritance/&gt;</td><td class='rightElementTitle'>
+Child of <a href='#column'>column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote>
+<table  summary="&lt;inheritance&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;inheritance&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#inheritance_class'>class</a></td><td></td><td></td></tr><tr><td><a href='#inheritance_extends'>extends</a></td><td></td><td></td></tr><tr><td><a href='#inheritance_key'>key</a></td><td></td><td></td></tr></table></blockquote>
+<p class='emptyTagNote'>This element is always empty.</p><a name='inheritance_key'></a>
+<br /><table class='attributeTitle' summary="key"><tr><td class='leftAttributeTitle'>
+@key</td><td class='rightAttributeTitle'>
+Attribute of <a href='#inheritance'>inheritance</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='inheritance_class'></a>
+<br /><table class='attributeTitle' summary="class"><tr><td class='leftAttributeTitle'>
+@class</td><td class='rightAttributeTitle'>
+Attribute of <a href='#inheritance'>inheritance</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='inheritance_extends'></a>
+<br /><table class='attributeTitle' summary="extends"><tr><td class='leftAttributeTitle'>
+@extends</td><td class='rightAttributeTitle'>
+Attribute of <a href='#inheritance'>inheritance</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='foreign-key'></a>
+<br /><table class='elementTitle' summary="foreign-key"><tr><td class='leftElementTitle'>
+&lt;foreign-key&gt;</td><td class='rightElementTitle'>
+Child of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote><table summary='element info'><tr>
+<td class='construct'><table summary="&lt;foreign-key&gt;'s children">
+<thead>
+<tr><th class='title' colspan='2'>&lt;foreign-key&gt;'s children</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+<tr><th class='subtitle'>Name</th><th class='subtitle'>Cardinality</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+</thead>
+<tbody><tr><td><a href='#option'>option</a></td><td>Any number</td></tr>
+<tr><td><a href='#reference'>reference</a></td><td>At least one</td></tr>
+</tbody></table></td><td class='construct'><table  summary="&lt;foreign-key&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;foreign-key&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#foreign-key_foreignTable'>foreignTable</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_onDelete'>onDelete</a></td><td>cascade, setnull, restrict, none</td><td>none</td></tr><tr><td><a href='#foreign-key_onUpdate'>onUpdate</a></td><td>cascade, setnull, restrict, none</td><td>none</td></tr></table></td></tr></table></blockquote>
+<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#option'>option</a>*, <a href='#reference'>reference</a>+)</p><a name='foreign-key_foreignTable'></a>
+<br /><table class='attributeTitle' summary="foreignTable"><tr><td class='leftAttributeTitle'>
+@foreignTable</td><td class='rightAttributeTitle'>
+Attribute of <a href='#foreign-key'>foreign-key</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='foreign-key_name'></a>
+<br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
+@name</td><td class='rightAttributeTitle'>
+Attribute of <a href='#foreign-key'>foreign-key</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='foreign-key_onUpdate'></a>
+<br /><table class='attributeTitle' summary="onUpdate"><tr><td class='leftAttributeTitle'>
+@onUpdate</td><td class='rightAttributeTitle'>
+Attribute of <a href='#foreign-key'>foreign-key</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: cascade, setnull, restrict, none - <span class='inTextTitle'>Default value</span>: none</p><a name='foreign-key_onDelete'></a>
+<br /><table class='attributeTitle' summary="onDelete"><tr><td class='leftAttributeTitle'>
+@onDelete</td><td class='rightAttributeTitle'>
+Attribute of <a href='#foreign-key'>foreign-key</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Possible values</span>: cascade, setnull, restrict, none - <span class='inTextTitle'>Default value</span>: none</p><a name='reference'></a>
+<br /><table class='elementTitle' summary="reference"><tr><td class='leftElementTitle'>
+&lt;reference/&gt;</td><td class='rightElementTitle'>
+Child of <a href='#foreign-key'>foreign-key</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote>
+<table  summary="&lt;reference&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;reference&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#reference_foreign'>foreign</a></td><td></td><td></td></tr><tr><td><a href='#reference_local'>local</a></td><td></td><td></td></tr></table></blockquote>
+<p class='emptyTagNote'>This element is always empty.</p><a name='reference_local'></a>
+<br /><table class='attributeTitle' summary="local"><tr><td class='leftAttributeTitle'>
+@local</td><td class='rightAttributeTitle'>
+Attribute of <a href='#reference'>reference</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='reference_foreign'></a>
+<br /><table class='attributeTitle' summary="foreign"><tr><td class='leftAttributeTitle'>
+@foreign</td><td class='rightAttributeTitle'>
+Attribute of <a href='#reference'>reference</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='index'></a>
+<br /><table class='elementTitle' summary="index"><tr><td class='leftElementTitle'>
+&lt;index&gt;</td><td class='rightElementTitle'>
+Child of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote><table summary='element info'><tr>
+<td class='construct'><table summary="&lt;index&gt;'s children">
+<thead>
+<tr><th class='title' colspan='2'>&lt;index&gt;'s children</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+<tr><th class='subtitle'>Name</th><th class='subtitle'>Cardinality</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+</thead>
+<tbody><tr><td><a href='#index-column'>index-column</a></td><td>At least one</td></tr>
+<tr><td><a href='#option'>option</a></td><td>Any number</td></tr>
+</tbody></table></td><td class='construct'><table  summary="&lt;index&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;index&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#index_name'>name</a></td><td></td><td></td></tr></table></td></tr></table></blockquote>
+<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#option'>option</a>*, <a href='#index-column'>index-column</a>+)</p><a name='index_name'></a>
+<br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
+@name</td><td class='rightAttributeTitle'>
+Attribute of <a href='#index'>index</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='index-column'></a>
+<br /><table class='elementTitle' summary="index-column"><tr><td class='leftElementTitle'>
+&lt;index-column/&gt;</td><td class='rightElementTitle'>
+Child of <a href='#index'>index</a>
+</td></tr></table>
+<p>The index-column's size element is currently ignored
+and will be removed in a further version.</p><blockquote>
+<table  summary="&lt;index-column&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;index-column&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#index-column_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#index-column_size'>size</a></td><td></td><td></td></tr></table></blockquote>
+<p class='emptyTagNote'>This element is always empty.</p><a name='index-column_name'></a>
+<br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
+@name</td><td class='rightAttributeTitle'>
+Attribute of <a href='#index-column'>index-column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p><a name='index-column_size'></a>
+<br /><table class='attributeTitle' summary="size"><tr><td class='leftAttributeTitle'>
+@size</td><td class='rightAttributeTitle'>
+Attribute of <a href='#index-column'>index-column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='unique'></a>
+<br /><table class='elementTitle' summary="unique"><tr><td class='leftElementTitle'>
+&lt;unique&gt;</td><td class='rightElementTitle'>
+Child of <a href='#table'>table</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote><table summary='element info'><tr>
+<td class='construct'><table summary="&lt;unique&gt;'s children">
+<thead>
+<tr><th class='title' colspan='2'>&lt;unique&gt;'s children</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+<tr><th class='subtitle'>Name</th><th class='subtitle'>Cardinality</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+</thead>
+<tbody><tr><td><a href='#option'>option</a></td><td>Any number</td></tr>
+<tr><td><a href='#unique-column'>unique-column</a></td><td>At least one</td></tr>
+</tbody></table></td><td class='construct'><table  summary="&lt;unique&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;unique&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#unique_name'>name</a></td><td></td><td></td></tr></table></td></tr></table></blockquote>
+<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#option'>option</a>*, <a href='#unique-column'>unique-column</a>+)</p><a name='unique_name'></a>
+<br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
+@name</td><td class='rightAttributeTitle'>
+Attribute of <a href='#unique'>unique</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><a name='unique-column'></a>
+<br /><table class='elementTitle' summary="unique-column"><tr><td class='leftElementTitle'>
+&lt;unique-column/&gt;</td><td class='rightElementTitle'>
+Child of <a href='#unique'>unique</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><blockquote>
+<table  summary="&lt;unique-column&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;unique-column&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#unique-column_name'>name</a></td><td></td><td></td></tr></table></blockquote>
+<p class='emptyTagNote'>This element is always empty.</p><a name='unique-column_name'></a>
+<br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
+@name</td><td class='rightAttributeTitle'>
+Attribute of <a href='#unique-column'>unique-column</a>
+</td></tr></table>
+<p>Sorry, no documentation.</p><p><span class='inTextTitle'>Required</span></p></body></html>
