@@ -52,9 +52,9 @@ Attribute of <a href='#database'>database</a>
 <p>This defines the <code>database</code> element's attributes.</p><a name='index'></a>
 <br /><table class='elementTitle' summary="index"><tr><td class='leftElementTitle'>
 &lt;index&gt;</td><td class='rightElementTitle'>
-Child of <a href='#database'>database</a>, <a href='#table'>table</a>
+Child of <a href='#database'>database</a>
 </td></tr></table>
-<p>This defines a <code>index</code> element.</p><blockquote><table summary='element info'><tr>
+<p>This defines a <code>index</code> element, which is a child of the <code>database</code> element.</p><blockquote><table summary='element info'><tr>
 <td class='construct'><table summary="&lt;index&gt;'s children">
 <thead>
 <tr><th class='title' colspan='2'>&lt;index&gt;'s children</th></tr>
@@ -70,7 +70,7 @@ Child of <a href='#database'>database</a>, <a href='#table'>table</a>
 <tr>
 <th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
 <tr><th colspan='3' height='1' class='ruler'></th></tr>
-<tr><td><a href='#index_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#index_name'>name</a></td><td></td><td></td></tr></table></td></tr></table></blockquote>
+<tr><td><a href='#index_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#index_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#index_table'>table</a></td><td></td><td></td></tr><tr><td><a href='#index_unique'>unique</a></td><td>true, false</td><td>false</td></tr></table></td></tr></table></blockquote>
 <span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#column'>column</a>+)</p><a name='index_name'></a>
 <br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
 @name</td><td class='rightAttributeTitle'>
@@ -81,12 +81,22 @@ Attribute of <a href='#index'>index</a>
 @description</td><td class='rightAttributeTitle'>
 Attribute of <a href='#index'>index</a>
 </td></tr></table>
-<p>This defines a <code>index</code> element's attributes.</p><a name='table'></a>
+<p>This defines a <code>index</code> element's attributes.</p><a name='index_table'></a>
+<br /><table class='attributeTitle' summary="table"><tr><td class='leftAttributeTitle'>
+@table</td><td class='rightAttributeTitle'>
+Attribute of <a href='#index'>index</a>
+</td></tr></table>
+<p>This defines a <code>index</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='index_unique'></a>
+<br /><table class='attributeTitle' summary="unique"><tr><td class='leftAttributeTitle'>
+@unique</td><td class='rightAttributeTitle'>
+Attribute of <a href='#index'>index</a>
+</td></tr></table>
+<p>This defines a <code>index</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: true, false - <span class='inTextTitle'>Default value</span>: false</p><a name='table'></a>
 <br /><table class='elementTitle' summary="table"><tr><td class='leftElementTitle'>
 &lt;table&gt;</td><td class='rightElementTitle'>
 Child of <a href='#database'>database</a>
 </td></tr></table>
-<p>This defines a <code>table</code> element.</p><blockquote><table summary='element info'><tr>
+<p>This defines a <code>table</code> element, which is a child of the <code>database</code> element.</p><blockquote><table summary='element info'><tr>
 <td class='construct'><table summary="&lt;table&gt;'s children">
 <thead>
 <tr><th class='title' colspan='2'>&lt;table&gt;'s children</th></tr>
@@ -96,7 +106,6 @@ Child of <a href='#database'>database</a>
 </thead>
 <tbody><tr><td><a href='#column'>column</a></td><td>At least one</td></tr>
 <tr><td><a href='#foreign-key'>foreign-key</a></td><td>Any number</td></tr>
-<tr><td><a href='#index'>index</a></td><td>Any number</td></tr>
 </tbody></table></td><td class='construct'><table  summary="&lt;table&gt;'s attributes"><tr>
 <th class='title' colspan='3'>&lt;table&gt;'s attributes</th>
 </tr>
@@ -104,8 +113,8 @@ Child of <a href='#database'>database</a>
 <tr>
 <th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
 <tr><th colspan='3' height='1' class='ruler'></th></tr>
-<tr><td><a href='#table_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#table_name'>name</a></td><td></td><td></td></tr></table></td></tr></table></blockquote>
-<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#column'>column</a>+, <a href='#index'>index</a>*, <a href='#foreign-key'>foreign-key</a>*)</p><a name='table_name'></a>
+<tr><td><a href='#table_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#table_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#table_temporary'>temporary</a></td><td>true, false</td><td>false</td></tr></table></td></tr></table></blockquote>
+<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#column'>column</a>+, <a href='#foreign-key'>foreign-key</a>*)</p><a name='table_name'></a>
 <br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
 @name</td><td class='rightAttributeTitle'>
 Attribute of <a href='#table'>table</a>
@@ -115,21 +124,36 @@ Attribute of <a href='#table'>table</a>
 @description</td><td class='rightAttributeTitle'>
 Attribute of <a href='#table'>table</a>
 </td></tr></table>
-<p>This defines a <code>table</code> element's attributes.</p><a name='trigger'></a>
+<p>This defines a <code>table</code> element's attributes.</p><a name='table_temporary'></a>
+<br /><table class='attributeTitle' summary="temporary"><tr><td class='leftAttributeTitle'>
+@temporary</td><td class='rightAttributeTitle'>
+Attribute of <a href='#table'>table</a>
+</td></tr></table>
+<p>This defines a <code>table</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: true, false - <span class='inTextTitle'>Default value</span>: false</p><a name='trigger'></a>
 <br /><table class='elementTitle' summary="trigger"><tr><td class='leftElementTitle'>
 &lt;trigger&gt;</td><td class='rightElementTitle'>
 Child of <a href='#database'>database</a>
 </td></tr></table>
-<p>This defines a <code>trigger</code> element.</p><blockquote><table summary='element info'><tr>
-<td class='construct'><table  summary="&lt;trigger&gt;'s attributes"><tr>
+<p>This defines a <code>trigger</code> element, which is a child of the <code>database</code> element.</p><blockquote><table summary='element info'><tr>
+<td class='construct'><table summary="&lt;trigger&gt;'s children">
+<thead>
+<tr><th class='title' colspan='2'>&lt;trigger&gt;'s children</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+<tr><th class='subtitle'>Name</th><th class='subtitle'>Cardinality</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+</thead>
+<tbody><tr><td><a href='#action'>action</a></td><td>At least one</td></tr>
+<tr><td><a href='#column'>column</a></td><td>Any number</td></tr>
+<tr><td><a href='#when'>when</a></td><td>Any number</td></tr>
+</tbody></table></td><td class='construct'><table  summary="&lt;trigger&gt;'s attributes"><tr>
 <th class='title' colspan='3'>&lt;trigger&gt;'s attributes</th>
 </tr>
 <tr><th colspan='3' height='1' class='ruler'></th></tr>
 <tr>
 <th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
 <tr><th colspan='3' height='1' class='ruler'></th></tr>
-<tr><td><a href='#trigger_advice'>advice</a></td><td>before-delete, before-insert, before-update, after-delete, after-insert, after-delete, instead-of-delete, instead-of-insert, instead-of-delete</td><td></td></tr><tr><td><a href='#trigger_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#trigger_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#trigger_of'>of</a></td><td></td><td></td></tr><tr><td><a href='#trigger_on'>on</a></td><td></td><td></td></tr><tr><td><a href='#trigger_temporary'>temporary</a></td><td>true, false</td><td></td></tr></table></td></tr></table></blockquote>
-<a name='trigger_name'></a>
+<tr><td><a href='#trigger_advice'>advice</a></td><td>before, after, instead-of</td><td></td></tr><tr><td><a href='#trigger_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#trigger_event'>event</a></td><td>delete, insert, update</td><td></td></tr><tr><td><a href='#trigger_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#trigger_table'>table</a></td><td></td><td></td></tr><tr><td><a href='#trigger_temporary'>temporary</a></td><td>true, false</td><td>false</td></tr></table></td></tr></table></blockquote>
+<span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#column'>column</a>*, <a href='#when'>when</a>*, <a href='#action'>action</a>+)</p><a name='trigger_name'></a>
 <br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
 @name</td><td class='rightAttributeTitle'>
 Attribute of <a href='#trigger'>trigger</a>
@@ -144,19 +168,19 @@ Attribute of <a href='#trigger'>trigger</a>
 @temporary</td><td class='rightAttributeTitle'>
 Attribute of <a href='#trigger'>trigger</a>
 </td></tr></table>
-<p>This defines a <code>trigger</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: true, false</p><a name='trigger_advice'></a>
+<p>This defines a <code>trigger</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: true, false - <span class='inTextTitle'>Default value</span>: false</p><a name='trigger_advice'></a>
 <br /><table class='attributeTitle' summary="advice"><tr><td class='leftAttributeTitle'>
 @advice</td><td class='rightAttributeTitle'>
 Attribute of <a href='#trigger'>trigger</a>
 </td></tr></table>
-<p>This defines a <code>trigger</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: before-delete, before-insert, before-update, after-delete, after-insert, after-delete, instead-of-delete, instead-of-insert, instead-of-delete - <span class='inTextTitle'>Required</span></p><a name='trigger_of'></a>
-<br /><table class='attributeTitle' summary="of"><tr><td class='leftAttributeTitle'>
-@of</td><td class='rightAttributeTitle'>
+<p>This defines a <code>trigger</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: before, after, instead-of - <span class='inTextTitle'>Required</span></p><a name='trigger_event'></a>
+<br /><table class='attributeTitle' summary="event"><tr><td class='leftAttributeTitle'>
+@event</td><td class='rightAttributeTitle'>
 Attribute of <a href='#trigger'>trigger</a>
 </td></tr></table>
-<p>This defines a <code>trigger</code> element's attributes.</p><a name='trigger_on'></a>
-<br /><table class='attributeTitle' summary="on"><tr><td class='leftAttributeTitle'>
-@on</td><td class='rightAttributeTitle'>
+<p>This defines a <code>trigger</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: delete, insert, update - <span class='inTextTitle'>Required</span></p><a name='trigger_table'></a>
+<br /><table class='attributeTitle' summary="table"><tr><td class='leftAttributeTitle'>
+@table</td><td class='rightAttributeTitle'>
 Attribute of <a href='#trigger'>trigger</a>
 </td></tr></table>
 <p>This defines a <code>trigger</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='view'></a>
@@ -164,7 +188,8 @@ Attribute of <a href='#trigger'>trigger</a>
 &lt;view&gt;</td><td class='rightElementTitle'>
 Child of <a href='#database'>database</a>
 </td></tr></table>
-<p>This defines a <code>view</code> element. This element contains an SQL select statement.</p><blockquote><table summary='element info'><tr>
+<p>This defines a <code>view</code> element, which is a child of the <code>database</code> element. This
+element contains an SQL select statement in a CDATA block.</p><blockquote><table summary='element info'><tr>
 <td class='construct'><table  summary="&lt;view&gt;'s attributes"><tr>
 <th class='title' colspan='3'>&lt;view&gt;'s attributes</th>
 </tr>
@@ -172,7 +197,7 @@ Child of <a href='#database'>database</a>
 <tr>
 <th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
 <tr><th colspan='3' height='1' class='ruler'></th></tr>
-<tr><td><a href='#view_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#view_name'>name</a></td><td></td><td></td></tr></table></td></tr></table></blockquote>
+<tr><td><a href='#view_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#view_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#view_temporary'>temporary</a></td><td>true, false</td><td>false</td></tr></table></td></tr></table></blockquote>
 <a name='view_name'></a>
 <br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
 @name</td><td class='rightAttributeTitle'>
@@ -183,12 +208,24 @@ Attribute of <a href='#view'>view</a>
 @description</td><td class='rightAttributeTitle'>
 Attribute of <a href='#view'>view</a>
 </td></tr></table>
-<p>This defines a <code>view</code> element's attributes.</p><a name='column'></a>
+<p>This defines a <code>view</code> element's attributes.</p><a name='view_temporary'></a>
+<br /><table class='attributeTitle' summary="temporary"><tr><td class='leftAttributeTitle'>
+@temporary</td><td class='rightAttributeTitle'>
+Attribute of <a href='#view'>view</a>
+</td></tr></table>
+<p>This defines a <code>view</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: true, false - <span class='inTextTitle'>Default value</span>: false</p><a name='action'></a>
+<br /><table class='elementTitle' summary="action"><tr><td class='leftElementTitle'>
+&lt;action&gt;</td><td class='rightElementTitle'>
+Child of <a href='#trigger'>trigger</a>
+</td></tr></table>
+<p>This defines a <code>action</code> element, which is a child of the <code>trigger</code> element.
+This element contains an SQL select statement in a CDATA block.</p><a name='column'></a>
 <br /><table class='elementTitle' summary="column"><tr><td class='leftElementTitle'>
 &lt;column&gt;</td><td class='rightElementTitle'>
-Child of <a href='#index'>index</a>, <a href='#table'>table</a>
+Child of <a href='#trigger'>trigger</a>, <a href='#index'>index</a>, <a href='#table'>table</a>
 </td></tr></table>
-<p>This defines a <code>column</code> element.</p><blockquote><table summary='element info'><tr>
+<p>This defines a <code>column</code> element, which is a child of either the <code>index</code> element,
+the <code>table</code> element, or the <code>trigger</code> element.</p><blockquote><table summary='element info'><tr>
 <td class='construct'><table summary="&lt;column&gt;'s children">
 <thead>
 <tr><th class='title' colspan='2'>&lt;column&gt;'s children</th></tr>
@@ -203,7 +240,7 @@ Child of <a href='#index'>index</a>, <a href='#table'>table</a>
 <tr>
 <th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
 <tr><th colspan='3' height='1' class='ruler'></th></tr>
-<tr><td><a href='#column_auto-increment'>auto-increment</a></td><td>true, false</td><td></td></tr><tr><td><a href='#column_default'>default</a></td><td></td><td></td></tr><tr><td><a href='#column_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#column_key'>key</a></td><td>primary, unique</td><td></td></tr><tr><td><a href='#column_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#column_nullable'>nullable</a></td><td>true, false</td><td></td></tr><tr><td><a href='#column_scale'>scale</a></td><td></td><td></td></tr><tr><td><a href='#column_size'>size</a></td><td></td><td></td></tr><tr><td><a href='#column_type'>type</a></td><td>BINARY, BLOB, VARBINARY, CHAR, CHARACTER, CLOB, NATIONAL_VARYING_CHARACTER, NATIVE_CHARACTER, NCHAR, NVARCHAR, TEXT, VARCHAR, VARYING_CHARACTER, DATE, DATETIME, TIME, TIMESTAMP, BIGINT, BIT, BOOL, BOOLEAN, INT, INT2, INT8, INTEGER, MEDIUMINT, SMALLINT, TINYINT, NULL, DECIMAL, DOUBLE, DOUBLE_PRECISION, FLOAT, NUMERIC, REAL</td><td>NUMERIC</td></tr><tr><td><a href='#column_unsigned'>unsigned</a></td><td>true, false</td><td></td></tr></table></td></tr></table></blockquote>
+<tr><td><a href='#column_auto-increment'>auto-increment</a></td><td>true, false</td><td></td></tr><tr><td><a href='#column_default'>default</a></td><td></td><td></td></tr><tr><td><a href='#column_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#column_key'>key</a></td><td>primary, unique</td><td></td></tr><tr><td><a href='#column_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#column_nullable'>nullable</a></td><td>true, false</td><td></td></tr><tr><td><a href='#column_order'>order</a></td><td>ASC, DESC</td><td>ASC</td></tr><tr><td><a href='#column_scale'>scale</a></td><td></td><td></td></tr><tr><td><a href='#column_size'>size</a></td><td></td><td></td></tr><tr><td><a href='#column_type'>type</a></td><td>BINARY, BLOB, VARBINARY, CHAR, CHARACTER, CLOB, NATIONAL_VARYING_CHARACTER, NATIVE_CHARACTER, NCHAR, NVARCHAR, TEXT, VARCHAR, VARYING_CHARACTER, DATE, DATETIME, TIME, TIMESTAMP, BIGINT, BIT, BOOL, BOOLEAN, INT, INT2, INT8, INTEGER, MEDIUMINT, SMALLINT, TINYINT, NULL, DECIMAL, DOUBLE, DOUBLE_PRECISION, FLOAT, NUMERIC, REAL</td><td>NUMERIC</td></tr><tr><td><a href='#column_unsigned'>unsigned</a></td><td>true, false</td><td></td></tr></table></td></tr></table></blockquote>
 <span class='inTextTitle'>Element's model:</span><p class='model'>()</p><a name='column_name'></a>
 <br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
 @name</td><td class='rightAttributeTitle'>
@@ -254,7 +291,48 @@ Attribute of <a href='#column'>column</a>
 @auto-increment</td><td class='rightAttributeTitle'>
 Attribute of <a href='#column'>column</a>
 </td></tr></table>
-<p>This defines a <code>column</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: true, false</p><a name='foreign-key'></a>
+<p>This defines a <code>column</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: true, false</p><a name='column_order'></a>
+<br /><table class='attributeTitle' summary="order"><tr><td class='leftAttributeTitle'>
+@order</td><td class='rightAttributeTitle'>
+Attribute of <a href='#column'>column</a>
+</td></tr></table>
+<p>This defines a <code>column</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: ASC, DESC - <span class='inTextTitle'>Default value</span>: ASC</p><a name='when'></a>
+<br /><table class='elementTitle' summary="when"><tr><td class='leftElementTitle'>
+&lt;when&gt;</td><td class='rightElementTitle'>
+Child of <a href='#trigger'>trigger</a>
+</td></tr></table>
+<p>This defines a <code>when</code> element, which is a child of the <code>trigger</code> element.</p><blockquote><table summary='element info'><tr>
+<td class='construct'><table summary="&lt;when&gt;'s children">
+<thead>
+<tr><th class='title' colspan='2'>&lt;when&gt;'s children</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+<tr><th class='subtitle'>Name</th><th class='subtitle'>Cardinality</th></tr>
+<tr><th colspan='2' height='1' class='ruler'></th></tr>
+</thead>
+<tbody><tr><td>EMPTY</td></tbody></table></td><td class='construct'><table  summary="&lt;when&gt;'s attributes"><tr>
+<th class='title' colspan='3'>&lt;when&gt;'s attributes</th>
+</tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr>
+<th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
+<tr><th colspan='3' height='1' class='ruler'></th></tr>
+<tr><td><a href='#when_operand-1'>operand-1</a></td><td></td><td></td></tr><tr><td><a href='#when_operand-2'>operand-2</a></td><td></td><td></td></tr><tr><td><a href='#when_operator'>operator</a></td><td></td><td></td></tr></table></td></tr></table></blockquote>
+<span class='inTextTitle'>Element's model:</span><p class='model'>()</p><a name='when_operand-1'></a>
+<br /><table class='attributeTitle' summary="operand-1"><tr><td class='leftAttributeTitle'>
+@operand-1</td><td class='rightAttributeTitle'>
+Attribute of <a href='#when'>when</a>
+</td></tr></table>
+<p>This defines a <code>when</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='when_operator'></a>
+<br /><table class='attributeTitle' summary="operator"><tr><td class='leftAttributeTitle'>
+@operator</td><td class='rightAttributeTitle'>
+Attribute of <a href='#when'>when</a>
+</td></tr></table>
+<p>This defines a <code>when</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='when_operand-2'></a>
+<br /><table class='attributeTitle' summary="operand-2"><tr><td class='leftAttributeTitle'>
+@operand-2</td><td class='rightAttributeTitle'>
+Attribute of <a href='#when'>when</a>
+</td></tr></table>
+<p>This defines a <code>when</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='foreign-key'></a>
 <br /><table class='elementTitle' summary="foreign-key"><tr><td class='leftElementTitle'>
 &lt;foreign-key&gt;</td><td class='rightElementTitle'>
 Child of <a href='#table'>table</a>
@@ -276,7 +354,7 @@ this element is declared and another table.</p><blockquote><table summary='eleme
 <tr>
 <th class='subtitle'>Name</th><th class='subtitle'>Values</th><th class='subtitle'>Default</th></tr>
 <tr><th colspan='3' height='1' class='ruler'></th></tr>
-<tr><td><a href='#foreign-key_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_foreign-table'>foreign-table</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_onDelete'>onDelete</a></td><td>cascade, setnull, restrict, none</td><td>none</td></tr><tr><td><a href='#foreign-key_onUpdate'>onUpdate</a></td><td>cascade, setnull, restrict, none</td><td>none</td></tr></table></td></tr></table></blockquote>
+<tr><td><a href='#foreign-key_description'>description</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_foreign-table'>foreign-table</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_name'>name</a></td><td></td><td></td></tr><tr><td><a href='#foreign-key_on-delete'>on-delete</a></td><td>cascade, setnull, restrict, none</td><td>none</td></tr><tr><td><a href='#foreign-key_on-update'>on-update</a></td><td>cascade, setnull, restrict, none</td><td>none</td></tr></table></td></tr></table></blockquote>
 <span class='inTextTitle'>Element's model:</span><p class='model'>(<a href='#reference'>reference</a>+)</p><a name='foreign-key_name'></a>
 <br /><table class='attributeTitle' summary="name"><tr><td class='leftAttributeTitle'>
 @name</td><td class='rightAttributeTitle'>
@@ -292,14 +370,14 @@ Attribute of <a href='#foreign-key'>foreign-key</a>
 @foreign-table</td><td class='rightAttributeTitle'>
 Attribute of <a href='#foreign-key'>foreign-key</a>
 </td></tr></table>
-<p>This defines a <code>foreign-key</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='foreign-key_onUpdate'></a>
-<br /><table class='attributeTitle' summary="onUpdate"><tr><td class='leftAttributeTitle'>
-@onUpdate</td><td class='rightAttributeTitle'>
+<p>This defines a <code>foreign-key</code> element's attributes.</p><p><span class='inTextTitle'>Required</span></p><a name='foreign-key_on-update'></a>
+<br /><table class='attributeTitle' summary="on-update"><tr><td class='leftAttributeTitle'>
+@on-update</td><td class='rightAttributeTitle'>
 Attribute of <a href='#foreign-key'>foreign-key</a>
 </td></tr></table>
-<p>This defines a <code>foreign-key</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: cascade, setnull, restrict, none - <span class='inTextTitle'>Default value</span>: none</p><a name='foreign-key_onDelete'></a>
-<br /><table class='attributeTitle' summary="onDelete"><tr><td class='leftAttributeTitle'>
-@onDelete</td><td class='rightAttributeTitle'>
+<p>This defines a <code>foreign-key</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: cascade, setnull, restrict, none - <span class='inTextTitle'>Default value</span>: none</p><a name='foreign-key_on-delete'></a>
+<br /><table class='attributeTitle' summary="on-delete"><tr><td class='leftAttributeTitle'>
+@on-delete</td><td class='rightAttributeTitle'>
 Attribute of <a href='#foreign-key'>foreign-key</a>
 </td></tr></table>
 <p>This defines a <code>foreign-key</code> element's attributes.</p><p><span class='inTextTitle'>Possible values</span>: cascade, setnull, restrict, none - <span class='inTextTitle'>Default value</span>: none</p><a name='reference'></a>

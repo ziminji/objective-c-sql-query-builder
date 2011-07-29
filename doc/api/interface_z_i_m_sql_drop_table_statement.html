@@ -95,12 +95,13 @@ Public Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_table_statement.html#a2c2d0000c967eff06daeeb7edaf83441">_table</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_table_statement.html#ae027dc41530563dac412367a073c50b4">_exists</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_table_statement.html#a92f8196067ae3a3e10c5b88569b1ffb8">_stack</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_table_statement.html#a4902683f73d6c41613a9dd285c7104c9">_counter</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSError **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_table_statement.html#a86bb1336333b6c7df9adf22de01acb8c">_error</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL drop table statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-23 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_droptable.html">http://www.sqlite.org/lang_droptable.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="ada381401d2fe026d5df1f0f7d21f64ba"></a><!-- doxytag: member="ZIMSqlDropTableStatement::dealloc" ref="ada381401d2fe026d5df1f0f7d21f64ba" args="()" -->
@@ -173,7 +174,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-24 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://db.apache.org/ddlutils/">http://db.apache.org/ddlutils/</a> </dd>
 <dd>
 <a href="http://db.apache.org/ddlutils/schema/">http://db.apache.org/ddlutils/schema/</a> </dd></dl>
@@ -409,6 +410,19 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">- (BOOL) <a class="el" href="interface_z_i_m_sql_drop_table_statement.html#ae027dc41530563dac412367a073c50b4">_exists</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a92f8196067ae3a3e10c5b88569b1ffb8"></a><!-- doxytag: member="ZIMSqlDropTableStatement::_stack" ref="a92f8196067ae3a3e10c5b88569b1ffb8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSMutableArray*) <a class="el" href="interface_z_i_m_sql_drop_table_statement.html#a92f8196067ae3a3e10c5b88569b1ffb8">_stack</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>

@@ -20,17 +20,39 @@
 /*!
  @class					ZIMSqlCreateViewStatement
  @discussion			This class represents an SQL create view statement.
- @updated				2011-07-15
+ @updated				2011-07-29
  @see					http://www.sqlite.org/lang_createview.html
  */
-@interface ZIMSqlCreateViewStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
+@interface ZIMSqlCreateViewStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
 	
 	@protected
 		NSString *_view;
 		BOOL _temporary;
 		NSString *_statement;
-	
+		NSMutableArray *_stack;
+		NSString *_cdata;
+		NSInteger _counter;
+		NSError **_error;
+
 }
+/*!
+ @method				initWithXmlSchema:error:
+ @discussion			This method initializes the class via an XML file following Ziminji's "XML to DDL" schema.
+ @param xml	            The UTF-8 encoded string of XML.
+ @param error           Used when an error occurs while processing the XML data. May be NULL.
+ @return                An instance of this class.
+ @updated				2011-07-29
+ @see					http://db.apache.org/ddlutils/
+ @see					http://db.apache.org/ddlutils/schema/
+ */
+- (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error;
+/*!
+ @method				init
+ @discussion			This method initializes the class.
+ @return                An instance of this class.
+ @updated				2011-07-25
+ */
+- (id) init;
 /*!
  @method				view:
  @discussion			This method sets the name for the view in the SQL statement.
@@ -51,7 +73,7 @@
  @method				sql:
  @discussion			This method will set the SQL statement that will be used.
  @param statement		The SQL statement to be masked.
- @updated				2011-06-26
+ @updated				2011-07-27
  */
 - (void) sql: (NSString *)statement;
 /*!

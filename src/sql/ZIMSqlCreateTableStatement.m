@@ -26,7 +26,7 @@
 		_columnArray = [[NSMutableArray alloc] init];
 		_primaryKey = nil;
 		_unique = nil;
-        //_depth = 0;
+        _stack = [[NSMutableArray alloc] init];
         _counter = 0;
         _error = error;
         if (xml != nil) {
@@ -47,6 +47,7 @@
 - (void) dealloc {
 	[_columnDictionary release];
 	[_columnArray release];
+    [_stack release];
 	[super dealloc];
 }
 
@@ -161,11 +162,20 @@
 }
 
 - (void) parser: (NSXMLParser *)parser didStartElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName attributes: (NSDictionary *)attributes {
-    if (_counter < 1) {
-        if ([element isEqualToString: @"table"]) {
-            [self table: [attributes objectForKey: @"name"]];
+	[_stack addObject: element];
+	if (_counter < 1) {
+        NSString *xpath = [_stack componentsJoinedByString: @"/"];
+        if ([xpath isEqualToString: @"database/table"]) {
+            NSString *name = [attributes objectForKey: @"name"];
+			NSString *temporary = [attributes objectForKey: @"temporary"];
+			if ((temporary != nil) && [[temporary uppercaseString] boolValue]) {
+				[self table: name temporary: YES];
+			}
+			else {
+				[self table: name];
+			}
         }
-        else if ([element isEqualToString: @"column"]) {
+        else if ([xpath isEqualToString: @"database/table/column"]) {
             NSString *columnName = [attributes objectForKey: @"name"];
             NSString *columnType = [[[attributes objectForKey: @"type"] uppercaseString] stringByReplacingOccurrencesOfString: @"_" withString: @" "];
 			NSString *columnUnsigned = [attributes objectForKey: @"unsigned"];
@@ -210,9 +220,11 @@
 }
 
 - (void) parser: (NSXMLParser *)parser didEndElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName {
-    if ([element isEqualToString: @"table"]) {
+    NSString *xpath = [_stack componentsJoinedByString: @"/"];
+    if ([xpath isEqualToString: @"database/table"]) {
         _counter++;
     }
+	[_stack removeLastObject];
 }
 
 - (void) parser: (NSXMLParser *)parser parseErrorOccurred: (NSError *)error {

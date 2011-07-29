@@ -25,9 +25,9 @@
 /*!
  @method			construct
  @discussion		This method will construct the alter table statement using the parsed XML schema.
- @updated			2011-07-23
+ @updated			2011-07-29
  */
-- (void) construct;
+- (void) load;
 @end
 
 @implementation ZIMSqlAlterTableStatement
@@ -36,13 +36,12 @@
 	if ((self = [super init])) {
 		_table = nil;
 		_clause = nil;
-        //_depth = 0;
+        _stack = [[NSMutableArray alloc] init];
         _counter = 0;
         _error = error;
         if ((before != nil) && (after != nil)) {
 			_schema = [[NSMutableDictionary alloc] init];
-			NSXMLParser *parser;
-			parser = [[NSXMLParser alloc] initWithData: before];
+			NSXMLParser *parser = [[NSXMLParser alloc] initWithData: before];
 			[parser setDelegate: self];
 			BOOL successful = [parser parse];
 			[parser release];
@@ -53,7 +52,7 @@
             	successful = [parser parse];
             	[parser release];
 				if (successful) {
-					[self construct];
+					[self load];
 				}
 			}
 		}
@@ -70,6 +69,7 @@
 }
 
 - (void) dealloc {
+    [_stack release];
 	if (_schema != nil) { [_schema release]; }
 	[super dealloc];
 }
@@ -120,8 +120,10 @@
 }
 
 - (void) parser: (NSXMLParser *)parser didStartElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName attributes: (NSDictionary *)attributes {
-    if (_counter < 1) {
-        if ([element isEqualToString: @"database"]) {
+	[_stack addObject: element];
+	if (_counter < 1) {
+        NSString *xpath = [_stack componentsJoinedByString: @"/"];
+        if ([xpath isEqualToString: @"database"]) {
             NSMutableArray *array = [_schema objectForKey: @"database/@name"];
             if (array == nil) {
                 array = [[[NSMutableArray alloc] init] autorelease];
@@ -129,7 +131,7 @@
             }
             [array addObject: [attributes objectForKey: @"name"]];
         }
-        if ([element isEqualToString: @"table"]) {
+        else if ([xpath isEqualToString: @"database/table"]) {
             NSMutableArray *array = [_schema objectForKey: @"database/table/@name"];
             if (array == nil) {
                 array = [[[NSMutableArray alloc] init] autorelease];
@@ -137,7 +139,7 @@
             }
             [array addObject: [attributes objectForKey: @"name"]];
         }
-        else if ([element isEqualToString: @"column"]) {
+        else if ([xpath isEqualToString: @"database/table/column"]) {
             NSMutableArray *array = [_schema objectForKey: @"database/table/column/@*"];
             if (array == nil) {
                 array = [[[NSMutableArray alloc] init] autorelease];
@@ -149,9 +151,11 @@
 }
 
 - (void) parser: (NSXMLParser *)parser didEndElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName {
-    if ([element isEqualToString: @"table"]) {
-		_counter++;
-	}
+    NSString *xpath = [_stack componentsJoinedByString: @"/"];
+    if ([xpath isEqualToString: @"database/table"]) {
+        _counter++;
+    }
+	[_stack removeLastObject];
 }
 
 - (void) parser: (NSXMLParser *)parser parseErrorOccurred: (NSError *)error {
@@ -160,7 +164,7 @@
     }
 }
 
-- (void) construct {
+- (void) load {
     NSMutableArray *array = [_schema objectForKey: @"database/@name"];
     NSString *a0 = [array objectAtIndex: 0];
     NSString *a1 = [array objectAtIndex: 1];

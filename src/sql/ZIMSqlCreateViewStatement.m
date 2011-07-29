@@ -18,16 +18,32 @@
 
 @implementation ZIMSqlCreateViewStatement
 
-- (id) init {
+- (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error {
 	if ((self = [super init])) {
 		_view = nil;
 		_temporary = NO;
 		_statement = nil;
+        _stack = [[NSMutableArray alloc] init];
+		_cdata = nil;
+        _counter = 0;
+        _error = error;
+        if (xml != nil) {
+			NSXMLParser *parser = [[NSXMLParser alloc] initWithData: xml];
+			[parser setDelegate: self];
+			[parser parse];
+			[parser release];
+		}
 	}
 	return self;
 }
 
+- (id) init {
+    NSError *error;
+    return [self initWithXmlSchema: nil error: &error];
+}
+
 - (void) dealloc {
+    [_stack release];
 	[super dealloc];
 }
 
@@ -41,7 +57,7 @@
 }
 
 - (void) sql: (NSString *)statement {
-	_statement = statement;
+	_statement = [statement stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\n\r\t\f"]];
 }
 
 - (NSString *) statement {
@@ -60,6 +76,42 @@
 	[sql appendString: @";"];
 
 	return sql;
+}
+
+- (void) parser: (NSXMLParser *)parser didStartElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName attributes: (NSDictionary *)attributes {
+	[_stack addObject: element];
+	if (_counter < 1) {
+        NSString *xpath = [_stack componentsJoinedByString: @"/"];
+        if ([xpath isEqualToString: @"database/view"]) {
+			NSString *name = [attributes objectForKey: @"name"];
+			NSString *temporary = [attributes objectForKey: @"temporary"];
+			if ((temporary != nil) && [[temporary uppercaseString] boolValue]) {
+				[self view: name temporary: YES];
+			}
+			else {
+				[self view: name];
+			}
+        }
+    }
+}
+
+- (void) parser: (NSXMLParser *)parser didEndElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName {
+    NSString *xpath = [_stack componentsJoinedByString: @"/"];
+    if ([xpath isEqualToString: @"database/view"]) {
+		[self sql: _cdata];
+        _counter++;
+    }
+	[_stack removeLastObject];
+}
+
+- (void) parser: (NSXMLParser *)parser foundCDATA: (NSData *)CDATABlock {
+	_cdata = [[[NSString alloc] initWithData: CDATABlock encoding: NSUTF8StringEncoding] autorelease];
+}
+
+- (void) parser: (NSXMLParser *)parser parseErrorOccurred: (NSError *)error {
+    if (_error) {
+        *_error = error;
+    }
 }
 
 @end

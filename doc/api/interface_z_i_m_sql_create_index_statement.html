@@ -82,23 +82,33 @@ Inheritance diagram for ZIMSqlCreateIndexStatement:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#aae5506937cdd5eb90f9870a338cacb11">initWithXmlSchema:error:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a9444ace7ab58800ea396b816c8f8dd3f">init</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a1bdc835d132511114a0903a63e2fe11c">index:on:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#aa91c7cf88fd7ce5baf63deaa606b92f1">unique:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a1a0919d5f7998a01604755b491097fb3">column:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#ab38c5f151518b0368af8270413ae5d3a">column:descending:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a11bdfc94bdfe1295c034e00ad161d4f6">columns:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a368e1fbf2a24f9243be9e6bf14ef0c20">columns:descending:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a6bc6cdbdc352cb64daef36c3603c38ec">statement</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a9444ace7ab58800ea396b816c8f8dd3f">init</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a1d9241a7763ebcc9068daaa8c7666405">dealloc</a><code> [implementation]</code></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a2d34767d85e8baa4f6e58a60978b8f70">parser:didStartElement:namespaceURI:qualifiedName:attributes:</a><code> [implementation]</code></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a5db5e401c553c6396cbedc5541a986b4">parser:didEndElement:namespaceURI:qualifiedName:</a><code> [implementation]</code></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a6b7419a1be96071b9b0ff171f31f023c">parser:parseErrorOccurred:</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_index_statement.html#a219a0229530de8e9dfbc6fdca1f459d4">_index</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_index_statement.html#acf868597c1024994c12f8d5089528831">_table</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_index_statement.html#aaa44c820f637de53a41e9696aa8569ba">_unique</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableSet *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_index_statement.html#a02e421b0c4e8d974c4144a56706eada3">_column</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_index_statement.html#ae16bcca9999b546f0c0df0fb9d4300fe">_stack</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_index_statement.html#ac97e313130a95ad033b31d1d7d6806dc">_cdata</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_index_statement.html#a3251c7bd565f1a80d5ab2e7b4aa69e31">_counter</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSError **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_index_statement.html#a0fb361bbf9ee30b19b2295fd8891f0dc">_error</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL create index statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-15 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_createindex.html">http://www.sqlite.org/lang_createindex.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a1a0919d5f7998a01604755b491097fb3"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::column:" ref="a1a0919d5f7998a01604755b491097fb3" args="(NSString *column)" -->
@@ -123,7 +133,44 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-09 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-28 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab38c5f151518b0368af8270413ae5d3a"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::column:descending:" ref="ab38c5f151518b0368af8270413ae5d3a" args="(NSString *column,[descending] BOOL descending)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) column: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>column</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">descending:</td>
+          <td></td>
+          <td class="paramtype">(BOOL)&#160;</td>
+          <td class="paramname"><em>descending</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>column:descending: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method adds the specified column to be indexed. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">column</td><td>The column to be indexed. </td></tr>
+    <tr><td class="paramname">descending</td><td>This will determine whether the column should be ordered in descending order. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-28 </dd></dl>
 
 </div>
 </div>
@@ -149,7 +196,44 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-09 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-28 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a368e1fbf2a24f9243be9e6bf14ef0c20"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::columns:descending:" ref="a368e1fbf2a24f9243be9e6bf14ef0c20" args="(NSSet *columns,[descending] BOOL descending)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) columns: </td>
+          <td></td>
+          <td class="paramtype">(NSSet *)&#160;</td>
+          <td class="paramname"><em>columns</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">descending:</td>
+          <td></td>
+          <td class="paramtype">(BOOL)&#160;</td>
+          <td class="paramname"><em>descending</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>column:descending: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method adds the specified columns to be indexed. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">columns</td><td>The columns to be indexed. </td></tr>
+    <tr><td class="paramname">descending</td><td>This will determine whether the column should be ordered in descending order. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-28 </dd></dl>
 
 </div>
 </div>
@@ -214,7 +298,163 @@ Protected Attributes</h2></td></tr>
           <td class="memname">- (id) init </td>
           <td></td>
           <td class="paramname"></td>
-          <td><code> [implementation]</code></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>init </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method initializes the class. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-27 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aae5506937cdd5eb90f9870a338cacb11"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::initWithXmlSchema:error:" ref="aae5506937cdd5eb90f9870a338cacb11" args="(NSData *xml,[error] NSError **error)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (id) initWithXmlSchema: </td>
+          <td></td>
+          <td class="paramtype">(NSData *)&#160;</td>
+          <td class="paramname"><em>xml</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">error:</td>
+          <td></td>
+          <td class="paramtype">(NSError **)&#160;</td>
+          <td class="paramname"><em>error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>initWithXmlSchema:error: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method initializes the class via an XML file following Ziminji's "XML to DDL" schema. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xml</td><td>The UTF-8 encoded string of XML. </td></tr>
+    <tr><td class="paramname">error</td><td>Used when an error occurs while processing the XML data. May be NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://db.apache.org/ddlutils/">http://db.apache.org/ddlutils/</a> </dd>
+<dd>
+<a href="http://db.apache.org/ddlutils/schema/">http://db.apache.org/ddlutils/schema/</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5db5e401c553c6396cbedc5541a986b4"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::parser:didEndElement:namespaceURI:qualifiedName:" ref="a5db5e401c553c6396cbedc5541a986b4" args="(NSXMLParser *parser,[didEndElement] NSString *element,[namespaceURI] NSString *namespaceURI,[qualifiedName] NSString *qualifiedName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) parser: </td>
+          <td></td>
+          <td class="paramtype">(NSXMLParser *)&#160;</td>
+          <td class="paramname"><em>parser</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">didEndElement:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>element</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">namespaceURI:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>namespaceURI</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">qualifiedName:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>qualifiedName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td><code> [implementation]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2d34767d85e8baa4f6e58a60978b8f70"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::parser:didStartElement:namespaceURI:qualifiedName:attributes:" ref="a2d34767d85e8baa4f6e58a60978b8f70" args="(NSXMLParser *parser,[didStartElement] NSString *element,[namespaceURI] NSString *namespaceURI,[qualifiedName] NSString *qualifiedName,[attributes] NSDictionary *attributes)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) parser: </td>
+          <td></td>
+          <td class="paramtype">(NSXMLParser *)&#160;</td>
+          <td class="paramname"><em>parser</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">didStartElement:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>element</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">namespaceURI:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>namespaceURI</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">qualifiedName:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>qualifiedName</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">attributes:</td>
+          <td></td>
+          <td class="paramtype">(NSDictionary *)&#160;</td>
+          <td class="paramname"><em>attributes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td><code> [implementation]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6b7419a1be96071b9b0ff171f31f023c"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::parser:parseErrorOccurred:" ref="a6b7419a1be96071b9b0ff171f31f023c" args="(NSXMLParser *parser,[parseErrorOccurred] NSError *error)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) parser: </td>
+          <td></td>
+          <td class="paramtype">(NSXMLParser *)&#160;</td>
+          <td class="paramname"><em>parser</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">parseErrorOccurred:</td>
+          <td></td>
+          <td class="paramtype">(NSError *)&#160;</td>
+          <td class="paramname"><em>error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td><code> [implementation]</code></td>
         </tr>
       </table>
 </div>
@@ -271,6 +511,19 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ac97e313130a95ad033b31d1d7d6806dc"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::_cdata" ref="ac97e313130a95ad033b31d1d7d6806dc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (<a class="el" href="class_n_s_string.html">NSString</a>*) <a class="el" href="interface_z_i_m_sql_create_index_statement.html#ac97e313130a95ad033b31d1d7d6806dc">_cdata</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a02e421b0c4e8d974c4144a56706eada3"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::_column" ref="a02e421b0c4e8d974c4144a56706eada3" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -284,12 +537,51 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a3251c7bd565f1a80d5ab2e7b4aa69e31"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::_counter" ref="a3251c7bd565f1a80d5ab2e7b4aa69e31" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSInteger) <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a3251c7bd565f1a80d5ab2e7b4aa69e31">_counter</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0fb361bbf9ee30b19b2295fd8891f0dc"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::_error" ref="a0fb361bbf9ee30b19b2295fd8891f0dc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSError**) <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a0fb361bbf9ee30b19b2295fd8891f0dc">_error</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a219a0229530de8e9dfbc6fdca1f459d4"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::_index" ref="a219a0229530de8e9dfbc6fdca1f459d4" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (<a class="el" href="class_n_s_string.html">NSString</a>*) <a class="el" href="interface_z_i_m_sql_create_index_statement.html#a219a0229530de8e9dfbc6fdca1f459d4">_index</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae16bcca9999b546f0c0df0fb9d4300fe"></a><!-- doxytag: member="ZIMSqlCreateIndexStatement::_stack" ref="ae16bcca9999b546f0c0df0fb9d4300fe" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (NSMutableArray*) <a class="el" href="interface_z_i_m_sql_create_index_statement.html#ae16bcca9999b546f0c0df0fb9d4300fe">_stack</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
