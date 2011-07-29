@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlAlterTableStatement
  @discussion			This class represents an SQL alter table statement.
- @updated				2011-07-23
+ @updated				2011-07-29
  @see					http://www.sqlite.org/lang_altertable.html
  */
 @interface ZIMSqlAlterTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
@@ -29,7 +29,7 @@
 		NSString *_table;
 		NSString *_clause;
 		NSMutableDictionary *_schema;
-        //NSInteger _depth;
+		NSMutableArray *_stack;
 		NSInteger _counter;
 		NSError **_error;
 
@@ -41,7 +41,7 @@
  @param after			The UTF-8 encoded string of XML with the changes.
  @param error           Used when an error occurs while processing the XML data. May be NULL.
  @return                An instance of this class.
- @updated				2011-07-24
+ @updated				2011-07-29
  @see					http://db.apache.org/ddlutils/
  @see					http://db.apache.org/ddlutils/schema/
  */

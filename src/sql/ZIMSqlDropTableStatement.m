@@ -22,7 +22,7 @@
 	if ((self = [super init])) {
 		_table = nil;
 		_exists = NO;
-        //_depth = 0;
+        _stack = [[NSMutableArray alloc] init];
         _counter = 0;
         _error = error;
         if (xml != nil) {
@@ -41,6 +41,7 @@
 }
 
 - (void) dealloc {
+    [_stack release];
 	[super dealloc];
 }
 
@@ -70,17 +71,21 @@
 }
 
 - (void) parser: (NSXMLParser *)parser didStartElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName attributes: (NSDictionary *)attributes {
-    if (_counter < 1) {
-        if ([element isEqualToString: @"table"]) {
-            [self table: [attributes objectForKey: @"name"]];
-        }
-    }
+	[_stack addObject: element];
+	if (_counter < 1) {
+        NSString *xpath = [_stack componentsJoinedByString: @"/"];
+        if ([xpath isEqualToString: @"database/table"]) {
+			[self table: [attributes objectForKey: @"name"]];
+		}
+	}
 }
 
 - (void) parser: (NSXMLParser *)parser didEndElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName {
-    if ([element isEqualToString: @"table"]) {
-		_counter++;
-	}
+    NSString *xpath = [_stack componentsJoinedByString: @"/"];
+    if ([xpath isEqualToString: @"database/table"]) {
+        _counter++;
+    }
+	[_stack removeLastObject];
 }
 
 - (void) parser: (NSXMLParser *)parser parseErrorOccurred: (NSError *)error {
