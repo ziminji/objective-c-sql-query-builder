@@ -78,20 +78,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00017"></a>00017 <span class="preprocessor">#import &quot;<a class="code" href="_z_i_m_sql_statement_8h.html">ZIMSqlStatement.h</a>&quot;</span>
 <a name="l00018"></a>00018 <span class="preprocessor">#import &quot;<a class="code" href="_z_i_m_sql_data_definition_command_8h.html">ZIMSqlDataDefinitionCommand.h</a>&quot;</span>
 <a name="l00019"></a>00019 
-<a name="l00026"></a><a class="code" href="interface_z_i_m_sql_create_view_statement.html">00026</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_create_view_statement.html">ZIMSqlCreateViewStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>, <a class="code" href="protocol_z_i_m_sql_data_definition_command-p.html">ZIMSqlDataDefinitionCommand</a>&gt; {
+<a name="l00026"></a><a class="code" href="interface_z_i_m_sql_create_view_statement.html">00026</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_create_view_statement.html">ZIMSqlCreateViewStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>, <a class="code" href="protocol_z_i_m_sql_data_definition_command-p.html">ZIMSqlDataDefinitionCommand</a>, NSXMLParserDelegate&gt; {
 <a name="l00027"></a>00027         
 <a name="l00028"></a>00028         <span class="keyword">@protected</span>
 <a name="l00029"></a><a class="code" href="interface_z_i_m_sql_create_view_statement.html#a159e50250609332e41c66b07f1c2c2e6">00029</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_create_view_statement.html#a159e50250609332e41c66b07f1c2c2e6">_view</a>;
 <a name="l00030"></a><a class="code" href="interface_z_i_m_sql_create_view_statement.html#a93f7765ae55b9ae55b5bb12951604c65">00030</a>                 BOOL <a class="code" href="interface_z_i_m_sql_create_view_statement.html#a93f7765ae55b9ae55b5bb12951604c65">_temporary</a>;
 <a name="l00031"></a><a class="code" href="interface_z_i_m_sql_create_view_statement.html#af15b6cca6fd745f8cdc23a1bea65e637">00031</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_create_view_statement.html#af15b6cca6fd745f8cdc23a1bea65e637">_statement</a>;
-<a name="l00032"></a>00032         
-<a name="l00033"></a>00033 }
-<a name="l00040"></a>00040 - (void) view: (<a class="code" href="class_n_s_string.html">NSString</a> *)view;
-<a name="l00049"></a>00049 - (void) view: (<a class="code" href="class_n_s_string.html">NSString</a> *)view temporary: (BOOL)temporary;
-<a name="l00056"></a>00056 - (void) sql: (<a class="code" href="class_n_s_string.html">NSString</a> *)statement;
-<a name="l00063"></a>00063 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 <span class="keyword">@end</span>
+<a name="l00032"></a><a class="code" href="interface_z_i_m_sql_create_view_statement.html#ae53e3e1918d2cae9206db5afa048cc7e">00032</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_create_view_statement.html#ae53e3e1918d2cae9206db5afa048cc7e">_stack</a>;
+<a name="l00033"></a><a class="code" href="interface_z_i_m_sql_create_view_statement.html#a8a8be939c861da70158ccd64cf9d08d4">00033</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_create_view_statement.html#a8a8be939c861da70158ccd64cf9d08d4">_cdata</a>;
+<a name="l00034"></a><a class="code" href="interface_z_i_m_sql_create_view_statement.html#ad6a350ba5d5ad35de11ba72958f5d220">00034</a>                 NSInteger <a class="code" href="interface_z_i_m_sql_create_view_statement.html#ad6a350ba5d5ad35de11ba72958f5d220">_counter</a>;
+<a name="l00035"></a><a class="code" href="interface_z_i_m_sql_create_view_statement.html#a606b87fbd0c3e8c40a5c42f0ff41a0af">00035</a>                 NSError **<a class="code" href="interface_z_i_m_sql_create_view_statement.html#a606b87fbd0c3e8c40a5c42f0ff41a0af">_error</a>;
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 }
+<a name="l00048"></a>00048 - (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error;
+<a name="l00055"></a>00055 - (id) init;
+<a name="l00062"></a>00062 - (void) view: (<a class="code" href="class_n_s_string.html">NSString</a> *)view;
+<a name="l00071"></a>00071 - (void) view: (<a class="code" href="class_n_s_string.html">NSString</a> *)view temporary: (BOOL)temporary;
+<a name="l00078"></a>00078 - (void) sql: (<a class="code" href="class_n_s_string.html">NSString</a> *)statement;
+<a name="l00085"></a>00085 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->

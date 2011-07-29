@@ -16,8 +16,8 @@
  under the License.
 
  @title					Ziminji's XML database schema DTD for SQLite
- @doctype				database SYSTEM "xml/schema/database.dtd"
- @hidden				Updated: 2011-07-24
+ @doctype				database SYSTEM "xml/database.dtd"
+ @hidden				Updated: 2011-07-29
 -->
 
 <!--
@@ -39,7 +39,7 @@
 >
 
 <!--
- This defines a <code>index</code> element.
+ This defines a <code>index</code> element, which is a child of the <code>database</code> element.
 -->
 <!ELEMENT index (column+)>
 
@@ -48,32 +48,42 @@
  
  @attr name				The name of the index.
  @attr description		A simple description of the index.
+ @attr table			The name of table that the index is on.
+ @attr unique			Indicates whether the index is unique.
 -->
 <!ATTLIST index
 	name CDATA #REQUIRED
 	description CDATA #IMPLIED
+	table CDATA #REQUIRED
+	unique (
+		true | false
+	) "false"
 >
 
 <!--
- This defines a <code>table</code> element.
+ This defines a <code>table</code> element, which is a child of the <code>database</code> element.
 -->
-<!ELEMENT table (column+, index*, foreign-key*)>
+<!ELEMENT table (column+, foreign-key*)>
 
 <!--
  This defines a <code>table</code> element's attributes.
  
  @attr name				The name of the table.
  @attr description		A simple description of the table.
+ @attr temporary		Indicates whether the table is temporary.
 -->
 <!ATTLIST table
 	name CDATA #REQUIRED
 	description CDATA #IMPLIED
+	temporary (
+		true | false
+	) "false"
 >
 
 <!--
- This defines a <code>trigger</code> element.
+ This defines a <code>trigger</code> element, which is a child of the <code>database</code> element.
 -->
-<!ELEMENT trigger (#PCDATA)>
+<!ELEMENT trigger (column*, when*, action+)>
 
 <!--
  This defines a <code>trigger</code> element's attributes.
@@ -82,26 +92,27 @@
  @attr description		A simple description of the trigger.
  @attr temporary		Indicates whether the trigger is temporary.
  @attr advice			Indicates when the logic will be triggered.
- @attr of				The name of the column that triggers the logic (when doing an update).
- @attr on				The name of the table that triggers the logic.
+ @attr of-column		The name of the column that triggers the logic (when doing an update).
+ @attr on-table			The name of the table that triggers the logic.
 -->
 <!ATTLIST trigger
 	name CDATA #REQUIRED
 	description CDATA #IMPLIED
 	temporary (
 		true | false
-	) #IMPLIED
+	) "false"
 	advice (
-		before-delete | before-insert | before-update |
-		after-delete | after-insert | after-delete |
-		instead-of-delete | instead-of-insert | instead-of-delete
+		before | after | instead-of
 	) #REQUIRED
-	of CDATA #IMPLIED
-	on CDATA #REQUIRED
+	event (
+		delete | insert | update
+	) #REQUIRED
+	table CDATA #REQUIRED
 >
 
 <!--
- This defines a <code>view</code> element.  This element contains an SQL select statement.
+ This defines a <code>view</code> element, which is a child of the <code>database</code> element.  This
+ element contains an SQL select statement in a CDATA block.
  
  @example				<view name="subscriptions"><![CDATA[ SELECT [person.id], [email.address] FROM [person] LEFT JOIN [email] ON ([email.id] = [person.emailid]); ]]></view>
 -->
@@ -112,14 +123,27 @@
  
  @attr name				The name of the view.
  @attr description		A simple description of the view.
+ @attr temporary		Indicates whether the view is temporary.
 -->
 <!ATTLIST view
 	name CDATA #REQUIRED
 	description CDATA #IMPLIED
+	temporary (
+		true | false
+	) "false"
 >
 
 <!--
- This defines a <code>column</code> element.
+ This defines a <code>action</code> element, which is a child of the <code>trigger</code> element.
+ This element contains an SQL select statement in a CDATA block.
+ 
+ @example				<action><![CDATA[ SELECT [person.id], [email.address] FROM [person] LEFT JOIN [email] ON ([email.id] = [person.emailid]); ]]></action>
+-->
+<!ELEMENT action (#PCDATA)>
+
+<!--
+ This defines a <code>column</code> element, which is a child of either the <code>index</code> element,
+ the <code>table</code> element, or the <code>trigger</code> element.
 -->
 <!ELEMENT column (EMPTY)>
 
@@ -128,12 +152,14 @@
  
  @attr name				The name of the column.
  @attr description		A simple description of the column.
- @attr type				The column's datatype.
- @attr unsigned			Indicates whether the column's datatype is unsigned.
+ @attr type				The column's data type.
+ @attr unsigned			Indicates whether the column's data type is unsigned.
  @attr size				The size/precision of the column.
  @attr scale			The number of digit that may appear after the decimal point.
- @attr primaryKey		Indicates whether the column is a primary key.
- @attr autoIncrement	Indicates whether the column is auto incremented.
+ @attr default			The default value for the column.
+ @attr nullable			Indicates whether the column can be NULL.
+ @attr key				Indicates whether the column is either a primary key or an unique key.
+ @attr auto-increment	Indicates whether the column is auto incremented.
 -->
 <!ATTLIST column
 	name CDATA #REQUIRED
@@ -161,6 +187,27 @@
 	auto-increment (
 		true | false
 	) #IMPLIED
+	order (
+		ASC | DESC
+	) "ASC"
+>
+
+<!--
+ This defines a <code>when</code> element, which is a child of the <code>trigger</code> element.
+-->
+<!ELEMENT when (EMPTY)>
+
+<!--
+ This defines a <code>when</code> element's attributes.
+ 
+ @attr operand-1		The first operand in the expression.
+ @attr operator			The operator symbol.
+ @attr operand-2		The second operand in the expression.
+-->
+<!ATTLIST when
+	operand-1 CDATA #REQUIRED
+	operator CDATA #REQUIRED
+	operand-2 CDATA #REQUIRED
 >
 
 <!--
@@ -175,7 +222,7 @@
  @attr name				The name of the foreign key.
  @attr description		A simple description of the foreign key.
  @attr foreign-table	The name of the foreign table.
- @attr onUpdate			Specifies the action to perform when the value in the referenced column
+ @attr on-update		Specifies the action to perform when the value in the referenced column
                    		in the foreign table is changed:
                    		<dl>
                    		<dt>cascade</dt><dd>Change the value of the local column accordingly.</dd>
@@ -185,7 +232,7 @@
                    		differently, but usually it is synonymous with <code>none</code>.</dd>
                    		<dt>none</dt><dd>The value of the local column remains unchanged.</dd>
                    		<br><b>Note: This attribute is currently ignored by DdlUtils.</b>
- @attr onDelete			Specifies the action to perform when the referenced row in the foreign
+ @attr on-delete		Specifies the action to perform when the referenced row in the foreign
                    		table is deleted:
                    		<dl>
                    		<dt>cascade</dt><dd>Delete the local row.</dd>
@@ -200,10 +247,10 @@
 	name CDATA #REQUIRED
 	description CDATA #IMPLIED
 	foreign-table CDATA #REQUIRED
-	onUpdate (
+	on-update (
 		cascade | setnull | restrict | none
 	) "none"
-	onDelete (
+	on-delete (
 		cascade | setnull | restrict | none
 	) "none"
 >

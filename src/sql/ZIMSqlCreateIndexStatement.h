@@ -20,18 +20,40 @@
 /*!
  @class					ZIMSqlCreateIndexStatement
  @discussion			This class represents an SQL create index statement.
- @updated				2011-07-15
+ @updated				2011-07-29
  @see					http://www.sqlite.org/lang_createindex.html
  */
-@interface ZIMSqlCreateIndexStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand> {
+@interface ZIMSqlCreateIndexStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
 
 	@protected
 		NSString *_index;
 		NSString *_table;
 		BOOL _unique;
 		NSMutableSet *_column;
+		NSMutableArray *_stack;
+		NSString *_cdata;
+		NSInteger _counter;
+		NSError **_error;
 
 }
+/*!
+ @method				initWithXmlSchema:error:
+ @discussion			This method initializes the class via an XML file following Ziminji's "XML to DDL" schema.
+ @param xml	            The UTF-8 encoded string of XML.
+ @param error           Used when an error occurs while processing the XML data. May be NULL.
+ @return                An instance of this class.
+ @updated				2011-07-29
+ @see					http://db.apache.org/ddlutils/
+ @see					http://db.apache.org/ddlutils/schema/
+ */
+- (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error;
+/*!
+ @method				init
+ @discussion			This method initializes the class.
+ @return                An instance of this class.
+ @updated				2011-07-27
+ */
+- (id) init;
 /*!
  @method				index:on:
  @discussion			This method defines an index on the specified table.
@@ -51,16 +73,32 @@
  @method				column:
  @discussion			This method adds the specified column to be indexed.
  @param column			The column to be indexed.
- @updated				2011-07-09
+ @updated				2011-07-28
  */
 - (void) column: (NSString *)column;
+/*!
+ @method				column:descending:
+ @discussion			This method adds the specified column to be indexed.
+ @param column			The column to be indexed.
+ @param descending		This will determine whether the column should be ordered in descending order.
+ @updated				2011-07-28
+ */
+- (void) column: (NSString *)column descending: (BOOL)descending;
 /*!
  @method				columns:
  @discussion			This method adds the specified columns to be indexed.
  @param columns			The columns to be indexed.
- @updated				2011-07-09
+ @updated				2011-07-28
  */
 - (void) columns: (NSSet *)columns;
+/*!
+ @method				column:descending:
+ @discussion			This method adds the specified columns to be indexed.
+ @param columns			The columns to be indexed.
+ @param descending		This will determine whether the column should be ordered in descending order.
+ @updated				2011-07-28
+ */
+- (void) columns: (NSSet *)columns descending: (BOOL)descending;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.

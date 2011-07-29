@@ -18,23 +18,35 @@
 
 @implementation ZIMSqlCreateIndexStatement
 
-- (id) init {
+- (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error {
 	if ((self = [super init])) {
 		_unique = NO;
 		_index = nil;
 		_table = nil;
 		_column = [[NSMutableSet alloc] init];
+        _stack = [[NSMutableArray alloc] init];
+		_cdata = nil;
+        _counter = 0;
+        _error = error;
+        if (xml != nil) {
+			NSXMLParser *parser = [[NSXMLParser alloc] initWithData: xml];
+			[parser setDelegate: self];
+			[parser parse];
+			[parser release];
+		}
 	}
 	return self;
 }
 
-- (void) dealloc {
-	[_column release];
-	[super dealloc];
+- (id) init {
+    NSError *error;
+    return [self initWithXmlSchema: nil error: &error];
 }
 
-- (void) unique: (BOOL)unique {
-	_unique = unique;
+- (void) dealloc {
+	[_column release];
+    [_stack release];
+	[super dealloc];
 }
 
 - (void) index: (NSString *)index on: (NSString *)table {
@@ -42,13 +54,25 @@
 	_table = [ZIMSqlExpression prepareIdentifier: table];
 }
 
+- (void) unique: (BOOL)unique {
+	_unique = unique;
+}
+
 - (void) column: (NSString *)column {
-	[_column addObject: [ZIMSqlExpression prepareIdentifier: column]];
+    [self column: column descending: NO];
+}
+
+- (void) column: (NSString *)column descending: (BOOL)descending {
+	[_column addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareSortOrder: descending]]];
 }
 
 - (void) columns: (NSSet *)columns {
+    [self columns: columns descending: NO];
+}
+
+- (void) columns: (NSSet *)columns descending: (BOOL)descending {
 	for (NSString *column in columns) {
-		[_column addObject: [ZIMSqlExpression prepareIdentifier: column]];
+		[self column: column descending: descending];
 	}
 }
 
@@ -70,6 +94,44 @@
 	[sql appendString: @";"];
 
 	return sql;
+}
+
+- (void) parser: (NSXMLParser *)parser didStartElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName attributes: (NSDictionary *)attributes {
+	[_stack addObject: element];
+	if (_counter < 1) {
+        NSString *xpath = [_stack componentsJoinedByString: @"/"];
+        if ([xpath isEqualToString: @"database/index"]) {
+            [self index: [attributes objectForKey: @"name"] on: [attributes objectForKey: @"table"]];
+            NSString *unique = [attributes objectForKey: @"unique"];
+			if ((unique != nil) && [[unique uppercaseString] boolValue]) {
+				[self unique: YES];
+			}
+        }
+        else if ([xpath isEqualToString: @"database/index/column"]) {
+            NSString *name = [attributes objectForKey: @"name"];
+            NSString *order = [attributes objectForKey: @"order"];
+			if ((order != nil) && [[order uppercaseString] isEqualToString: @"DESC"]) {
+				[self column: name descending: YES];
+			}
+            else {
+                [self column: name];
+            }
+        }
+    }
+}
+
+- (void) parser: (NSXMLParser *)parser didEndElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName {
+    NSString *xpath = [_stack componentsJoinedByString: @"/"];
+	if ([xpath isEqualToString: @"database/index"]) {
+		_counter++;
+	}
+	[_stack removeLastObject];
+}
+
+- (void) parser: (NSXMLParser *)parser parseErrorOccurred: (NSError *)error {
+    if (_error) {
+        *_error = error;
+    }
 }
 
 @end

@@ -22,8 +22,8 @@
 <span class="dtd_comment"> under the License.</span>
 
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@title</span><span class="dtd_comment">                 Ziminji's XML database schema DTD for SQLite</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@doctype</span><span class="dtd_comment">               database SYSTEM &quot;xml/schema/database.dtd&quot;</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@hidden</span><span class="dtd_comment">                Updated: 2011-07-24</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@doctype</span><span class="dtd_comment">               database SYSTEM &quot;xml/database.dtd&quot;</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@hidden</span><span class="dtd_comment">                Updated: 2011-07-29</span>
 <span class="dtd_comment">--&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
@@ -45,7 +45,7 @@
 <span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment"> This defines a &lt;code&gt;index&lt;/code&gt; element.</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;index&lt;/code&gt; element, which is a child of the &lt;code&gt;database&lt;/code&gt; element.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">index</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">column</span><span class="dtd_plain">+)</span><span class="dtd_tag_symbols">&gt;</span>
 
@@ -54,32 +54,42 @@
 <span class="dtd_comment"> </span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the index.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the index.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr table</span><span class="dtd_comment">            The name of table that the index is on.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr unique</span><span class="dtd_comment">           Indicates whether the index is unique.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">index</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">table</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">unique</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">true</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">false</span>
+<span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
 <span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment"> This defines a &lt;code&gt;table&lt;/code&gt; element.</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;table&lt;/code&gt; element, which is a child of the &lt;code&gt;database&lt;/code&gt; element.</span>
 <span class="dtd_comment">--&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">table</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">column</span><span class="dtd_plain">+, </span><span class="dtd_attribute_name">index</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">foreign-key</span><span class="dtd_plain">*)</span><span class="dtd_tag_symbols">&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">table</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">column</span><span class="dtd_plain">+, </span><span class="dtd_attribute_name">foreign-key</span><span class="dtd_plain">*)</span><span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
 <span class="dtd_comment"> This defines a &lt;code&gt;table&lt;/code&gt; element's attributes.</span>
 <span class="dtd_comment"> </span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the table.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the table.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr temporary</span><span class="dtd_comment">        Indicates whether the table is temporary.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">table</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">temporary</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">true</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">false</span>
+<span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
 <span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment"> This defines a &lt;code&gt;trigger&lt;/code&gt; element.</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;trigger&lt;/code&gt; element, which is a child of the &lt;code&gt;database&lt;/code&gt; element.</span>
 <span class="dtd_comment">--&gt;</span>
-<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">trigger</span><span class="dtd_plain"> (</span><span class="dtd_keyword">#PCDATA</span><span class="dtd_plain">)</span><span class="dtd_tag_symbols">&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">trigger</span><span class="dtd_plain"> (</span><span class="dtd_attribute_name">column</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">when</span><span class="dtd_plain">*, </span><span class="dtd_attribute_name">action</span><span class="dtd_plain">+)</span><span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
 <span class="dtd_comment"> This defines a &lt;code&gt;trigger&lt;/code&gt; element's attributes.</span>
@@ -88,26 +98,27 @@
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the trigger.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr temporary</span><span class="dtd_comment">        Indicates whether the trigger is temporary.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr advice</span><span class="dtd_comment">           Indicates when the logic will be triggered.</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr of</span><span class="dtd_comment">               The name of the column that triggers the logic (when doing an update).</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr on</span><span class="dtd_comment">               The name of the table that triggers the logic.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr of-column</span><span class="dtd_comment">        The name of the column that triggers the logic (when doing an update).</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr on-table</span><span class="dtd_comment">         The name of the table that triggers the logic.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">trigger</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">temporary</span><span class="dtd_plain"> (</span>
 <span class="dtd_plain">        </span><span class="dtd_attribute_name">true</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">false</span>
-<span class="dtd_plain">    ) </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">advice</span><span class="dtd_plain"> (</span>
-<span class="dtd_plain">        </span><span class="dtd_attribute_name">before-delete</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">before-insert</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">before-update</span><span class="dtd_plain"> |</span>
-<span class="dtd_plain">        </span><span class="dtd_attribute_name">after-delete</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">after-insert</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">after-delete</span><span class="dtd_plain"> |</span>
-<span class="dtd_plain">        </span><span class="dtd_attribute_name">instead-of-delete</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">instead-of-insert</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">instead-of-delete</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">before</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">after</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">instead-of</span>
 <span class="dtd_plain">    ) </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">    </span><span class="dtd_attribute_name">of</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
-<span class="dtd_plain">    </span><span class="dtd_attribute_name">on</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">event</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">delete</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">insert</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">update</span>
+<span class="dtd_plain">    ) </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">table</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment"> This defines a &lt;code&gt;view&lt;/code&gt; element.  This element contains an SQL select statement.</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;view&lt;/code&gt; element, which is a child of the &lt;code&gt;database&lt;/code&gt; element.  This</span>
+<span class="dtd_comment"> element contains an SQL select statement in a CDATA block.</span>
 <span class="dtd_comment"> </span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@example</span><span class="dtd_comment">               &lt;view name=&quot;subscriptions&quot;&gt;&lt;![CDATA[ SELECT [person.id], [email.address] FROM [person] LEFT JOIN [email] ON ([email.id] = [person.emailid]); ]]&gt;&lt;/view&gt;</span>
 <span class="dtd_comment">--&gt;</span>
@@ -118,14 +129,27 @@
 <span class="dtd_comment"> </span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the view.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the view.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr temporary</span><span class="dtd_comment">        Indicates whether the view is temporary.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">view</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">temporary</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">true</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">false</span>
+<span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;false&quot;</span>
 <span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
-<span class="dtd_comment"> This defines a &lt;code&gt;column&lt;/code&gt; element.</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;action&lt;/code&gt; element, which is a child of the &lt;code&gt;trigger&lt;/code&gt; element.</span>
+<span class="dtd_comment"> This element contains an SQL select statement in a CDATA block.</span>
+<span class="dtd_comment"> </span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@example</span><span class="dtd_comment">               &lt;action&gt;&lt;![CDATA[ SELECT [person.id], [email.address] FROM [person] LEFT JOIN [email] ON ([email.id] = [person.emailid]); ]]&gt;&lt;/action&gt;</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">action</span><span class="dtd_plain"> (</span><span class="dtd_keyword">#PCDATA</span><span class="dtd_plain">)</span><span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;column&lt;/code&gt; element, which is a child of either the &lt;code&gt;index&lt;/code&gt; element,</span>
+<span class="dtd_comment"> the &lt;code&gt;table&lt;/code&gt; element, or the &lt;code&gt;trigger&lt;/code&gt; element.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">column</span><span class="dtd_plain"> (</span><span class="dtd_keyword">EMPTY</span><span class="dtd_plain">)</span><span class="dtd_tag_symbols">&gt;</span>
 
@@ -134,12 +158,14 @@
 <span class="dtd_comment"> </span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the column.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the column.</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr type</span><span class="dtd_comment">             The column's datatype.</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr unsigned</span><span class="dtd_comment">         Indicates whether the column's datatype is unsigned.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr type</span><span class="dtd_comment">             The column's data type.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr unsigned</span><span class="dtd_comment">         Indicates whether the column's data type is unsigned.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr size</span><span class="dtd_comment">             The size/precision of the column.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr scale</span><span class="dtd_comment">            The number of digit that may appear after the decimal point.</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr primaryKey</span><span class="dtd_comment">       Indicates whether the column is a primary key.</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr autoIncrement</span><span class="dtd_comment">    Indicates whether the column is auto incremented.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr default</span><span class="dtd_comment">          The default value for the column.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr nullable</span><span class="dtd_comment">         Indicates whether the column can be NULL.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr key</span><span class="dtd_comment">              Indicates whether the column is either a primary key or an unique key.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr auto-increment</span><span class="dtd_comment">   Indicates whether the column is auto incremented.</span>
 <span class="dtd_comment">--&gt;</span>
 <span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">column</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
@@ -167,6 +193,27 @@
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">auto-increment</span><span class="dtd_plain"> (</span>
 <span class="dtd_plain">        </span><span class="dtd_attribute_name">true</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">false</span>
 <span class="dtd_plain">    ) </span><span class="dtd_keyword">#IMPLIED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">order</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">        </span><span class="dtd_attribute_name">ASC</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">DESC</span>
+<span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;ASC&quot;</span>
+<span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;when&lt;/code&gt; element, which is a child of the &lt;code&gt;trigger&lt;/code&gt; element.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ELEMENT</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">when</span><span class="dtd_plain"> (</span><span class="dtd_keyword">EMPTY</span><span class="dtd_plain">)</span><span class="dtd_tag_symbols">&gt;</span>
+
+<span class="dtd_comment">&lt;!--</span>
+<span class="dtd_comment"> This defines a &lt;code&gt;when&lt;/code&gt; element's attributes.</span>
+<span class="dtd_comment"> </span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr operand-1</span><span class="dtd_comment">        The first operand in the expression.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr operator</span><span class="dtd_comment">         The operator symbol.</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr operand-2</span><span class="dtd_comment">        The second operand in the expression.</span>
+<span class="dtd_comment">--&gt;</span>
+<span class="dtd_tag_symbols">&lt;!</span><span class="dtd_tag_name">ATTLIST</span><span class="dtd_plain"> </span><span class="dtd_attribute_name">when</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">operand-1</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">operator</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">operand-2</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_tag_symbols">&gt;</span>
 
 <span class="dtd_comment">&lt;!--</span>
@@ -181,7 +228,7 @@
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr name</span><span class="dtd_comment">             The name of the foreign key.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr description</span><span class="dtd_comment">      A simple description of the foreign key.</span>
 <span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr foreign-table</span><span class="dtd_comment">    The name of the foreign table.</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr onUpdate</span><span class="dtd_comment">         Specifies the action to perform when the value in the referenced column</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr on-update</span><span class="dtd_comment">        Specifies the action to perform when the value in the referenced column</span>
 <span class="dtd_comment">                        in the foreign table is changed:</span>
 <span class="dtd_comment">                        &lt;dl&gt;</span>
 <span class="dtd_comment">                        &lt;dt&gt;cascade&lt;/dt&gt;&lt;dd&gt;Change the value of the local column accordingly.&lt;/dd&gt;</span>
@@ -191,7 +238,7 @@
 <span class="dtd_comment">                        differently, but usually it is synonymous with &lt;code&gt;none&lt;/code&gt;.&lt;/dd&gt;</span>
 <span class="dtd_comment">                        &lt;dt&gt;none&lt;/dt&gt;&lt;dd&gt;The value of the local column remains unchanged.&lt;/dd&gt;</span>
 <span class="dtd_comment">                        &lt;br&gt;&lt;b&gt;Note: This attribute is currently ignored by DdlUtils.&lt;/b&gt;</span>
-<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr onDelete</span><span class="dtd_comment">         Specifies the action to perform when the referenced row in the foreign</span>
+<span class="dtd_comment"> </span><span class="dtd_dtddoc_tag">@attr on-delete</span><span class="dtd_comment">        Specifies the action to perform when the referenced row in the foreign</span>
 <span class="dtd_comment">                        table is deleted:</span>
 <span class="dtd_comment">                        &lt;dl&gt;</span>
 <span class="dtd_comment">                        &lt;dt&gt;cascade&lt;/dt&gt;&lt;dd&gt;Delete the local row.&lt;/dd&gt;</span>
@@ -206,10 +253,10 @@
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">name</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">description</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#IMPLIED</span>
 <span class="dtd_plain">    </span><span class="dtd_attribute_name">foreign-table</span><span class="dtd_plain"> </span><span class="dtd_keyword">CDATA</span><span class="dtd_plain"> </span><span class="dtd_keyword">#REQUIRED</span>
-<span class="dtd_plain">    </span><span class="dtd_attribute_name">onUpdate</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">on-update</span><span class="dtd_plain"> (</span>
 <span class="dtd_plain">        </span><span class="dtd_attribute_name">cascade</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">setnull</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">restrict</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">none</span>
 <span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;none&quot;</span>
-<span class="dtd_plain">    </span><span class="dtd_attribute_name">onDelete</span><span class="dtd_plain"> (</span>
+<span class="dtd_plain">    </span><span class="dtd_attribute_name">on-delete</span><span class="dtd_plain"> (</span>
 <span class="dtd_plain">        </span><span class="dtd_attribute_name">cascade</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">setnull</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">restrict</span><span class="dtd_plain"> | </span><span class="dtd_attribute_name">none</span>
 <span class="dtd_plain">    ) </span><span class="dtd_attribute_value">&quot;none&quot;</span>
 <span class="dtd_tag_symbols">&gt;</span>

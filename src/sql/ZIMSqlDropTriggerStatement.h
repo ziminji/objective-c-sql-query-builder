@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlDropTriggerStatement
  @discussion			This class represents an SQL drop trigger statement.
- @updated				2011-07-23
+ @updated				2011-07-29
  @see					http://www.sqlite.org/lang_droptrigger.html
  */
 @interface ZIMSqlDropTriggerStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
@@ -28,7 +28,7 @@
 	@protected
 		NSString *_trigger;
 		BOOL _exists;
-        //NSInteger _depth;
+		NSMutableArray *_stack;
         NSInteger _counter;
         NSError **_error;
 
@@ -39,7 +39,7 @@
  @param xml	            The UTF-8 encoded string of XML.
  @param error           Used when an error occurs while processing the XML data. May be NULL.
  @return                An instance of this class.
- @updated				2011-07-24
+ @updated				2011-07-29
  @see					http://db.apache.org/ddlutils/
  @see					http://db.apache.org/ddlutils/schema/
  */
