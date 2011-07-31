@@ -25,7 +25,7 @@
 /*!
  @method			load
  @discussion		This method will construct the alter table statement using the parsed XML schema.
- @updated			2011-07-29
+ @updated			2011-07-30
  */
 - (void) load;
 @end
@@ -194,13 +194,13 @@
                 }
                 if (!found) {
                     NSDictionary *attributes = [column objectAtIndex: 1];
-                    NSString *type = [attributes objectForKey: @"type"];
-                    NSString *defaultValue = [attributes objectForKey: @"defaultValue"];
-                    if (defaultValue != nil) {
-                        [self column: a0 type: type defaultValue: defaultValue];
+                    NSString *columnType = [attributes objectForKey: @"type"];
+                    NSString *columnValue = [attributes objectForKey: @"default"];
+                    if (columnValue != nil) {
+                        [self column: a0 type: columnType defaultValue: columnValue];
                     }
                     else {
-                        [self column: a0 type: type];
+                        [self column: a0 type: columnType];
                     }
                     break;
                 }
