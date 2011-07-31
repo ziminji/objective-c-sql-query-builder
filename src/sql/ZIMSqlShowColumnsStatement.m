@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-#import "ZIMSqlShowTablesStatement.h"
+#import <sqlite3.h> // Requires libsqlite3.dylib
+#import "ZIMSqlShowColumnsStatement.h"
 
-@implementation ZIMSqlShowTablesStatement
+@implementation ZIMSqlShowColumnsStatement
 
 - (id) init {
 	if ((self = [super init])) {
-		_like = nil;
+		_table = nil;
 	}
 	return self;
 }
@@ -29,23 +30,14 @@
 	[super dealloc];
 }
 
-- (void) like: (NSString *)value {
-	_like = [NSString stringWithFormat: @"[name] LIKE %@", [ZIMSqlExpression prepareValue: value]];
+- (void) from: (NSString *)table {
+	_table = table;
 }
 
 - (NSString *) statement {
-	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
-
-	[sql appendString: @"SELECT [name] FROM [sqlite_master] WHERE [type] = 'table' AND [name] NOT IN ('sqlite_sequence')"];
-
-	if (_like != nil) {
-		[sql appendFormat: @" AND %@", _like];
-	}
-
-	[sql appendString: @" ORDER BY [name] ASC"];
-
-	[sql appendString: @";"];
-	
+	char *xsql = sqlite3_mprintf("PRAGMA table_info(%s);", [_table UTF8String]);
+	NSString *sql = [NSString stringWithUTF8String: (const char *)xsql];
+	sqlite3_free(xsql);
 	return sql;
 }
 
