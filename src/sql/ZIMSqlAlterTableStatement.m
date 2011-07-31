@@ -23,7 +23,7 @@
  */
 @interface ZIMSqlAlterTableStatement (Private)
 /*!
- @method			construct
+ @method			load
  @discussion		This method will construct the alter table statement using the parsed XML schema.
  @updated			2011-07-29
  */
