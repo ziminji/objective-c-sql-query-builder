@@ -17,25 +17,25 @@
 #import "ZIMSqlStatement.h"
 
 /*!
- @class					ZIMSqlShowTablesStatement
- @discussion			This class represents an SQL show tables statement.
+ @class					ZIMSqlShowColumnsStatement
+ @discussion			This class represents an SQL show columns statement.
  @updated				2011-07-31
- @see					http://dev.mysql.com/doc/refman/5.0/en/show-tables.html
- @see					http://www.sqlite.org/faq.html#q7
+ @see					http://dev.mysql.com/doc/refman/5.0/en/show-columns.html
+ @see					http://stackoverflow.mobi/question763516_information-schema-columns-on-sqlite.aspx
  */
-@interface ZIMSqlShowTablesStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlShowColumnsStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
-		NSString *_like;
+		NSString *_table;
 
 }
 /*!
- @method				like:
- @discussion			This method will constrain the query to only those tables that match the
-						specified value.
+ @method				from:
+ @discussion			This method will set the name of the table in the from clause.
+ @param table			The name of table to used in the clause.
  @updated				2011-07-31
  */
-- (void) like: (NSString *)value;
+- (void) from: (NSString *)table;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
