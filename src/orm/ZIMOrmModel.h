@@ -15,6 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "ZIMOrmModelDelegate.h"
 
 // Supported options
 #define ZIMOrmOptionLimit						@"LIMIT"
@@ -23,14 +24,33 @@
 /*!
  @class					ZIMOrmModel
  @discussion			This class acts as the base model.
- @updated				2011-04-14
+ @updated				2011-07-31
  */
-@interface ZIMOrmModel : NSObject {
+@interface ZIMOrmModel : NSObject <ZIMOrmModelDelegate> {
 
 	@protected
+		id _delegate;
 		NSString *_saved;
 
 }
+
+@property (nonatomic, assign) id delegate;
+
+/*!
+ @method				initWithDelegate:
+ @discussion			This method initializes the class with the specified delegate.
+ @param delegate 		A class that implements the ZIMOrmModelDelegate.
+ @return                An instance of this class.
+ @updated				2011-07-31
+ */
+- (id) initWithDelegate: (id)delegate;
+/*!
+ @method				init
+ @discussion			This method initializes the class.
+ @return                An instance of this class.
+ @updated				2011-07-31
+ */
+- (id) init;
 /*!
  @method				belongsTo:foreignKey:
  @discussion			This method uses the values stored in the foreign key columns of the current instance (i.e "self")

@@ -29,11 +29,18 @@
     #define ZIMOrmDataSource @"live" // Override this pre-processing instruction in your <project-name>_Prefix.pch
 #endif
 
-- (id) init {
+@synthesize delegate = _delegate;
+
+- (id) initWithDelegate: (id)delegate {
 	if ((self = [super init])) {
+		_delegate = delegate;
 		_saved = nil;
 	}
 	return self;
+}
+
+- (id) init {
+	return [self initWithDelegate: nil];
 }
 
 - (void) dealloc {
@@ -93,6 +100,9 @@
 	if (![[self class] isSaveable]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to delete record because this model is not savable." userInfo: nil];
 	}
+	if ((_delegate != nil) && [_delegate respondsToSelector: @selector(modelWillBeginDeletingRecord:)]) {
+		[_delegate modelWillBeginDeletingRecord: self];
+	}
 	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
 		ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [[self class] dataSource]];
@@ -117,9 +127,15 @@
 	else {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to delete record because no primary key has been declared." userInfo: nil];
 	}
+	if ((_delegate != nil) && [_delegate respondsToSelector: @selector(modelDidFinishDeletingRecord:)]) {
+		[_delegate modelDidFinishDeletingRecord: self];
+	}
 }
 
 - (void) load {
+	if ((_delegate != nil) && [_delegate respondsToSelector: @selector(modelWillBeginLoadingRecord:)]) {
+		[_delegate modelWillBeginLoadingRecord: self];
+	}
 	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
 		ZIMSqlSelectStatement *sql = [[ZIMSqlSelectStatement alloc] init];
@@ -151,11 +167,17 @@
 	else {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to load record because no primary key has been declared." userInfo: nil];
 	}
+	if ((_delegate != nil) && [_delegate respondsToSelector: @selector(modelDidFinishLoadingRecord:)]) {
+		[_delegate modelDidFinishLoadingRecord: self];
+	}
 }
 
 - (void) save {
 	if (![[self class] isSaveable]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to save record because this model is not savable." userInfo: nil];
+	}
+	if ((_delegate != nil) && [_delegate respondsToSelector: @selector(modelWillBeginSavingRecord:)]) {
+		[_delegate modelWillBeginSavingRecord: self];
 	}
 	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
@@ -237,6 +259,9 @@
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to save record because no primary key has been declared." userInfo: nil];
+	}
+	if ((_delegate != nil) && [_delegate respondsToSelector: @selector(modelDidFinishSavingRecord:)]) {
+		[_delegate modelDidFinishSavingRecord: self];
 	}
 }
 

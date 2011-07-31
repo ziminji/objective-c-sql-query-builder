@@ -136,10 +136,9 @@ to your watch list so that you can be notified when such updates are made.
 
 This project is under heavy development.  There are development plans to add:
 
-* More SQL builder classes;
-* Improved functionality to parse "XML to DDL" schema and raw SQLite statements into their SQL equivalents;
+* Improved functionality to parse "XML to DDL" schema and raw SQLite statements into their SQL builder class equivalents;
 * The ability to process more than one SQL statement at a time;
-* More utilities (e.g. classes to handle validation, filters, imports, exports, pagination, partitioning, and migration);
+* More utilities (e.g. classes to handle validation, filtering, imports, exports, pagination, partitioning, and migration);
 * A database encryption layer for password protecting an SQLite database;
 * Unit-tests;
 * Additional tutorials and examples.
