@@ -26,4 +26,5 @@
 #import "ZIMSqlUpdateStatement.h"
 
 #import "ZIMOrmModel.h"
+#import "ZIMOrmModelDelegate.h"
 #import "ZIMOrmSelectStatement.h"
