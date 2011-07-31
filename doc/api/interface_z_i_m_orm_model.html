@@ -61,18 +61,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#properties">Properties</a>  </div>
   <div class="headertitle">
 <div class="title">ZIMOrmModel Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="ZIMOrmModel" -->
+<!-- doxytag: class="ZIMOrmModel" --><!-- doxytag: inherits="ZIMOrmModelDelegate-p" -->
 <p><code>#import &lt;<a class="el" href="_z_i_m_orm_model_8h_source.html">ZIMOrmModel.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for ZIMOrmModel:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="interface_z_i_m_orm_model.png" usemap="#ZIMOrmModel_map" alt=""/>
+  <map id="ZIMOrmModel_map" name="ZIMOrmModel_map">
+<area href="protocol_z_i_m_orm_model_delegate-p.html" alt="&lt;ZIMOrmModelDelegate&gt;" shape="rect" coords="0,0,158,24"/>
+</map>
+ </div></div>
 
 <p><a href="class_z_i_m_orm_model-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a7d75c7b654d2055f37d08a2dce14ad35">initWithDelegate:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a7b0c9674ccc23668ea472aa8a34f5960">init</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#ae840cfe7ae087e66039fbb44d6ecaa37">belongsTo:foreignKey:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a9ca0cf3c6a08f57941cb071f49a1cb0e">hasOne:foreignKey:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a3230a810cf48cd6dd8f4ea411cede99a">hasMany:foreignKey:</a></td></tr>
@@ -81,7 +93,6 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a3f0f625955168a40569980a4d7131eeb">load</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a813326d955a409db8c38297356f5a656">save</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#af501f5078004cfe44ed8366e7668b4fd">hashCode</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a7b0c9674ccc23668ea472aa8a34f5960">init</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a78233988637586da2e60abe5be28fb55">dealloc</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -94,11 +105,15 @@ Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a5efea4cfe970058de0e4f274f001c293">isModel:</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#aa68bbd9982c807f9f1d98ea6e712c286">_delegate</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#a6133b3022327a167d9b0c1a3986a96ec">_saved</a></td></tr>
+<tr><td colspan="2"><h2><a name="properties"></a>
+Properties</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#ae4bdfc1b7bd4b95be8a891f3678f7530">delegate</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class acts as the base model. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-04-14 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-31 </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="ae840cfe7ae087e66039fbb44d6ecaa37"></a><!-- doxytag: member="ZIMOrmModel::belongsTo:foreignKey:" ref="ae840cfe7ae087e66039fbb44d6ecaa37" args="(Class model,[foreignKey] NSArray *foreignKey)" -->
 <div class="memitem">
@@ -365,11 +380,42 @@ Protected Attributes</h2></td></tr>
           <td class="memname">- (id) init </td>
           <td></td>
           <td class="paramname"></td>
-          <td><code> [implementation]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>init </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method initializes the class. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-31 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7d75c7b654d2055f37d08a2dce14ad35"></a><!-- doxytag: member="ZIMOrmModel::initWithDelegate:" ref="a7d75c7b654d2055f37d08a2dce14ad35" args="(id delegate)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (id) initWithDelegate: </td>
+          <td></td>
+          <td class="paramtype">(id)&#160;</td>
+          <td class="paramname"><em>delegate</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>initWithDelegate: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method initializes the class with the specified delegate. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">delegate</td><td>A class that implements the <a class="el" href="class_z_i_m_orm_model_delegate.html">ZIMOrmModelDelegate</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-31 </dd></dl>
 
 </div>
 </div>
@@ -520,12 +566,39 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="aa68bbd9982c807f9f1d98ea6e712c286"></a><!-- doxytag: member="ZIMOrmModel::_delegate" ref="aa68bbd9982c807f9f1d98ea6e712c286" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (id) <a class="el" href="interface_z_i_m_orm_model.html#aa68bbd9982c807f9f1d98ea6e712c286">_delegate</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a6133b3022327a167d9b0c1a3986a96ec"></a><!-- doxytag: member="ZIMOrmModel::_saved" ref="a6133b3022327a167d9b0c1a3986a96ec" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (<a class="el" href="class_n_s_string.html">NSString</a>*) <a class="el" href="interface_z_i_m_orm_model.html#a6133b3022327a167d9b0c1a3986a96ec">_saved</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Property Documentation</h2>
+<a class="anchor" id="ae4bdfc1b7bd4b95be8a891f3678f7530"></a><!-- doxytag: member="ZIMOrmModel::delegate" ref="ae4bdfc1b7bd4b95be8a891f3678f7530" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (id) delegate<code> [read, write, assign]</code></td>
         </tr>
       </table>
 </div>
@@ -543,7 +616,7 @@ Protected Attributes</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Properties</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
