@@ -22,6 +22,7 @@
  @updated				2011-07-31
  @see					http://dev.mysql.com/doc/refman/5.0/en/show-columns.html
  @see					http://stackoverflow.mobi/question763516_information-schema-columns-on-sqlite.aspx
+ @see					http://www.sqlite.org/pragma.html
  */
 @interface ZIMSqlShowColumnsStatement : NSObject <ZIMSqlStatement> {
 
