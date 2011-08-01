@@ -71,19 +71,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_message_digest.html#a299ea0851231aa4f5eb733ba34b70e3b">hashStringWithMD5:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_message_digest.html#a21f52ee439db4cb8ab4752facb2aa4f6">hashStringWithSHA1:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_message_digest.html#ad6dce314a9edd3a331c17432b4f87b54">md2:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_message_digest.html#a610106a796b6b12524e372163f065eb3">md4:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_message_digest.html#ae227df50f8ea60b744398566c4abb3db">md5:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_message_digest.html#ab1bf8661af98c264cc9799454b94638c">sha1:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_message_digest.html#a809be1b63fc7d9067ee3c234f8cef5fc">sha224:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_message_digest.html#ae7d8f355cdffc6051ef11e7e1d86b31d">sha256:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_message_digest.html#aeb4c82af9e092cbfe232ea92e55971c8">sha384:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_message_digest.html#a2527a8508514b64481eccd487881cdc0">sha512:</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class creates a message digest algorithmically from a string. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-17 </dd></dl>
+<div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class creates a message digest algorithmically from a specified string. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-08-01 </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a299ea0851231aa4f5eb733ba34b70e3b"></a><!-- doxytag: member="ZIMMessageDigest::hashStringWithMD5:" ref="a299ea0851231aa4f5eb733ba34b70e3b" args="(NSString *string)" -->
+<a class="anchor" id="ad6dce314a9edd3a331c17432b4f87b54"></a><!-- doxytag: member="ZIMMessageDigest::md2:" ref="ad6dce314a9edd3a331c17432b4f87b54" args="(NSString *string)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) hashStringWithMD5: </td>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) md2: </td>
           <td></td>
           <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>string</em></td>
@@ -92,7 +98,63 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="user"><dt><b>Signature:</b></dt><dd>hashStringWithMD5: </dd></dl>
+<dl class="user"><dt><b>Signature:</b></dt><dd>md2: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method creates a message digest using the md2 algorithm. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>The string to be hashed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A string representing the message digest. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-08-01 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.crypo.com/eng_md2.php">http://www.crypo.com/eng_md2.php</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a610106a796b6b12524e372163f065eb3"></a><!-- doxytag: member="ZIMMessageDigest::md4:" ref="a610106a796b6b12524e372163f065eb3" args="(NSString *string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) md4: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>string</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>md4: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method creates a message digest using the md4 algorithm. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>The string to be hashed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A string representing the message digest. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-08-01 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.crypo.com/eng_md4.php">http://www.crypo.com/eng_md4.php</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae227df50f8ea60b744398566c4abb3db"></a><!-- doxytag: member="ZIMMessageDigest::md5:" ref="ae227df50f8ea60b744398566c4abb3db" args="(NSString *string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) md5: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>string</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>md5: </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method creates a message digest using the md5 algorithm. </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -101,16 +163,19 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>A string representing the message digest. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-07 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-08-01 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.makebetterthings.com/blogs/uncategorized/how-to-get-md5-and-sha1-in-objective-c-ios-sdk/">http://www.makebetterthings.com/blogs/uncategorized/how-to-get-md5-and-sha1-in-objective-c-ios-sdk/</a> </dd>
+<dd>
+<a href="http://www.miniwebtool.com/md5-hash-generator/">http://www.miniwebtool.com/md5-hash-generator/</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a21f52ee439db4cb8ab4752facb2aa4f6"></a><!-- doxytag: member="ZIMMessageDigest::hashStringWithSHA1:" ref="a21f52ee439db4cb8ab4752facb2aa4f6" args="(NSString *string)" -->
+<a class="anchor" id="ab1bf8661af98c264cc9799454b94638c"></a><!-- doxytag: member="ZIMMessageDigest::sha1:" ref="ab1bf8661af98c264cc9799454b94638c" args="(NSString *string)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) hashStringWithSHA1: </td>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) sha1: </td>
           <td></td>
           <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
           <td class="paramname"><em>string</em></td>
@@ -119,7 +184,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="user"><dt><b>Signature:</b></dt><dd>hashStringWithSHA1: </dd></dl>
+<dl class="user"><dt><b>Signature:</b></dt><dd>sha1: </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method creates a message digest using the sha1 algorithm. </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -128,7 +193,126 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>A string representing the message digest. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-08 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-08-01 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.makebetterthings.com/blogs/uncategorized/how-to-get-md5-and-sha1-in-objective-c-ios-sdk/">http://www.makebetterthings.com/blogs/uncategorized/how-to-get-md5-and-sha1-in-objective-c-ios-sdk/</a> </dd>
+<dd>
+<a href="http://www.miniwebtool.com/sha1-hash-generator/">http://www.miniwebtool.com/sha1-hash-generator/</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a809be1b63fc7d9067ee3c234f8cef5fc"></a><!-- doxytag: member="ZIMMessageDigest::sha224:" ref="a809be1b63fc7d9067ee3c234f8cef5fc" args="(NSString *string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) sha224: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>string</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>sha224: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method creates a message digest using the sha224 algorithm. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>The string to be hashed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A string representing the message digest. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-08-01 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.miniwebtool.com/sha224-hash-generator/">http://www.miniwebtool.com/sha224-hash-generator/</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae7d8f355cdffc6051ef11e7e1d86b31d"></a><!-- doxytag: member="ZIMMessageDigest::sha256:" ref="ae7d8f355cdffc6051ef11e7e1d86b31d" args="(NSString *string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) sha256: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>string</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>sha256: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method creates a message digest using the sha256 algorithm. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>The string to be hashed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A string representing the message digest. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-08-01 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://stackoverflow.com/questions/4992109/generate-sha256-string-in-objective-c">http://stackoverflow.com/questions/4992109/generate-sha256-string-in-objective-c</a> </dd>
+<dd>
+<a href="http://www.miniwebtool.com/sha256-hash-generator/">http://www.miniwebtool.com/sha256-hash-generator/</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aeb4c82af9e092cbfe232ea92e55971c8"></a><!-- doxytag: member="ZIMMessageDigest::sha384:" ref="aeb4c82af9e092cbfe232ea92e55971c8" args="(NSString *string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) sha384: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>string</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>sha384: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method creates a message digest using the sha384 algorithm. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>The string to be hashed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A string representing the message digest. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-08-01 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.miniwebtool.com/sha384-hash-generator/">http://www.miniwebtool.com/sha384-hash-generator/</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2527a8508514b64481eccd487881cdc0"></a><!-- doxytag: member="ZIMMessageDigest::sha512:" ref="a2527a8508514b64481eccd487881cdc0" args="(NSString *string)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) sha512: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>string</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>sha512: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method creates a message digest using the sha512 algorithm. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>The string to be hashed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A string representing the message digest. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-08-01 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://stackoverflow.com/questions/3829068/hash-a-password-string-using-sha512-like-c">http://stackoverflow.com/questions/3829068/hash-a-password-string-using-sha512-like-c</a> </dd>
+<dd>
+<a href="http://www.miniwebtool.com/sha512-hash-generator/">http://www.miniwebtool.com/sha512-hash-generator/</a> </dd></dl>
 
 </div>
 </div>
