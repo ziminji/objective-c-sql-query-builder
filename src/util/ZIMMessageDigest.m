@@ -19,24 +19,90 @@
 
 @implementation ZIMMessageDigest
 
-+ (NSString *) hashStringWithMD5: (NSString *)string {
++ (NSString *) md2: (NSString *)string {
+	const char *cString = [string UTF8String];
+	unsigned char digest[CC_MD2_DIGEST_LENGTH];
+	CC_MD2(cString, strlen(cString), digest);
+	NSMutableString *hash = [NSMutableString stringWithCapacity: CC_MD2_DIGEST_LENGTH * 2];
+	for (int i = 0; i < CC_MD2_DIGEST_LENGTH; i++) {
+		[hash appendFormat: @"%02x", digest[i]];
+	}
+	return [hash lowercaseString];
+}
+
++ (NSString *) md4: (NSString *)string {
+	const char *cString = [string UTF8String];
+	unsigned char digest[CC_MD4_DIGEST_LENGTH];
+	CC_MD4(cString, strlen(cString), digest);
+	NSMutableString *hash = [NSMutableString stringWithCapacity: CC_MD4_DIGEST_LENGTH * 2];
+	for (int i = 0; i < CC_MD4_DIGEST_LENGTH; i++) {
+		[hash appendFormat: @"%02x", digest[i]];
+	}
+	return [hash lowercaseString];
+}
+
++ (NSString *) md5: (NSString *)string {
 	const char *cString = [string UTF8String];
 	unsigned char digest[CC_MD5_DIGEST_LENGTH];
 	CC_MD5(cString, strlen(cString), digest);
 	NSMutableString *hash = [NSMutableString stringWithCapacity: CC_MD5_DIGEST_LENGTH * 2];
 	for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
-		[hash appendFormat: @"%02X", digest[i]];
+		[hash appendFormat: @"%02x", digest[i]];
 	}
 	return [hash lowercaseString];
 }
 
-+ (NSString *) hashStringWithSHA1: (NSString *)string {
++ (NSString *) sha1: (NSString *)string {
 	const char *cString = [string UTF8String];
 	unsigned char digest[CC_SHA1_DIGEST_LENGTH];
 	CC_SHA1(cString, strlen(cString), digest);
 	NSMutableString *hash = [NSMutableString stringWithCapacity: CC_SHA1_DIGEST_LENGTH * 2];
 	for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
-		[hash appendFormat: @"%02X", digest[i]];
+		[hash appendFormat: @"%02x", digest[i]];
+	}
+	return [hash lowercaseString];
+}
+
++ (NSString *) sha224: (NSString *)string {
+	const char *cString = [string UTF8String];
+	unsigned char digest[CC_SHA224_DIGEST_LENGTH];
+	CC_SHA224(cString, strlen(cString), digest);
+	NSMutableString *hash = [NSMutableString stringWithCapacity: CC_SHA224_DIGEST_LENGTH * 2];
+	for (int i = 0; i < CC_SHA224_DIGEST_LENGTH; i++) {
+		[hash appendFormat: @"%02x", digest[i]];
+	}
+	return [hash lowercaseString];
+}
+
++ (NSString *) sha256: (NSString *)string {
+	const char *cString = [string UTF8String];
+	unsigned char digest[CC_SHA256_DIGEST_LENGTH];
+	CC_SHA256(cString, strlen(cString), digest);
+	NSMutableString *hash = [NSMutableString stringWithCapacity: CC_SHA256_DIGEST_LENGTH * 2];
+	for (int i = 0; i < CC_SHA256_DIGEST_LENGTH; i++) {
+		[hash appendFormat: @"%02x", digest[i]];
+	}
+	return [hash lowercaseString];
+}
+
++ (NSString *) sha384: (NSString *)string {
+	const char *cString = [string UTF8String];
+	unsigned char digest[CC_SHA384_DIGEST_LENGTH];
+	CC_SHA384(cString, strlen(cString), digest);
+	NSMutableString *hash = [NSMutableString stringWithCapacity: CC_SHA384_DIGEST_LENGTH * 2];
+	for (int i = 0; i < CC_SHA384_DIGEST_LENGTH; i++) {
+		[hash appendFormat: @"%02x", digest[i]];
+	}
+	return [hash lowercaseString];
+}
+
++ (NSString *) sha512: (NSString *)string {
+    const char *cString = [string UTF8String];
+    unsigned char digest[CC_SHA512_DIGEST_LENGTH];
+    CC_SHA512(cString, strlen(cString), digest);
+	NSMutableString *hash = [NSMutableString stringWithCapacity: CC_SHA512_DIGEST_LENGTH * 2];
+	for (int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++) {
+		[hash appendFormat: @"%02x", digest[i]];
 	}
 	return [hash lowercaseString];
 }

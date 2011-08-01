@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-#import <sqlite3.h> // Requires libsqlite3.dylib
 #import "ZIMSqlShowColumnsStatement.h"
 
 @implementation ZIMSqlShowColumnsStatement
@@ -31,13 +30,11 @@
 }
 
 - (void) from: (NSString *)table {
-	_table = table;
+	_table = [ZIMSqlExpression prepareValue: table];
 }
 
 - (NSString *) statement {
-	char *xsql = sqlite3_mprintf("PRAGMA table_info(%s);", [_table UTF8String]);
-	NSString *sql = [NSString stringWithUTF8String: (const char *)xsql];
-	sqlite3_free(xsql);
+	NSString *sql = [NSString stringWithFormat: @"PRAGMA table_info(%@);", _table];
 	return sql;
 }
 

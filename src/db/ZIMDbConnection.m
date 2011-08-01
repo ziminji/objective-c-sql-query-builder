@@ -268,7 +268,7 @@
 }
 
 - (int) columnTypeAtIndex: (int)column inStatement: (sqlite3_stmt *)statement {
-	// Declared Datetype - http://www.sqlite.org/datatype3.html (section 2.2 table column 1)
+	// Declared data types - http://www.sqlite.org/datatype3.html (section 2.2 table column 1)
 	const NSSet *blobTypes = [NSSet setWithObjects: @"BINARY", @"BLOB", @"VARBINARY", nil];
 	const NSSet *charTypes = [NSSet setWithObjects: @"CHAR", @"CHARACTER", @"CLOB", @"NATIONAL VARYING CHARACTER", @"NATIVE CHARACTER", @"NCHAR", @"NVARCHAR", @"TEXT", @"VARCHAR", @"VARIANT", @"VARYING CHARACTER", nil];
 	const NSSet *dateTypes = [NSSet setWithObjects: @"DATE", @"DATETIME", @"TIME", @"TIMESTAMP", nil];
