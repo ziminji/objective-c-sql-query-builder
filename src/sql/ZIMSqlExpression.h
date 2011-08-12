@@ -83,6 +83,11 @@
 #define ZIMSqlOperatorUnion						@"UNION"
 #define ZIMSqlOperatorUnionAll					@"UNION ALL"
 
+// Table Types
+#define ZIMSqlTableTypeAll						@"ALL"
+#define ZIMSqlTableTypePermanent				@"PERMANENT"
+#define ZIMSqlTableTypeTemporary				@"TEMPORARY"
+
 // Default Values -- http://forums.realsoftware.com/viewtopic.php?f=3&t=35179
 #define ZIMSqlDefaultValueIsAutoIncremented		@"PRIMARY KEY AUTOINCREMENT NOT NULL"
 #define ZIMSqlDefaultValueIsNull				@"DEFAULT NULL";
