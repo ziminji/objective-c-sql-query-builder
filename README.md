@@ -36,6 +36,7 @@ The following is a short-list of some of the features:
 * Allows database privileges to be restricted.
 * Has an easy to use SQLite database connection pool.
 * Capable of executing an SQL statement with one line of code.
+* Able to execute more than one SQL statement at a time.
 * Has a huge collection of SQL builder classes with methods that mimic their SQL statement equivalents.
 * Converts XML to DDL/SQL statements.
 * Helps ensure that SQL statement are well-formed.
@@ -137,7 +138,6 @@ to your watch list so that you can be notified when such updates are made.
 This project is under heavy development.  There are development plans to add:
 
 * Improved functionality to parse "XML to DDL" schema and raw SQLite statements into their SQL builder class equivalents;
-* The ability to process more than one SQL statement at a time;
 * More utilities (e.g. classes to handle validation, filtering, imports, exports, pagination, partitioning, and migration);
 * A database encryption layer for password protecting an SQLite database;
 * Unit-tests;
