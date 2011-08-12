@@ -20,6 +20,7 @@
 
 - (id) init {
 	if ((self = [super init])) {
+		_from = @"[sqlite_master]";
 		_like = nil;
 	}
 	return self;
@@ -29,6 +30,22 @@
 	[super dealloc];
 }
 
+- (void) show: (NSString *)type {
+	type = [type uppercaseString];
+	if ([type isEqualToString: ZIMSqlTableTypeAll]) {
+		_from = @"(SELECT * FROM [sqlite_master] UNION ALL SELECT * FROM [sqlite_temp_master])";
+	}
+	else if ([type isEqualToString: ZIMSqlTableTypePermanent]) {
+		_from = @"[sqlite_master]";
+	}
+	else if ([type isEqualToString: ZIMSqlTableTypeTemporary] || [type isEqualToString: @"TEMP"]) {
+		_from = @"[sqlite_temp_master]";
+	}
+	else {
+		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid set type token provided." userInfo: nil];
+	}
+}
+
 - (void) like: (NSString *)value {
 	_like = [NSString stringWithFormat: @"[name] LIKE %@", [ZIMSqlExpression prepareValue: value]];
 }
@@ -36,7 +53,11 @@
 - (NSString *) statement {
 	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
 
-	[sql appendString: @"SELECT [name] FROM [sqlite_master] WHERE [type] = 'table' AND [name] NOT IN ('sqlite_sequence')"];
+	[sql appendString: @"SELECT [name]"];
+
+	[sql appendFormat: @" FROM %@", _from];
+
+	[sql appendString: @" WHERE [type] = 'table' AND [name] NOT IN ('sqlite_sequence')"];
 
 	if (_like != nil) {
 		[sql appendFormat: @" AND %@", _like];
