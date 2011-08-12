@@ -142,10 +142,11 @@
 		@throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to execute SQL statement because privileges have been restricted." userInfo: nil];
 	}
 
-	sqlite3_stmt *statement = NULL;
+	//sqlite3_stmt *statement = NULL;
 
-	if ((sqlite3_prepare_v2(_database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK) || (sqlite3_step(statement) != SQLITE_DONE)) {
-		sqlite3_finalize(statement);
+	//if ((sqlite3_prepare_v2(_database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK) || (sqlite3_step(statement) != SQLITE_DONE)) {
+	if (sqlite3_exec(_database, [sql UTF8String], NULL, nil, nil) != SQLITE_OK) {
+        //sqlite3_finalize(statement);
 		if (_mutex != nil) {
 			[_mutex unlock];
 		}
@@ -162,7 +163,7 @@
 		result = [NSNumber numberWithBool: YES];
 	}
 
-	sqlite3_finalize(statement);
+	//sqlite3_finalize(statement);
 
 	if (_mutex != nil) {
 		[_mutex unlock];
