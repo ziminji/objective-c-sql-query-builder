@@ -73,10 +73,11 @@
 - (NSNumber *) beginTransaction;
 /*!
  @method				execute:
- @discussion			This method will execute the specified SQL statement.
+ @discussion			This method will execute the specified SQL statement. (Note: It is
+						possible to execute multiple SQL statements via this method.)
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-07-02
+ @updated				2011-08-11
  @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  @see					http://code.google.com/p/sqlite-manager/issues/detail?id=34
  */
