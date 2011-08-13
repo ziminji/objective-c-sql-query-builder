@@ -17,14 +17,12 @@
 #import "ZIMSqlStatement.h"
 
 /*!
- @class					ZIMSqlShowTablesStatement
- @discussion			This class represents an SQL show tables statement.
+ @class					ZIMSqlShowTriggersStatement
+ @discussion			This class represents an SQL show triggers statement.
  @updated				2011-08-13
- @see					http://dev.mysql.com/doc/refman/5.0/en/show-tables.html
- @see					http://venublog.com/2010/02/03/show-temporary-tables/
- @see					http://www.sqlite.org/faq.html#q7
+ @see					http://dev.mysql.com/doc/refman/5.0/en/show-triggers.html
  */
-@interface ZIMSqlShowTablesStatement : NSObject <ZIMSqlStatement> {
+@interface ZIMSqlShowTriggersStatement : NSObject <ZIMSqlStatement> {
 
 	@protected
 		NSString *_from;
@@ -33,24 +31,24 @@
 }
 /*!
  @method				show:
- @discussion			This method can be used to designate the types of tables to be shown.
- @param type			The type of tables to be shown.
+ @discussion			This method can be used to designate the types of triggers to be shown.
+ @param type			The type of triggers to be shown.
  @updated				2011-08-13
  */
 - (void) show: (NSString *)type;
 /*!
  @method				like:
- @discussion			This method will constrain the query to only those tables that match the
+ @discussion			This method will constrain the query to only those triggers that match the
 						specified value.
  @param value			The value to be compared against.
- @updated				2011-08-12
+ @updated				2011-08-13
  */
 - (void) like: (NSString *)value;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-08-12
+ @updated				2011-08-13
  */
 - (NSString *) statement;
 
