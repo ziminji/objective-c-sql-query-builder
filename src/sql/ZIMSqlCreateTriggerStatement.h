@@ -20,8 +20,9 @@
 /*!
  @class					ZIMSqlCreateTriggerStatement
  @discussion			This class represents an SQL create trigger statement.
- @updated				2011-07-29
+ @updated				2011-08-13
  @see					http://www.sqlite.org/lang_createtrigger.html
+ @see					http://sqlite.awardspace.info/syntax/sqlitepg11.htm
  */
 @interface ZIMSqlCreateTriggerStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
 
