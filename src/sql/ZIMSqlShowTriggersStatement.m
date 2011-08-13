@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-#import "ZIMSqlShowTablesStatement.h"
+#import "ZIMSqlShowTriggersStatement.h"
 
-@implementation ZIMSqlShowTablesStatement
+@implementation ZIMSqlShowTriggersStatement
 
 - (id) init {
 	if ((self = [super init])) {
@@ -57,7 +57,7 @@
 
 	[sql appendFormat: @" FROM %@", _from];
 
-	[sql appendString: @" WHERE [type] = 'table' AND [name] NOT IN ('sqlite_sequence')"];
+	[sql appendString: @" WHERE [type] = 'trigger' AND [name] NOT IN ('sqlite_sequence')"];
 
 	if (_like != nil) {
 		[sql appendFormat: @" AND %@", _like];
