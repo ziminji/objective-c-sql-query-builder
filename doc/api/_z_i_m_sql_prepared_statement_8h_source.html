@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>objective-c-sql-query-builder: ZIMSqlWrapper.h Source File</title>
+<title>objective-c-sql-query-builder: ZIMSqlPreparedStatement.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -56,10 +56,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">ZIMSqlWrapper.h</div>  </div>
+<div class="title">ZIMSqlPreparedStatement.h</div>  </div>
 </div>
 <div class="contents">
-<a href="_z_i_m_sql_wrapper_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a href="_z_i_m_sql_prepared_statement_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
 <a name="l00002"></a>00002 <span class="comment"> * Copyright 2011 Ziminji</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
 <a name="l00004"></a>00004 <span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
@@ -77,16 +77,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017 <span class="preprocessor">#import &quot;<a class="code" href="_z_i_m_sql_statement_8h.html">ZIMSqlStatement.h</a>&quot;</span>
 <a name="l00018"></a>00018 
-<a name="l00024"></a><a class="code" href="interface_z_i_m_sql_wrapper.html">00024</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_wrapper.html">ZIMSqlWrapper</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>&gt; {
+<a name="l00024"></a><a class="code" href="interface_z_i_m_sql_prepared_statement.html">00024</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_prepared_statement.html">ZIMSqlPreparedStatement</a> : NSObject &lt;<a class="code" href="protocol_z_i_m_sql_statement-p.html">ZIMSqlStatement</a>&gt; {
 <a name="l00025"></a>00025 
 <a name="l00026"></a>00026         <span class="keyword">@protected</span>
-<a name="l00027"></a><a class="code" href="interface_z_i_m_sql_wrapper.html#aff6dc53c9ad42dcf3f79ce45eb90200d">00027</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_wrapper.html#aff6dc53c9ad42dcf3f79ce45eb90200d">_statement</a>;
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 }
-<a name="l00037"></a>00037 - (id) initWithSqlStatement: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
-<a name="l00044"></a>00044 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="keyword">@end</span>
+<a name="l00027"></a><a class="code" href="interface_z_i_m_sql_prepared_statement.html#a2a427d61b910fc1e9fa058004bb1f804">00027</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_prepared_statement.html#a2a427d61b910fc1e9fa058004bb1f804">_tokens</a>;
+<a name="l00028"></a><a class="code" href="interface_z_i_m_sql_prepared_statement.html#a873d84f9e7afb54184945f792f5169d8">00028</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_prepared_statement.html#a873d84f9e7afb54184945f792f5169d8">_indicies</a>;
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 }
+<a name="l00038"></a>00038 - (id) initWithSqlStatement: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
+<a name="l00047"></a>00047 - (void) setIdentifier: (<a class="code" href="class_n_s_string.html">NSString</a> *)identifier atIndex: (NSInteger)index;
+<a name="l00056"></a>00056 - (void) setValue: (<span class="keywordtype">id</span>)value atIndex: (NSInteger)index;
+<a name="l00063"></a>00063 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
+<a name="l00072"></a>00072 + (<a class="code" href="class_n_s_string.html">NSString</a> *) preparedStatement: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql withValues: (<span class="keywordtype">id</span>)values, ...;
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
