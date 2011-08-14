@@ -35,7 +35,6 @@
  @updated				2011-07-15
  */
 - (id) initWithSqlStatement: (NSString *)sql;
-
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.

@@ -35,6 +35,7 @@
 #import "ZIMSqlExplainStatement.h"
 #import "ZIMSqlExpression.h"
 #import "ZIMSqlInsertStatement.h"
+#import "ZIMSqlPreparedStatement.h"
 #import "ZIMSqlReindexStatement.h"
 #import "ZIMSqlSelectStatement.h"
 #import "ZIMSqlShowColumnsStatement.h"
