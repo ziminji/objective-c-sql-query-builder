@@ -88,10 +88,10 @@
 
 	va_list args;
 	va_start(args, values);
-	int i = 0;
+	int index = 0;
 	for (NSObject *value = values; value != nil; value = va_arg(args, NSObject *)) {
-		[pstmt setValue: value atIndex: i];
-		i++;
+		[pstmt setValue: value atIndex: index];
+		index++;
 	}
 	va_end(args);
 

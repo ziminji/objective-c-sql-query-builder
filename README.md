@@ -1,6 +1,6 @@
 # Objective-C SQL Query Builder
 
-This Objective-C SQLite projects is a lightweight library that offers more than just a set of SQLite wrapper classes.
+This Objective-C SQLite project is a lightweight library that offers more than just a set of SQLite wrapper classes.
 It is divided up into five parts.  The first part consists of a set of Objective-C classes that handle communications
 with an SQLite database.  Inside the "src" folder, these Objective-C classes are further subdivided into five folders.
 The "db" folder (formerly, the "dao" folder) contains an SQLite wrapper class that easily manages the database connection.
