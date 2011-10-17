@@ -21,7 +21,7 @@ The goal of this project is to make these classes the "de facto" standard for co
 iPhone/iOS devices.
 
 With the abundance of third-party libraries for Objective-C, it was apparent that a successful SQLite library needs to
-be simple to learn and intuitive.  It also must be cleanly written with clear naming conventions and must be well-documented
+be simple to learn and intuitive.  It must also be cleanly written with clear naming conventions and must be well-documented
 for too many SQLite libraries are hard to understand and are not user-friendly.  For these reasons, this SQLite library was
 written.
 
@@ -126,7 +126,9 @@ Usually, code is not posted to this repository unless it works; however, there a
 even though it still contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this
 README (if they are not already listed under the "Issues" tab).
 
-At the current time, there are no known bugs. However, the "XML to DDL" schema processing is still being developed.
+At the current time, there are no known bugs. However, the "XML to DDL" schema processing is still being developed. Also,
+please note that the code is currently being updated to take in to consideration the recent announced changes to the iOS
+5 SDK, especially with regards to automatic reference counting.
 
 ### Updates
 
@@ -137,10 +139,11 @@ to your watch list so that you can be notified when such updates are made.
 
 This project is under heavy development.  There are development plans to add:
 
+* [Automatic reference counting](http://longweekendmobile.com/2011/09/07/objc-automatic-reference-counting-in-xcode-explained/);
 * Improved functionality to parse "XML to DDL" schema and raw SQLite statements into their SQL builder class equivalents;
 * More utilities (e.g. classes to handle validation, filtering, imports, exports, pagination, partitioning, and migration);
 * A database encryption layer for password protecting an SQLite database;
-* Unit-tests;
+* Unit-tests; and,
 * Additional tutorials and examples.
 
 ## License (Apache v2.0)
