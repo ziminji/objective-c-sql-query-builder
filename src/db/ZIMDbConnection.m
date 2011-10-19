@@ -83,13 +83,11 @@
             if ([fileManager fileExistsAtPath: resourcePath]) {
                 NSError *error;
                 if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
-                    [fileManager release];
                     @throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
                 }
             }
         }
         _dataSource = [workingPath copy];
-        [fileManager release];
         NSArray *privileges = [config objectForKey: @"privileges"];
         if (privileges != nil) {
             _privileges = [[NSMutableSet alloc] init];
@@ -208,7 +206,7 @@
 	BOOL doFetchColumnInfo = YES;
 	int columnCount = 0;
 	
-	NSMutableArray *records = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray *records = [[NSMutableArray alloc] init];
 	
 	while (sqlite3_step(statement) == SQLITE_ROW) {
 		id record = [[model alloc] init];
@@ -219,10 +217,7 @@
 			for (int index = 0; index < columnCount; index++) {
 				NSString *columnName = [NSString stringWithUTF8String: sqlite3_column_name(statement, index)];
 				if (!([record isKindOfClass: [NSMutableDictionary class]] || [record respondsToSelector: [self selectorForSettingColumnName: columnName]])) {
-					[record release];
 
-					[columnNames release];
-					[columnTypes release];
 					
 					sqlite3_finalize(statement);
 					
@@ -249,11 +244,8 @@
 		}
 		
 		[records addObject: record];
-		[record release];
 	}
 	
-	[columnNames release];
-	[columnTypes release];
 	
 	sqlite3_finalize(statement);
 
@@ -316,7 +308,7 @@
 		return [NSNumber numberWithInt: sqlite3_column_int(statement, column)];
 	}
 	if (columnType == SQLITE_FLOAT) {
-		return [[[NSDecimalNumber alloc] initWithDouble: sqlite3_column_double(statement, column)] autorelease];
+		return [[NSDecimalNumber alloc] initWithDouble: sqlite3_column_double(statement, column)];
 	}
 	if (columnType == SQLITE_TEXT) {
 		const char *text = (const char *)sqlite3_column_text(statement, column);
@@ -333,7 +325,6 @@
 			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 			[formatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
 			NSDate *date = [formatter dateFromString: [NSString stringWithUTF8String: text]];
-			[formatter release];
 			return date;
 		}
 	}
@@ -369,30 +360,23 @@
 
 - (void) dealloc {
 	[self close];
-	if (_dataSource != nil) { [_dataSource release]; }
-	if (_privileges != nil) { [_privileges release]; }
-	if (_mutex != nil) { [_mutex release]; }
-	[super dealloc];
 }
 
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSNumber *result = [connection execute: sql];
-	[connection release];
 	return result;
 }
 
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSArray *records = [connection query: sql];
-	[connection release];
 	return records;
 }
 
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql asObject: (Class)model {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSArray *records = [connection query: sql asObject: model];
-	[connection release];
 	return records;
 }
 

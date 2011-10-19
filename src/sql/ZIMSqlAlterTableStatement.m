@@ -38,19 +38,17 @@
 		_clause = nil;
         _stack = [[NSMutableArray alloc] init];
         _counter = 0;
-        _error = error;
+        _error = *error;
         if ((before != nil) && (after != nil)) {
 			_schema = [[NSMutableDictionary alloc] init];
 			NSXMLParser *parser = [[NSXMLParser alloc] initWithData: before];
 			[parser setDelegate: self];
 			BOOL successful = [parser parse];
-			[parser release];
 			if (successful) {
                 _counter = 0;
 				parser = [[NSXMLParser alloc] initWithData: after];
             	[parser setDelegate: self];
             	successful = [parser parse];
-            	[parser release];
 				if (successful) {
 					[self load];
 				}
@@ -66,12 +64,6 @@
 - (id) init {
     NSError *error;
     return [self initWithXmlSchema: nil withChanges: nil error: &error];
-}
-
-- (void) dealloc {
-    [_stack release];
-	if (_schema != nil) { [_schema release]; }
-	[super dealloc];
 }
 
 - (void) table: (NSString *)table {
@@ -126,7 +118,7 @@
         if ([xpath isEqualToString: @"database"]) {
             NSMutableArray *array = [_schema objectForKey: @"database/@name"];
             if (array == nil) {
-                array = [[[NSMutableArray alloc] init] autorelease];
+                array = [[NSMutableArray alloc] init];
                 [_schema setObject: array forKey: @"database/@name"];
             }
             [array addObject: [attributes objectForKey: @"name"]];
@@ -134,7 +126,7 @@
         else if ([xpath isEqualToString: @"database/table"]) {
             NSMutableArray *array = [_schema objectForKey: @"database/table/@name"];
             if (array == nil) {
-                array = [[[NSMutableArray alloc] init] autorelease];
+                array = [[NSMutableArray alloc] init];
                 [_schema setObject: array forKey: @"database/table/@name"];
             }
             [array addObject: [attributes objectForKey: @"name"]];
@@ -142,7 +134,7 @@
         else if ([xpath isEqualToString: @"database/table/column"]) {
             NSMutableArray *array = [_schema objectForKey: @"database/table/column/@*"];
             if (array == nil) {
-                array = [[[NSMutableArray alloc] init] autorelease];
+                array = [[NSMutableArray alloc] init];
                 [_schema setObject: array forKey: @"database/table/column/@*"];
             }
             [array addObject: [NSArray arrayWithObjects: [attributes objectForKey: @"name"], attributes, nil]];
@@ -160,7 +152,7 @@
 
 - (void) parser: (NSXMLParser *)parser parseErrorOccurred: (NSError *)error {
     if (_error) {
-        *_error = error;
+        _error = error;
     }
 }
 

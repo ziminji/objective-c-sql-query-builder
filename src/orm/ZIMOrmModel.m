@@ -43,15 +43,12 @@
 	return [self initWithDelegate: nil];
 }
 
-- (void) dealloc {
-	[super dealloc];
-}
 
 - (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey {
 	if (![ZIMOrmModel isModel: model]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
 	}
-	id record = [[[model alloc] init] autorelease];
+	id record = [[model alloc] init];
 	NSArray *primaryKey = [model primaryKey];
 	int columnCount = [primaryKey count];
 	for (int i = 0; i < columnCount; i++) {
@@ -91,8 +88,6 @@
 		}
 	}
 	NSArray *records = [connection query: [sql statement] asObject: model];
-	[sql release];
-	[connection release];
 	return records;
 }
 
@@ -112,17 +107,13 @@
 		for (NSString *column in primaryKey) {
 			id value = [self valueForKey: column];
 			if (value == nil) {
-				[sql release];
-				[connection release];
 				@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to delete record because column '%@' is not assigned a value.", column] userInfo: nil];
 			}
 			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
 		}
 		[connection execute: [sql statement]];
-		[sql release];
 		_saved = nil;
 		[connection commitTransaction];
-		[connection release];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to delete record because no primary key has been declared." userInfo: nil];
@@ -143,7 +134,6 @@
 		for (NSString *column in primaryKey) {
 			id value = [self valueForKey: column];
 			if (value == nil) {
-				[sql release];
 				@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to load record because column '%@' is not assigned a value.", column] userInfo: nil];
 			}
 			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
@@ -153,8 +143,6 @@
 		[connection beginTransaction];
 		NSArray *records = [connection query: [sql statement]];
 		[connection commitTransaction];
-		[connection release];
-		[sql release];
 		if ([records count] != 1) {
 			@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to load record because the declared primary is invalid." userInfo: nil];
 		}
@@ -198,7 +186,6 @@
 				[select limit: 1];
 				NSArray *records = [connection query: [select statement]];
 				doInsert = ([records count] == 0);
-				[select release];
 			}
 			if (!doInsert) {
 				for (NSString *column in primaryKey) {
@@ -213,15 +200,11 @@
 					for (NSString *column in primaryKey) {
 						NSString *value = [self valueForKey: column];
 						if (value == nil) {
-							[update release];
-							[columns release];
-							[connection release];
 							@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to save record because column '%@' has no assigned value.", column] userInfo: nil];
 						}
 						[update where: column operator: ZIMSqlOperatorEqualTo value: value];
 					}
 					[connection execute: [update statement]];
-					[update release];
 					_saved = hashCode;
 				}
 			}
@@ -238,9 +221,6 @@
 				for (NSString *column in columns) {
 					NSString *value = [self valueForKey: column];
 					if ((value == nil) && [primaryKey containsObject: column]) {
-						[insert release];
-						[columns release];
-						[connection release];
 						@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to save record because column '%@' has no assigned value.", column] userInfo: nil];
 					}
 					[insert column: column value: value];
@@ -249,13 +229,10 @@
 				if ([[self class] isAutoIncremented] && (hashCode == nil)) {
 					[self setValue: result forKey: [primaryKey objectAtIndex: 0]];
 				}
-				[insert release];
 				_saved = [self hashCode];
 			}
 		}
-		[columns release];
 		[connection commitTransaction];
-		[connection release];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to save record because no primary key has been declared." userInfo: nil];
@@ -272,13 +249,11 @@
 		for (NSString *column in primaryKey) {
 			id value = [self valueForKey: column];
 			if (value == nil) {
-				[buffer release];
 				return nil;
 			}
 			[buffer appendFormat: @"%@=%@", column, value];
 		}
 		const char *cString = [buffer UTF8String];
-		[buffer release];
 		unsigned char digest[CC_SHA1_DIGEST_LENGTH];
 		CC_SHA1(cString, strlen(cString), digest);
 		NSMutableString *hashKey = [NSMutableString stringWithCapacity: CC_SHA1_DIGEST_LENGTH * 2];
@@ -316,7 +291,7 @@
 	unsigned int columnCount;
 	Ivar *vars = class_copyIvarList([self class], &columnCount);
 	int capacity = (columnCount - [configurations count]) * 2;
-	NSMutableDictionary *columns = [[[NSMutableDictionary alloc] initWithCapacity: capacity] autorelease];
+	NSMutableDictionary *columns = [[NSMutableDictionary alloc] initWithCapacity: capacity];
 	for (int i = 0; i < columnCount; i++) {
 		Ivar var = vars[i];
 		NSString *columnName = [NSString stringWithUTF8String: ivar_getName(var)];
@@ -326,7 +301,6 @@
 		}
 	}
 	free(vars);
-	[configurations release];
 	return columns;
 }
 

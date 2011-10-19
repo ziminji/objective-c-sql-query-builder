@@ -299,11 +299,6 @@ static NSSet *_keywords = nil;
 	return self;
 }
 
-- (void) dealloc {
-	[_tuples release];
-	[super dealloc];
-}
-
 - (id) objectAtIndex: (NSUInteger)index {
 	return [_tuples objectAtIndex: index];
 }
@@ -316,7 +311,7 @@ static NSSet *_keywords = nil;
  * @see http://cocoawithlove.com/2008/05/implementing-countbyenumeratingwithstat.html
  * @see http://www.mikeash.com/pyblog/friday-qa-2010-04-16-implementing-fast-enumeration.html
  */
-- (NSUInteger) countByEnumeratingWithState: (NSFastEnumerationState *)state objects: (id *)buffer count: (NSUInteger)bufferSize {
+- (NSUInteger) countByEnumeratingWithState: (NSFastEnumerationState *)state objects: (id __unsafe_unretained *)buffer count: (NSUInteger)bufferSize {
 	NSUInteger arrayIndex = (NSUInteger)state->state;
 	NSUInteger arraySize = [_tuples count];
 	NSUInteger bufferIndex = 0;
@@ -329,8 +324,8 @@ static NSSet *_keywords = nil;
 
 	state->state = (unsigned long)arrayIndex;
 	state->itemsPtr = buffer;
-	state->mutationsPtr = (unsigned long *)self;
-	
+	state->mutationsPtr = &state->extra[0];
+
 	return bufferIndex;
 }
 

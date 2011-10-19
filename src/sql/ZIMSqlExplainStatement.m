@@ -26,10 +26,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[super dealloc];
-}
-
 - (void) level: (NSInteger)level {
 	_level = [ZIMSqlExpression prepareNaturalNumber: level];
 }
@@ -39,7 +35,7 @@
 }
 
 - (NSString *) statement {
-	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString *sql = [[NSMutableString alloc] init];
 
 	[sql appendString: @"EXPLAIN "];
 	
