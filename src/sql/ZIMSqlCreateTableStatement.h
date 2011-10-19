@@ -34,7 +34,7 @@
 		NSString *_unique;
 		NSMutableArray *_stack;
 		NSInteger _counter;
-		NSError **_error;
+		NSError *_error;
 
 }
 /*!

@@ -56,15 +56,8 @@
 		if (![lookback isEqualToString: ZIMSqlTokenTerminal]) {
 			[_tokens addObject: @";"];
 		}
-		[tokenizer release];
 	}
 	return self;
-}
-
-- (void) dealloc {
-	[_tokens release];
-	[_indicies release];
-	[super dealloc];
 }
 
 - (void) setIdentifier: (NSString *)identifier atIndex: (NSInteger)index {
@@ -76,7 +69,7 @@
 }
 
 - (NSString *) statement {
-	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString *sql = [[NSMutableString alloc] init];
 	for (NSString *token in _tokens) {
 		[sql appendString: token];
 	}
@@ -96,7 +89,6 @@
 	va_end(args);
 
 	sql = [pstmt statement];
-	[pstmt release];
 
 	return sql;
 }

@@ -27,12 +27,11 @@
         _stack = [[NSMutableArray alloc] init];
 		_cdata = nil;
         _counter = 0;
-        _error = error;
+        _error = *error;
         if (xml != nil) {
 			NSXMLParser *parser = [[NSXMLParser alloc] initWithData: xml];
 			[parser setDelegate: self];
 			[parser parse];
-			[parser release];
 		}
 	}
 	return self;
@@ -41,12 +40,6 @@
 - (id) init {
     NSError *error;
     return [self initWithXmlSchema: nil error: &error];
-}
-
-- (void) dealloc {
-	[_column release];
-    [_stack release];
-	[super dealloc];
 }
 
 - (void) index: (NSString *)index on: (NSString *)table {
@@ -77,7 +70,7 @@
 }
 
 - (NSString *) statement {
-	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString *sql = [[NSMutableString alloc] init];
 
 	[sql appendString: @"CREATE"];
 
@@ -130,7 +123,7 @@
 
 - (void) parser: (NSXMLParser *)parser parseErrorOccurred: (NSError *)error {
     if (_error) {
-        *_error = error;
+        _error = error;
     }
 }
 

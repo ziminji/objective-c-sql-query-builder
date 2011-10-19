@@ -25,10 +25,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[super dealloc];
-}
-
 - (void) database: (NSString *)database {
 	_database = database;
 }

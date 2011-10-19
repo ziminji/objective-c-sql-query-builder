@@ -25,10 +25,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[super dealloc];
-}
-
 - (void) database: (NSString *)fileName as: (NSString *)database {
 	_fileName = fileName;
 	_database = database;

@@ -32,11 +32,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[_sql release];
-	[super dealloc];
-}
-
 - (void) join: (NSString *)table {
 	[_sql join: table];
 }
@@ -136,7 +131,6 @@
 - (NSArray *) query {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [_model dataSource] withMultithreadingSupport: NO];
 	NSArray *records = [connection query: [_sql statement] asObject: _model];
-	[connection release];
 	return records;
 }
 

@@ -13,7 +13,9 @@ The third part consists of a BASH script that can be used to generate the necess
 schema.  The fourth part consists of the database configuration files for the SQLite database connection.  The final part
 has the schema for handling XML to DDL.
 
-All classes are designed to be used in iPhone/iOS applications.
+All classes are designed to be used in iPhone/iOS applications.  These classes are compliant with iOS 5 and use [automatic
+reference counting](http://clang.llvm.org/docs/AutomaticReferenceCounting.html).  For those that are still compiling using
+an older iOS SDK, download the code tagged v0.6.19.1 -- Pre-ARC.
 
 ## Motivation
 
@@ -29,6 +31,7 @@ written.
 
 The following is a short-list of some of the features:
 
+* [Automatic reference counting](http://longweekendmobile.com/2011/09/07/objc-automatic-reference-counting-in-xcode-explained/);
 * Cleanly wraps-up the sqlite3 C based functions.
 * Automatically places the SQLite database in the "Document" directory.
 * Provides multi-threading support for asynchronous SQLite database calls;
@@ -126,9 +129,7 @@ Usually, code is not posted to this repository unless it works; however, there a
 even though it still contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this
 README (if they are not already listed under the "Issues" tab).
 
-At the current time, there are no known bugs. However, the "XML to DDL" schema processing is still being developed. Also,
-please note that the code is currently being updated to take in to consideration the recent announced changes to the iOS
-5 SDK, especially with regards to automatic reference counting.
+At the current time, there are no known bugs. However, the "XML to DDL" schema processing is still being developed.
 
 ### Updates
 
@@ -139,7 +140,6 @@ to your watch list so that you can be notified when such updates are made.
 
 This project is under heavy development.  There are development plans to add:
 
-* [Automatic reference counting](http://longweekendmobile.com/2011/09/07/objc-automatic-reference-counting-in-xcode-explained/);
 * Improved functionality to parse "XML to DDL" schema and raw SQLite statements into their SQL builder class equivalents;
 * More utilities (e.g. classes to handle validation, filtering, imports, exports, pagination, partitioning, and migration);
 * A database encryption layer for password protecting an SQLite database;

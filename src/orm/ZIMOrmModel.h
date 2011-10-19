@@ -29,12 +29,12 @@
 @interface ZIMOrmModel : NSObject <ZIMOrmModelDelegate> {
 
 	@protected
-		id _delegate;
+		id __unsafe_unretained _delegate;
 		NSString *_saved;
 
 }
 
-@property (nonatomic, assign) id delegate;
+@property (nonatomic, unsafe_unretained) id delegate;
 
 /*!
  @method				initWithDelegate:

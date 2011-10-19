@@ -243,7 +243,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		##
 		let INDEX=0
 		while [ $INDEX -lt $COUNT ]; do
-			echo "@property (nonatomic, retain) ${ColumnTypes[${INDEX}]} *${ColumnNames[${INDEX}]};" 1>> $MODEL_H
+			echo "@property (nonatomic, strong) ${ColumnTypes[${INDEX}]} *${ColumnNames[${INDEX}]};" 1>> $MODEL_H
 			let INDEX=$INDEX+1
 		done
 		
@@ -295,18 +295,6 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		echo -e "\t\t_saved = nil;" 1>> $MODEL_M
 		echo -e "\t}" 1>> $MODEL_M
 		echo -e "\treturn self;" 1>> $MODEL_M
-		echo -e "}\n" 1>> $MODEL_M
-
-		##
-		# Generates the class's destructor method.
-		##
-		echo "- (void) dealloc {" 1>> $MODEL_M
-		let INDEX=0
-		while [ $INDEX -lt $COUNT ]; do
-			echo -e "\tif (${ColumnNames[${INDEX}]} != nil) { [${ColumnNames[${INDEX}]} release]; }" 1>> $MODEL_M
-			let INDEX=$INDEX+1
-		done
-		echo -e "\t[super dealloc];" 1>> $MODEL_M
 		echo -e "}\n" 1>> $MODEL_M
 
 		##

@@ -26,11 +26,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[_column release];
-	[super dealloc];
-}
-
 - (void) into: (NSString *)table {
 	_table = [ZIMSqlExpression prepareIdentifier: table];
 }
@@ -40,7 +35,7 @@
 }
 
 - (NSString *) statement {
-	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString *sql = [[NSMutableString alloc] init];
 	
 	[sql appendFormat: @"INSERT INTO %@ ", _table];
 

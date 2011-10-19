@@ -36,18 +36,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[_column release];
-	[_table release];
-	[_join release];
-	[_where release];
-	[_groupBy release];
-	[_having release];
-	[_orderBy release];
-	[_combine release];
-	[super dealloc];
-}
-
 - (void) distinct: (BOOL)distinct {
 	_distinct = distinct;
 }
@@ -74,7 +62,7 @@
 
 - (void) join: (NSString *)table type: (NSString *)type {
 	NSString *join = [NSString stringWithFormat: @"%@ JOIN %@", [ZIMSqlExpression prepareJoinType: type], [ZIMSqlExpression prepareIdentifier: table]];
-	[_join addObject: [NSArray arrayWithObjects: join, [[[NSMutableArray alloc] init] autorelease], [[[NSMutableArray alloc] init] autorelease], nil]];
+	[_join addObject: [NSArray arrayWithObjects: join, [[NSMutableArray alloc] init], [[NSMutableArray alloc] init], nil]];
 }
 
 - (void) join: (NSString *)table alias: (NSString *)alias {
@@ -83,7 +71,7 @@
 
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type {
 	NSString *join = [NSString stringWithFormat: @"%@ JOIN %@ %@", [ZIMSqlExpression prepareJoinType: type], [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareAlias: alias]];
-	[_join addObject: [NSArray arrayWithObjects: join, [[[NSMutableArray alloc] init] autorelease], [[[NSMutableArray alloc] init] autorelease], nil]];
+	[_join addObject: [NSArray arrayWithObjects: join, [[NSMutableArray alloc] init], [[NSMutableArray alloc] init], nil]];
 }
 
 - (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
@@ -293,7 +281,7 @@
 }
 
 - (NSString *) statement {
-	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString *sql = [[NSMutableString alloc] init];
 	
 	[sql appendString: @"SELECT "];
 	
