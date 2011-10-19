@@ -33,7 +33,7 @@
 		NSMutableArray *_stack;
 		NSString *_cdata;
 		NSInteger _counter;
-		NSError **_error;
+		NSError *_error;
 
 }
 /*!

@@ -30,13 +30,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[_column release];
-	[_where release];
-	[_orderBy release];
-	[super dealloc];
-}
-
 - (void) table: (NSString *)table {
 	_table = [ZIMSqlExpression prepareIdentifier: table];
 }
@@ -106,7 +99,7 @@
 }
 
 - (NSString *) statement {
-	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString *sql = [[NSMutableString alloc] init];
 
 	[sql appendFormat: @"UPDATE %@ SET ", _table];
 	
@@ -126,8 +119,7 @@
 			doAppendConnector = (![whereClause isEqualToString: ZIMSqlEnclosureOpeningBrace]);
 		}
 	}
-	
-	
+
 	if ([_orderBy count] > 0) {
 		[sql appendFormat: @" ORDER BY %@", [_orderBy componentsJoinedByString: @", "]];
 	}

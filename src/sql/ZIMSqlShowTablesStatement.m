@@ -26,10 +26,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[super dealloc];
-}
-
 - (void) show: (NSString *)type {
 	type = [type uppercaseString];
 	if ([type isEqualToString: ZIMSqlShowTypeAll]) {
@@ -51,7 +47,7 @@
 }
 
 - (NSString *) statement {
-	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString *sql = [[NSMutableString alloc] init];
 
 	[sql appendString: @"SELECT [name]"];
 

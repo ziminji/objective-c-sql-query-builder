@@ -38,8 +38,6 @@
 
 - (void) dealloc {
 	[self closeAll];
-	[_connections release];
-	[super dealloc];
 }
 
 - (ZIMDbConnection *) connection: (NSString *)dataSource {
@@ -47,7 +45,7 @@
 	@synchronized(self) {
 		connection = [_connections objectForKey: dataSource];
 		if (connection == nil) {
-			connection = [[[ZIMDbConnection alloc] initWithDataSource: dataSource] autorelease];
+			connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource];
 			[_connections setObject: connection forKey: dataSource];
 		}
 		else {

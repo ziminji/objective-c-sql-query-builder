@@ -25,10 +25,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[super dealloc];
-}
-
 - (void) table: (NSString *)table {
 	_table = [ZIMSqlExpression prepareIdentifier: table];
 }

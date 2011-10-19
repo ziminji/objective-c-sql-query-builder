@@ -52,7 +52,7 @@
  @param type			The type of join clause.
  @updated				2011-04-02
  */
-- (void) join: (NSString *)table type: (NSString *)type; // type of JOIN: INNER, RIGHT, LEFT, etc
+- (void) join: (NSString *)table type: (NSString *)type; // type of JOIN: CROSS, INNER, LEFT, etc.
 /*!
  @method				join:alias:
  @discussion			This method will add a join clause to the SQL statement.
@@ -69,7 +69,7 @@
  @param type			The type of join clause.
  @updated				2011-04-02
  */
-- (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type; // type of JOIN: INNER, RIGHT, LEFT, etc
+- (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type; // type of JOIN: CROSS, INNER, LEFT, etc.
 /*!
  @method				joinOn:operator:column:
  @discussion			This method will add a join condition to the SQL statement.

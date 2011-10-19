@@ -35,7 +35,7 @@ NSString *ZIMSqlDefaultValue(id value) {
 	else if ([value isKindOfClass: [NSData class]]) {
 		NSData *data = (NSData *)value;
 		int length = [data length];
-		NSMutableString *buffer = [[[NSMutableString alloc] init] autorelease];
+		NSMutableString *buffer = [[NSMutableString alloc] init];
 		[buffer appendString: @"DEFAULT '"];
 		const unsigned char *dataBuffer = [data bytes];
 		for (int i = 0; i < length; i++) {
@@ -48,7 +48,6 @@ NSString *ZIMSqlDefaultValue(id value) {
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 		[formatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
 		NSString *date = [NSString stringWithFormat: @"DEFAULT '%@'", [formatter stringFromDate: (NSDate *)value]];
-		[formatter release];
 		return date;
 	}
 	else {
@@ -192,7 +191,7 @@ static NSSet *_setOperators = nil;
 		return statement;
 	}
 	else if ([value isKindOfClass: [NSArray class]]) {
-		NSMutableString *str = [[[NSMutableString alloc] init] autorelease];
+		NSMutableString *str = [[NSMutableString alloc] init];
 		[str appendString: @"("];
 		for (int i = 0; i < [value count]; i++) {
 			if (i > 0) {
@@ -215,7 +214,7 @@ static NSSet *_setOperators = nil;
 	else if ([value isKindOfClass: [NSData class]]) {
 		NSData *data = (NSData *)value;
 		int length = [data length];
-		NSMutableString *buffer = [[[NSMutableString alloc] init] autorelease];
+		NSMutableString *buffer = [[NSMutableString alloc] init];
 		[buffer appendString: @"'"];
 		const unsigned char *dataBuffer = [data bytes];
 		for (int i = 0; i < length; i++) {
@@ -228,7 +227,6 @@ static NSSet *_setOperators = nil;
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 		[formatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
 		NSString *date = [NSString stringWithFormat: @"'%@'", [formatter stringFromDate: (NSDate *)value]];
-		[formatter release];
 		return date;
 	}
 	else {

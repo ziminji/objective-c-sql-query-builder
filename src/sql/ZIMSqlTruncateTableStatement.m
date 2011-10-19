@@ -25,16 +25,12 @@
 	return self;
 }
 
-- (void) dealloc {
-	[super dealloc];
-}
-
 - (void) table: (NSString *)table {
 	_table = table;
 }
 
 - (NSString *) statement {
-	NSMutableString *sql = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString *sql = [[NSMutableString alloc] init];
 	[sql appendFormat: @"DELETE FROM %@; ", [ZIMSqlExpression prepareIdentifier: _table]];
 	[sql appendFormat: @"DELETE FROM [sqlite_sequence] WHERE [name] = %@;", [ZIMSqlExpression prepareValue: _table]];
 	return sql;
