@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlCreateViewStatement
  @discussion			This class represents an SQL create view statement.
- @updated				2011-07-29
+ @updated				2011-10-19
  @see					http://www.sqlite.org/lang_createview.html
  */
 @interface ZIMSqlCreateViewStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
@@ -41,7 +41,7 @@
  @param xml	            The UTF-8 encoded string of XML.
  @param error           Used when an error occurs while processing the XML data. May be NULL.
  @return                An instance of this class.
- @updated				2011-07-29
+ @updated				2011-10-19
  @see					http://db.apache.org/ddlutils/
  @see					http://db.apache.org/ddlutils/schema/
  */
@@ -80,7 +80,7 @@
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-06-26
+ @updated				2011-10-19
  */
 - (NSString *) statement;
 

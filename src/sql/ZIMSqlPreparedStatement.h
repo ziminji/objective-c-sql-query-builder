@@ -33,7 +33,7 @@
  @discussion			This method initialize the class with the specified SQL statement.
  @param sql				The SQL statement to be prepared.
  @return				An instance of this class.
- @updated				2011-08-13
+ @updated				2011-10-19
  */
 - (id) initWithSqlStatement: (NSString *)sql;
 /*!
@@ -58,7 +58,7 @@
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was prepared.
- @updated				2011-08-13
+ @updated				2011-10-19
  */
 - (NSString *) statement;
 /*!
@@ -67,7 +67,7 @@
  @param sql				The SQL statement to be prepared.
  @param values			The values (i.e. objects) to be set.
  @return				The SQL statement that was prepared.
- @updated				2011-08-13
+ @updated				2011-10-19
  */
 + (NSString *) preparedStatement: (NSString *)sql withValues: (id)values, ...;
 
