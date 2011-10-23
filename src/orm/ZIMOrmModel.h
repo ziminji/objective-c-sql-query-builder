@@ -24,7 +24,7 @@
 /*!
  @class					ZIMOrmModel
  @discussion			This class acts as the base model.
- @updated				2011-07-31
+ @updated				2011-10-19
  */
 @interface ZIMOrmModel : NSObject <ZIMOrmModelDelegate> {
 
@@ -59,7 +59,7 @@
  @param foreignKey		An array of columns in the current instance that define the foreign key to be used.  The order of
 						the columns matters (i.e. columns must be placed in the same order as model's primary key).
  @return				Returns a model of the specified class.
- @updated				2011-05-19
+ @updated				2011-10-19
  */
 - (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey; // the foreign key array is an ordered list of columns in "self"
 /*!
@@ -93,33 +93,33 @@
 						the columns matters (i.e. columns must be placed in the same order as self's primary key).
  @param options			A dictionary options that will constraint the result set.
  @return				Returns an array of models of the specified class.
- @updated				2011-05-03
+ @updated				2011-10-23
  @see					http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html
  */
 - (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey options: (NSDictionary *)options; // i.e. the foreign key array is an ordered list of columns in "model"
 /*!
  @method				delete
  @discussion			This method deletes the record matching the primary key.
- @updated				2011-07-16
+ @updated				2011-10-23
  */
 - (void) delete;
 /*!
  @method				load
  @discussion			This method will load/reload the record matching the primary key.
- @updated				2011-07-16
+ @updated				2011-10-23
  */
 - (void) load;
 /*!
  @method				save
  @discussion			This method either creates or updates the record matching the primary key.
- @updated				2011-07-16
+ @updated				2011-10-23
  */
 - (void) save;
 /*!
  @method				hashCode
  @discussion			This method returns a hash code that is calculated by first concatenating the value
 						assigned to each primary key and then finding the SHA1 has for the concatenated string.
- @updated				2011-06-25
+ @updated				2011-10-23
  */
 - (NSString *) hashCode;
 /*!

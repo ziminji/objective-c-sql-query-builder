@@ -43,7 +43,7 @@
  @discussion			This method will return a connection for the specified data source.
  @param dataSource		The file name of the database's PLIST to be used.
  @return				An open connection for the specified data source.
- @updated				2011-07-16
+ @updated				2011-10-19
  */
 - (ZIMDbConnection *) connection: (NSString *)dataSource;
 /*!

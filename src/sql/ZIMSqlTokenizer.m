@@ -310,6 +310,7 @@ static NSSet *_keywords = nil;
 /*
  * @see http://cocoawithlove.com/2008/05/implementing-countbyenumeratingwithstat.html
  * @see http://www.mikeash.com/pyblog/friday-qa-2010-04-16-implementing-fast-enumeration.html
+ * @see http://stackoverflow.com/questions/7815326/automatic-reference-counting-error-with-fast-enumeration
  */
 - (NSUInteger) countByEnumeratingWithState: (NSFastEnumerationState *)state objects: (id __unsafe_unretained *)buffer count: (NSUInteger)bufferSize {
 	NSUInteger arrayIndex = (NSUInteger)state->state;
