@@ -49,7 +49,7 @@
  @param columnType	The integer value of the data type for the specified column.
  @param statement	The prepared SQL statement.
  @return			The prepared value.
- @updated			2011-07-05
+ @updated			2011-10-19
  */
 - (id) columnValueAtIndex: (int)column withColumnType: (int)columnType inStatement: (sqlite3_stmt *)statement;
 @end
@@ -217,8 +217,6 @@
 			for (int index = 0; index < columnCount; index++) {
 				NSString *columnName = [NSString stringWithUTF8String: sqlite3_column_name(statement, index)];
 				if (!([record isKindOfClass: [NSMutableDictionary class]] || [record respondsToSelector: [self selectorForSettingColumnName: columnName]])) {
-
-					
 					sqlite3_finalize(statement);
 					
 					if (_mutex != nil) {
@@ -245,8 +243,7 @@
 		
 		[records addObject: record];
 	}
-	
-	
+
 	sqlite3_finalize(statement);
 
 	if (_mutex != nil) {
@@ -365,18 +362,21 @@
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSNumber *result = [connection execute: sql];
+	[connection close];
 	return result;
 }
 
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSArray *records = [connection query: sql];
+	[connection close];
 	return records;
 }
 
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql asObject: (Class)model {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSArray *records = [connection query: sql asObject: model];
+	[connection close];
 	return records;
 }
 

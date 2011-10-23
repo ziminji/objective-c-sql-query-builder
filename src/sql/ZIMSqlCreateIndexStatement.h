@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlCreateIndexStatement
  @discussion			This class represents an SQL create index statement.
- @updated				2011-07-29
+ @updated				2011-10-19
  @see					http://www.sqlite.org/lang_createindex.html
  */
 @interface ZIMSqlCreateIndexStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
@@ -42,7 +42,7 @@
  @param xml	            The UTF-8 encoded string of XML.
  @param error           Used when an error occurs while processing the XML data. May be NULL.
  @return                An instance of this class.
- @updated				2011-07-29
+ @updated				2011-10-19
  @see					http://db.apache.org/ddlutils/
  @see					http://db.apache.org/ddlutils/schema/
  */
@@ -103,7 +103,7 @@
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-07-09
+ @updated				2011-10-19
  */
 - (NSString *) statement;
 

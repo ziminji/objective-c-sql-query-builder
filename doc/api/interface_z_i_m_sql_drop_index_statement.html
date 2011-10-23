@@ -87,7 +87,6 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_index_statement.html#af4d11c78f8fb7bb0c24d50bab4b02bf1">index:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_index_statement.html#a1c4a6a9c0df422f1f7f0dfb38e0c10eb">index:exists:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_index_statement.html#ab49360dae807d6b5fe880b065ad5e6b4">statement</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_index_statement.html#a5f26e017be01cce47aae9920fa81abcc">dealloc</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_index_statement.html#a4e4c2e210ea6b4237321603d811c9bfd">parser:didStartElement:namespaceURI:qualifiedName:attributes:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_index_statement.html#a893d6e05697c14c80511ff883272a35e">parser:didEndElement:namespaceURI:qualifiedName:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_index_statement.html#a3aa180fb6fc6cdbda0618d94b4366ad9">parser:parseErrorOccurred:</a><code> [implementation]</code></td></tr>
@@ -97,29 +96,13 @@ Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_index_statement.html#aa143c3293b396d3c800a21787abafa65">_exists</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_index_statement.html#a5f71f317637958c36614e77b2b8fcc37">_stack</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_index_statement.html#a90bed4c9f69f12ea2a73a446ef9c215a">_counter</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NSError **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_index_statement.html#a2bb94f250a896ba54192649ed3e9b3a4">_error</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSError *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_index_statement.html#ad817f97f95d631c69175fa15373c2b4d">_error</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL drop index statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_dropindex.html">http://www.sqlite.org/lang_dropindex.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a5f26e017be01cce47aae9920fa81abcc"></a><!-- doxytag: member="ZIMSqlDropIndexStatement::dealloc" ref="a5f26e017be01cce47aae9920fa81abcc" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (void) dealloc </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td><code> [implementation]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="af4d11c78f8fb7bb0c24d50bab4b02bf1"></a><!-- doxytag: member="ZIMSqlDropIndexStatement::index:" ref="af4d11c78f8fb7bb0c24d50bab4b02bf1" args="(NSString *index)" -->
 <div class="memitem">
 <div class="memproto">
@@ -237,7 +220,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://db.apache.org/ddlutils/">http://db.apache.org/ddlutils/</a> </dd>
 <dd>
 <a href="http://db.apache.org/ddlutils/schema/">http://db.apache.org/ddlutils/schema/</a> </dd></dl>
@@ -371,7 +354,7 @@ Protected Attributes</h2></td></tr>
 <dl class="user"><dt><b>Signature:</b></dt><dd>statement </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method will return the SQL statement. </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-03-18 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 
 <p>Reimplemented from <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>.</p>
 
@@ -391,12 +374,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2bb94f250a896ba54192649ed3e9b3a4"></a><!-- doxytag: member="ZIMSqlDropIndexStatement::_error" ref="a2bb94f250a896ba54192649ed3e9b3a4" args="" -->
+<a class="anchor" id="ad817f97f95d631c69175fa15373c2b4d"></a><!-- doxytag: member="ZIMSqlDropIndexStatement::_error" ref="ad817f97f95d631c69175fa15373c2b4d" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (NSError**) <a class="el" href="interface_z_i_m_sql_drop_index_statement.html#a2bb94f250a896ba54192649ed3e9b3a4">_error</a><code> [protected]</code></td>
+          <td class="memname">- (NSError*) <a class="el" href="interface_z_i_m_sql_drop_index_statement.html#ad817f97f95d631c69175fa15373c2b4d">_error</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>

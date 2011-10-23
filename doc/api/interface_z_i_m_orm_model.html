@@ -93,7 +93,6 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a3f0f625955168a40569980a4d7131eeb">load</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a813326d955a409db8c38297356f5a656">save</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#af501f5078004cfe44ed8366e7668b4fd">hashCode</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a78233988637586da2e60abe5be28fb55">dealloc</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a6d20d3f7cc85554e217beec141703a9f">dataSource</a></td></tr>
@@ -105,7 +104,7 @@ Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a5efea4cfe970058de0e4f274f001c293">isModel:</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#aa68bbd9982c807f9f1d98ea6e712c286">_delegate</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">id __unsafe_unretained&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#a97a5b4d7a0d1674b8a1c143852828c93">_delegate</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_orm_model.html#a6133b3022327a167d9b0c1a3986a96ec">_saved</a></td></tr>
 <tr><td colspan="2"><h2><a name="properties"></a>
 Properties</h2></td></tr>
@@ -113,7 +112,7 @@ Properties</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class acts as the base model. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-31 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="ae840cfe7ae087e66039fbb44d6ecaa37"></a><!-- doxytag: member="ZIMOrmModel::belongsTo:foreignKey:" ref="ae840cfe7ae087e66039fbb44d6ecaa37" args="(Class model,[foreignKey] NSArray *foreignKey)" -->
 <div class="memitem">
@@ -149,7 +148,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Returns a model of the specified class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-05-19 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 
 </div>
 </div>
@@ -196,22 +195,6 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a78233988637586da2e60abe5be28fb55"></a><!-- doxytag: member="ZIMOrmModel::dealloc" ref="a78233988637586da2e60abe5be28fb55" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (void) dealloc </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td><code> [implementation]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ad9b9c6e1827feae95c9ace43c47fb6c2"></a><!-- doxytag: member="ZIMOrmModel::delete" ref="ad9b9c6e1827feae95c9ace43c47fb6c2" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -227,7 +210,7 @@ Properties</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Signature:</b></dt><dd>delete </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method deletes the record matching the primary key. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-16 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-23 </dd></dl>
 
 </div>
 </div>
@@ -246,7 +229,7 @@ Properties</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Signature:</b></dt><dd>hashCode </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method returns a hash code that is calculated by first concatenating the value assigned to each primary key and then finding the SHA1 has for the concatenated string. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-25 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-23 </dd></dl>
 
 </div>
 </div>
@@ -329,7 +312,7 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Returns an array of models of the specified class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-05-03 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-23 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html">http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html</a> </dd></dl>
 
 </div>
@@ -502,7 +485,7 @@ Properties</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Signature:</b></dt><dd>load </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method will load/reload the record matching the primary key. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-16 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-23 </dd></dl>
 
 </div>
 </div>
@@ -541,7 +524,7 @@ Properties</h2></td></tr>
 <div class="memdoc">
 <dl class="user"><dt><b>Signature:</b></dt><dd>save </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method either creates or updates the record matching the primary key. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-16 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-23 </dd></dl>
 
 </div>
 </div>
@@ -566,12 +549,12 @@ Properties</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="aa68bbd9982c807f9f1d98ea6e712c286"></a><!-- doxytag: member="ZIMOrmModel::_delegate" ref="aa68bbd9982c807f9f1d98ea6e712c286" args="" -->
+<a class="anchor" id="a97a5b4d7a0d1674b8a1c143852828c93"></a><!-- doxytag: member="ZIMOrmModel::_delegate" ref="a97a5b4d7a0d1674b8a1c143852828c93" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (id) <a class="el" href="interface_z_i_m_orm_model.html#aa68bbd9982c807f9f1d98ea6e712c286">_delegate</a><code> [protected]</code></td>
+          <td class="memname">- (id __unsafe_unretained) <a class="el" href="interface_z_i_m_orm_model.html#a97a5b4d7a0d1674b8a1c143852828c93">_delegate</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -598,7 +581,7 @@ Properties</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (id) delegate<code> [read, write, assign]</code></td>
+          <td class="memname">- (id) delegate<code> [read, write, retain]</code></td>
         </tr>
       </table>
 </div>

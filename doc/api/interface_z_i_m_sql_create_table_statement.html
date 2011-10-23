@@ -93,7 +93,6 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a6ac8b08f3330b8a68e7d429dbeaf70ca">primaryKey:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ae367b1fcef9c10778d1eb57bfa734c77">unique:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#abe64d6ba57a6f3042a001a0b631ec7ee">statement</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ac5fa59eaa6f08ec22888d091be2518f1">dealloc</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#aa7c65375d48732c9aee66d51db362c05">parser:didStartElement:namespaceURI:qualifiedName:attributes:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#ad02279efedaf6543b11288a0c4bc3666">parser:didEndElement:namespaceURI:qualifiedName:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_table_statement.html#a68d926f3610bbfa354855d0ebece13e7">parser:parseErrorOccurred:</a><code> [implementation]</code></td></tr>
@@ -107,11 +106,11 @@ Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#a818a6f7652877a55e78f0f1c84416b34">_unique</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#a821964bb6aad92d79479f1a74b6e9173">_stack</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#abd0953163daf55074a6839da8a6d5e8c">_counter</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NSError **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#af0fd90aa67fa5d348a1a8a7873ce3509">_error</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSError *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_create_table_statement.html#aac559c43bd40ac6f69fd3bfaec7a76e8">_error</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL create table statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_createtable.html">http://www.sqlite.org/lang_createtable.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="af19bbac8b15a9a126fd5e8792e21489c"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::column:type:" ref="af19bbac8b15a9a126fd5e8792e21489c" args="(NSString *column,[type] NSString *type)" -->
@@ -283,22 +282,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac5fa59eaa6f08ec22888d091be2518f1"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::dealloc" ref="ac5fa59eaa6f08ec22888d091be2518f1" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (void) dealloc </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td><code> [implementation]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ac1b65ab837b5293b0742d94884d1cc14"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::init" ref="ac1b65ab837b5293b0742d94884d1cc14" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -353,7 +336,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://db.apache.org/ddlutils/">http://db.apache.org/ddlutils/</a> </dd>
 <dd>
 <a href="http://db.apache.org/ddlutils/schema/">http://db.apache.org/ddlutils/schema/</a> </dd></dl>
@@ -513,7 +496,7 @@ Protected Attributes</h2></td></tr>
 <dl class="user"><dt><b>Signature:</b></dt><dd>statement </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method will return the SQL statement. </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-23 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 
 <p>Reimplemented from <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>.</p>
 
@@ -648,12 +631,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af0fd90aa67fa5d348a1a8a7873ce3509"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::_error" ref="af0fd90aa67fa5d348a1a8a7873ce3509" args="" -->
+<a class="anchor" id="aac559c43bd40ac6f69fd3bfaec7a76e8"></a><!-- doxytag: member="ZIMSqlCreateTableStatement::_error" ref="aac559c43bd40ac6f69fd3bfaec7a76e8" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (NSError**) <a class="el" href="interface_z_i_m_sql_create_table_statement.html#af0fd90aa67fa5d348a1a8a7873ce3509">_error</a><code> [protected]</code></td>
+          <td class="memname">- (NSError*) <a class="el" href="interface_z_i_m_sql_create_table_statement.html#aac559c43bd40ac6f69fd3bfaec7a76e8">_error</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>

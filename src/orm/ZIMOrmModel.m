@@ -43,7 +43,6 @@
 	return [self initWithDelegate: nil];
 }
 
-
 - (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey {
 	if (![ZIMOrmModel isModel: model]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
@@ -71,7 +70,6 @@
 	if (![ZIMOrmModel isModel: model]) {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];
 	}
-	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [model dataSource] withMultithreadingSupport: NO];
 	ZIMSqlSelectStatement *sql = [[ZIMSqlSelectStatement alloc] init];
 	[sql from: [model table]];
 	NSArray *primaryKey = [[self class] primaryKey];
@@ -87,7 +85,7 @@
 			[sql offset: [[options objectForKey: ZIMOrmOptionOffset] integerValue]];
 		}
 	}
-	NSArray *records = [connection query: [sql statement] asObject: model];
+	NSArray *records = [ZIMDbConnection dataSource: [model dataSource] query: [sql statement] asObject: model];
 	return records;
 }
 
@@ -100,8 +98,6 @@
 	}
 	NSArray *primaryKey = [[self class] primaryKey];
 	if ((primaryKey != nil) && ([primaryKey count] > 0)) {
-		ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [[self class] dataSource]];
-		[connection beginTransaction];
 		ZIMSqlDeleteStatement *sql = [[ZIMSqlDeleteStatement alloc] init];
 		[sql table: [[self class] table]];
 		for (NSString *column in primaryKey) {
@@ -111,9 +107,12 @@
 			}
 			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
 		}
+		ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [[self class] dataSource]];
+		[connection beginTransaction];
 		[connection execute: [sql statement]];
-		_saved = nil;
 		[connection commitTransaction];
+		[connection close];
+		_saved = nil;
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to delete record because no primary key has been declared." userInfo: nil];
@@ -139,10 +138,7 @@
 			[sql where: column operator: ZIMSqlOperatorEqualTo value: value];
 		}
 		[sql limit: 1];
-		ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [[self class] dataSource]];
-		[connection beginTransaction];
-		NSArray *records = [connection query: [sql statement]];
-		[connection commitTransaction];
+		NSArray *records = [ZIMDbConnection dataSource: [[self class] dataSource] query: [sql statement]];
 		if ([records count] != 1) {
 			@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to load record because the declared primary is invalid." userInfo: nil];
 		}
@@ -200,6 +196,8 @@
 					for (NSString *column in primaryKey) {
 						NSString *value = [self valueForKey: column];
 						if (value == nil) {
+							[connection rollbackTransaction];
+							[connection close];
 							@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to save record because column '%@' has no assigned value.", column] userInfo: nil];
 						}
 						[update where: column operator: ZIMSqlOperatorEqualTo value: value];
@@ -221,6 +219,8 @@
 				for (NSString *column in columns) {
 					NSString *value = [self valueForKey: column];
 					if ((value == nil) && [primaryKey containsObject: column]) {
+						[connection rollbackTransaction];
+						[connection close];
 						@throw [NSException exceptionWithName: @"ZIMOrmException" reason: [NSString stringWithFormat: @"Failed to save record because column '%@' has no assigned value.", column] userInfo: nil];
 					}
 					[insert column: column value: value];
@@ -233,6 +233,7 @@
 			}
 		}
 		[connection commitTransaction];
+		[connection close];
 	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Failed to save record because no primary key has been declared." userInfo: nil];
@@ -254,11 +255,11 @@
 			[buffer appendFormat: @"%@=%@", column, value];
 		}
 		const char *cString = [buffer UTF8String];
-		unsigned char digest[CC_SHA1_DIGEST_LENGTH];
-		CC_SHA1(cString, strlen(cString), digest);
-		NSMutableString *hashKey = [NSMutableString stringWithCapacity: CC_SHA1_DIGEST_LENGTH * 2];
-		for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
-			[hashKey appendFormat: @"%02X", digest[i]];
+		unsigned char digest[CC_SHA512_DIGEST_LENGTH];
+		CC_SHA512(cString, strlen(cString), digest);
+		NSMutableString *hashKey = [NSMutableString stringWithCapacity: CC_SHA512_DIGEST_LENGTH * 2];
+		for (int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++) {
+			[hashKey appendFormat: @"%02x", digest[i]];
 		}
 		return [hashKey lowercaseString];
 	}

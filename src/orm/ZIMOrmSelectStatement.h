@@ -50,7 +50,7 @@
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
  @param type			The type of join clause.
- @updated				2011-04-02
+ @updated				2011-10-19
  */
 - (void) join: (NSString *)table type: (NSString *)type; // type of JOIN: CROSS, INNER, LEFT, etc.
 /*!
@@ -67,7 +67,7 @@
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
  @param type			The type of join clause.
- @updated				2011-04-02
+ @updated				2011-10-19
  */
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type; // type of JOIN: CROSS, INNER, LEFT, etc.
 /*!
@@ -232,7 +232,7 @@
  @method				query
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-07-16
+ @updated				2011-10-23
  */
 - (NSArray *) query;
 

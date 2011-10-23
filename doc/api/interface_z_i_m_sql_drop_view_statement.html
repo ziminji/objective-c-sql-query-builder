@@ -87,7 +87,6 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a7e803c58358f83950e79eba73a02ecfe">view:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a90ce3223b8b4d98f7d0963ed8257f1d5">view:exists:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a6eccb39c926951b54060cb866dc2062f">statement</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#aa2ebd7da3b75505ba1ba8c0e26c4f73a">dealloc</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#af564892c4b00398cea23f9a2ef6c536c">parser:didStartElement:namespaceURI:qualifiedName:attributes:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a4fbff4d9c10f5d7d53a2ae59b0b44453">parser:didEndElement:namespaceURI:qualifiedName:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a649f08511bc23747795775cd04d41b34">parser:parseErrorOccurred:</a><code> [implementation]</code></td></tr>
@@ -97,29 +96,13 @@ Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_view_statement.html#ae25296df86e6331030a322d8acd3c0ad">_exists</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a3d403ed267331729c17cc6871ae21246">_stack</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a124ab57ab664a9b81d6d6816975f0b13">_counter</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NSError **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a4538ac286fd6fedba084f51cd6b4e6e6">_error</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSError *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_drop_view_statement.html#aa419d55d6478ed760948cf9e750c1f2b">_error</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL drop view statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_dropview.html">http://www.sqlite.org/lang_dropview.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aa2ebd7da3b75505ba1ba8c0e26c4f73a"></a><!-- doxytag: member="ZIMSqlDropViewStatement::dealloc" ref="aa2ebd7da3b75505ba1ba8c0e26c4f73a" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (void) dealloc </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td><code> [implementation]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a86346dd2dbe8be1a420a015eda3c2dd6"></a><!-- doxytag: member="ZIMSqlDropViewStatement::init" ref="a86346dd2dbe8be1a420a015eda3c2dd6" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +157,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://db.apache.org/ddlutils/">http://db.apache.org/ddlutils/</a> </dd>
 <dd>
 <a href="http://db.apache.org/ddlutils/schema/">http://db.apache.org/ddlutils/schema/</a> </dd></dl>
@@ -308,7 +291,7 @@ Protected Attributes</h2></td></tr>
 <dl class="user"><dt><b>Signature:</b></dt><dd>statement </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method will return the SQL statement. </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-03-18 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 
 <p>Reimplemented from <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>.</p>
 
@@ -391,12 +374,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4538ac286fd6fedba084f51cd6b4e6e6"></a><!-- doxytag: member="ZIMSqlDropViewStatement::_error" ref="a4538ac286fd6fedba084f51cd6b4e6e6" args="" -->
+<a class="anchor" id="aa419d55d6478ed760948cf9e750c1f2b"></a><!-- doxytag: member="ZIMSqlDropViewStatement::_error" ref="aa419d55d6478ed760948cf9e750c1f2b" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (NSError**) <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#a4538ac286fd6fedba084f51cd6b4e6e6">_error</a><code> [protected]</code></td>
+          <td class="memname">- (NSError*) <a class="el" href="interface_z_i_m_sql_drop_view_statement.html#aa419d55d6478ed760948cf9e750c1f2b">_error</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>

@@ -131,6 +131,7 @@
 - (NSArray *) query {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: [_model dataSource] withMultithreadingSupport: NO];
 	NSArray *records = [connection query: [_sql statement] asObject: _model];
+	[connection close];
 	return records;
 }
 

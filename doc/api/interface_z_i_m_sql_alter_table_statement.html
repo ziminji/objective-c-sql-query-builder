@@ -92,7 +92,6 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a308320b93890211a0af72c5b0189e029">column:type:unique:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#aa371c31f892f0cebabbc01b775839b2e">rename:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a5cc6295b01cc3073131c213aedc924dc">statement</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a18dec0b99f1dfafd249b5b8b6b3bde3a">dealloc</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#adf606254a177d773439ba7df545a8efd">parser:didStartElement:namespaceURI:qualifiedName:attributes:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a77cfdd2a06b5c72d60b9b568683088b1">parser:didEndElement:namespaceURI:qualifiedName:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#aaa8759395fe94e35a92862d56ba0dded">parser:parseErrorOccurred:</a><code> [implementation]</code></td></tr>
@@ -104,11 +103,11 @@ Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableDictionary *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ab4a502577456a3c175c705d88483d111">_schema</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ad091af666eef65c22ba9b765719e0cb4">_stack</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ab86cbdfac9238a5cf32f23dddbc06d2c">_counter</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NSError **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a5b26338ef779b0e75a3720559101e0e3">_error</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSError *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a6569e8343d9a3e14aaf4182f12608b42">_error</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL alter table statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_altertable.html">http://www.sqlite.org/lang_altertable.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a68196c0a85fed6fb53a1654201a04c30"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::autoincrement:" ref="a68196c0a85fed6fb53a1654201a04c30" args="(NSInteger position)" -->
@@ -309,22 +308,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a18dec0b99f1dfafd249b5b8b6b3bde3a"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::dealloc" ref="a18dec0b99f1dfafd249b5b8b6b3bde3a" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">- (void) dealloc </td>
-          <td></td>
-          <td class="paramname"></td>
-          <td><code> [implementation]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a172b4da5863f1c2f09d878d8fa6fc1ef"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::init" ref="a172b4da5863f1c2f09d878d8fa6fc1ef" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -386,7 +369,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-29 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://db.apache.org/ddlutils/">http://db.apache.org/ddlutils/</a> </dd>
 <dd>
 <a href="http://db.apache.org/ddlutils/schema/">http://db.apache.org/ddlutils/schema/</a> </dd></dl>
@@ -621,12 +604,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5b26338ef779b0e75a3720559101e0e3"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::_error" ref="a5b26338ef779b0e75a3720559101e0e3" args="" -->
+<a class="anchor" id="a6569e8343d9a3e14aaf4182f12608b42"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::_error" ref="a6569e8343d9a3e14aaf4182f12608b42" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (NSError**) <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a5b26338ef779b0e75a3720559101e0e3">_error</a><code> [protected]</code></td>
+          <td class="memname">- (NSError*) <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a6569e8343d9a3e14aaf4182f12608b42">_error</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
