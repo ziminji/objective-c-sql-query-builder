@@ -23,6 +23,17 @@
  */
 @interface NSString (ZIMString)
 /*!
+ @method			matchRegex:options:
+ @discussion		This method determines whether the pattern is matched.
+ @param pattern		The regular expression to be used.
+ @param options		The options to be used.
+ @return			A boolean value denoting whether the pattern was matched.
+ @updated			2011-10-29
+ @see				http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSRegularExpression_Class/Reference/Reference.html
+ @see				http://quickies.seriot.ch/index.php?id=279
+ */
+- (BOOL) matchRegex: (NSString *)pattern options: (NSRegularExpressionOptions)options;
+/*!
  @method			capitalizeFirstCharacterInString:
  @discussion		This method will capitalize the first letter in the specified string.
  @param string		The string to be modified.
