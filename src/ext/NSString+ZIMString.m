@@ -18,6 +18,16 @@
 
 @implementation NSString (ZIMString)
 
+- (BOOL) matchRegex: (NSString *)pattern options: (NSRegularExpressionOptions)options {
+    NSError *error;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: pattern options: options error: &error];
+    if (regex == nil) {
+        return NO;
+    }
+    NSUInteger n = [regex numberOfMatchesInString: self options: 0 range: NSMakeRange(0, [self length])];
+    return (n == 1);
+}
+
 + (NSString *) capitalizeFirstCharacterInString: (NSString *)string {
 	return [string stringByReplacingCharactersInRange: NSMakeRange(0, 1) withString: [[string substringToIndex: 1] uppercaseString]];
 }
