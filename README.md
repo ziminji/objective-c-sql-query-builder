@@ -47,6 +47,7 @@ The following is a short-list of some of the features:
 * Sanitizes data using best practices.
 * Handles most complex queries and works with raw SQL statements.
 * Has a powerful SQLite tokenizer.
+* Contains a message digest to hash strings using md2, md4, md5, sha1, sha224, sha256, sha384, and sha512.
 * Has a data access layer (DAL) that offers Object Relational Mapping (ORM).
 * Data access objects (DAO) handle composite primary keys.
 * Via a Bash script, models (i.e. Active Records) can be auto-generated for each table in the SQLite database.
@@ -99,9 +100,9 @@ this repository's Wiki.
 ### Tutorials / Examples
 
 Checkout this SQLite repository's Wiki for a handful of examples.  There, you will find examples on how to make
-an SQLite database connection and how to build DCL, DDL, DML, and TCL commands (including Create, Read, Update,
-and Delete (CRUD) statements).  The Wiki also has tutorials on how to use Object Relational Mapping (ORM) and
-how to generate the necessary models (i.e. active records).
+an SQLite database connection and how to build [DCL, DDL, DML, and TCL commands](http://download.oracle.com/docs/cd/B12037_01/server.101/b10759/statements_1001.htm)
+(including Create, Read, Update, and Delete (CRUD) statements).  The Wiki also has tutorials on how to use Object
+Relational Mapping (ORM) and how to generate the necessary models (i.e. active records).
 
 ### Further Assistance
 

@@ -89,22 +89,18 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 
 @implementation ZIMSqlExpression
 
-static NSSet *_joinTypes = nil;
-static NSSet *_setOperators = nil;
-
 + (NSString *) prepareAlias: (NSString *)token {
-	NSCharacterSet *removables = [NSCharacterSet characterSetWithCharactersInString: @";\"'`[]\n\r\t"];
+	NSCharacterSet *removables = [NSCharacterSet characterSetWithCharactersInString: @".;\"'`[]\n\r\t"];
 	token = [[token componentsSeparatedByCharactersInSet: removables] componentsJoinedByString: @""];
 	token = [NSString stringWithFormat: @"[%@]", token];
 	return token;
 }
 
 + (NSString *) prepareConnector: (NSString *)token {
-	token = [token uppercaseString];
-	if (!([token isEqualToString: ZIMSqlConnectorAnd] || [token isEqualToString: ZIMSqlConnectorOr])) {
+	if (![token matchRegex: @"^(and|or)$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid connector token provided." userInfo: nil];
 	}
-	return token;
+	return [token uppercaseString];
 }
 
 + (NSString *) prepareEnclosure: (NSString *)token {
@@ -142,22 +138,16 @@ static NSSet *_setOperators = nil;
 }
 
 + (NSString *) prepareJoinType: (NSString *)token {
-	if (_joinTypes == nil) {
-		_joinTypes = [NSSet setWithObjects: ZIMSqlJoinTypeCross, ZIMSqlJoinTypeInner, ZIMSqlJoinTypeLeft, ZIMSqlJoinTypeLeftOuter, ZIMSqlJoinTypeNatural, ZIMSqlJoinTypeNaturalCross, ZIMSqlJoinTypeNaturalInner, ZIMSqlJoinTypeNaturalLeft, ZIMSqlJoinTypeNaturalLeftOuter, nil];
-	}
 	if ((token == nil) || [token isEqualToString: ZIMSqlJoinTypeNone]) {
 		token = ZIMSqlJoinTypeInner;
 	}
 	else if ([token isEqualToString: @","]) {
 		token = ZIMSqlJoinTypeCross;
 	}
-	else {
-		token = [token uppercaseString];
-	}
-	if (![_joinTypes containsObject: token])	{
+	if (![token matchRegex: @"^(natural)?(cross|inner|(left( outer)?))?$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid join type token provided." userInfo: nil];
 	}
-	return token;
+	return [token uppercaseString];
 }
 
 + (NSInteger) prepareNaturalNumber: (NSInteger)number {
@@ -165,15 +155,11 @@ static NSSet *_setOperators = nil;
 }
 
 + (NSString *) prepareOperator: (NSString *)operator ofType: (NSString *)type {
-	if (_setOperators == nil) {
-		_setOperators = [NSSet setWithObjects: ZIMSqlOperatorExcept, ZIMSqlOperatorIntersect, ZIMSqlOperatorUnion, ZIMSqlOperatorUnionAll, nil];
-	}
 	type = [type uppercaseString];
-	operator = [operator uppercaseString];
-	if ([type isEqualToString: @"SET"] && ![_setOperators containsObject: operator]) {
+	if ([type isEqualToString: @"SET"] && ![operator matchRegex: @"^(except|intersect|(union( all)?))$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid set operator token provided." userInfo: nil];
 	}
-	return operator;
+	return [operator uppercaseString];
 }
 
 + (NSString *) prepareSortOrder: (BOOL)descending {
