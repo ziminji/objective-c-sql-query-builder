@@ -274,8 +274,11 @@
 }
 
 - (void) combine: (NSString *)statement operator: (NSString *)operator {
-	if (![[[NSString firstTokenInString: statement scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r\t"]] uppercaseString] isEqualToString: @"SELECT"]) {
+	if (![statement matchRegex: @"^select .+$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May only combine a select statement." userInfo: nil];
+	}
+	while ([statement hasSuffix: @";"]) {
+		statement = [statement substringWithRange: NSMakeRange(0, [statement length] - 1)];
 	}
 	[_combine addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareOperator: operator ofType: @"SET"], statement]];
 }

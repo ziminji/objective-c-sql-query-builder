@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#import "NSString+ZIMString.h"
 #import "ZIMSqlShowTablesStatement.h"
 
 @implementation ZIMSqlShowTablesStatement
@@ -34,7 +35,7 @@
 	else if ([type isEqualToString: ZIMSqlShowTypePermanent]) {
 		_from = @"[sqlite_master]";
 	}
-	else if ([type isEqualToString: ZIMSqlShowTypeTemporary] || [type isEqualToString: @"TEMP"]) {
+	else if ([type matchRegex: @"^temp(orary)?$" options: NSRegularExpressionCaseInsensitive]) {
 		_from = @"[sqlite_temp_master]";
 	}
 	else {

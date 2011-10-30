@@ -1,12 +1,12 @@
 # Objective-C SQL Query Builder
 
-This Objective-C SQLite project is a lightweight library that offers more than just a set of SQLite wrapper classes.
-It is divided up into five parts.  The first part consists of a set of Objective-C classes that handle communications
-with an SQLite database.  Inside the "src" folder, these Objective-C classes are further subdivided into five folders.
-The "db" folder (formerly, the "dao" folder) contains an SQLite wrapper class that easily manages the database connection.
-The "ext" folder contains some class extensions. The "sql" folder contains a collection of SQL builder classes that can
-be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar to those found
-in LINQ.  Likewise, the "orm" folder has an assortment of classes that can control and manipulate data within an SQLite
+This Objective-C SQLite project is a lightweight library that offers more than just a set of [SQLite](http://www.sqlite.org/)
+wrapper classes.  It is divided up into five parts.  The first part consists of a set of Objective-C classes that handle
+communications with an SQLite database.  Inside the "src" folder, these Objective-C classes are further subdivided into five
+folders.  The "db" folder (formerly, the "dao" folder) contains an SQLite wrapper class that easily manages the database
+connection. The "ext" folder contains some class extensions. The "sql" folder contains a collection of SQL builder classes
+that can be used to construct well-formed SQL statements for SQLite via a plethora of convenience methods similar to those
+found in LINQ.  Likewise, the "orm" folder has an assortment of classes that can control and manipulate data within an SQLite
 database via the Active Record design pattern. And, the "util" folder contains a set of various helper classes.  The
 second part consists of an easy-to-read API, which both documents and diagrams each Objective-C class and XML/DTD file.
 The third part consists of a BASH script that can be used to generate the necessary ORM models using the SQLite's database
