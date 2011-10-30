@@ -300,7 +300,7 @@
  @discussion			This method will combine a select statement using the specified operator.
  @param statement		The select statement that will be appended.
  @param operator		The operator to be used.  Must use UNION, UNION ALL, INTERSECT, or EXCEPT.
- @updated				2011-07-09
+ @updated				2011-10-30
  */
 - (void) combine: (NSString *)statement operator: (NSString *)operator;
 /*!
