@@ -90,8 +90,10 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 @implementation ZIMSqlExpression
 
 + (NSString *) prepareAlias: (NSString *)token {
-	NSCharacterSet *removables = [NSCharacterSet characterSetWithCharactersInString: @".;\"'`[]\n\r\t"];
-	token = [[token componentsSeparatedByCharactersInSet: removables] componentsJoinedByString: @""];
+	NSError *error;
+	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: @"[^a-z0-9_ ]" options: NSRegularExpressionCaseInsensitive error: &error];
+	token = [regex stringByReplacingMatchesInString: token options: 0 range: NSMakeRange(0, [token length]) withTemplate: @""];
+	token = [token stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	token = [NSString stringWithFormat: @"[%@]", token];
 	return token;
 }
