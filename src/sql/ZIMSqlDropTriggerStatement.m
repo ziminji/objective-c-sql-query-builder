@@ -44,7 +44,7 @@
 }
 
 - (void) trigger: (NSString *)trigger exists: (BOOL)exists {
-	_trigger = trigger;
+	_trigger = [ZIMSqlExpression prepareIdentifier: trigger maxCount: 2];
 	_exists = exists;
 }
 

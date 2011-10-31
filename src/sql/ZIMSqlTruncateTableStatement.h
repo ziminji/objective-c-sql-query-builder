@@ -41,7 +41,7 @@
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-10-19
+ @updated				2011-10-30
  */
 - (NSString *) statement;
 

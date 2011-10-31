@@ -43,17 +43,17 @@
     return [self initWithXmlSchema: nil error: &error];
 }
 
-
 - (void) table: (NSString *)table {
 	[self table: table temporary: NO];
 }
 
 - (void) table: (NSString *)table temporary: (BOOL)temporary {
-	_table = [ZIMSqlExpression prepareIdentifier: table];
+	_table = [ZIMSqlExpression prepareIdentifier: table maxCount: 2];
 	_temporary = temporary;
 }
 
 - (void) column: (NSString *)column type: (NSString *)type {
+	column = [ZIMSqlExpression prepareIdentifier: column maxCount: 1];
 	if ([_columnDictionary objectForKey: column] == nil) {
 		[_columnArray addObject: column];
 	}
@@ -61,6 +61,7 @@
 }
 
 - (void) column: (NSString *)column type: (NSString *)type defaultValue: (NSString *)value {
+	column = [ZIMSqlExpression prepareIdentifier: column maxCount: 1];
 	if ([_columnDictionary objectForKey: column] == nil) {
 		[_columnArray addObject: column];
 	}
@@ -68,6 +69,7 @@
 }
 
 - (void) column: (NSString *)column type: (NSString *)type primaryKey: (BOOL)primaryKey {
+	column = [ZIMSqlExpression prepareIdentifier: column maxCount: 1];
 	if ([_columnDictionary objectForKey: column] == nil) {
 		[_columnArray addObject: column];
 	}
@@ -80,6 +82,7 @@
 }
 
 - (void) column: (NSString *)column type: (NSString *)type unique: (BOOL)unique {
+	column = [ZIMSqlExpression prepareIdentifier: column maxCount: 1];
 	if ([_columnDictionary objectForKey: column] == nil) {
 		[_columnArray addObject: column];
 	}
@@ -94,6 +97,7 @@
 - (void) primaryKey: (NSArray *)columns {
 	if (columns != nil) {
 		for (NSString *column in columns) {
+			column = [ZIMSqlExpression prepareIdentifier: column maxCount: 1];
 			if ([_columnDictionary objectForKey: column] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before primary key can be assigned.", column] userInfo: nil];
 			}
@@ -108,6 +112,7 @@
 - (void) unique: (NSArray *)columns {
 	if (columns != nil) {
 		for (NSString *column in columns) {
+			column = [ZIMSqlExpression prepareIdentifier: column maxCount: 1];
 			if ([_columnDictionary objectForKey: column] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before applying unique constraint.", column] userInfo: nil];
 			}

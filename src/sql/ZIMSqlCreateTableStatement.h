@@ -68,7 +68,7 @@
 						is temporary or not.
  @param table			The table's name.
  @param temporary		This establishes whether the table will be temporary.
- @updated				2011-06-26
+ @updated				2011-10-30
  */
 - (void) table: (NSString *)table temporary: (BOOL)temporary;
 /*!
@@ -76,7 +76,7 @@
  @discussion			This method will create a column with the specified parameters.
  @param column			The column to be created.
  @param type			The datatype of the column.
- @updated				2011-07-23
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column type: (NSString *)type;
 /*!
@@ -85,7 +85,7 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param value			The default value to be used when no data is provided.
- @updated				2011-07-23
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column type: (NSString *)type defaultValue: (NSString *)value;
 /*!
@@ -94,7 +94,7 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param primaryKey		This marks the specified column as the primary key.
- @updated				2011-07-23
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column type: (NSString *)type primaryKey: (BOOL)primaryKey;
 /*!
@@ -104,21 +104,21 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param unique			This constrains the column to only unique values.
- @updated				2011-07-23
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column type: (NSString *)type unique: (BOOL)unique;
 /*!
  @method				primaryKey:
  @discussion			This method will set the specified columns to be the (composite) primary key.
  @param columns			The columns to be set as the (composite) primary key.
- @updated				2011-04-18
+ @updated				2011-10-30
  */
 - (void) primaryKey: (NSArray *)columns;
 /*!
  @method				unique:
  @discussion			This method will apply a unique constraint across the specified columns.
  @param columns			The columns to be constrained.
- @updated				2011-04-18
+ @updated				2011-10-30
  */
 - (void) unique: (NSArray *)columns;
 /*!

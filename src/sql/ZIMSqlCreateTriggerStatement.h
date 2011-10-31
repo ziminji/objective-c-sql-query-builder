@@ -70,7 +70,7 @@
 						is temporary or not.
  @param trigger			The trigger's name.
  @param temporary		This establishes whether the trigger will be temporary.
- @updated				2011-07-29
+ @updated				2011-10-30
  */
 - (void) trigger: (NSString *)trigger temporary: (BOOL)temporary;
 /*!
@@ -95,21 +95,21 @@
  @method				onDelete:
  @discussion			This method will cause the trigger to listen for a "DELETE" command on the specified table.
  @param table           The table the trigger will listen on.
- @updated				2011-07-27
+ @updated				2011-10-30
  */
 - (void) onDelete: (NSString *)table;
 /*!
  @method				onInsert:
  @discussion			This method will cause the trigger to listen for an "INSERT" command on the specified table.
  @param table           The table the trigger will listen on.
- @updated				2011-07-27
+ @updated				2011-10-30
  */
 - (void) onInsert: (NSString *)table;
 /*!
  @method				onUpdate:
  @discussion			This method will cause the trigger to listen for an "UPDATE" command on the specified table.
  @param table           The table the trigger will listen on.
- @updated				2011-07-27
+ @updated				2011-10-30
  */
 - (void) onUpdate: (NSString *)table;
 /*!
@@ -118,7 +118,7 @@
                         the table.
  @param table           The table the trigger will listen on.
  @param column			The triggering column.
- @updated				2011-07-29
+ @updated				2011-10-30
  */
 - (void) onUpdate: (NSString *)table column: (NSString *)column;
 /*!
@@ -127,7 +127,7 @@
                         columns in the table.
  @param table           The table the trigger will listen on.
  @param columns			The triggering columns.
- @updated				2011-07-29
+ @updated				2011-10-30
  */
 - (void) onUpdate: (NSString *)table columns: (NSSet *)columns;
 /*!

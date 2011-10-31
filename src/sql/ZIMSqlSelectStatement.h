@@ -58,7 +58,7 @@
  @discussion			This method will add a column to the SQL statement.
  @param column			The column to be selected.
  @param alias			The alias to be used.
- @updated				2011-06-25
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column alias: (NSString *)alias;
 /*!
@@ -73,7 +73,7 @@
  @discussion			This method will add a from clause to the SQL statement.
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
- @updated				2011-06-25
+ @updated				2011-10-30
  */
 - (void) from: (NSString *)table alias: (NSString *)alias;
 /*!
@@ -96,7 +96,7 @@
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
- @updated				2011-06-27
+ @updated				2011-10-30
  */
 - (void) join: (NSString *)table alias: (NSString *)alias;
 /*!
@@ -105,7 +105,7 @@
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
  @param type			The type of join clause.
- @updated				2011-10-19
+ @updated				2011-10-30
  */
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type;
 /*!

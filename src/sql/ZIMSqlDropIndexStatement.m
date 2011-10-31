@@ -44,7 +44,7 @@
 }
 
 - (void) index: (NSString *)index exists: (BOOL)exists {
-	_index = index;
+	_index = [ZIMSqlExpression prepareIdentifier: index maxCount: 2];
 	_exists = exists;
 }
 

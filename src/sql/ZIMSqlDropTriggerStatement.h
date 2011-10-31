@@ -63,7 +63,7 @@
  @discussion			This method will set the trigger used in the SQL statement.
  @param trigger			The trigger that will be used in the SQL statement.
  @param exists			This will determine whether the "IF EXISTS" keywords should added. 
- @updated				2011-03-18
+ @updated				2011-10-30
  */
 - (void) trigger: (NSString *)trigger exists: (BOOL)exists;
 /*!

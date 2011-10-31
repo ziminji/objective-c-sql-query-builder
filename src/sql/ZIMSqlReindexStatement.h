@@ -32,7 +32,7 @@
  @method				table:
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
- @updated				2011-06-26
+ @updated				2011-10-30
  */
 - (void) table: (NSString *)table;
 /*!

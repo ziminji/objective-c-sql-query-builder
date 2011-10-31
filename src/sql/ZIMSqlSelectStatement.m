@@ -45,7 +45,7 @@
 }
 
 - (void) column: (NSString *)column alias: (NSString *)alias {
-	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareAlias: alias]]];
+	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareIdentifier: alias maxCount: 1]]];
 }
 
 - (void) from: (NSString *)table {
@@ -53,7 +53,7 @@
 }
 
 - (void) from: (NSString *)table alias: (NSString *)alias {
-	[_table addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareAlias: alias]]];
+	[_table addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareIdentifier: alias maxCount: 1]]];
 }
 
 - (void) join: (NSString *)table {
@@ -70,7 +70,7 @@
 }
 
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type {
-	NSString *join = [NSString stringWithFormat: @"%@ JOIN %@ %@", [ZIMSqlExpression prepareJoinType: type], [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareAlias: alias]];
+	NSString *join = [NSString stringWithFormat: @"%@ JOIN %@ %@", [ZIMSqlExpression prepareJoinType: type], [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareIdentifier: alias maxCount: 1]];
 	[_join addObject: [NSArray arrayWithObjects: join, [[NSMutableArray alloc] init], [[NSMutableArray alloc] init], nil]];
 }
 
@@ -274,11 +274,9 @@
 }
 
 - (void) combine: (NSString *)statement operator: (NSString *)operator {
+	statement = [statement stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\n\r\t\f"]];
 	if (![statement matchRegex: @"^select .+$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May only combine a select statement." userInfo: nil];
-	}
-	while ([statement hasSuffix: @";"]) {
-		statement = [statement substringWithRange: NSMakeRange(0, [statement length] - 1)];
 	}
 	[_combine addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareOperator: operator ofType: @"SET"], statement]];
 }
