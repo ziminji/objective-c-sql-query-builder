@@ -71,10 +71,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#aaedde0f875533c61d7dd039d8516adf7">prepareAlias:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a7dd6dd5442d4ba58bfc5d16f0a18051e">prepareConnector:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a961fa6c087fc0c25c1d3747da74f9eb6">prepareEnclosure:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#ab3b2092c67dfe87ebee84dcfceb5f2b0">prepareIdentifier:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a1978ee9d667ff5b28c4937bb592e21d7">prepareIdentifier:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a707713f135264c494a5094a6b6cf6200">prepareIdentifier:maxCount:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#aa2432331aee34a8654b018d49adfb3b8">prepareJoinType:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSInteger)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#acd93e1663c240b9bf67d7cd8768d74df">prepareNaturalNumber:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a098fec6b21df31197a26db3454748601">prepareOperator:ofType:</a></td></tr>
@@ -85,33 +85,6 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class contains a set of methods to help process input. </dd></dl>
 <dl class="user"><dt><b>Updated:</b></dt><dd>2011-04-02 </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aaedde0f875533c61d7dd039d8516adf7"></a><!-- doxytag: member="ZIMSqlExpression::prepareAlias:" ref="aaedde0f875533c61d7dd039d8516adf7" args="(NSString *token)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) prepareAlias: </td>
-          <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
-          <td class="paramname"><em>token</em></td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="user"><dt><b>Signature:</b></dt><dd>prepareAlias: </dd></dl>
-<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will prepare an alias for an SQL statement. </dd></dl>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">token</td><td>The token to be prepared. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared token. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-30 </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a7dd6dd5442d4ba58bfc5d16f0a18051e"></a><!-- doxytag: member="ZIMSqlExpression::prepareConnector:" ref="a7dd6dd5442d4ba58bfc5d16f0a18051e" args="(NSString *token)" -->
 <div class="memitem">
 <div class="memproto">
@@ -166,7 +139,7 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab3b2092c67dfe87ebee84dcfceb5f2b0"></a><!-- doxytag: member="ZIMSqlExpression::prepareIdentifier:" ref="ab3b2092c67dfe87ebee84dcfceb5f2b0" args="(NSString *token)" -->
+<a class="anchor" id="a1978ee9d667ff5b28c4937bb592e21d7"></a><!-- doxytag: member="ZIMSqlExpression::prepareIdentifier:" ref="a1978ee9d667ff5b28c4937bb592e21d7" args="(NSString *identifier)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -174,7 +147,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: </td>
           <td></td>
           <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
-          <td class="paramname"><em>token</em></td>
+          <td class="paramname"><em>identifier</em></td>
           <td></td>
         </tr>
       </table>
@@ -184,12 +157,50 @@ Static Public Member Functions</h2></td></tr>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method will prepare an identifier for an SQL statement. </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">token</td><td>The token to be prepared. </td></tr>
+    <tr><td class="paramname">identifier</td><td>The token to be prepared. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The prepared token. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-25 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-30 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a707713f135264c494a5094a6b6cf6200"></a><!-- doxytag: member="ZIMSqlExpression::prepareIdentifier:maxCount:" ref="a707713f135264c494a5094a6b6cf6200" args="(NSString *identifier,[maxCount] NSUInteger count)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>identifier</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">maxCount:</td>
+          <td></td>
+          <td class="paramtype">(NSUInteger)&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>prepareIdentifier:maxCount: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will prepare an identifier for an SQL statement. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>The identifier to be prepared. </td></tr>
+    <tr><td class="paramname">count</td><td>The maximum number of segments that the reference may have. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared reference identifier. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-30 </dd></dl>
 
 </div>
 </div>
@@ -344,9 +355,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_z_i_m_sql_expression_8h_source.html">ZIMSqlExpression.h</a></li>
-<li><a class="el" href="_z_i_m_sql_expression_8m.html">ZIMSqlExpression.m</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->

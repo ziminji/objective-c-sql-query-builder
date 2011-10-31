@@ -27,11 +27,11 @@
 }
 
 - (void) into: (NSString *)table {
-	_table = [ZIMSqlExpression prepareIdentifier: table];
+	_table = [ZIMSqlExpression prepareIdentifier: table maxCount: 2];
 }
 
 - (void) column: (NSString *)column value: (id)value {
-	[_column setObject: [ZIMSqlExpression prepareValue: value] forKey: column];
+	[_column setObject: [ZIMSqlExpression prepareValue: value] forKey: [ZIMSqlExpression prepareIdentifier: column maxCount: 1]];
 }
 
 - (NSString *) statement {

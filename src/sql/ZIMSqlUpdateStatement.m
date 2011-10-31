@@ -31,7 +31,7 @@
 }
 
 - (void) table: (NSString *)table {
-	_table = [ZIMSqlExpression prepareIdentifier: table];
+	_table = [ZIMSqlExpression prepareIdentifier: table maxCount: 2];
 }
 
 - (void) column: (NSString *)column value: (id)value {

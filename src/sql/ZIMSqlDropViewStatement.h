@@ -63,7 +63,7 @@
  @discussion			This method will set the view used in the SQL statement.
  @param view			The view that will be used in the SQL statement.
  @param exists			This will determine whether the "IF EXISTS" keywords should added. 
- @updated				2011-06-23
+ @updated				2011-10-30
  */
 - (void) view: (NSString *)view exists: (BOOL)exists;
 /*!

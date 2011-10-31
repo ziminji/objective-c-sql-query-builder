@@ -30,7 +30,7 @@
 }
 
 - (void) table: (NSString *)table {
-	_table = [ZIMSqlExpression prepareIdentifier: table];
+	_table = [ZIMSqlExpression prepareIdentifier: table maxCount: 2];
 }
 
 - (void) whereBlock: (NSString *)brace {
@@ -82,7 +82,7 @@
 }
 
 - (void) orderBy: (NSString *)column descending: (BOOL)descending {
-	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareSortOrder: descending]]];
+	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column maxCount: 2], [ZIMSqlExpression prepareSortOrder: descending]]];
 }
 
 - (void) limit: (NSInteger)limit {

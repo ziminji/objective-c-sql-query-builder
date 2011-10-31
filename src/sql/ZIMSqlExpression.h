@@ -139,14 +139,6 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
 
 }
 /*!
- @method				prepareAlias:
- @discussion			This method will prepare an alias for an SQL statement.
- @param token			The token to be prepared.
- @return				The prepared token.
- @updated				2011-10-30
- */
-+ (NSString *) prepareAlias: (NSString *)token;
-/*!
  @method				prepareConnector:
  @discussion			This method will prepare a connector for an SQL statement.
  @param token			The token to be prepared.
@@ -165,11 +157,20 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
 /*!
  @method				prepareIdentifier:
  @discussion			This method will prepare an identifier for an SQL statement.
- @param token			The token to be prepared.
+ @param identifier		The token to be prepared.
  @return				The prepared token.
- @updated				2011-06-25
+ @updated				2011-10-30
  */
-+ (NSString *) prepareIdentifier: (NSString *)token;
++ (NSString *) prepareIdentifier: (NSString *)identifier;
+/*!
+ @method				prepareIdentifier:maxCount:
+ @discussion			This method will prepare an identifier for an SQL statement.
+ @param identifier		The identifier to be prepared.
+ @param count			The maximum number of segments that the reference may have.
+ @return				The prepared reference identifier.
+ @updated				2011-10-30
+ */
++ (NSString *) prepareIdentifier: (NSString *)identifier maxCount: (NSUInteger)count;
 /*!
  @method				prepareJoinType:
  @discussion			This method will prepare a join type token for an SQL statement.

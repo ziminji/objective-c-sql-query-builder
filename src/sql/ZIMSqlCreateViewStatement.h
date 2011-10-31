@@ -66,7 +66,7 @@
 						is temporary or not.
  @param view			The view's name.
  @param temporary		This establishes whether the view will be temporary.
- @updated				2011-06-26
+ @updated				2011-10-30
  */
 - (void) view: (NSString *)view temporary: (BOOL)temporary;
 /*!

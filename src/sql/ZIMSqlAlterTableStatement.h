@@ -57,7 +57,7 @@
  @method				table:
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
- @updated				2011-07-02
+ @updated				2011-10-30
  */
 - (void) table: (NSString *)table;
 /*!
@@ -75,7 +75,7 @@
  @discussion			This method will create a column with the specified parameters.
  @param column			The column to be created.
  @param type			The datatype of the column.
- @updated				2011-03-29
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column type: (NSString *)type;
 /*!
@@ -84,7 +84,7 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param value			The default value to be used when no data is provided.
- @updated				2011-06-26
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column type: (NSString *)type defaultValue: (NSString *)value;
 /*!
@@ -93,7 +93,7 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param primaryKey		This marks the specified column as the primary key.
- @updated				2011-03-29
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column type: (NSString *)type primaryKey: (BOOL)primaryKey;
 /*!
@@ -103,21 +103,21 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param unique			This constrains the column to only unique values.
- @updated				2011-03-29
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column type: (NSString *)type unique: (BOOL)unique;
 /*!
  @method				rename:
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
- @updated				2011-07-02
+ @updated				2011-10-30
  */
 - (void) rename: (NSString *)table;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-07-02
+ @updated				2011-10-30
  */
 - (NSString *) statement;
 

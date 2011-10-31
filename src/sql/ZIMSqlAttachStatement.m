@@ -26,12 +26,12 @@
 }
 
 - (void) database: (NSString *)fileName as: (NSString *)database {
-	_fileName = fileName;
-	_database = database;
+	_fileName = [ZIMSqlExpression prepareValue: fileName];
+	_database = [ZIMSqlExpression prepareIdentifier: database maxCount: 1];
 }
 
 - (NSString *) statement {
-	return [NSString stringWithFormat: @"ATTACH DATABASE '%@' AS %@;", _fileName, _database];
+	return [NSString stringWithFormat: @"ATTACH DATABASE %@ AS %@;", _fileName, _database];
 }
 
 @end

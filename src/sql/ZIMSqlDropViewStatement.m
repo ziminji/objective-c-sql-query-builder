@@ -44,7 +44,7 @@
 }
 
 - (void) view: (NSString *)view exists: (BOOL)exists {
-	_view = [ZIMSqlExpression prepareIdentifier: view];
+	_view = [ZIMSqlExpression prepareIdentifier: view maxCount: 2];
 	_exists = exists;
 }
 

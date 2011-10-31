@@ -63,7 +63,7 @@
  @discussion			This method will set the index used in the SQL statement.
  @param index			The index that will be used in the SQL statement.
  @param exists			This will determine whether the "IF EXISTS" keywords should added. 
- @updated				2011-03-18
+ @updated				2011-10-30
  */
 - (void) index: (NSString *)index exists: (BOOL)exists;
 /*!

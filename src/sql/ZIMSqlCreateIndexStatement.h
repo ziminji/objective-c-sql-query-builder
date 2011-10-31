@@ -59,7 +59,7 @@
  @discussion			This method defines an index on the specified table.
  @param index			The index's name.
  @param table			The table's name.
- @updated				2011-07-09
+ @updated				2011-10-30
  */
 - (void) index: (NSString *)index on: (NSString *)table;
 /*!
@@ -81,7 +81,7 @@
  @discussion			This method adds the specified column to be indexed.
  @param column			The column to be indexed.
  @param descending		This will determine whether the column should be ordered in descending order.
- @updated				2011-07-28
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column descending: (BOOL)descending;
 /*!

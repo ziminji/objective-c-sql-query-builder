@@ -49,7 +49,7 @@
 }
 
 - (void) trigger: (NSString *)trigger temporary: (BOOL)temporary {
-	_trigger = [ZIMSqlExpression prepareIdentifier: trigger];
+	_trigger = [ZIMSqlExpression prepareIdentifier: trigger maxCount: 2];
 	_temporary = temporary;
 }
 
@@ -66,23 +66,32 @@
 }
 
 - (void) onDelete: (NSString *)table {
-    _event = [NSString stringWithFormat: @"DELETE ON %@", [ZIMSqlExpression prepareIdentifier: table]];
+    _event = [NSString stringWithFormat: @"DELETE ON %@", [ZIMSqlExpression prepareIdentifier: table maxCount: 1]];
 }
 
 - (void) onInsert: (NSString *)table {
-    _event = [NSString stringWithFormat: @"INSERT ON %@", [ZIMSqlExpression prepareIdentifier: table]];
+    _event = [NSString stringWithFormat: @"INSERT ON %@", [ZIMSqlExpression prepareIdentifier: table maxCount: 1]];
 }
 
 - (void) onUpdate: (NSString *)table {
-    _event = [NSString stringWithFormat: @"UPDATE ON %@", [ZIMSqlExpression prepareIdentifier: table]];
+    _event = [NSString stringWithFormat: @"UPDATE ON %@", [ZIMSqlExpression prepareIdentifier: table maxCount: 1]];
 }
 
 - (void) onUpdate: (NSString *)table column: (NSString *)column {
-    _event = [NSString stringWithFormat: @"UPDATE OF %@ ON %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareIdentifier: table]];
+    _event = [NSString stringWithFormat: @"UPDATE OF %@ ON %@", [ZIMSqlExpression prepareIdentifier: column maxCount: 1], [ZIMSqlExpression prepareIdentifier: table maxCount: 1]];
 }
 
 - (void) onUpdate: (NSString *)table columns: (NSSet *)columns {
-    _event = [NSString stringWithFormat: @"UPDATE OF %@ ON %@", [[columns allObjects] componentsJoinedByString: @", "], [ZIMSqlExpression prepareIdentifier: table]];
+	NSMutableString *buffer = [[NSMutableString alloc] init];
+	int index = 0;
+	for (NSString *column in columns) {
+		if (index > 0) {
+			[buffer appendString: @", "];
+		}
+		[buffer appendString: [ZIMSqlExpression prepareIdentifier: column maxCount: 1]];
+		index++;
+	}
+    _event = [NSString stringWithFormat: @"UPDATE OF %@ ON %@", buffer, [ZIMSqlExpression prepareIdentifier: table maxCount: 1]];
 }
 
 - (void) whenBlock: (NSString *)brace {

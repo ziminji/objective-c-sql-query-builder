@@ -89,15 +89,6 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 
 @implementation ZIMSqlExpression
 
-+ (NSString *) prepareAlias: (NSString *)token {
-	NSError *error;
-	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: @"[^a-z0-9_ ]" options: NSRegularExpressionCaseInsensitive error: &error];
-	token = [regex stringByReplacingMatchesInString: token options: 0 range: NSMakeRange(0, [token length]) withTemplate: @""];
-	token = [token stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	token = [NSString stringWithFormat: @"[%@]", token];
-	return token;
-}
-
 + (NSString *) prepareConnector: (NSString *)token {
 	if (![token matchRegex: @"^(and|or)$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid connector token provided." userInfo: nil];
@@ -112,31 +103,33 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	return token;
 }
 
-+ (NSString *) prepareIdentifier: (NSString *)token {
-	if ([[[NSString firstTokenInString: token scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r\t"]] uppercaseString] isEqualToString: @"SELECT"]) {
-		while ([token hasSuffix: @";"]) {
-			token = [token substringWithRange: NSMakeRange(0, [token length] - 1)];
++ (NSString *) prepareIdentifier: (NSString *)identifier {
+	if ([[[NSString firstTokenInString: identifier scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r\t"]] uppercaseString] isEqualToString: @"SELECT"]) {
+		while ([identifier hasSuffix: @";"]) {
+			identifier = [identifier substringWithRange: NSMakeRange(0, [identifier length] - 1)];
 		}
-		token = [NSString stringWithFormat: @"(%@)", token];
-		return token;
+		identifier = [NSString stringWithFormat: @"(%@)", identifier];
+		return identifier;
 	}
-	/*
-	NSMutableString *result = [NSMutableString stringWithCapacity: [token length]];
-	NSScanner *scanner = [NSScanner scannerWithString: token];
-	NSCharacterSet *stopSet = [NSCharacterSet characterSetWithCharactersInString: @";\"'`[]\n\r"];
-	while (![scanner isAtEnd]) {
-	 	NSString *buffer;
-		if ([scanner scanUpToCharactersFromSet: stopSet intoString: &buffer]) {
-	  		[result appendString: buffer];
-	 	}
-		else {
-	  		[scanner setScanLocation: ([scanner scanLocation] + 1)];
-	 	}
+	return identifier;
+}
+
++ (NSString *) prepareIdentifier: (NSString *)identifier maxCount: (NSUInteger)count {
+	NSMutableString *buffer = [[NSMutableString alloc] init];
+	NSArray *tokens = [identifier componentsSeparatedByString: @"."];
+	int length = MIN(count, [tokens count]);
+	NSError *error;
+	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: @"[^a-z0-9_ ]" options: NSRegularExpressionCaseInsensitive error: &error];
+	for (int index = 0; index < length; index++) {
+		NSString *token = [tokens objectAtIndex: index];
+		token = [regex stringByReplacingMatchesInString: token options: 0 range: NSMakeRange(0, [token length]) withTemplate: @""];
+		token = [token stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+		if (index > 0) {
+			[buffer appendString: @"."];
+		}
+		[buffer appendFormat: @"[%@]", token];
 	}
-	NSArray *segments = [result componentsSeparatedByString: @"."];
-	token = [NSString stringWithFormat: @"[%@]", [segments componentsJoinedByString: @"].["]];
-	*/
-	return token;
+	return buffer;
 }
 
 + (NSString *) prepareJoinType: (NSString *)token {

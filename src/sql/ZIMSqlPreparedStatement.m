@@ -32,7 +32,7 @@
 				[_tokens addObject: [token uppercaseString]];
 			}
 			else if ([type isEqualToString: ZIMSqlTokenIdentifier]) {
-				[_tokens addObject: [ZIMSqlExpression prepareIdentifier: token]];
+				[_tokens addObject: [ZIMSqlExpression prepareIdentifier: token maxCount: INT_MAX]];
 			}
 			else if ([type isEqualToString: ZIMSqlTokenParameter]) {
 				[_indicies addObject: [NSNumber numberWithInteger: [_tokens count]]];

@@ -46,7 +46,7 @@
 }
 
 - (void) view: (NSString *)view temporary: (BOOL)temporary {
-	_view = [ZIMSqlExpression prepareIdentifier: view];
+	_view = [ZIMSqlExpression prepareIdentifier: view maxCount: 2];
 	_temporary = temporary;
 }
 

@@ -35,14 +35,14 @@
 						database connection.
  @param fileName		The file name of the database to be attached.
  @param database		The database name that will be used when attached.
- @updated				2011-04-07
+ @updated				2011-10-30
  */
 - (void) database: (NSString *)fileName as: (NSString *)database;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-04-07
+ @updated				2011-10-30
  */
 - (NSString *) statement;
 

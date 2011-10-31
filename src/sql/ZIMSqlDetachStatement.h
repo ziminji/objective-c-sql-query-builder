@@ -33,7 +33,7 @@
  @discussion			This method will cause the specified database to be detached from the current
 						database connection.
  @param database		The database name that will be detached.
- @updated				2011-04-07
+ @updated				2011-10-30
  */
 - (void) database: (NSString *)database;
 /*!
