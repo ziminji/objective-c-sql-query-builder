@@ -34,7 +34,7 @@
  @method				into:
  @discussion			This method will set the table used in the SQL statement.
  @param table			The table that will be used in the SQL statement.
- @updated				2011-06-23
+ @updated				2011-10-30
  */
 - (void) into: (NSString *)table;
 /*!
@@ -42,7 +42,7 @@
  @discussion			This method will add a column/value pair to the SQL statement.
  @param column			The column where the value will be inserted.
  @param value			The value to be inserted.
- @updated				2011-04-01
+ @updated				2011-10-30
  */
 - (void) column: (NSString *)column value: (id)value;
 /*!

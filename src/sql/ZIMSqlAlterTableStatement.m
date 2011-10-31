@@ -67,7 +67,7 @@
 }
 
 - (void) table: (NSString *)table {
-	_table = table;
+	_table = table; // prepared later
 }
 
 - (void) autoincrement: (NSInteger)position {
@@ -75,40 +75,40 @@
 }
 
 - (void) column: (NSString *)column type: (NSString *)type {
-	_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@", column, type];
+	_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@", [ZIMSqlExpression prepareIdentifier: column maxCount: 1], type];
 }
 
 - (void) column: (NSString *)column type: (NSString *)type defaultValue: (NSString *)value {
-	_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@ %@", column, type, value];
+	_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@ %@", [ZIMSqlExpression prepareIdentifier: column maxCount: 1], type, value];
 }
 
 - (void) column: (NSString *)column type: (NSString *)type primaryKey: (BOOL)primaryKey {
 	if (primaryKey) {
-		_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@ PRIMARY KEY", column, type];
+		_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@ PRIMARY KEY", [ZIMSqlExpression prepareIdentifier: column maxCount: 1], type];
 	}
 	else {
-		_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@", column, type];
+		_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@", [ZIMSqlExpression prepareIdentifier: column maxCount: 1], type];
 	}
 }
 
 - (void) column: (NSString *)column type: (NSString *)type unique: (BOOL)unique {
 	if (unique) {
-		_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@ UNIQUE", column, type];
+		_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@ UNIQUE", [ZIMSqlExpression prepareIdentifier: column maxCount: 1], type];
 	}
 	else {
-		_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@", column, type];
+		_clause = [NSString stringWithFormat: @"ADD COLUMN %@ %@", [ZIMSqlExpression prepareIdentifier: column maxCount: 1], type];
 	}
 }
 
 - (void) rename: (NSString *)table {
-	_clause = [NSString stringWithFormat: @"RENAME TO %@", [ZIMSqlExpression prepareIdentifier: table]];
+	_clause = [NSString stringWithFormat: @"RENAME TO %@", [ZIMSqlExpression prepareIdentifier: table maxCount: 1]];
 }
 
 - (NSString *) statement {
 	if ([_clause hasPrefix: @"UPDATE"]) {
-		return [NSString stringWithFormat: @"%@ WHERE [name] = '%@';", _clause, _table];
+		return [NSString stringWithFormat: @"%@ WHERE [name] = %@;", _clause, [ZIMSqlExpression prepareValue: _table]];
 	}
-	return [NSString stringWithFormat: @"ALTER TABLE %@ %@;", [ZIMSqlExpression prepareIdentifier: _table], _clause];
+	return [NSString stringWithFormat: @"ALTER TABLE %@ %@;", [ZIMSqlExpression prepareIdentifier: _table maxCount: 2], _clause];
 }
 
 - (void) parser: (NSXMLParser *)parser didStartElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName attributes: (NSDictionary *)attributes {

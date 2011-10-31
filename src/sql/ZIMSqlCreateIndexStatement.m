@@ -43,8 +43,8 @@
 }
 
 - (void) index: (NSString *)index on: (NSString *)table {
-	_index = [ZIMSqlExpression prepareIdentifier: index];
-	_table = [ZIMSqlExpression prepareIdentifier: table];
+	_index = [ZIMSqlExpression prepareIdentifier: index maxCount: 2];
+	_table = [ZIMSqlExpression prepareIdentifier: table maxCount: 1];
 }
 
 - (void) unique: (BOOL)unique {
@@ -56,7 +56,7 @@
 }
 
 - (void) column: (NSString *)column descending: (BOOL)descending {
-	[_column addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareSortOrder: descending]]];
+	[_column addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column maxCount: 1], [ZIMSqlExpression prepareSortOrder: descending]]];
 }
 
 - (void) columns: (NSSet *)columns {
@@ -103,12 +103,8 @@
         else if ([xpath isEqualToString: @"database/index/column"]) {
             NSString *name = [attributes objectForKey: @"name"];
             NSString *order = [attributes objectForKey: @"order"];
-			if ((order != nil) && [[order uppercaseString] isEqualToString: @"DESC"]) {
-				[self column: name descending: YES];
-			}
-            else {
-                [self column: name];
-            }
+			BOOL descending = ((order != nil) && [[order uppercaseString] isEqualToString: @"DESC"]);
+			[self column: name descending: descending];
         }
     }
 }

@@ -31,7 +31,7 @@
 
 - (NSString *) statement {
 	NSMutableString *sql = [[NSMutableString alloc] init];
-	[sql appendFormat: @"DELETE FROM %@; ", [ZIMSqlExpression prepareIdentifier: _table]];
+	[sql appendFormat: @"DELETE FROM %@; ", [ZIMSqlExpression prepareIdentifier: _table maxCount: 1]];
 	[sql appendFormat: @"DELETE FROM [sqlite_sequence] WHERE [name] = %@;", [ZIMSqlExpression prepareValue: _table]];
 	return sql;
 }
