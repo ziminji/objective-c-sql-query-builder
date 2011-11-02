@@ -46,4 +46,5 @@
 #import "ZIMSqlTransactionControlCommand.h"
 #import "ZIMSqlTruncateTableStatement.h"
 #import "ZIMSqlUpdateStatement.h"
+#import "ZIMSqlUpsertStatement.h"
 #import "ZIMSqlWrapper.h"

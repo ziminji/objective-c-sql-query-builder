@@ -87,11 +87,12 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a43f1346d5405f957434848061fb6b529">init</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a0cc7250c829f98d99db2672a3027d8c4">_table</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a3602c11c0649c595cd8406a0a6b7a781">_tableIdentifier</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a2f9341957d1efd97ab31383cea39218d">_tableName</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL truncate table statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-15 </dd></dl>
+<div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL truncate table statement. Execute as a transaction. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-01 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/truncate-table.html">http://dev.mysql.com/doc/refman/5.0/en/truncate-table.html</a> </dd>
 <dd>
 <a href="http://stackoverflow.com/questions/3443630/reset-the-row-number-count-in-sqlite3-mysql">http://stackoverflow.com/questions/3443630/reset-the-row-number-count-in-sqlite3-mysql</a> </dd></dl>
@@ -128,7 +129,7 @@ Protected Attributes</h2></td></tr>
 <dl class="user"><dt><b>Signature:</b></dt><dd>statement </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method will return the SQL statement. </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-30 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-01 </dd></dl>
 
 <p>Reimplemented from <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>.</p>
 
@@ -156,17 +157,30 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-02 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-01 </dd></dl>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a0cc7250c829f98d99db2672a3027d8c4"></a><!-- doxytag: member="ZIMSqlTruncateTableStatement::_table" ref="a0cc7250c829f98d99db2672a3027d8c4" args="" -->
+<a class="anchor" id="a3602c11c0649c595cd8406a0a6b7a781"></a><!-- doxytag: member="ZIMSqlTruncateTableStatement::_tableIdentifier" ref="a3602c11c0649c595cd8406a0a6b7a781" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (<a class="el" href="class_n_s_string.html">NSString</a>*) <a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a0cc7250c829f98d99db2672a3027d8c4">_table</a><code> [protected]</code></td>
+          <td class="memname">- (<a class="el" href="class_n_s_string.html">NSString</a>*) <a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a3602c11c0649c595cd8406a0a6b7a781">_tableIdentifier</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2f9341957d1efd97ab31383cea39218d"></a><!-- doxytag: member="ZIMSqlTruncateTableStatement::_tableName" ref="a2f9341957d1efd97ab31383cea39218d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (<a class="el" href="class_n_s_string.html">NSString</a>*) <a class="el" href="interface_z_i_m_sql_truncate_table_statement.html#a2f9341957d1efd97ab31383cea39218d">_tableName</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>

@@ -111,14 +111,14 @@
  @method				primaryKey:
  @discussion			This method will set the specified columns to be the (composite) primary key.
  @param columns			The columns to be set as the (composite) primary key.
- @updated				2011-10-30
+ @updated				2011-11-01
  */
 - (void) primaryKey: (NSArray *)columns;
 /*!
  @method				unique:
  @discussion			This method will apply a unique constraint across the specified columns.
  @param columns			The columns to be constrained.
- @updated				2011-10-30
+ @updated				2011-11-01
  */
 - (void) unique: (NSArray *)columns;
 /*!

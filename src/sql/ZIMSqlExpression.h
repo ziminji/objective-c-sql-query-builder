@@ -159,7 +159,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare an identifier for an SQL statement.
  @param identifier		The token to be prepared.
  @return				The prepared token.
- @updated				2011-10-30
+ @updated				2011-11-01
  */
 + (NSString *) prepareIdentifier: (NSString *)identifier;
 /*!

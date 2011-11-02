@@ -96,13 +96,21 @@
 
 - (void) primaryKey: (NSArray *)columns {
 	if (columns != nil) {
-		for (NSString *column in columns) {
-			column = [ZIMSqlExpression prepareIdentifier: column maxCount: 1];
+		NSMutableString *primaryKey = [[NSMutableString alloc] init];
+		[primaryKey appendString: @"PRIMARY KEY ("];
+		int length = [columns count];
+		for (int index = 0; index < length; index++) {
+			NSString *column = [ZIMSqlExpression prepareIdentifier: [columns objectAtIndex: index] maxCount: 1];
 			if ([_columnDictionary objectForKey: column] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before primary key can be assigned.", column] userInfo: nil];
 			}
+			if (index > 0) {
+				[primaryKey appendString: @", "];
+			}
+			[primaryKey appendString: column];
 		}
-		_primaryKey = [NSString stringWithFormat: @"PRIMARY KEY (%@)", [columns componentsJoinedByString: @", "]];
+		[primaryKey appendString: @")"];
+		_primaryKey = primaryKey;
 	}
 	else {
 		_primaryKey = nil;
@@ -111,13 +119,21 @@
 
 - (void) unique: (NSArray *)columns {
 	if (columns != nil) {
-		for (NSString *column in columns) {
-			column = [ZIMSqlExpression prepareIdentifier: column maxCount: 1];
+		NSMutableString *unique = [[NSMutableString alloc] init];
+		[unique appendString: @"UNIQUE ("];
+		int length = [columns count];
+		for (int index = 0; index < length; index++) {
+			NSString *column = [ZIMSqlExpression prepareIdentifier: [columns objectAtIndex: index] maxCount: 1];
 			if ([_columnDictionary objectForKey: column] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before applying unique constraint.", column] userInfo: nil];
 			}
+			if (index > 0) {
+				[unique appendString: @", "];
+			}
+			[unique appendString: column];
 		}
-		_unique = [NSString stringWithFormat: @"UNIQUE (%@)", [columns componentsJoinedByString: @", "]];
+		[unique appendString: @")"];
+		_unique = unique;
 	}
 	else {
 		_unique = nil;

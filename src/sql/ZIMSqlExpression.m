@@ -104,12 +104,9 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 }
 
 + (NSString *) prepareIdentifier: (NSString *)identifier {
-	if ([[[NSString firstTokenInString: identifier scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r\t"]] uppercaseString] isEqualToString: @"SELECT"]) {
-		while ([identifier hasSuffix: @";"]) {
-			identifier = [identifier substringWithRange: NSMakeRange(0, [identifier length] - 1)];
-		}
+	if ([identifier matchRegex: @"^select .+$" options: NSRegularExpressionCaseInsensitive]) {
+		identifier = [identifier stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString: @" ;()\n\r\t\f"]];
 		identifier = [NSString stringWithFormat: @"(%@)", identifier];
-		return identifier;
 	}
 	return identifier;
 }
