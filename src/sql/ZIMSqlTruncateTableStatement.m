@@ -20,19 +20,25 @@
 
 - (id) init {
 	if ((self = [super init])) {
-		_table = nil;
+		_tableIdentifier = nil;
+		_tableName = nil;
 	}
 	return self;
 }
 
 - (void) table: (NSString *)table {
-	_table = table;
+	_tableIdentifier = [ZIMSqlExpression prepareIdentifier: table maxCount: 1];
+	NSError *error;
+	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: @"[^a-z0-9_ ]" options: NSRegularExpressionCaseInsensitive error: &error];
+	NSString *tableName = [regex stringByReplacingMatchesInString: table options: 0 range: NSMakeRange(0, [table length]) withTemplate: @""];
+	tableName = [tableName stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	_tableName = [ZIMSqlExpression prepareValue: tableName];
 }
 
 - (NSString *) statement {
 	NSMutableString *sql = [[NSMutableString alloc] init];
-	[sql appendFormat: @"DELETE FROM %@; ", [ZIMSqlExpression prepareIdentifier: _table maxCount: 1]];
-	[sql appendFormat: @"DELETE FROM [sqlite_sequence] WHERE [name] = %@;", [ZIMSqlExpression prepareValue: _table]];
+	[sql appendFormat: @"DELETE FROM %@; ", _tableIdentifier];
+	[sql appendFormat: @"DELETE FROM [sqlite_sequence] WHERE [name] = %@;", _tableName];
 	return sql;
 }
 
