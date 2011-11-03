@@ -66,8 +66,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ZIMSqlTokenizer Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="ZIMSqlTokenizer" -->
+<!-- doxytag: class="ZIMSqlTokenizer" --><!-- doxytag: inherits="ZIMSqlStatement-p" -->
 <p><code>#import &lt;<a class="el" href="_z_i_m_sql_tokenizer_8h_source.html">ZIMSqlTokenizer.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for ZIMSqlTokenizer:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="interface_z_i_m_sql_tokenizer.png" usemap="#ZIMSqlTokenizer_map" alt=""/>
+  <map id="ZIMSqlTokenizer_map" name="ZIMSqlTokenizer_map">
+<area href="protocol_z_i_m_sql_statement-p.html" alt="&lt;ZIMSqlStatement&gt;" shape="rect" coords="0,0,120,24"/>
+</map>
+ </div></div>
 
 <p><a href="class_z_i_m_sql_tokenizer-members.html">List of all members.</a></p>
 <table class="memberdecls">
@@ -76,6 +85,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_tokenizer.html#ad87d24f55c6d1503a06b417c061251cd">initWithSqlStatement:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_tokenizer.html#aa3955b6053c3374018581fcca2597eff">objectAtIndex:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSUInteger)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_tokenizer.html#a55142cd17265bf777760baae87d4cf7a">count</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_tokenizer.html#a959c2bbb8129a5da09bd97ed08878976">statement</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSUInteger)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_tokenizer.html#a3ddc796b7d92c68a231a2d9cbf06432b">countByEnumeratingWithState:objects:count:</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -86,7 +96,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class tokenizes an SQL statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-13 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-03 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.opensource.apple.com/source/SQLite/SQLite-74/public_source/src/complete.c">http://www.opensource.apple.com/source/SQLite/SQLite-74/public_source/src/complete.c</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a55142cd17265bf777760baae87d4cf7a"></a><!-- doxytag: member="ZIMSqlTokenizer::count" ref="a55142cd17265bf777760baae87d4cf7a" args="()" -->
@@ -224,6 +234,28 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>A dictionary representing the tuple. </dd></dl>
 <dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-13 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a959c2bbb8129a5da09bd97ed08878976"></a><!-- doxytag: member="ZIMSqlTokenizer::statement" ref="a959c2bbb8129a5da09bd97ed08878976" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (<a class="el" href="class_n_s_string.html">NSString</a> *) statement </td>
+          <td></td>
+          <td class="paramname"></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>statement </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will return the SQL statement. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was tokenized. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-03 </dd></dl>
+
+<p>Reimplemented from <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>.</p>
 
 </div>
 </div>
