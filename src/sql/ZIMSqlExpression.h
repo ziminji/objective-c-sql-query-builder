@@ -168,7 +168,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @param identifier		The identifier to be prepared.
  @param count			The maximum number of segments that the reference may have.
  @return				The prepared reference identifier.
- @updated				2011-10-30
+ @updated				2011-11-03
  */
 + (NSString *) prepareIdentifier: (NSString *)identifier maxCount: (NSUInteger)count;
 /*!

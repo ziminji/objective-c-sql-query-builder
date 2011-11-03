@@ -54,7 +54,7 @@
 
 	[sql appendFormat: @" FROM %@", _from];
 
-	[sql appendString: @" WHERE [type] = 'trigger' AND [name] NOT IN ('sqlite_sequence')"];
+	[sql appendString: @" WHERE [type] = 'trigger' AND [name] NOT LIKE 'sqlite_%'"];
 
 	if (_like != nil) {
 		[sql appendFormat: @" AND %@", _like];

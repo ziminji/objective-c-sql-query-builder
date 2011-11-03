@@ -114,14 +114,15 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 + (NSString *) prepareIdentifier: (NSString *)identifier maxCount: (NSUInteger)count {
 	NSMutableString *buffer = [[NSMutableString alloc] init];
 	NSArray *tokens = [identifier componentsSeparatedByString: @"."];
-	int length = MIN(count, [tokens count]);
+	int length = [tokens count];
+	int start = length - MIN(count, length);
 	NSError *error;
 	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: @"[^a-z0-9_ ]" options: NSRegularExpressionCaseInsensitive error: &error];
-	for (int index = 0; index < length; index++) {
+	for (int index = start; index < length; index++) {
 		NSString *token = [tokens objectAtIndex: index];
 		token = [regex stringByReplacingMatchesInString: token options: 0 range: NSMakeRange(0, [token length]) withTemplate: @""];
 		token = [token stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-		if (index > 0) {
+		if (index > start) {
 			[buffer appendString: @"."];
 		}
 		[buffer appendFormat: @"[%@]", token];

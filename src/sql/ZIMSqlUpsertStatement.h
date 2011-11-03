@@ -22,6 +22,7 @@
  @updated				2011-11-01
  @see					http://www.sqlite.org/lang_insert.html
  @see					http://www.sqlite.org/lang_update.html
+ @see					http://stackoverflow.com/questions/418898/sqlite-upsert-not-insert-or-replace
  @see					http://www.firebirdsql.org/refdocs/langrefupd21-update-or-insert.html
  */
 @interface ZIMSqlUpsertStatement : ZIMSqlInsertStatement {
@@ -35,7 +36,7 @@
  @discussion			This method will use the specified columns as the (composite) primary key
 						to match against.
  @param columns			The columns to be matched.
- @updated				2011-11-01
+ @updated				2011-11-02
  */
 - (void) matching: (NSArray *)columns;
 
