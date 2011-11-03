@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#import "ZIMSqlStatement.h"
+
 #define ZIMSqlTokenError						@"ERROR"
 #define ZIMSqlTokenHexadecimal					@"HEXADECIMAL"
 #define ZIMSqlTokenIdentifier					@"IDENTIFIER"
@@ -29,10 +31,10 @@
 /*!
  @class					ZIMSqlTokenizer
  @discussion			This class tokenizes an SQL statement.
- @updated				2011-07-13
+ @updated				2011-11-03
  @see					http://www.opensource.apple.com/source/SQLite/SQLite-74/public_source/src/complete.c
  */
-@interface ZIMSqlTokenizer : NSObject <NSFastEnumeration> {
+@interface ZIMSqlTokenizer : NSObject <NSFastEnumeration, ZIMSqlStatement> {
 
 	@protected
 		NSMutableArray *_tuples;
@@ -62,6 +64,13 @@
  @updated				2011-07-13
  */
 - (NSUInteger) count;
+/*!
+ @method				statement
+ @discussion			This method will return the SQL statement.
+ @return				The SQL statement that was tokenized.
+ @updated				2011-11-03
+ */
+- (NSString *) statement;
 /*!
  @method				isKeyword:
  @discussion			This method returns a boolean indicating whether the token is a reserved keyword

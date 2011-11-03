@@ -307,6 +307,14 @@ static NSSet *_keywords = nil;
 	return [_tuples count];
 }
 
+- (NSString *) statement {
+	NSMutableString *sql = [[NSMutableString alloc] init];
+	for (NSDictionary *tuple in _tuples) {
+		[sql appendString: [tuple objectForKey: @"token"]];
+	}	
+	return sql;
+}
+
 /*
  * @see http://cocoawithlove.com/2008/05/implementing-countbyenumeratingwithstat.html
  * @see http://www.mikeash.com/pyblog/friday-qa-2010-04-16-implementing-fast-enumeration.html

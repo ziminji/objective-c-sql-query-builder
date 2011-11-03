@@ -25,7 +25,7 @@
 	return self;
 }
 
-- (void) matching: (NSArray *)columns {
+- (void) matching: (NSArray *)columns { // i.e the (composite) primary key
 	if (columns != nil) {
 		NSMutableSet *compositeKey = [[NSMutableSet alloc] init];
 		for (NSString *column in columns) {
@@ -43,6 +43,10 @@
 }
 
 - (NSString *) statement {
+	// Note: Because "INSERT OR REPLACE" requires prior knowledge of the table's columns to properly update a record,
+	// this method to mimicing an upsert statement was chosen.  Therefore, always match against either the primary key
+	// or a unique key.
+
 	NSMutableString *sql = [[NSMutableString alloc] init];
 
 	[sql appendFormat: @"UPDATE OR IGNORE %@ SET ", _table];

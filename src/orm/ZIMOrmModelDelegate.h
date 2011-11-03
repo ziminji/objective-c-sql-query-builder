@@ -42,16 +42,16 @@
 - (void) modelDidFinishDeletingRecord: (ZIMOrmModel *)model;
 /*!
  @method				modelWillBeginLoadingRecord:
- @discussion			This method is called when a model begins selecting a record from the database.
+ @discussion			This method is called when a model begins loading a record from the database.
  @param model			The model that is executing the command.
- @updated				2011-07-31
+ @updated				2011-11-02
  */
 - (void) modelWillBeginLoadingRecord: (ZIMOrmModel *)model;
 /*!
  @method				modelDidFinishLoadingRecord:
- @discussion			This method is called when a model finishes selecting a record from the database.
+ @discussion			This method is called when a model finishes loading a record from the database.
  @param model			The model that is executing the command.
- @updated				2011-07-31
+ @updated				2011-11-02
  */
 - (void) modelDidFinishLoadingRecord: (ZIMOrmModel *)model;
 /*!
