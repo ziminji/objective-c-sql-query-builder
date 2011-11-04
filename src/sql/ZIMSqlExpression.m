@@ -137,7 +137,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	else if ([token isEqualToString: @","]) {
 		token = ZIMSqlJoinTypeCross;
 	}
-	if (![token matchRegex: @"^(natural)?(cross|inner|(left( outer)?))?$" options: NSRegularExpressionCaseInsensitive]) {
+	if (![token matchRegex: @"^((natural )?(cross|inner|(left( outer)?)))|(natural)$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid join type token provided." userInfo: nil];
 	}
 	return [token uppercaseString];
