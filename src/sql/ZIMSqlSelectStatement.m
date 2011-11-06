@@ -60,13 +60,13 @@
 	[self join: table type: ZIMSqlJoinTypeInner];
 }
 
+- (void) join: (NSString *)table alias: (NSString *)alias {
+	[self join: table alias: alias type: ZIMSqlJoinTypeInner];
+}
+
 - (void) join: (NSString *)table type: (NSString *)type {
 	NSString *join = [NSString stringWithFormat: @"%@ JOIN %@", [ZIMSqlExpression prepareJoinType: type], [ZIMSqlExpression prepareIdentifier: table]];
 	[_join addObject: [NSArray arrayWithObjects: join, [[NSMutableArray alloc] init], [[NSMutableArray alloc] init], nil]];
-}
-
-- (void) join: (NSString *)table alias: (NSString *)alias {
-	[self join: table alias: alias type: ZIMSqlJoinTypeInner];
 }
 
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type {
@@ -258,11 +258,30 @@
 }
 
 - (void) orderBy: (NSString *)column {
-	[self orderBy: column descending: NO];
+	[self orderBy: column descending: NO nulls: nil];
 }
 
 - (void) orderBy: (NSString *)column descending: (BOOL)descending {
-	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareSortOrder: descending]]];
+	[self orderBy: column descending: descending nulls: nil];
+}
+
+- (void) orderBy: (NSString *)column nulls: (NSString *)weight {
+	[self orderBy: column descending: NO nulls: weight];
+}
+
+- (void) orderBy: (NSString *)column descending: (BOOL)descending nulls: (NSString *)weight {
+	NSString *field = [ZIMSqlExpression prepareIdentifier: column];
+	NSString *order = [ZIMSqlExpression prepareSortOrder: descending];
+	weight = [ZIMSqlExpression prepareSortWeight: weight];
+	if ([weight isEqualToString: @"FIRST"]) {
+		[_orderBy addObject: [NSString stringWithFormat: @"CASE WHEN %@ IS NULL THEN 0 ELSE 1 END, %@ %@", field, field, order]];
+	}
+	else if ([weight isEqualToString: @"LAST"]) {
+		[_orderBy addObject: [NSString stringWithFormat: @"CASE WHEN %@ IS NULL THEN 1 ELSE 0 END, %@ %@", field, field, order]];
+	}
+	else {
+		[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", field, order]];
+	}
 }
 
 - (void) limit: (NSInteger)limit {

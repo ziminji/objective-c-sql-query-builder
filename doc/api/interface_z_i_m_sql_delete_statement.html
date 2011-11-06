@@ -91,6 +91,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#ab633904ac942fed74f2cca2dbb48e84d">where:operator:value:connector:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a96dd70b3ddb95fe89aac57bc3c10ea46">orderBy:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#abb7d2763da7e1b499ba18e78048ecc1c">orderBy:descending:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a91b2c5d8eefcff62342510db93993d1f">orderBy:nulls:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a3b673e1a4822f6f3616cf8e94c220f35">orderBy:descending:nulls:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a92ff7cc68b7ab098a2aab45e3cf192da">limit:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#ac3e0f5454184ab474ec34c85a6277270">offset:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#ad645fb8339d2d074bff615515eed1714">statement</a></td></tr>
@@ -198,7 +200,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-04-01 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-05 </dd></dl>
 
 </div>
 </div>
@@ -235,7 +237,98 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-30 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-05 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3b673e1a4822f6f3616cf8e94c220f35"></a><!-- doxytag: member="ZIMSqlDeleteStatement::orderBy:descending:nulls:" ref="a3b673e1a4822f6f3616cf8e94c220f35" args="(NSString *column,[descending] BOOL descending,[nulls] NSString *weight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) orderBy: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>column</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">descending:</td>
+          <td></td>
+          <td class="paramtype">(BOOL)&#160;</td>
+          <td class="paramname"><em>descending</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">nulls:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>orderBy:descending:nulls: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will add an order by clause to the SQL statement. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">column</td><td>The column to be ordered. </td></tr>
+    <tr><td class="paramname">descending</td><td>This will determine whether the column should be ordered in descending order. </td></tr>
+    <tr><td class="paramname">weight</td><td>This indicates how nulls are to be weighed when comparing with non-nulls. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-05 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://sqlite.org/cvstrac/wiki?p=UnsupportedSql">http://sqlite.org/cvstrac/wiki?p=UnsupportedSql</a> </dd>
+<dd>
+<a href="https://hibernate.onjira.com/browse/HHH-465">https://hibernate.onjira.com/browse/HHH-465</a> </dd>
+<dd>
+<a href="http://sqlblog.com/blogs/denis_gobo/archive/2007/10/19/3048.aspx">http://sqlblog.com/blogs/denis_gobo/archive/2007/10/19/3048.aspx</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a91b2c5d8eefcff62342510db93993d1f"></a><!-- doxytag: member="ZIMSqlDeleteStatement::orderBy:nulls:" ref="a91b2c5d8eefcff62342510db93993d1f" args="(NSString *column,[nulls] NSString *weight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) orderBy: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>column</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">nulls:</td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>orderBy:nulls: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will add an order by clause to the SQL statement. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">column</td><td>The column to be ordered. </td></tr>
+    <tr><td class="paramname">weight</td><td>This indicates how nulls are to be weighed when comparing with non-nulls. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-05 </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a href="http://sqlite.org/cvstrac/wiki?p=UnsupportedSql">http://sqlite.org/cvstrac/wiki?p=UnsupportedSql</a> </dd>
+<dd>
+<a href="https://hibernate.onjira.com/browse/HHH-465">https://hibernate.onjira.com/browse/HHH-465</a> </dd>
+<dd>
+<a href="http://sqlblog.com/blogs/denis_gobo/archive/2007/10/19/3048.aspx">http://sqlblog.com/blogs/denis_gobo/archive/2007/10/19/3048.aspx</a> </dd></dl>
 
 </div>
 </div>

@@ -148,8 +148,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 }
 
 + (NSString *) prepareOperator: (NSString *)operator ofType: (NSString *)type {
-	type = [type uppercaseString];
-	if ([type isEqualToString: @"SET"] && ![operator matchRegex: @"^(except|intersect|(union( all)?))$" options: NSRegularExpressionCaseInsensitive]) {
+	if ([[type uppercaseString] isEqualToString: @"SET"] && ![operator matchRegex: @"^(except|intersect|(union( all)?))$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid set operator token provided." userInfo: nil];
 	}
 	return [operator uppercaseString];
@@ -157,6 +156,16 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 
 + (NSString *) prepareSortOrder: (BOOL)descending {
 	return (descending) ? @"DESC" : @"ASC";
+}
+
++ (NSString *) prepareSortWeight: (NSString *)weight {
+	if (weight != nil) {
+		if (![weight matchRegex: @"^(first|last)$" options: NSRegularExpressionCaseInsensitive]) {
+			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid weight token provided." userInfo: nil];
+		}
+		return [weight uppercaseString];
+	}
+	return @"NULL";
 }
 
 + (NSString *) prepareValue: (id)value {
