@@ -78,11 +78,30 @@
 }
 
 - (void) orderBy: (NSString *)column {
-	[self orderBy: column descending: NO];
+	[self orderBy: column descending: NO nulls: nil];
 }
 
 - (void) orderBy: (NSString *)column descending: (BOOL)descending {
-	[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column maxCount: 2], [ZIMSqlExpression prepareSortOrder: descending]]];
+	[self orderBy: column descending: descending nulls: nil];
+}
+
+- (void) orderBy: (NSString *)column nulls: (NSString *)weight {
+	[self orderBy: column descending: NO nulls: weight];
+}
+
+- (void) orderBy: (NSString *)column descending: (BOOL)descending nulls: (NSString *)weight {
+	NSString *field = [ZIMSqlExpression prepareIdentifier: column];
+	NSString *order = [ZIMSqlExpression prepareSortOrder: descending];
+	weight = [ZIMSqlExpression prepareSortWeight: weight];
+	if ([weight isEqualToString: @"FIRST"]) {
+		[_orderBy addObject: [NSString stringWithFormat: @"CASE WHEN %@ IS NULL THEN 0 ELSE 1 END, %@ %@", field, field, order]];
+	}
+	else if ([weight isEqualToString: @"LAST"]) {
+		[_orderBy addObject: [NSString stringWithFormat: @"CASE WHEN %@ IS NULL THEN 1 ELSE 0 END, %@ %@", field, field, order]];
+	}
+	else {
+		[_orderBy addObject: [NSString stringWithFormat: @"%@ %@", field, order]];
+	}
 }
 
 - (void) limit: (NSInteger)limit {

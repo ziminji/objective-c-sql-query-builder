@@ -84,14 +84,6 @@
  */
 - (void) join: (NSString *)table;
 /*!
- @method				join:type:
- @discussion			This method will add a join clause to the SQL statement.
- @param table			The table to used in the clause.
- @param type			The type of join clause.
- @updated				2011-10-19
- */
-- (void) join: (NSString *)table type: (NSString *)type;
-/*!
  @method				join:alias:
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
@@ -99,6 +91,14 @@
  @updated				2011-10-30
  */
 - (void) join: (NSString *)table alias: (NSString *)alias;
+/*!
+ @method				join:type:
+ @discussion			This method will add a join clause to the SQL statement.
+ @param table			The table to used in the clause.
+ @param type			The type of join clause.
+ @updated				2011-10-19
+ */
+- (void) join: (NSString *)table type: (NSString *)type;
 /*!
  @method				join:alias:type:
  @discussion			This method will add a join clause to the SQL statement.
@@ -270,17 +270,40 @@
  @method				orderBy:
  @discussion			This method will add an order by clause to the SQL statement.
  @param column			The column to be ordered.
- @updated				2011-04-01
+ @updated				2011-11-05
  */
-- (void) orderBy: (NSString *)column;
+- (void) orderBy: (NSString *)column; // ORDER BY [COLUMN NAME]
 /*!
  @method				orderBy:descending:
  @discussion			This method will add an order by clause to the SQL statement.
  @param column			The column to be ordered.
  @param descending		This will determine whether the column should be ordered in descending order.
- @updated				2011-07-02
+ @updated				2011-11-05
  */
-- (void) orderBy: (NSString *)column descending: (BOOL)descending;
+- (void) orderBy: (NSString *)column descending: (BOOL)descending; // ORDER BY [COLUMN NAME] [ASC | DESC]
+/*!
+ @method				orderBy:nulls:
+ @discussion			This method will add an order by clause to the SQL statement.
+ @param column			The column to be ordered.
+ @param weight			This indicates how nulls are to be weighed when comparing with non-nulls.
+ @updated				2011-11-05
+ @see					http://sqlite.org/cvstrac/wiki?p=UnsupportedSql
+ @see					https://hibernate.onjira.com/browse/HHH-465
+ @see					http://sqlblog.com/blogs/denis_gobo/archive/2007/10/19/3048.aspx
+ */
+- (void) orderBy: (NSString *)column nulls: (NSString *)weight; // ORDER BY [COLUMN NAME] [NULLS FIRST | NULLS LAST]
+/*!
+ @method				orderBy:descending:nulls:
+ @discussion			This method will add an order by clause to the SQL statement.
+ @param column			The column to be ordered.
+ @param descending		This will determine whether the column should be ordered in descending order.
+ @param weight			This indicates how nulls are to be weighed when comparing with non-nulls.
+ @updated				2011-11-05
+ @see					http://sqlite.org/cvstrac/wiki?p=UnsupportedSql
+ @see					https://hibernate.onjira.com/browse/HHH-465
+ @see					http://sqlblog.com/blogs/denis_gobo/archive/2007/10/19/3048.aspx
+ */
+- (void) orderBy: (NSString *)column descending: (BOOL)descending nulls: (NSString *)weight; // ORDER BY [COLUMN NAME] [ASC | DESC] [NULLS FIRST | NULLS LAST]
 /*!
  @method				limit:
  @discussion			This method will add a limit clause to the SQL statement.

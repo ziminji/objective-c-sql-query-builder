@@ -88,6 +88,10 @@
 #define ZIMSqlShowTypePermanent					@"PERMANENT"
 #define ZIMSqlShowTypeTemporary					@"TEMPORARY"
 
+// Order Operators (for Nulls)
+#define ZIMSqlNullsFirst						@"FIRST"
+#define ZIMSqlNullsLast							@"LAST"
+
 // Default Values -- http://forums.realsoftware.com/viewtopic.php?f=3&t=35179
 #define ZIMSqlDefaultValueIsAutoIncremented		@"PRIMARY KEY AUTOINCREMENT NOT NULL"
 #define ZIMSqlDefaultValueIsNull				@"DEFAULT NULL";
@@ -205,6 +209,14 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @updated				2011-07-02
  */
 + (NSString *) prepareSortOrder: (BOOL)descending;
+/*!
+ @method				prepareSortWeight:
+ @discussion			This method will prepare the sort weight for an SQL statement.
+ @param weight			This indicates how nulls are to be weighed when comparing with non-nulls.
+ @return				The prepared sort weight.
+ @updated				2011-11-05
+ */
++ (NSString *) prepareSortWeight: (NSString *)weight;
 /*!
  @method				prepareValue:
  @discussion			This method will prepare a value for an SQL statement.
