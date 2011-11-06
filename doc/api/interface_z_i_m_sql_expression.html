@@ -79,6 +79,7 @@ Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSInteger)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#acd93e1663c240b9bf67d7cd8768d74df">prepareNaturalNumber:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a098fec6b21df31197a26db3454748601">prepareOperator:ofType:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a3eff915a6790ce871bca4da44687f77d">prepareSortOrder:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#ace91a8b5f84943fb90b7ad20ff22dc52">prepareSortWeight:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a92b265f70057cea3871dc47115be0d5e">prepareValue:</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
@@ -227,7 +228,7 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The prepared token. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-29 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-03 </dd></dl>
 
 </div>
 </div>
@@ -292,7 +293,7 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The prepared operator. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-29 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-03 </dd></dl>
 
 </div>
 </div>
@@ -320,6 +321,33 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The prepared sort order token. </dd></dl>
 <dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-02 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ace91a8b5f84943fb90b7ad20ff22dc52"></a><!-- doxytag: member="ZIMSqlExpression::prepareSortWeight:" ref="ace91a8b5f84943fb90b7ad20ff22dc52" args="(NSString *weight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) prepareSortWeight: </td>
+          <td></td>
+          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramname"><em>weight</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>prepareSortWeight: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will prepare the sort weight for an SQL statement. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">weight</td><td>This indicates how nulls are to be weighed when comparing with non-nulls. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared sort weight. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2011-11-05 </dd></dl>
 
 </div>
 </div>

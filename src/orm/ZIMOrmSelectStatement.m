@@ -109,11 +109,19 @@
 }
 
 - (void) orderBy: (NSString *)column {
-	[_sql orderBy: column];
+	[_sql orderBy: column descending: NO nulls: nil];
 }
 
 - (void) orderBy: (NSString *)column descending: (BOOL)descending {
-	[_sql orderBy: column descending: descending];
+	[_sql orderBy: column descending: descending nulls: nil];
+}
+
+- (void) orderBy: (NSString *)column nulls: (NSString *)weight {
+	[_sql orderBy: column descending: NO nulls: weight];
+}
+
+- (void) orderBy: (NSString *)column descending: (BOOL)descending nulls: (NSString *)weight {
+	[_sql orderBy: column descending: descending nulls: weight];
 }
 
 - (void) limit: (NSInteger)limit {
