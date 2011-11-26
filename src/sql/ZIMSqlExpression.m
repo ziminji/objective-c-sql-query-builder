@@ -165,7 +165,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 		}
 		return [weight uppercaseString];
 	}
-	return @"NULL";
+	return @"DEFAULT";
 }
 
 + (NSString *) prepareValue: (id)value {
