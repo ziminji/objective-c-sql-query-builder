@@ -340,18 +340,23 @@ static NSSet *_keywords = nil;
 
 + (BOOL) isKeyword: (NSString *)token {
 	if (_keywords == nil) {
-		_keywords = [NSSet setWithObjects: @"ABORT", @"ACTION", @"ADD", @"AFTER", @"ALL", @"ALTER", @"ANALYZE", @"AND",	@"AS",
-			@"ASC", @"ATTACH", @"AUTOINCREMENT", @"BEFORE", @"BEGIN", @"BETWEEN", @"BY", @"CASCADE", @"CASE", @"CAST", @"CHECK",
-			@"COLLATE", @"COLUMN", @"COMMIT", @"CONFLICT", @"CONSTRAINT", @"CREATE", @"CROSS", @"CURRENT_DATE", @"CURRENT_TIME",
-			@"CURRENT_TIMESTAMP", @"DATABASE", @"DEFAULT", @"DEFERRABLE", @"DEFERRED", @"DELETE", @"DESC", @"DETACH", @"DISTINCT",
-			@"DROP", @"EACH", @"ELSE", @"END", @"ESCAPE", @"EXCEPT", @"EXCLUSIVE", @"EXISTS", @"EXPLAIN", @"FAIL", @"FOR", @"FOREIGN",
-			@"FROM", @"FULL", @"GLOB", @"GROUP", @"HAVING", @"IF", @"IGNORE", @"IMMEDIATE", @"IN", @"INDEX", @"INDEXED", @"INITIALLY",
-			@"INNER", @"INSERT", @"INSTEAD", @"INTERSECT", @"INTO", @"IS", @"ISNULL", @"JOIN", @"KEY", @"LEFT", @"LIKE", @"LIMIT",
-			@"MATCH", @"NATURAL", @"NO", @"NOT", @"NOTNULL", @"NULL", @"OF", @"OFFSET", @"ON", @"OR", @"ORDER", @"OUTER", @"PLAN",
-			@"PRAGMA", @"PRIMARY", @"QUERY", @"RAISE", @"REFERENCES", @"REGEXP", @"REINDEX", @"RELEASE", @"RENAME", @"REPLACE",
-			@"RESTRICT", @"RIGHT", @"ROLLBACK", @"ROW", @"SAVEPOINT", @"SELECT", @"SET", @"TABLE", @"TEMP", @"TEMPORARY", @"THEN",
-			@"TO", @"TRANSACTION", @"TRIGGER", @"UNION", @"UNIQUE", @"UPDATE", @"USING", @"VACUUM", @"VALUES", @"VIEW", @"VIRTUAL",
-			@"WHEN", @"WHERE", nil
+		_keywords = [NSSet setWithObjects: @"ABORT", @"ABS", @"ACTION", @"ADD", @"AFTER", @"ALL", @"ALTER", @"ANALYZE",
+			@"AND",	@"AS", @"ASC", @"ATTACH", @"AUTOINCREMENT", @"AVG", @"BEFORE", @"BEGIN", @"BETWEEN", @"BY", @"CASCADE",
+			@"CASE", @"CAST", @"CHANGES", @"CHECK", @"COALESCE", @"COLLATE", @"COLUMN", @"COMMIT", @"CONFLICT", @"CONSTRAINT",
+			@"COUNT", @"CREATE", @"CROSS", @"CURRENT_DATE", @"CURRENT_TIME", @"CURRENT_TIMESTAMP", @"DATABASE", @"DATE",
+			@"DATETIME", @"DEFAULT", @"DEFERRABLE", @"DEFERRED", @"DELETE", @"DESC", @"DETACH", @"DISTINCT", @"DROP", @"EACH",
+			@"ELSE", @"END", @"ESCAPE", @"EXCEPT", @"EXCLUSIVE", @"EXISTS", @"EXPLAIN", @"FAIL", @"FOR", @"FOREIGN", @"FROM",
+			@"FULL", @"GLOB", @"GROUP", @"GROUP_CONCAT", @"HAVING", @"HEX", @"IF", @"IFNULL", @"IGNORE", @"IMMEDIATE", @"IN",
+			@"INDEX", @"INDEXED", @"INITIALLY", @"INNER", @"INSERT", @"INSTEAD", @"INTERSECT", @"INTO", @"IS", @"ISNULL",
+			@"JOIN", @"JULIANDAY", @"KEY", @"LAST_INSERT_ROWID", @"LEFT", @"LENGTH", @"LIKE", @"LIMIT", @"LOAD_EXTENSION",
+			@"LOWER", @"LTRIM", @"MATCH", @"MAX", @"MIN", @"NATURAL", @"NO", @"NOT", @"NOTNULL", @"NULL", @"NULLIF", @"OF",
+			@"OFFSET", @"ON", @"OR", @"ORDER", @"OUTER", @"PLAN", @"PRAGMA", @"PRIMARY", @"QUERY", @"QUOTE", @"RAISE",
+			@"RANDOM", @"RANDOMBLOB", @"REFERENCES", @"REGEXP", @"REINDEX", @"RELEASE", @"RENAME", @"REPLACE", @"RESTRICT",
+			@"RIGHT", @"ROLLBACK", @"ROUND", @"ROW", @"RTRIM", @"SAVEPOINT", @"SELECT", @"SET", @"SOUNDEX", @"SQLITE_COMPILEOPTION_GET",
+			@"SQLITE_COMPILEOPTION_USED", @"SQLITE_SOURCE_ID", @"SQLITE_VERSION", @"STRFTIME", @"SUBSTR", @"SUM", @"TABLE", @"TEMP",
+			@"TEMPORARY", @"THEN", @"TIME", @"TO", @"TOTAL", @"TOTAL_CHANGES", @"TRANSACTION", @"TRIGGER", @"TRIM", @"TYPEOF",
+			@"UNION", @"UNIQUE", @"UPDATE", @"UPPER", @"USING", @"VACUUM", @"VALUES", @"VIEW", @"VIRTUAL", @"WHEN",
+			@"WHERE", @"ZEROBLOB", nil
 		];
 	}
 	return [_keywords containsObject: [token uppercaseString]];

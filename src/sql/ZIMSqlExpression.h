@@ -214,7 +214,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare the sort weight for an SQL statement.
  @param weight			This indicates how nulls are to be weighed when comparing with non-nulls.
  @return				The prepared sort weight.
- @updated				2011-11-05
+ @updated				2011-11-06
  */
 + (NSString *) prepareSortWeight: (NSString *)weight;
 /*!
