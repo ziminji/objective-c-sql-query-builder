@@ -77,8 +77,11 @@
  						according to SQLite 3 standards.
  @param token			The token to be evaluated.
  @return				A boolean value indicating whether the token is a reserved keyword.
- @updated				2011-07-14
+ @updated				2011-11-26
  @see					http://www.sqlite.org/lang_keywords.html
+ @see					http://www.sqlite.org/lang_corefunc.html
+ @see					http://www.sqlite.org/lang_datefunc.html
+ @see					http://www.sqlite.org/lang_aggfunc.html
  @see					http://cpan.uwinnipeg.ca/htdocs/SQL-ReservedWords/SQL/ReservedWords/SQLite.pm.html
  */
 + (BOOL) isKeyword: (NSString *)token;

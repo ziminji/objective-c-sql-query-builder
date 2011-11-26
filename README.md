@@ -135,7 +135,8 @@ At the current time, there are no known bugs. However, the "XML to DDL" schema p
 ### Updates
 
 This Objective-C SQLite project is updated frequently with bug-fixes and new features.  Be sure to add this repository
-to your watch list so that you can be notified when such updates are made.
+to your watch list so that you can be notified when such updates are made.  You can also request email notifications
+regarding updates by emailing oss@ziminji.com.
 
 ## Future Development
 
@@ -146,6 +147,8 @@ This project is under heavy development.  There are development plans to add:
 * A database encryption layer for password protecting an SQLite database;
 * Unit-tests; and,
 * Additional tutorials and examples.
+
+Help expand this list with your feedback.
 
 ## License (Apache v2.0)
 
