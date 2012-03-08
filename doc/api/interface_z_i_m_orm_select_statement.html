@@ -106,6 +106,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a7b315fdd1a9189a8048ebeafb121a2fb">orderBy:nulls:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a1feaef63b748b53ab6cd433c78574e71">orderBy:descending:nulls:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a1b12db2004ecf23a6c3901b944ab1cb6">limit:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a2af91a86c228ce138d77ef165253de53">limit:offset:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a40aaff2cfe4a0627624e6bf0aa7ca2b3">offset:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSArray *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a73bd485dbbdc192a45267be1ab5e1e9c">query</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_select_statement.html#a040067495519a11d474068c6c8aefb26">statement</a><code> [implementation]</code></td></tr>
@@ -661,6 +662,43 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="user"><dt><b>Updated:</b></dt><dd>2011-04-02 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2af91a86c228ce138d77ef165253de53"></a><!-- doxytag: member="ZIMOrmSelectStatement::limit:offset:" ref="a2af91a86c228ce138d77ef165253de53" args="(NSInteger limit,[offset] NSInteger offset)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) limit: </td>
+          <td></td>
+          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramname"><em>limit</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">offset:</td>
+          <td></td>
+          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>limit:offset: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will add a limit clause and an offset clause to the SQL statement. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">limit</td><td>The number of records to be returned. </td></tr>
+    <tr><td class="paramname">offset</td><td>The starting point to start evaluating. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-08 </dd></dl>
 
 </div>
 </div>
