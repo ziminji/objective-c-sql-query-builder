@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 Ziminji
+ * Copyright 2011-2012 Ziminji
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@
 
 - (void) dealloc {
 	[self closeAll];
+	[super dealloc];
 }
 
 - (ZIMDbConnection *) connection: (NSString *)dataSource {
