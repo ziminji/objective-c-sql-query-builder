@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 Ziminji
+ * Copyright 2011-2012 Ziminji
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -111,6 +111,11 @@
 
 - (void) limit: (NSInteger)limit {
 	_limit = [ZIMSqlExpression prepareNaturalNumber: limit];
+}
+
+- (void) limit: (NSInteger)limit offset: (NSInteger)offset {
+	[self offset: offset];
+	[self limit: limit];
 }
 
 - (void) offset: (NSInteger)offset {

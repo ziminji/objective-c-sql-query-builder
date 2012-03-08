@@ -94,6 +94,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a91b2c5d8eefcff62342510db93993d1f">orderBy:nulls:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a3b673e1a4822f6f3616cf8e94c220f35">orderBy:descending:nulls:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a92ff7cc68b7ab098a2aab45e3cf192da">limit:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a7673e3598b77f60c76d19d90126e2bc9">limit:offset:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#ac3e0f5454184ab474ec34c85a6277270">offset:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#ad645fb8339d2d074bff615515eed1714">statement</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a1373d940b57a54c55d4de61ea18e40dd">init</a><code> [implementation]</code></td></tr>
@@ -149,6 +150,43 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-27 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7673e3598b77f60c76d19d90126e2bc9"></a><!-- doxytag: member="ZIMSqlDeleteStatement::limit:offset:" ref="a7673e3598b77f60c76d19d90126e2bc9" args="(NSInteger limit,[offset] NSInteger offset)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) limit: </td>
+          <td></td>
+          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramname"><em>limit</em></td>
+        </tr>
+        <tr>
+          <td class="paramkey">offset:</td>
+          <td></td>
+          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>limit:offset: </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will add a limit clause and an offset clause to the SQL statement. </dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">limit</td><td>The number of records to be returned. </td></tr>
+    <tr><td class="paramname">offset</td><td>The starting point to start evaluating. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-07 </dd></dl>
 
 </div>
 </div>

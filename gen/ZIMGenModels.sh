@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##
-# Copyright 2011 Ziminji
+# Copyright 2011-2012 Ziminji
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -243,7 +243,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		##
 		let INDEX=0
 		while [ $INDEX -lt $COUNT ]; do
-			echo "@property (nonatomic, strong) ${ColumnTypes[${INDEX}]} *${ColumnNames[${INDEX}]};" 1>> $MODEL_H
+			echo "@property (strong, nonatomic) ${ColumnTypes[${INDEX}]} *${ColumnNames[${INDEX}]};" 1>> $MODEL_H
 			let INDEX=$INDEX+1
 		done
 		
