@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 Ziminji
+ * Copyright 2011-2012 Ziminji
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -311,6 +311,14 @@
  @updated				2011-06-27
  */
 - (void) limit: (NSInteger)limit;
+/*!
+ @method				limit:offset:
+ @discussion			This method will add a limit clause and an offset clause to the SQL statement.
+ @param limit			The number of records to be returned.
+ @param offset			The starting point to start evaluating.
+ @updated				2012-03-07
+ */
+- (void) limit: (NSInteger)limit offset: (NSInteger)offset;
 /*!
  @method				offset:
  @discussion			This method will add an offset clause to the SQL statement.
