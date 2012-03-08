@@ -128,6 +128,10 @@
 	[_sql limit: limit];
 }
 
+- (void) limit: (NSInteger)limit offset: (NSInteger)offset {
+	[_sql limit: limit offset: offset];
+}
+
 - (void) offset: (NSInteger)offset {
 	[_sql offset: offset];
 }
