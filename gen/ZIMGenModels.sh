@@ -29,7 +29,7 @@
 ##
 # Defines reserved words.
 ##
-declare -a RESERVED_TOKENS=( 'alloc' 'autorelease' 'id' 'init' 'class' 'columns' 'conformsToProtocol' 'dataSource' 'dealloc' 'delegate' 'delete' 'description' 'hash' 'hashCode' 'isAutoIncremented' 'isEqual' 'isKindOfClass' 'isMemberOfClass' 'isProxy' 'isSaveable' 'load' 'performSelector' 'primaryKey' 'release' 'respondsToSelector' 'retain' 'retainCount' 'save' 'self' 'superclass' 'table' 'zone' )
+declare -a RESERVED_TOKENS=( 'alloc' 'autorelease' 'class' 'columns' 'conformsToProtocol' 'dataSource' 'dealloc' 'delegate' 'delete' 'description' 'hash' 'hashCode' 'id' 'init' 'isAutoIncremented' 'isEqual' 'isKindOfClass' 'isMemberOfClass' 'isProxy' 'isSaveable' 'load' 'performSelector' 'primaryKey' 'release' 'respondsToSelector' 'retain' 'retainCount' 'save' 'self' 'superclass' 'table' 'zone' )
 
 ##
 # Defines the hashmap for translating columns.
@@ -229,7 +229,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		##
 		let INDEX=0
 		while [ $INDEX -lt $COUNT ]; do
-			echo -e "\t\t${ColumnTypes[${INDEX}]} *${ColumnNames[${INDEX}]};" 1>> $MODEL_H
+			echo -e "\t\t${ColumnTypes[${INDEX}]} *_${ColumnNames[${INDEX}]};" 1>> $MODEL_H
 			let INDEX=$INDEX+1
 		done
 
@@ -283,7 +283,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		##
 		let INDEX=0
 		while [ $INDEX -lt $COUNT ]; do
-			echo "@synthesize ${ColumnNames[${INDEX}]};" 1>> $MODEL_M
+			echo "@synthesize ${ColumnNames[${INDEX}]} = _${ColumnNames[${INDEX}]};" 1>> $MODEL_M
 			let INDEX=$INDEX+1
 		done
 

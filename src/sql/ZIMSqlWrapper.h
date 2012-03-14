@@ -19,7 +19,7 @@
 /*!
  @class					ZIMSqlWrapper
  @discussion			This class wraps a raw SQL statement.
- @updated				2011-07-15
+ @updated				2012-03-14
  */
 @interface ZIMSqlWrapper : NSObject <ZIMSqlStatement> {
 
@@ -38,9 +38,17 @@
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
- @return				The SQL statement that was wrapped.
- @updated				2011-07-15
+ @return				The wrapped SQL statement.
+ @updated				2012-03-14
  */
 - (NSString *) statement;
+/*!
+ @method				sql:
+ @discussion			This method will wrap the SQL statement.
+ @param sql				The SQL statement to be wrapped
+ @return				The wrapped SQL statement.
+ @updated				2012-03-14
+ */
++ (NSString *) sql: (NSString *)sql;
 
 @end

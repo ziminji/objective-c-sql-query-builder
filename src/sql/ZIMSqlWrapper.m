@@ -29,4 +29,9 @@
 	return _statement;
 }
 
++ (NSString *) sql: (NSString *)sql {
+	ZIMSqlWrapper *wrapper = [[ZIMSqlWrapper alloc] initWithSqlStatement: sql];
+	return [wrapper statement];
+}
+
 @end
