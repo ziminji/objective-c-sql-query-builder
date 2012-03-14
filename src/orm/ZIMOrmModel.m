@@ -23,6 +23,21 @@
 #import "ZIMSqlSelectStatement.h"
 #import "ZIMSqlUpdateStatement.h"
 
+/*!
+ @category		ZIMOrmModel (Private)
+ @discussion	This category defines the prototpes for this class's private methods.
+ @updated		2012-03-10
+ */
+@interface ZIMOrmModel (Private)
+/*!
+ @method				hashCode
+ @discussion			This method returns a hash code that is calculated by first concatenating the value
+						assigned to each primary key and then finding the SHA1 has for the concatenated string.
+ @updated				2012-03-11
+ */
+- (NSString *) hashCode;
+@end
+
 @implementation ZIMOrmModel
 
 #if !defined(ZIMOrmDataSource)
@@ -249,19 +264,20 @@
 		NSMutableString *buffer = [[NSMutableString alloc] init];
 		for (NSString *column in primaryKey) {
 			id value = [self valueForKey: column];
-			if (value == nil) {
-				return nil;
+			if ((value != nil) && ! [value isKindOfClass: [NSNull class]]) {
+				[buffer appendFormat: @"%@=%@", column, value];
 			}
-			[buffer appendFormat: @"%@=%@", column, value];
 		}
-		const char *cString = [buffer UTF8String];
-		unsigned char digest[CC_SHA512_DIGEST_LENGTH];
-		CC_SHA512(cString, strlen(cString), digest);
-		NSMutableString *hashKey = [NSMutableString stringWithCapacity: CC_SHA512_DIGEST_LENGTH * 2];
-		for (int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++) {
-			[hashKey appendFormat: @"%02x", digest[i]];
+		if ([buffer length] > 0) {
+			const char *cString = [buffer UTF8String];
+			unsigned char digest[CC_SHA512_DIGEST_LENGTH];
+			CC_SHA512(cString, strlen(cString), digest);
+			NSMutableString *hash = [NSMutableString stringWithCapacity: CC_SHA512_DIGEST_LENGTH * 2];
+			for (int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++) {
+				[hash appendFormat: @"%02x", digest[i]];
+			}
+			return [hash lowercaseString];
 		}
-		return [hashKey lowercaseString];
 	}
 	return nil;
 }

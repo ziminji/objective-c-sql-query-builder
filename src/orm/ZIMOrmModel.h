@@ -116,17 +116,10 @@
  */
 - (void) save;
 /*!
- @method				hashCode
- @discussion			This method returns a hash code that is calculated by first concatenating the value
-						assigned to each primary key and then finding the SHA1 has for the concatenated string.
- @updated				2011-10-23
- */
-- (NSString *) hashCode;
-/*!
  @method				dataSource
- @discussion			This method will return the file name of the database.
+ @discussion			This method will return the name of the data source (DSN).
  @return				The file name of the database to be used.
- @updated				2011-04-16
+ @updated				2012-03-10
  */
 + (NSString *) dataSource;
 /*!

@@ -289,8 +289,8 @@
 }
 
 - (void) limit: (NSInteger)limit offset: (NSInteger)offset {
-	[self offset: offset];
 	[self limit: limit];
+	[self offset: offset];
 }
 
 - (void) offset: (NSInteger)offset {

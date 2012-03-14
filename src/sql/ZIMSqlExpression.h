@@ -136,12 +136,39 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
 
 /*!
  @class					ZIMSqlExpression
- @discussion			This class contains a set of methods to help process input.
- @updated				2011-04-02
+ @discussion			This class handles the formatting of a SQL expression.
+ @updated				2012-03-14
  */
 @interface ZIMSqlExpression : NSObject {
 
+	@protected
+		NSString *_expression;
+
 }
+
+/*!
+ @method				initWithSqlExpression:
+ @discussion			This method initialize the class with the specified SQL expression.
+ @param sql				The SQL expression to be wrapped.
+ @return				An instance of this class.
+ @updated				2012-03-14
+ */
+- (id) initWithSqlExpression: (NSString *)sql;
+/*!
+ @method				expression
+ @discussion			This method returns the wrapped SQL expression.
+ @return				The wrapped SQL expression.
+ @updated				2012-03-14
+ */
+- (NSString *) expression;
+/*!
+ @method				sql:
+ @discussion			This method will wrap the SQL expression.
+ @param sql				The SQL expression to be wrapped
+ @return				The wrapped SQL expression.
+ @updated				2012-03-14
+ */
++ (NSString *) sql: (NSString *)sql;
 /*!
  @method				prepareConnector:
  @discussion			This method will prepare a connector for an SQL statement.
@@ -161,9 +188,9 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
 /*!
  @method				prepareIdentifier:
  @discussion			This method will prepare an identifier for an SQL statement.
- @param identifier		The token to be prepared.
- @return				The prepared token.
- @updated				2011-11-01
+ @param identifier		The identifier to be prepared.
+ @return				The prepared identifier.
+ @updated				2012-03-12
  */
 + (NSString *) prepareIdentifier: (NSString *)identifier;
 /*!
@@ -171,8 +198,8 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare an identifier for an SQL statement.
  @param identifier		The identifier to be prepared.
  @param count			The maximum number of segments that the reference may have.
- @return				The prepared reference identifier.
- @updated				2011-11-03
+ @return				The prepared identifier.
+ @updated				2012-03-12
  */
 + (NSString *) prepareIdentifier: (NSString *)identifier maxCount: (NSUInteger)count;
 /*!
@@ -228,5 +255,13 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @see					http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite
  */
 + (NSString *) prepareValue: (id)value;
+/*!
+ @method				prepareWildcard:
+ @discussion			This method prepares the specified identifier as a wildcard identifier.
+ @param identifier		The identifier to be prepared.
+ @return				The prepared identifier.
+ @updated				2012-03-12
+ */
++ (NSString *) prepareWildcard: (NSString *)identifier;
 
 @end
