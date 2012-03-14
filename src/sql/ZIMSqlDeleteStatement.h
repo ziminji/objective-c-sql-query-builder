@@ -144,7 +144,7 @@
  @discussion			This method will add a limit clause and an offset clause to the SQL statement.
  @param limit			The number of records to be returned.
  @param offset			The starting point to start evaluating.
- @updated				2012-03-07
+ @updated				2012-03-10
  */
 - (void) limit: (NSInteger)limit offset: (NSInteger)offset;
 /*!

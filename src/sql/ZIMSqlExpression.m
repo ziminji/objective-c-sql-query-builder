@@ -89,6 +89,22 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 
 @implementation ZIMSqlExpression
 
+- (id) initWithSqlExpression: (NSString *)sql {
+	if ((self = [super init])) {
+		_expression = sql;
+	}
+	return self;
+}
+
+- (NSString *) expression {
+	return _expression;
+}
+
++ (NSString *) sql: (NSString *)sql {
+	ZIMSqlExpression *wrapper = [[ZIMSqlExpression alloc] initWithSqlExpression: sql];
+	return [wrapper expression];
+}
+
 + (NSString *) prepareConnector: (NSString *)token {
 	if (![token matchRegex: @"^(and|or)$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid connector token provided." userInfo: nil];
@@ -172,23 +188,17 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	if ((value == nil) || [value isKindOfClass: [NSNull class]]) {
 		return @"NULL";
 	}
-	else if ([value isKindOfClass: [ZIMSqlSelectStatement class]]) {
-		NSString *statement = [(ZIMSqlSelectStatement *)value statement];
-		statement = [statement substringWithRange: NSMakeRange(0, [statement length] - 1)];
-		statement = [NSString stringWithFormat: @"(%@)", statement];
-		return statement;
-	}
 	else if ([value isKindOfClass: [NSArray class]]) {
-		NSMutableString *str = [[NSMutableString alloc] init];
-		[str appendString: @"("];
+		NSMutableString *buffer = [[NSMutableString alloc] init];
+		[buffer appendString: @"("];
 		for (int i = 0; i < [value count]; i++) {
 			if (i > 0) {
-				[str appendString: @", "];
+				[buffer appendString: @", "];
 			}
-			[str appendString: [self prepareValue: [value objectAtIndex: i]]];
+			[buffer appendString: [self prepareValue: [value objectAtIndex: i]]];
 		}
-		[str appendString: @")"];
-		return str;
+		[buffer appendString: @")"];
+		return buffer;
 	}
 	else if ([value isKindOfClass: [NSNumber class]]) {
 		return [NSString stringWithFormat: @"%@", value];
@@ -217,9 +227,45 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 		NSString *date = [NSString stringWithFormat: @"'%@'", [formatter stringFromDate: (NSDate *)value]];
 		return date;
 	}
+	else if ([value isKindOfClass: [ZIMSqlExpression class]]) {
+		return [(ZIMSqlExpression *)value expression];
+	}
+	else if ([value isKindOfClass: [ZIMSqlSelectStatement class]]) {
+		NSString *statement = [(ZIMSqlSelectStatement *)value statement];
+		statement = [statement substringWithRange: NSMakeRange(0, [statement length] - 1)];
+		statement = [NSString stringWithFormat: @"(%@)", statement];
+		return statement;
+	}
 	else {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Unable to prepare value. '%@'", value] userInfo: nil];
 	}
+}
+
++ (NSString *) prepareWildcard: (NSString *)identifier {
+	NSMutableString *buffer = [[NSMutableString alloc] init];
+	NSArray *tokens = [identifier componentsSeparatedByString: @"."];
+	int length = [tokens count];
+	NSError *error;
+	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: @"[^a-z0-9_ ]" options: NSRegularExpressionCaseInsensitive error: &error];
+	for (int index = 0; index < length; index++) {
+		if (index > 0) {
+			[buffer appendString: @"."];
+		}
+		NSString *token = [tokens objectAtIndex: index];
+		token = [token stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+		if (![token isEqualToString: @"*"]) {
+			token = [regex stringByReplacingMatchesInString: token options: 0 range: NSMakeRange(0, [token length]) withTemplate: @""];
+			token = [token stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+			[buffer appendFormat: @"[%@]", token];
+		}
+		else {
+			[buffer appendString: @"*"];
+		}		
+	}
+	if ((length > 0) && ![[tokens objectAtIndex: length - 1] isEqualToString: @"*"]) {
+		[buffer appendString: @"*"];
+	}
+	return buffer;
 }
 
 @end
