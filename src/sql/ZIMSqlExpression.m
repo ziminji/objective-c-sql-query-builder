@@ -100,9 +100,8 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	return _expression;
 }
 
-+ (NSString *) sql: (NSString *)sql {
-	ZIMSqlExpression *wrapper = [[ZIMSqlExpression alloc] initWithSqlExpression: sql];
-	return [wrapper expression];
++ (ZIMSqlExpression *) sql: (NSString *)sql {
+	return [[ZIMSqlExpression alloc] initWithSqlExpression: sql];
 }
 
 + (NSString *) prepareConnector: (NSString *)token {
