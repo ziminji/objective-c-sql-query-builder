@@ -166,9 +166,9 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will wrap the SQL expression.
  @param sql				The SQL expression to be wrapped
  @return				The wrapped SQL expression.
- @updated				2012-03-14
+ @updated				2012-03-17
  */
-+ (NSString *) sql: (NSString *)sql;
++ (ZIMSqlExpression *) sql: (NSString *)sql;
 /*!
  @method				prepareConnector:
  @discussion			This method will prepare a connector for an SQL statement.
