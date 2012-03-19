@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlCreateViewStatement
  @discussion			This class represents an SQL create view statement.
- @updated				2011-10-19
+ @updated				2012-03-18
  @see					http://www.sqlite.org/lang_createview.html
  */
 @interface ZIMSqlCreateViewStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
@@ -31,7 +31,7 @@
 		NSString *_statement;
 		NSMutableArray *_stack;
 		NSString *_cdata;
-		NSInteger _counter;
+		NSUInteger _counter;
 		NSError *_error;
 
 }

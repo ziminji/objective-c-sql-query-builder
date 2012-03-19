@@ -33,7 +33,7 @@
  @method				show:
  @discussion			This method can be used to designate the types of triggers to be shown.
  @param type			The type of triggers to be shown.
- @updated				2011-10-30
+ @updated				2012-03-18
  */
 - (void) show: (NSString *)type;
 /*!

@@ -84,8 +84,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00029"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#ab5a5eb4e563ff96509e2dc9820c49860">00029</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_delete_statement.html#ab5a5eb4e563ff96509e2dc9820c49860">_table</a>;
 <a name="l00030"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#a052cc05efb6d9989bb76fbcd5b848497">00030</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_delete_statement.html#a052cc05efb6d9989bb76fbcd5b848497">_where</a>;
 <a name="l00031"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#a4d41403e8f94b8702708d3ce127f655a">00031</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_delete_statement.html#a4d41403e8f94b8702708d3ce127f655a">_orderBy</a>;
-<a name="l00032"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#a84962bc232572e71abcdfa8b8179c68f">00032</a>                 NSInteger <a class="code" href="interface_z_i_m_sql_delete_statement.html#a84962bc232572e71abcdfa8b8179c68f">_limit</a>;
-<a name="l00033"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#a5200bd636b01bb448136baac65f250c4">00033</a>                 NSInteger <a class="code" href="interface_z_i_m_sql_delete_statement.html#a5200bd636b01bb448136baac65f250c4">_offset</a>;
+<a name="l00032"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#aee825f2def5a37bd79927b7005456542">00032</a>                 NSUInteger <a class="code" href="interface_z_i_m_sql_delete_statement.html#aee825f2def5a37bd79927b7005456542">_limit</a>;
+<a name="l00033"></a><a class="code" href="interface_z_i_m_sql_delete_statement.html#abe4dfd0a931bf90eb795464763564960">00033</a>                 NSUInteger <a class="code" href="interface_z_i_m_sql_delete_statement.html#abe4dfd0a931bf90eb795464763564960">_offset</a>;
 <a name="l00034"></a>00034 
 <a name="l00035"></a>00035 }
 <a name="l00036"></a>00036 
@@ -100,9 +100,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00111"></a>00111 <span class="comment"></span>- (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column descending: (BOOL)descending; <span class="comment">// ORDER BY [COLUMN NAME] [ASC | DESC]</span>
 <a name="l00122"></a>00122 <span class="comment"></span>- (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column nulls: (<a class="code" href="class_n_s_string.html">NSString</a> *)weight; <span class="comment">// ORDER BY [COLUMN NAME] [NULLS FIRST | NULLS LAST]</span>
 <a name="l00134"></a>00134 <span class="comment"></span>- (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column descending: (BOOL)descending nulls: (<a class="code" href="class_n_s_string.html">NSString</a> *)weight; <span class="comment">// ORDER BY [COLUMN NAME] [ASC | DESC] [NULLS FIRST | NULLS LAST]</span>
-<a name="l00141"></a>00141 <span class="comment"></span>- (void) limit: (NSInteger)limit;
-<a name="l00149"></a>00149 - (void) limit: (NSInteger)limit offset: (NSInteger)offset;
-<a name="l00156"></a>00156 - (void) offset: (NSInteger)offset;
+<a name="l00141"></a>00141 <span class="comment"></span>- (void) limit: (NSUInteger)limit;
+<a name="l00149"></a>00149 - (void) limit: (NSUInteger)limit offset: (NSUInteger)offset;
+<a name="l00156"></a>00156 - (void) offset: (NSUInteger)offset;
 <a name="l00163"></a>00163 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
 <a name="l00164"></a>00164 
 <a name="l00165"></a>00165 <span class="keyword">@end</span>

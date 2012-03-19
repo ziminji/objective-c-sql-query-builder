@@ -25,7 +25,7 @@
 	return self;
 }
 
-- (void) matching: (NSArray *)columns { // i.e the (composite) primary key
+- (void) matching: (NSArray *)columns { // i.e the (composite) primary key or a unique key
 	if (columns != nil) {
 		NSMutableSet *compositeKey = [[NSMutableSet alloc] init];
 		for (NSString *column in columns) {

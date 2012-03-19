@@ -101,16 +101,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00105"></a>00105 <span class="comment"></span>- (void) delete;
 <a name="l00111"></a>00111 - (void) load;
 <a name="l00117"></a>00117 - (void) save;
-<a name="l00124"></a>00124 - (<a class="code" href="class_n_s_string.html">NSString</a> *) hashCode;
-<a name="l00131"></a>00131 + (<a class="code" href="class_n_s_string.html">NSString</a> *) dataSource;
-<a name="l00138"></a>00138 + (<a class="code" href="class_n_s_string.html">NSString</a> *) table;
-<a name="l00145"></a>00145 + (NSArray *) primaryKey; <span class="comment">// may be a composite primary key</span>
-<a name="l00152"></a>00152 <span class="comment"></span>+ (BOOL) isAutoIncremented;
-<a name="l00161"></a>00161 + (NSDictionary *) columns;
-<a name="l00168"></a>00168 + (BOOL) isSaveable;
-<a name="l00177"></a>00177 + (BOOL) isModel: (Class)model;
-<a name="l00178"></a>00178 
-<a name="l00179"></a>00179 <span class="keyword">@end</span>
+<a name="l00124"></a>00124 + (<a class="code" href="class_n_s_string.html">NSString</a> *) dataSource;
+<a name="l00131"></a>00131 + (<a class="code" href="class_n_s_string.html">NSString</a> *) table;
+<a name="l00138"></a>00138 + (NSArray *) primaryKey; <span class="comment">// may be a composite primary key</span>
+<a name="l00145"></a>00145 <span class="comment"></span>+ (BOOL) isAutoIncremented;
+<a name="l00154"></a>00154 + (NSDictionary *) columns;
+<a name="l00161"></a>00161 + (BOOL) isSaveable;
+<a name="l00170"></a>00170 + (BOOL) isModel: (Class)model;
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->

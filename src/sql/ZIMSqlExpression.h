@@ -125,14 +125,14 @@ NSString *ZIMSqlDefaultValue(id value);
 #define ZIMSqlDataTypeTinyInt					@"TINYINT"
 #define ZIMSqlDataTypeUnsignedBigInt			@"UNSIGNED BIG INT"
 #define ZIMSqlDataTypeVariant					@"VARIANT"
-NSString *ZIMSqlDataTypeChar(NSInteger x);
-NSString *ZIMSqlDataTypeCharacter(NSInteger x);
-NSString *ZIMSqlDataTypeDecimal(NSInteger x, NSInteger y);
-NSString *ZIMSqlDataTypeNativeCharacter(NSInteger x);
-NSString *ZIMSqlDataTypeNChar(NSInteger x);
-NSString *ZIMSqlDataTypeNVarChar(NSInteger x);
-NSString *ZIMSqlDataTypeVarChar(NSInteger x);
-NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
+NSString *ZIMSqlDataTypeChar(NSUInteger x);
+NSString *ZIMSqlDataTypeCharacter(NSUInteger x);
+NSString *ZIMSqlDataTypeDecimal(NSUInteger x, NSUInteger y);
+NSString *ZIMSqlDataTypeNativeCharacter(NSUInteger x);
+NSString *ZIMSqlDataTypeNChar(NSUInteger x);
+NSString *ZIMSqlDataTypeNVarChar(NSUInteger x);
+NSString *ZIMSqlDataTypeVarChar(NSUInteger x);
+NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x);
 
 /*!
  @class					ZIMSqlExpression
@@ -174,7 +174,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare a connector for an SQL statement.
  @param token			The token to be prepared.
  @return				The prepared token.
- @updated				2011-10-29
+ @updated				2012-03-18
  */
 + (NSString *) prepareConnector: (NSString *)token;
 /*!
@@ -190,7 +190,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare an identifier for an SQL statement.
  @param identifier		The identifier to be prepared.
  @return				The prepared identifier.
- @updated				2012-03-12
+ @updated				2012-03-18
  */
 + (NSString *) prepareIdentifier: (NSString *)identifier;
 /*!
@@ -207,24 +207,16 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x);
  @discussion			This method will prepare a join type token for an SQL statement.
  @param token			The token to be prepared.
  @return				The prepared token.
- @updated				2011-11-03
+ @updated				2012-03-18
  */
 + (NSString *) prepareJoinType: (NSString *)token;
-/*!
- @method				prepareNaturalNumber:
- @discussion			This method will prepare a number as a natural for an SQL statement.
- @param number			The number to be prepared.
- @return				The prepared number.
- @updated				2011-06-27
- */
-+ (NSInteger) prepareNaturalNumber: (NSInteger)number;
 /*!
  @method				prepareOperator:type
  @discussion			This method will prepare an operator for an SQL statement.
  @param operator		The operator to be prepared.
  @param type			The type of operator.
  @return				The prepared operator.
- @updated				2011-11-03
+ @updated				2012-03-18
  */
 + (NSString *) prepareOperator: (NSString *)operator ofType: (NSString *)type;
 /*!

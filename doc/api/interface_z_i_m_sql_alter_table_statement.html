@@ -85,7 +85,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a815399b625951cc09d154e62cf878333">initWithXmlSchema:withChanges:error:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a172b4da5863f1c2f09d878d8fa6fc1ef">init</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ae83fc88619b8a66f255c5ebdb048a59b">table:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a68196c0a85fed6fb53a1654201a04c30">autoincrement:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a834aec36d5cf52f99c3e24ea219432b5">autoincrement:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a8df813828f1d086b6c41eb9021dd1e99">column:type:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ada3cdf47bc94b45bef160c209e9299fb">column:type:defaultValue:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a2309cfa8fa65b164ae0d30729245d1c1">column:type:primaryKey:</a></td></tr>
@@ -102,22 +102,22 @@ Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#afcfc2108a5af1989006200bfa98d932e">_clause</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableDictionary *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ab4a502577456a3c175c705d88483d111">_schema</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ad091af666eef65c22ba9b765719e0cb4">_stack</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ab86cbdfac9238a5cf32f23dddbc06d2c">_counter</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSUInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ad2c9a3f78f522f72aa248310e2b26cba">_counter</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSError *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_alter_table_statement.html#a6569e8343d9a3e14aaf4182f12608b42">_error</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL alter table statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-18 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_altertable.html">http://www.sqlite.org/lang_altertable.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a68196c0a85fed6fb53a1654201a04c30"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::autoincrement:" ref="a68196c0a85fed6fb53a1654201a04c30" args="(NSInteger position)" -->
+<a class="anchor" id="a834aec36d5cf52f99c3e24ea219432b5"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::autoincrement:" ref="a834aec36d5cf52f99c3e24ea219432b5" args="(NSUInteger position)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) autoincrement: </td>
           <td></td>
-          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramtype">(NSUInteger)&#160;</td>
           <td class="paramname"><em>position</em></td>
           <td></td>
         </tr>
@@ -132,7 +132,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-02 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-18 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://sqlite.org/autoinc.html">http://sqlite.org/autoinc.html</a> </dd>
 <dd>
 <a href="http://stackoverflow.com/questions/3443630/reset-the-row-number-count-in-sqlite3-mysql">http://stackoverflow.com/questions/3443630/reset-the-row-number-count-in-sqlite3-mysql</a> </dd></dl>
@@ -591,12 +591,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab86cbdfac9238a5cf32f23dddbc06d2c"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::_counter" ref="ab86cbdfac9238a5cf32f23dddbc06d2c" args="" -->
+<a class="anchor" id="ad2c9a3f78f522f72aa248310e2b26cba"></a><!-- doxytag: member="ZIMSqlAlterTableStatement::_counter" ref="ad2c9a3f78f522f72aa248310e2b26cba" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (NSInteger) <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ab86cbdfac9238a5cf32f23dddbc06d2c">_counter</a><code> [protected]</code></td>
+          <td class="memname">- (NSUInteger) <a class="el" href="interface_z_i_m_sql_alter_table_statement.html#ad2c9a3f78f522f72aa248310e2b26cba">_counter</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>

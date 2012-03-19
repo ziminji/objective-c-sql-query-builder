@@ -89,8 +89,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00034"></a><a class="code" href="interface_z_i_m_sql_select_statement.html#a14086fa246398fa7548bdb9eea722b7d">00034</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_select_statement.html#a14086fa246398fa7548bdb9eea722b7d">_groupBy</a>;
 <a name="l00035"></a><a class="code" href="interface_z_i_m_sql_select_statement.html#aaf19a2d1e4ce6ba2a60d2049e367968d">00035</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_select_statement.html#aaf19a2d1e4ce6ba2a60d2049e367968d">_having</a>;
 <a name="l00036"></a><a class="code" href="interface_z_i_m_sql_select_statement.html#a888dcb53fc594b78d2b2e0d3de35e050">00036</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_select_statement.html#a888dcb53fc594b78d2b2e0d3de35e050">_orderBy</a>;
-<a name="l00037"></a><a class="code" href="interface_z_i_m_sql_select_statement.html#abb4cf38718ff31f24a8f85f8b1afed05">00037</a>                 NSInteger <a class="code" href="interface_z_i_m_sql_select_statement.html#abb4cf38718ff31f24a8f85f8b1afed05">_limit</a>;
-<a name="l00038"></a><a class="code" href="interface_z_i_m_sql_select_statement.html#a7105aed1db76875defbc1e64b0b824b2">00038</a>                 NSInteger <a class="code" href="interface_z_i_m_sql_select_statement.html#a7105aed1db76875defbc1e64b0b824b2">_offset</a>;
+<a name="l00037"></a><a class="code" href="interface_z_i_m_sql_select_statement.html#ab53b1b7c07fcb037b112f63d595b060e">00037</a>                 NSUInteger <a class="code" href="interface_z_i_m_sql_select_statement.html#ab53b1b7c07fcb037b112f63d595b060e">_limit</a>;
+<a name="l00038"></a><a class="code" href="interface_z_i_m_sql_select_statement.html#afa22339a58d6cc7ac03cdce52249c62f">00038</a>                 NSUInteger <a class="code" href="interface_z_i_m_sql_select_statement.html#afa22339a58d6cc7ac03cdce52249c62f">_offset</a>;
 <a name="l00039"></a><a class="code" href="interface_z_i_m_sql_select_statement.html#acc22c7ca561b9c7e6afcf74b325567d1">00039</a>                 NSMutableArray *<a class="code" href="interface_z_i_m_sql_select_statement.html#acc22c7ca561b9c7e6afcf74b325567d1">_combine</a>;
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041 }
@@ -125,9 +125,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00283"></a>00283 <span class="comment"></span>- (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column descending: (BOOL)descending; <span class="comment">// ORDER BY [COLUMN NAME] [ASC | DESC]</span>
 <a name="l00294"></a>00294 <span class="comment"></span>- (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column nulls: (<a class="code" href="class_n_s_string.html">NSString</a> *)weight; <span class="comment">// ORDER BY [COLUMN NAME] [NULLS FIRST | NULLS LAST]</span>
 <a name="l00306"></a>00306 <span class="comment"></span>- (void) orderBy: (<a class="code" href="class_n_s_string.html">NSString</a> *)column descending: (BOOL)descending nulls: (<a class="code" href="class_n_s_string.html">NSString</a> *)weight; <span class="comment">// ORDER BY [COLUMN NAME] [ASC | DESC] [NULLS FIRST | NULLS LAST]</span>
-<a name="l00313"></a>00313 <span class="comment"></span>- (void) limit: (NSInteger)limit;
-<a name="l00321"></a>00321 - (void) limit: (NSInteger)limit offset: (NSInteger)offset;
-<a name="l00328"></a>00328 - (void) offset: (NSInteger)offset;
+<a name="l00313"></a>00313 <span class="comment"></span>- (void) limit: (NSUInteger)limit;
+<a name="l00321"></a>00321 - (void) limit: (NSUInteger)limit offset: (NSUInteger)offset;
+<a name="l00328"></a>00328 - (void) offset: (NSUInteger)offset;
 <a name="l00336"></a>00336 - (void) combine: (<a class="code" href="class_n_s_string.html">NSString</a> *)statement operator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator;
 <a name="l00343"></a>00343 - (<a class="code" href="class_n_s_string.html">NSString</a> *) statement;
 <a name="l00344"></a>00344 

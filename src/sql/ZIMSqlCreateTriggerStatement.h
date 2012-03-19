@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlCreateTriggerStatement
  @discussion			This class represents an SQL create trigger statement.
- @updated				2011-10-19
+ @updated				2012-03-18
  @see					http://www.sqlite.org/lang_createtrigger.html
  @see					http://sqlite.awardspace.info/syntax/sqlitepg11.htm
  */
@@ -35,7 +35,7 @@
 		NSMutableArray *_sql;
 		NSMutableArray *_stack;
 		NSString *_cdata;
-        NSInteger _counter;
+        NSUInteger _counter;
         NSError *_error;
 
 }

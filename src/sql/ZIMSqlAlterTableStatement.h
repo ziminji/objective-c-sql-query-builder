@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlAlterTableStatement
  @discussion			This class represents an SQL alter table statement.
- @updated				2011-10-19
+ @updated				2012-03-18
  @see					http://www.sqlite.org/lang_altertable.html
  */
 @interface ZIMSqlAlterTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
@@ -30,7 +30,7 @@
 		NSString *_clause;
 		NSMutableDictionary *_schema;
 		NSMutableArray *_stack;
-		NSInteger _counter;
+		NSUInteger _counter;
 		NSError *_error;
 
 }
@@ -65,11 +65,11 @@
  @discussion			This method will change the autoincrement position.  WARNING: ALTERING TABLE VIA THIS
 						METHOD MAY CAUSE PROBLEMS WITH THE AUTOINCREMENT KEY GENERATION ALGORITHM.
  @param position		The position to which the autoincrementer will be set.
- @updated				2011-07-02
+ @updated				2012-03-18
  @see					http://sqlite.org/autoinc.html
  @see					http://stackoverflow.com/questions/3443630/reset-the-row-number-count-in-sqlite3-mysql
  */
-- (void) autoincrement: (NSInteger)position;
+- (void) autoincrement: (NSUInteger)position;
 /*!
  @method				column:type:
  @discussion			This method will create a column with the specified parameters.
