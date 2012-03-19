@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlDropTableStatement
  @discussion			This class represents an SQL drop table statement.
- @updated				2011-10-19
+ @updated				2012-03-18
  @see					http://www.sqlite.org/lang_droptable.html
  */
 @interface ZIMSqlDropTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
@@ -29,7 +29,7 @@
 		NSString *_table;
 		BOOL _exists;
 		NSMutableArray *_stack;
-		NSInteger _counter;
+		NSUInteger _counter;
 		NSError *_error;
 
 }

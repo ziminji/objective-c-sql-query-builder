@@ -124,15 +124,15 @@
 	[_sql orderBy: column descending: descending nulls: weight];
 }
 
-- (void) limit: (NSInteger)limit {
+- (void) limit: (NSUInteger)limit {
 	[_sql limit: limit];
 }
 
-- (void) limit: (NSInteger)limit offset: (NSInteger)offset {
+- (void) limit: (NSUInteger)limit offset: (NSUInteger)offset {
 	[_sql limit: limit offset: offset];
 }
 
-- (void) offset: (NSInteger)offset {
+- (void) offset: (NSUInteger)offset {
 	[_sql offset: offset];
 }
 

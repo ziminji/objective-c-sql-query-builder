@@ -70,8 +70,8 @@
 	_table = table; // prepared later
 }
 
-- (void) autoincrement: (NSInteger)position {
-	_clause = [NSString stringWithFormat: @"UPDATE [sqlite_sequence] SET [seq] = %d", [ZIMSqlExpression prepareNaturalNumber: position]];
+- (void) autoincrement: (NSUInteger)position {
+	_clause = [NSString stringWithFormat: @"UPDATE [sqlite_sequence] SET [seq] = %u", position];
 }
 
 - (void) column: (NSString *)column type: (NSString *)type {

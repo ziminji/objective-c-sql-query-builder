@@ -34,9 +34,9 @@
 /*!
  @method				matching:
  @discussion			This method will use the specified columns as the (composite) primary key
-						to match against.
+						or as a unique key to match against.
  @param columns			The columns to be matched.
- @updated				2011-11-02
+ @updated				2012-03-17
  */
 - (void) matching: (NSArray *)columns;
 

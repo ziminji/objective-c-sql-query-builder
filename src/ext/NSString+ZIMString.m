@@ -18,7 +18,7 @@
 
 @implementation NSString (ZIMString)
 
-- (BOOL) matchRegex: (NSString *)pattern options: (NSRegularExpressionOptions)options {
+- (BOOL) matchesRegex: (NSString *)pattern options: (NSRegularExpressionOptions)options {
     NSError *error;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: pattern options: options error: &error];
     if (regex == nil) {

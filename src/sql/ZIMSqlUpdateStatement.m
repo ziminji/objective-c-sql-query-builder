@@ -109,17 +109,17 @@
 	}
 }
 
-- (void) limit: (NSInteger)limit {
-	_limit = [ZIMSqlExpression prepareNaturalNumber: limit];
+- (void) limit: (NSUInteger)limit {
+	_limit = limit;
 }
 
-- (void) limit: (NSInteger)limit offset: (NSInteger)offset {
-	[self limit: limit];
-	[self offset: offset];
+- (void) limit: (NSUInteger)limit offset: (NSUInteger)offset {
+	_limit = limit;
+	_offset = offset;
 }
 
-- (void) offset: (NSInteger)offset {
-	_offset = [ZIMSqlExpression prepareNaturalNumber: offset];
+- (void) offset: (NSUInteger)offset {
+	_offset = offset;
 }
 
 - (NSString *) statement {
@@ -149,11 +149,11 @@
 	}
 	
 	if (_limit > 0) {
-		[sql appendFormat: @" LIMIT %d", _limit];
+		[sql appendFormat: @" LIMIT %u", _limit];
 	}
 	
 	if (_offset > 0) {
-		[sql appendFormat: @" OFFSET %d", _offset];
+		[sql appendFormat: @" OFFSET %u", _offset];
 	}
 
 	[sql appendString: @";"];

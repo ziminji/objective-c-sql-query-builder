@@ -186,30 +186,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00125"></a><a class="code" href="_z_i_m_sql_expression_8h.html#af39c918ffa67a1b271fb6ba3fd2dcffc">00125</a> <span class="preprocessor"></span><span class="preprocessor">#define ZIMSqlDataTypeTinyInt                                   @&quot;TINYINT&quot;</span>
 <a name="l00126"></a><a class="code" href="_z_i_m_sql_expression_8h.html#a03d9420f56604ba4c580096c963e8e01">00126</a> <span class="preprocessor"></span><span class="preprocessor">#define ZIMSqlDataTypeUnsignedBigInt                    @&quot;UNSIGNED BIG INT&quot;</span>
 <a name="l00127"></a><a class="code" href="_z_i_m_sql_expression_8h.html#a02c5d61e09eef52933bfb6d528218dc4">00127</a> <span class="preprocessor"></span><span class="preprocessor">#define ZIMSqlDataTypeVariant                                   @&quot;VARIANT&quot;</span>
-<a name="l00128"></a>00128 <span class="preprocessor"></span><a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a83b9eca14d926854e51f4b9b63766615">ZIMSqlDataTypeChar</a>(NSInteger x);
-<a name="l00129"></a>00129 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a6f36ae33d448a6bbaf2f58dddc74d5a7">ZIMSqlDataTypeCharacter</a>(NSInteger x);
-<a name="l00130"></a>00130 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a84a75780ce12dea4dc7a7e00dabe7faf">ZIMSqlDataTypeDecimal</a>(NSInteger x, NSInteger y);
-<a name="l00131"></a>00131 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a831dbb189a1395c4199b3d9f5c45b38d">ZIMSqlDataTypeNativeCharacter</a>(NSInteger x);
-<a name="l00132"></a>00132 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#ac7416f905c3c3deb8ca5f25849b9682b">ZIMSqlDataTypeNChar</a>(NSInteger x);
-<a name="l00133"></a>00133 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#ad29d4bc40c75bcb8df456bec21e10ccf">ZIMSqlDataTypeNVarChar</a>(NSInteger x);
-<a name="l00134"></a>00134 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a6cecf00c2063feb49656c7de57a8ea9f">ZIMSqlDataTypeVarChar</a>(NSInteger x);
-<a name="l00135"></a>00135 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a79c5805f975ed258835cb45c9e3e146d">ZIMSqlDataTypeVaryingCharacter</a>(NSInteger x);
+<a name="l00128"></a>00128 <span class="preprocessor"></span><a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a624082cfcd2d0d24f5f18c64ce216295">ZIMSqlDataTypeChar</a>(NSUInteger x);
+<a name="l00129"></a>00129 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a74e04eac1697e114100e7dee9c7b0ac7">ZIMSqlDataTypeCharacter</a>(NSUInteger x);
+<a name="l00130"></a>00130 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#ae084fab03a39a9542c8d35ef3a33dbbb">ZIMSqlDataTypeDecimal</a>(NSUInteger x, NSUInteger y);
+<a name="l00131"></a>00131 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a1b23fd6da38160dc94640d2aa3760155">ZIMSqlDataTypeNativeCharacter</a>(NSUInteger x);
+<a name="l00132"></a>00132 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a52a89cd67523db44161030d2c0946535">ZIMSqlDataTypeNChar</a>(NSUInteger x);
+<a name="l00133"></a>00133 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a1dd2ae23ec8b941c3dadb4296d719960">ZIMSqlDataTypeNVarChar</a>(NSUInteger x);
+<a name="l00134"></a>00134 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#a4851680c671d4f546dc985c2eac9e45a">ZIMSqlDataTypeVarChar</a>(NSUInteger x);
+<a name="l00135"></a>00135 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="_z_i_m_sql_expression_8h.html#aaa05ac0f5a7c310cb9152183923c9805">ZIMSqlDataTypeVaryingCharacter</a>(NSUInteger x);
 <a name="l00136"></a>00136 
 <a name="l00142"></a><a class="code" href="interface_z_i_m_sql_expression.html">00142</a> <span class="keyword">@interface </span><a class="code" href="interface_z_i_m_sql_expression.html">ZIMSqlExpression</a> : NSObject {
 <a name="l00143"></a>00143 
-<a name="l00144"></a>00144 }
-<a name="l00152"></a>00152 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareConnector: (<a class="code" href="class_n_s_string.html">NSString</a> *)token;
-<a name="l00160"></a>00160 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareEnclosure: (<a class="code" href="class_n_s_string.html">NSString</a> *)token;
-<a name="l00168"></a>00168 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: (<a class="code" href="class_n_s_string.html">NSString</a> *)identifier;
-<a name="l00177"></a>00177 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: (<a class="code" href="class_n_s_string.html">NSString</a> *)identifier maxCount: (NSUInteger)count;
-<a name="l00185"></a>00185 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareJoinType: (<a class="code" href="class_n_s_string.html">NSString</a> *)token;
-<a name="l00193"></a>00193 + (NSInteger) prepareNaturalNumber: (NSInteger)number;
-<a name="l00202"></a>00202 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareOperator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator ofType: (<a class="code" href="class_n_s_string.html">NSString</a> *)type;
-<a name="l00211"></a>00211 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareSortOrder: (BOOL)descending;
-<a name="l00219"></a>00219 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareSortWeight: (<a class="code" href="class_n_s_string.html">NSString</a> *)weight;
-<a name="l00230"></a>00230 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareValue: (<span class="keywordtype">id</span>)value;
-<a name="l00231"></a>00231 
-<a name="l00232"></a>00232 <span class="keyword">@end</span>
+<a name="l00144"></a>00144         <span class="keyword">@protected</span>
+<a name="l00145"></a><a class="code" href="interface_z_i_m_sql_expression.html#a7de3c85fc3f108f7e78644fba9a06545">00145</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_sql_expression.html#a7de3c85fc3f108f7e78644fba9a06545">_expression</a>;
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147 }
+<a name="l00148"></a>00148 
+<a name="l00156"></a>00156 - (id) initWithSqlExpression: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
+<a name="l00163"></a>00163 - (<a class="code" href="class_n_s_string.html">NSString</a> *) expression;
+<a name="l00171"></a>00171 + (<a class="code" href="interface_z_i_m_sql_expression.html">ZIMSqlExpression</a> *) sql: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
+<a name="l00179"></a>00179 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareConnector: (<a class="code" href="class_n_s_string.html">NSString</a> *)token;
+<a name="l00187"></a>00187 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareEnclosure: (<a class="code" href="class_n_s_string.html">NSString</a> *)token;
+<a name="l00195"></a>00195 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: (<a class="code" href="class_n_s_string.html">NSString</a> *)identifier;
+<a name="l00204"></a>00204 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: (<a class="code" href="class_n_s_string.html">NSString</a> *)identifier maxCount: (NSUInteger)count;
+<a name="l00212"></a>00212 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareJoinType: (<a class="code" href="class_n_s_string.html">NSString</a> *)token;
+<a name="l00221"></a>00221 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareOperator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator ofType: (<a class="code" href="class_n_s_string.html">NSString</a> *)type;
+<a name="l00230"></a>00230 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareSortOrder: (BOOL)descending;
+<a name="l00238"></a>00238 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareSortWeight: (<a class="code" href="class_n_s_string.html">NSString</a> *)weight;
+<a name="l00249"></a>00249 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareValue: (<span class="keywordtype">id</span>)value;
+<a name="l00257"></a>00257 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareWildcard: (<a class="code" href="class_n_s_string.html">NSString</a> *)identifier;
+<a name="l00258"></a>00258 
+<a name="l00259"></a>00259 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->

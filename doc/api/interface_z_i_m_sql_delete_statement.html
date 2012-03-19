@@ -93,9 +93,9 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#abb7d2763da7e1b499ba18e78048ecc1c">orderBy:descending:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a91b2c5d8eefcff62342510db93993d1f">orderBy:nulls:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a3b673e1a4822f6f3616cf8e94c220f35">orderBy:descending:nulls:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a92ff7cc68b7ab098a2aab45e3cf192da">limit:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a7673e3598b77f60c76d19d90126e2bc9">limit:offset:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#ac3e0f5454184ab474ec34c85a6277270">offset:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a04fb2d97f423fb4b41a846aea7b3efa1">limit:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a928d3fbbca117ba9e0736bb11fcebf22">limit:offset:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a37f228741ac38f09fb933bdfc403c286">offset:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#ad645fb8339d2d074bff615515eed1714">statement</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_delete_statement.html#a1373d940b57a54c55d4de61ea18e40dd">init</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
@@ -103,12 +103,12 @@ Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_delete_statement.html#ab5a5eb4e563ff96509e2dc9820c49860">_table</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_delete_statement.html#a052cc05efb6d9989bb76fbcd5b848497">_where</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">NSMutableArray *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_delete_statement.html#a4d41403e8f94b8702708d3ce127f655a">_orderBy</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_delete_statement.html#a84962bc232572e71abcdfa8b8179c68f">_limit</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NSInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_delete_statement.html#a5200bd636b01bb448136baac65f250c4">_offset</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSUInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_delete_statement.html#aee825f2def5a37bd79927b7005456542">_limit</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NSUInteger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_delete_statement.html#abe4dfd0a931bf90eb795464763564960">_offset</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="user"><dt><b>Discussion:</b></dt><dd>This class represents an SQL delete statement. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-15 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-18 </dd></dl>
 <dl class="see"><dt><b>See also:</b></dt><dd><a href="http://www.sqlite.org/lang_delete.html">http://www.sqlite.org/lang_delete.html</a> </dd></dl>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a1373d940b57a54c55d4de61ea18e40dd"></a><!-- doxytag: member="ZIMSqlDeleteStatement::init" ref="a1373d940b57a54c55d4de61ea18e40dd" args="()" -->
@@ -127,14 +127,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a92ff7cc68b7ab098a2aab45e3cf192da"></a><!-- doxytag: member="ZIMSqlDeleteStatement::limit:" ref="a92ff7cc68b7ab098a2aab45e3cf192da" args="(NSInteger limit)" -->
+<a class="anchor" id="a04fb2d97f423fb4b41a846aea7b3efa1"></a><!-- doxytag: member="ZIMSqlDeleteStatement::limit:" ref="a04fb2d97f423fb4b41a846aea7b3efa1" args="(NSUInteger limit)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) limit: </td>
           <td></td>
-          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramtype">(NSUInteger)&#160;</td>
           <td class="paramname"><em>limit</em></td>
           <td></td>
         </tr>
@@ -149,24 +149,24 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-27 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-18 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a7673e3598b77f60c76d19d90126e2bc9"></a><!-- doxytag: member="ZIMSqlDeleteStatement::limit:offset:" ref="a7673e3598b77f60c76d19d90126e2bc9" args="(NSInteger limit,[offset] NSInteger offset)" -->
+<a class="anchor" id="a928d3fbbca117ba9e0736bb11fcebf22"></a><!-- doxytag: member="ZIMSqlDeleteStatement::limit:offset:" ref="a928d3fbbca117ba9e0736bb11fcebf22" args="(NSUInteger limit,[offset] NSUInteger offset)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) limit: </td>
           <td></td>
-          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramtype">(NSUInteger)&#160;</td>
           <td class="paramname"><em>limit</em></td>
         </tr>
         <tr>
           <td class="paramkey">offset:</td>
           <td></td>
-          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramtype">(NSUInteger)&#160;</td>
           <td class="paramname"><em>offset</em>&#160;</td>
         </tr>
         <tr>
@@ -186,18 +186,18 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-07 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-18 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ac3e0f5454184ab474ec34c85a6277270"></a><!-- doxytag: member="ZIMSqlDeleteStatement::offset:" ref="ac3e0f5454184ab474ec34c85a6277270" args="(NSInteger offset)" -->
+<a class="anchor" id="a37f228741ac38f09fb933bdfc403c286"></a><!-- doxytag: member="ZIMSqlDeleteStatement::offset:" ref="a37f228741ac38f09fb933bdfc403c286" args="(NSUInteger offset)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) offset: </td>
           <td></td>
-          <td class="paramtype">(NSInteger)&#160;</td>
+          <td class="paramtype">(NSUInteger)&#160;</td>
           <td class="paramname"><em>offset</em></td>
           <td></td>
         </tr>
@@ -212,7 +212,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-06-27 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-18 </dd></dl>
 
 </div>
 </div>
@@ -386,7 +386,7 @@ Protected Attributes</h2></td></tr>
 <dl class="user"><dt><b>Signature:</b></dt><dd>statement </dd></dl>
 <dl class="user"><dt><b>Discussion:</b></dt><dd>This method will return the SQL statement. </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The SQL statement that was constructed. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-18 </dd></dl>
 
 <p>Reimplemented from <a class="el" href="protocol_z_i_m_sql_statement-p.html#a02978d77ba4f198eb2212afc93b1d349">&lt;ZIMSqlStatement&gt;</a>.</p>
 
@@ -672,12 +672,12 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a84962bc232572e71abcdfa8b8179c68f"></a><!-- doxytag: member="ZIMSqlDeleteStatement::_limit" ref="a84962bc232572e71abcdfa8b8179c68f" args="" -->
+<a class="anchor" id="aee825f2def5a37bd79927b7005456542"></a><!-- doxytag: member="ZIMSqlDeleteStatement::_limit" ref="aee825f2def5a37bd79927b7005456542" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (NSInteger) <a class="el" href="interface_z_i_m_sql_delete_statement.html#a84962bc232572e71abcdfa8b8179c68f">_limit</a><code> [protected]</code></td>
+          <td class="memname">- (NSUInteger) <a class="el" href="interface_z_i_m_sql_delete_statement.html#aee825f2def5a37bd79927b7005456542">_limit</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -685,12 +685,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5200bd636b01bb448136baac65f250c4"></a><!-- doxytag: member="ZIMSqlDeleteStatement::_offset" ref="a5200bd636b01bb448136baac65f250c4" args="" -->
+<a class="anchor" id="abe4dfd0a931bf90eb795464763564960"></a><!-- doxytag: member="ZIMSqlDeleteStatement::_offset" ref="abe4dfd0a931bf90eb795464763564960" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">- (NSInteger) <a class="el" href="interface_z_i_m_sql_delete_statement.html#a5200bd636b01bb448136baac65f250c4">_offset</a><code> [protected]</code></td>
+          <td class="memname">- (NSUInteger) <a class="el" href="interface_z_i_m_sql_delete_statement.html#abe4dfd0a931bf90eb795464763564960">_offset</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>

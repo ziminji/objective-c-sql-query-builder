@@ -26,8 +26,8 @@
 	return self;
 }
 
-- (void) level: (NSInteger)level {
-	_level = [ZIMSqlExpression prepareNaturalNumber: level];
+- (void) level: (NSUInteger)level {
+	_level = level;
 }
 
 - (void) sql: (id<ZIMSqlStatement>)sql {

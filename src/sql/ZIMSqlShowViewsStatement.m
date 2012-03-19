@@ -35,7 +35,7 @@
 	else if ([type isEqualToString: ZIMSqlShowTypePermanent]) {
 		_from = @"[sqlite_master]";
 	}
-	else if ([type matchRegex: @"^temp(orary)?$" options: NSRegularExpressionCaseInsensitive]) {
+	else if ([type matchesRegex: @"^temp(orary)?$" options: NSRegularExpressionCaseInsensitive]) {
 		_from = @"[sqlite_temp_master]";
 	}
 	else {
