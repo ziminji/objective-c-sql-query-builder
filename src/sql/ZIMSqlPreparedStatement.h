@@ -42,18 +42,18 @@
 						in the SQL statement.
  @param identifier		The identifier to be set.
  @param index			The parameter's index.
- @updated				2011-08-13
+ @updated				2012-03-18
  */
-- (void) setIdentifier: (NSString *)identifier atIndex: (NSInteger)index;
+- (void) setIdentifier: (NSString *)identifier atIndex: (NSUInteger)index;
 /*!
  @method				setValue:atIndex:
  @discussion			This method will set an value for the parameter with the specified index in
 						the SQL statement.
  @param value			The value to be set.
  @param index			The parameter's index.
- @updated				2011-08-13
+ @updated				2012-03-18
  */
-- (void) setValue: (id)value atIndex: (NSInteger)index;
+- (void) setValue: (id)value atIndex: (NSUInteger)index;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.

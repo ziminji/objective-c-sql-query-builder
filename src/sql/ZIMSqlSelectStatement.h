@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlSelectStatement
  @discussion			This class represents an SQL select statement.
- @updated				2011-07-15
+ @updated				2012-03-18
  @see					http://www.sqlite.org/lang_select.html
  */
 @interface ZIMSqlSelectStatement : NSObject <ZIMSqlStatement, ZIMSqlDataManipulationCommand> {
@@ -34,8 +34,8 @@
 		NSMutableArray *_groupBy;
 		NSMutableArray *_having;
 		NSMutableArray *_orderBy;
-		NSInteger _limit;
-		NSInteger _offset;
+		NSUInteger _limit;
+		NSUInteger _offset;
 		NSMutableArray *_combine;
 
 }
@@ -308,37 +308,37 @@
  @method				limit:
  @discussion			This method will add a limit clause to the SQL statement.
  @param limit			The number of records to be returned.
- @updated				2011-06-27
+ @updated				2012-03-18
  */
-- (void) limit: (NSInteger)limit;
+- (void) limit: (NSUInteger)limit;
 /*!
  @method				limit:offset:
  @discussion			This method will add a limit clause and an offset clause to the SQL statement.
  @param limit			The number of records to be returned.
  @param offset			The starting point to start evaluating.
- @updated				2012-03-10
+ @updated				2012-03-18
  */
-- (void) limit: (NSInteger)limit offset: (NSInteger)offset;
+- (void) limit: (NSUInteger)limit offset: (NSUInteger)offset;
 /*!
  @method				offset:
  @discussion			This method will add an offset clause to the SQL statement.
  @param offset			The starting point to start evaluating.
- @updated				2011-06-27
+ @updated				2012-03-18
  */
-- (void) offset: (NSInteger)offset;
+- (void) offset: (NSUInteger)offset;
 /*!
  @method				combine:operator:
  @discussion			This method will combine a select statement using the specified operator.
  @param statement		The select statement that will be appended.
  @param operator		The operator to be used.  Must use UNION, UNION ALL, INTERSECT, or EXCEPT.
- @updated				2011-10-30
+ @updated				2012-03-18
  */
 - (void) combine: (NSString *)statement operator: (NSString *)operator;
 /*!
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2011-10-19
+ @updated				2012-03-18
  */
 - (NSString *) statement;
 

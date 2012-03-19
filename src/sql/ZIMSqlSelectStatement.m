@@ -284,22 +284,22 @@
 	}
 }
 
-- (void) limit: (NSInteger)limit {
-	_limit = [ZIMSqlExpression prepareNaturalNumber: limit];
+- (void) limit: (NSUInteger)limit {
+	_limit = limit;
 }
 
-- (void) limit: (NSInteger)limit offset: (NSInteger)offset {
-	[self limit: limit];
-	[self offset: offset];
+- (void) limit: (NSUInteger)limit offset: (NSUInteger)offset {
+	_limit = limit;
+	_offset = offset;
 }
 
-- (void) offset: (NSInteger)offset {
-	_offset = [ZIMSqlExpression prepareNaturalNumber: offset];
+- (void) offset: (NSUInteger)offset {
+	_offset = offset;
 }
 
 - (void) combine: (NSString *)statement operator: (NSString *)operator {
 	statement = [statement stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\n\r\t\f"]];
-	if (![statement matchRegex: @"^select .+$" options: NSRegularExpressionCaseInsensitive]) {
+	if (![statement matchesRegex: @"^select .+$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"May only combine a select statement." userInfo: nil];
 	}
 	[_combine addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareOperator: operator ofType: @"SET"], statement]];
@@ -385,11 +385,11 @@
 	}
 	
 	if (_limit > 0) {
-		[sql appendFormat: @" LIMIT %d", _limit];
+		[sql appendFormat: @" LIMIT %u", _limit];
 	}
 
 	if (_offset > 0) {
-		[sql appendFormat: @" OFFSET %d", _offset];
+		[sql appendFormat: @" OFFSET %u", _offset];
 	}
 
 	for (NSString *combine in _combine) {

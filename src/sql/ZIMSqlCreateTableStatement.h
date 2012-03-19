@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlCreateTableStatement
  @discussion			This class represents an SQL create table statement.
- @updated				2011-10-19
+ @updated				2012-03-18
  @see					http://www.sqlite.org/lang_createtable.html
  */
 @interface ZIMSqlCreateTableStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
@@ -33,7 +33,7 @@
 		NSString *_primaryKey;
 		NSString *_unique;
 		NSMutableArray *_stack;
-		NSInteger _counter;
+		NSUInteger _counter;
 		NSError *_error;
 
 }

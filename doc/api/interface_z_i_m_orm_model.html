@@ -92,7 +92,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#ad9b9c6e1827feae95c9ace43c47fb6c2">delete</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a3f0f625955168a40569980a4d7131eeb">load</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#a813326d955a409db8c38297356f5a656">save</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#af501f5078004cfe44ed8366e7668b4fd">hashCode</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_orm_model.html#af501f5078004cfe44ed8366e7668b4fd">hashCode</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_orm_model.html#a6d20d3f7cc85554e217beec141703a9f">dataSource</a></td></tr>
@@ -189,9 +189,9 @@ Properties</h2></td></tr>
 </div>
 <div class="memdoc">
 <dl class="user"><dt><b>Signature:</b></dt><dd>dataSource </dd></dl>
-<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will return the file name of the database. </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will return the name of the data source (DSN). </dd></dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The file name of the database to be used. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-04-16 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-10 </dd></dl>
 
 </div>
 </div>
@@ -222,14 +222,11 @@ Properties</h2></td></tr>
           <td class="memname">- (<a class="el" href="class_n_s_string.html">NSString</a> *) hashCode </td>
           <td></td>
           <td class="paramname"></td>
-          <td></td>
+          <td><code> [implementation]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="user"><dt><b>Signature:</b></dt><dd>hashCode </dd></dl>
-<dl class="user"><dt><b>Discussion:</b></dt><dd>This method returns a hash code that is calculated by first concatenating the value assigned to each primary key and then finding the SHA1 has for the concatenated string. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-23 </dd></dl>
 
 </div>
 </div>

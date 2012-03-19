@@ -55,36 +55,36 @@ NSString *ZIMSqlDefaultValue(id value) {
 	}
 }
 
-NSString *ZIMSqlDataTypeChar(NSInteger x) {
-	return [NSString stringWithFormat: @"CHAR(%d)", x];
+NSString *ZIMSqlDataTypeChar(NSUInteger x) {
+	return [NSString stringWithFormat: @"CHAR(%u)", x];
 }
 
-NSString *ZIMSqlDataTypeCharacter(NSInteger x) {
-	return [NSString stringWithFormat: @"CHARACTER(%d)", x];
+NSString *ZIMSqlDataTypeCharacter(NSUInteger x) {
+	return [NSString stringWithFormat: @"CHARACTER(%u)", x];
 }
 
-NSString *ZIMSqlDataTypeDecimal(NSInteger x, NSInteger y) {
-	return [NSString stringWithFormat: @"DECIMAL(%d, %d)", x, y];
+NSString *ZIMSqlDataTypeDecimal(NSUInteger x, NSUInteger y) {
+	return [NSString stringWithFormat: @"DECIMAL(%u, %u)", x, y];
 }
 
-NSString *ZIMSqlDataTypeNativeCharacter(NSInteger x) {
-	return [NSString stringWithFormat: @"NATIVE CHARACTER(%d)", x];
+NSString *ZIMSqlDataTypeNativeCharacter(NSUInteger x) {
+	return [NSString stringWithFormat: @"NATIVE CHARACTER(%u)", x];
 }
 
-NSString *ZIMSqlDataTypeNChar(NSInteger x) {
-	return [NSString stringWithFormat: @"NCHAR(%d)", x];
+NSString *ZIMSqlDataTypeNChar(NSUInteger x) {
+	return [NSString stringWithFormat: @"NCHAR(%u)", x];
 }
 
-NSString *ZIMSqlDataTypeNVarChar(NSInteger x) {
-	return [NSString stringWithFormat: @"NVARCHAR(%d)", x];
+NSString *ZIMSqlDataTypeNVarChar(NSUInteger x) {
+	return [NSString stringWithFormat: @"NVARCHAR(%u)", x];
 }
 
-NSString *ZIMSqlDataTypeVarChar(NSInteger x) {
-	return [NSString stringWithFormat: @"VARCHAR(%d)", x];
+NSString *ZIMSqlDataTypeVarChar(NSUInteger x) {
+	return [NSString stringWithFormat: @"VARCHAR(%u)", x];
 }
 
-NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
-	return [NSString stringWithFormat: @"VARYING CHARACTER(%d)", x];
+NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x) {
+	return [NSString stringWithFormat: @"VARYING CHARACTER(%u)", x];
 }
 
 @implementation ZIMSqlExpression
@@ -105,7 +105,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 }
 
 + (NSString *) prepareConnector: (NSString *)token {
-	if (![token matchRegex: @"^(and|or)$" options: NSRegularExpressionCaseInsensitive]) {
+	if (![token matchesRegex: @"^(and|or)$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid connector token provided." userInfo: nil];
 	}
 	return [token uppercaseString];
@@ -119,7 +119,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 }
 
 + (NSString *) prepareIdentifier: (NSString *)identifier {
-	if ([identifier matchRegex: @"^select .+$" options: NSRegularExpressionCaseInsensitive]) {
+	if ([identifier matchesRegex: @"^select .+$" options: NSRegularExpressionCaseInsensitive]) {
 		identifier = [identifier stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString: @" ;()\n\r\t\f"]];
 		identifier = [NSString stringWithFormat: @"(%@)", identifier];
 	}
@@ -152,18 +152,14 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 	else if ([token isEqualToString: @","]) {
 		token = ZIMSqlJoinTypeCross;
 	}
-	if (![token matchRegex: @"^((natural )?(cross|inner|(left( outer)?)))|(natural)$" options: NSRegularExpressionCaseInsensitive]) {
+	if (![token matchesRegex: @"^((natural )?(cross|inner|(left( outer)?)))|(natural)$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid join type token provided." userInfo: nil];
 	}
 	return [token uppercaseString];
 }
 
-+ (NSInteger) prepareNaturalNumber: (NSInteger)number {
-	return abs(number);
-}
-
 + (NSString *) prepareOperator: (NSString *)operator ofType: (NSString *)type {
-	if ([[type uppercaseString] isEqualToString: @"SET"] && ![operator matchRegex: @"^(except|intersect|(union( all)?))$" options: NSRegularExpressionCaseInsensitive]) {
+	if ([[type uppercaseString] isEqualToString: @"SET"] && ![operator matchesRegex: @"^(except|intersect|(union( all)?))$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid set operator token provided." userInfo: nil];
 	}
 	return [operator uppercaseString];
@@ -175,7 +171,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSInteger x) {
 
 + (NSString *) prepareSortWeight: (NSString *)weight {
 	if (weight != nil) {
-		if (![weight matchRegex: @"^(first|last)$" options: NSRegularExpressionCaseInsensitive]) {
+		if (![weight matchesRegex: @"^(first|last)$" options: NSRegularExpressionCaseInsensitive]) {
 			@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid weight token provided." userInfo: nil];
 		}
 		return [weight uppercaseString];

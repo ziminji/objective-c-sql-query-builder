@@ -20,7 +20,7 @@
 /*!
  @class					ZIMSqlCreateIndexStatement
  @discussion			This class represents an SQL create index statement.
- @updated				2011-10-19
+ @updated				2012-03-18
  @see					http://www.sqlite.org/lang_createindex.html
  */
 @interface ZIMSqlCreateIndexStatement : NSObject <ZIMSqlStatement, ZIMSqlDataDefinitionCommand, NSXMLParserDelegate> {
@@ -32,7 +32,7 @@
 		NSMutableSet *_column;
 		NSMutableArray *_stack;
 		NSString *_cdata;
-		NSInteger _counter;
+		NSUInteger _counter;
 		NSError *_error;
 
 }
