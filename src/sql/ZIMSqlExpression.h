@@ -94,7 +94,7 @@
 
 // Default Values -- http://forums.realsoftware.com/viewtopic.php?f=3&t=35179
 #define ZIMSqlDefaultValueIsAutoIncremented		@"PRIMARY KEY AUTOINCREMENT NOT NULL"
-#define ZIMSqlDefaultValueIsNull				@"DEFAULT NULL";
+#define ZIMSqlDefaultValueIsNull				@"DEFAULT NULL"
 #define ZIMSqlDefaultValueIsNotNull				@"NOT NULL"
 #define ZIMSqlDefaultValueIsCurrentDate			@"DEFAULT CURRENT_DATE"
 #define ZIMSqlDefaultValueIsCurrentDateTime		@"DEFAULT (datetime('now','localtime'))"
@@ -190,18 +190,9 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x);
  @discussion			This method will prepare an identifier for an SQL statement.
  @param identifier		The identifier to be prepared.
  @return				The prepared identifier.
- @updated				2012-03-18
+ @updated				2012-03-19
  */
-+ (NSString *) prepareIdentifier: (NSString *)identifier;
-/*!
- @method				prepareIdentifier:maxCount:
- @discussion			This method will prepare an identifier for an SQL statement.
- @param identifier		The identifier to be prepared.
- @param count			The maximum number of segments that the reference may have.
- @return				The prepared identifier.
- @updated				2012-03-12
- */
-+ (NSString *) prepareIdentifier: (NSString *)identifier maxCount: (NSUInteger)count;
++ (NSString *) prepareIdentifier: (id)identifier;
 /*!
  @method				prepareJoinType:
  @discussion			This method will prepare a join type token for an SQL statement.
@@ -247,13 +238,5 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x);
  @see					http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite
  */
 + (NSString *) prepareValue: (id)value;
-/*!
- @method				prepareWildcard:
- @discussion			This method prepares the specified identifier as a wildcard identifier.
- @param identifier		The identifier to be prepared.
- @return				The prepared identifier.
- @updated				2012-03-12
- */
-+ (NSString *) prepareWildcard: (NSString *)identifier;
 
 @end

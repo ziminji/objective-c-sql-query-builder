@@ -28,7 +28,7 @@
  @param pattern		The regular expression to be used.
  @param options		The options to be used.
  @return			A boolean value denoting whether the pattern was matched.
- @updated			2012-03-18
+ @updated			2012-03-20
  @see				http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSRegularExpression_Class/Reference/Reference.html
  @see				http://quickies.seriot.ch/index.php?id=279
  */

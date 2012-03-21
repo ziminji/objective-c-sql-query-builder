@@ -26,7 +26,7 @@
 }
 
 - (void) database: (NSString *)database {
-	_database = [ZIMSqlExpression prepareIdentifier: database maxCount: 1];
+	_database = [ZIMSqlExpression prepareIdentifier: database];
 }
 
 - (NSString *) statement {

@@ -85,10 +85,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSNumber *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection.html#a8e06fac1af4f64038df2a7a589a77a3a">vacuum</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(BOOL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection.html#ab8b17eca4dd3c89a85a1a306315107f2">isConnected</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection.html#aecaca346e9e2739ebe528010aa8056a5">close</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection.html#a69900357da46a85d92591abf87a48296">dealloc</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(SEL)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection.html#a91303d308962aa126de50e48cfb0bc32">selectorForSettingColumnName:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(int)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection.html#aded7be98dd850b0ec056600732b4754d">columnTypeAtIndex:inStatement:</a><code> [implementation]</code></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection.html#a6ee4c1d6c2cedea748c0fd044b94b282">columnValueAtIndex:withColumnType:inStatement:</a><code> [implementation]</code></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection.html#a69900357da46a85d92591abf87a48296">dealloc</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(NSNumber *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_db_connection.html#a0904f3528f1f722d91085ad1cb0a1a37">dataSource:execute:</a></td></tr>
@@ -357,11 +357,14 @@ Protected Attributes</h2></td></tr>
           <td class="memname">- (void) dealloc </td>
           <td></td>
           <td class="paramname"></td>
-          <td><code> [implementation]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>dealloc </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will free up the connection should it still remain open. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-21 </dd></dl>
 
 </div>
 </div>
@@ -456,7 +459,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>An instance of this class. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-10-19 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-20 </dd></dl>
 
 </div>
 </div>

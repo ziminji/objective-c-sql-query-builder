@@ -29,7 +29,7 @@
 	if (columns != nil) {
 		NSMutableSet *compositeKey = [[NSMutableSet alloc] init];
 		for (NSString *column in columns) {
-			NSString *identifier = [ZIMSqlExpression prepareIdentifier: column maxCount: 1];
+			NSString *identifier = [ZIMSqlExpression prepareIdentifier: column];
 			if ([_column objectForKey: identifier] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before it can be matched against.", identifier] userInfo: nil];
 			}

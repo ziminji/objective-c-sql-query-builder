@@ -27,7 +27,7 @@
 
 - (void) database: (NSString *)fileName as: (NSString *)database {
 	_fileName = [ZIMSqlExpression prepareValue: fileName];
-	_database = [ZIMSqlExpression prepareIdentifier: database maxCount: 1];
+	_database = [ZIMSqlExpression prepareIdentifier: database];
 }
 
 - (NSString *) statement {

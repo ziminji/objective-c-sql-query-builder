@@ -80,14 +80,12 @@ Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="interface_z_i_m_sql_expression.html">ZIMSqlExpression</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#aeeb8a1c6aa65728e38c9f75792cec817">sql:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a7dd6dd5442d4ba58bfc5d16f0a18051e">prepareConnector:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a961fa6c087fc0c25c1d3747da74f9eb6">prepareEnclosure:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a1978ee9d667ff5b28c4937bb592e21d7">prepareIdentifier:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a707713f135264c494a5094a6b6cf6200">prepareIdentifier:maxCount:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a2997f54901b55b593ff85620c4325fea">prepareIdentifier:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#aa2432331aee34a8654b018d49adfb3b8">prepareJoinType:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a098fec6b21df31197a26db3454748601">prepareOperator:ofType:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a3eff915a6790ce871bca4da44687f77d">prepareSortOrder:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#ace91a8b5f84943fb90b7ad20ff22dc52">prepareSortWeight:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a92b265f70057cea3871dc47115be0d5e">prepareValue:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_sql_expression.html#a5d1e28e5ced77f872036e9e8499a890e">prepareWildcard:</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_s_string.html">NSString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_z_i_m_sql_expression.html#a7de3c85fc3f108f7e78644fba9a06545">_expression</a></td></tr>
@@ -197,14 +195,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1978ee9d667ff5b28c4937bb592e21d7"></a><!-- doxytag: member="ZIMSqlExpression::prepareIdentifier:" ref="a1978ee9d667ff5b28c4937bb592e21d7" args="(NSString *identifier)" -->
+<a class="anchor" id="a2997f54901b55b593ff85620c4325fea"></a><!-- doxytag: member="ZIMSqlExpression::prepareIdentifier:" ref="a2997f54901b55b593ff85620c4325fea" args="(id identifier)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: </td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>identifier</em></td>
           <td></td>
         </tr>
@@ -220,45 +218,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The prepared identifier. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-18 </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a707713f135264c494a5094a6b6cf6200"></a><!-- doxytag: member="ZIMSqlExpression::prepareIdentifier:maxCount:" ref="a707713f135264c494a5094a6b6cf6200" args="(NSString *identifier,[maxCount] NSUInteger count)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: </td>
-          <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
-          <td class="paramname"><em>identifier</em></td>
-        </tr>
-        <tr>
-          <td class="paramkey">maxCount:</td>
-          <td></td>
-          <td class="paramtype">(NSUInteger)&#160;</td>
-          <td class="paramname"><em>count</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="user"><dt><b>Signature:</b></dt><dd>prepareIdentifier:maxCount: </dd></dl>
-<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will prepare an identifier for an SQL statement. </dd></dl>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">identifier</td><td>The identifier to be prepared. </td></tr>
-    <tr><td class="paramname">count</td><td>The maximum number of segments that the reference may have. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared identifier. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-12 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-19 </dd></dl>
 
 </div>
 </div>
@@ -410,33 +370,6 @@ Protected Attributes</h2></td></tr>
 <a href="http://codingrecipes.com/objective-c-a-function-for-escaping-values-before-inserting-into-sqlite">http://codingrecipes.com/objective-c-a-function-for-escaping-values-before-inserting-into-sqlite</a> </dd>
 <dd>
 <a href="http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite">http://wiki.sa-mp.com/wiki/Escaping_Strings_SQLite</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a5d1e28e5ced77f872036e9e8499a890e"></a><!-- doxytag: member="ZIMSqlExpression::prepareWildcard:" ref="a5d1e28e5ced77f872036e9e8499a890e" args="(NSString *identifier)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">+ (<a class="el" href="class_n_s_string.html">NSString</a> *) prepareWildcard: </td>
-          <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
-          <td class="paramname"><em>identifier</em></td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="user"><dt><b>Signature:</b></dt><dd>prepareWildcard: </dd></dl>
-<dl class="user"><dt><b>Discussion:</b></dt><dd>This method prepares the specified identifier as a wildcard identifier. </dd></dl>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">identifier</td><td>The identifier to be prepared. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The prepared identifier. </dd></dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-12 </dd></dl>
 
 </div>
 </div>

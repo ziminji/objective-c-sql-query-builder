@@ -27,8 +27,8 @@
 }
 
 - (void) table: (NSString *)table {
-	_tableIdentifier = [ZIMSqlExpression prepareIdentifier: table maxCount: 1];
-	NSError *error;
+	_tableIdentifier = [ZIMSqlExpression prepareIdentifier: table];
+	NSError *error = nil;
 	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: @"[^a-z0-9_ ]" options: NSRegularExpressionCaseInsensitive error: &error];
 	NSString *tableName = [regex stringByReplacingMatchesInString: table options: 0 range: NSMakeRange(0, [table length]) withTemplate: @""];
 	tableName = [tableName stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];

@@ -36,11 +36,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[self closeAll];
-	[super dealloc];
-}
-
 - (ZIMDbConnection *) connection: (NSString *)dataSource {
 	ZIMDbConnection *connection = nil;
 	@synchronized(self) {
@@ -64,6 +59,11 @@
 
 - (void) destoryAll {
 	[_connections removeAllObjects];
+}
+
+- (void) dealloc {
+	[self closeAll];
+	//[super dealloc];
 }
 
 @end

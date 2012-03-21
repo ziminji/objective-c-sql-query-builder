@@ -45,7 +45,7 @@
 }
 
 - (void) column: (NSString *)column alias: (NSString *)alias {
-	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareIdentifier: alias maxCount: 1]]];
+	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareIdentifier: alias]]];
 }
 
 - (void) from: (NSString *)table {
@@ -53,7 +53,7 @@
 }
 
 - (void) from: (NSString *)table alias: (NSString *)alias {
-	[_table addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareIdentifier: alias maxCount: 1]]];
+	[_table addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareIdentifier: alias]]];
 }
 
 - (void) join: (NSString *)table {
@@ -70,7 +70,7 @@
 }
 
 - (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type {
-	NSString *join = [NSString stringWithFormat: @"%@ JOIN %@ %@", [ZIMSqlExpression prepareJoinType: type], [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareIdentifier: alias maxCount: 1]];
+	NSString *join = [NSString stringWithFormat: @"%@ JOIN %@ %@", [ZIMSqlExpression prepareJoinType: type], [ZIMSqlExpression prepareIdentifier: table], [ZIMSqlExpression prepareIdentifier: alias]];
 	[_join addObject: [NSArray arrayWithObjects: join, [[NSMutableArray alloc] init], [[NSMutableArray alloc] init], nil]];
 }
 
