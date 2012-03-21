@@ -58,5 +58,11 @@
  @updated				2011-07-16
  */
 - (void) destoryAll;
+/*!
+ @method				dealloc
+ @discussion			This method will free up any remaining open connections.
+ @updated				2012-03-21
+ */
+- (void) dealloc;
 
 @end

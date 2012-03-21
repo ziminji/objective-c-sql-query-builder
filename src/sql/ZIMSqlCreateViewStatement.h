@@ -50,7 +50,7 @@
  @method				init
  @discussion			This method initializes the class.
  @return                An instance of this class.
- @updated				2011-07-25
+ @updated				2012-03-20
  */
 - (id) init;
 /*!

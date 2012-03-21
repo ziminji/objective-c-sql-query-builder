@@ -19,7 +19,7 @@
 @implementation NSString (ZIMString)
 
 - (BOOL) matchesRegex: (NSString *)pattern options: (NSRegularExpressionOptions)options {
-    NSError *error;
+	NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: pattern options: options error: &error];
     if (regex == nil) {
         return NO;

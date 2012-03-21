@@ -26,7 +26,7 @@
 }
 
 - (void) table: (NSString *)table {
-	_table = [ZIMSqlExpression prepareIdentifier: table maxCount: 2];
+	_table = [ZIMSqlExpression prepareIdentifier: table];
 }
 
 - (NSString *) statement {
