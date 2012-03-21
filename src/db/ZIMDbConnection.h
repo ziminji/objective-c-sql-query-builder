@@ -42,7 +42,7 @@
  @param dataSource		The file name of the database's PLIST to be used.
  @param multithreading	This determines whether locks should be used.
  @return				An instance of this class.
- @updated				2011-10-19
+ @updated				2012-03-20
  */
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!
@@ -140,6 +140,12 @@
  @updated				2011-07-16
  */
 - (void) close;
+/*!
+ @method				dealloc
+ @discussion			This method will free up the connection should it still remain open.
+ @updated				2012-03-21
+ */
+- (void) dealloc;
 /*!
  @method				dataSource:execute:
  @discussion			This method will execute the specified SQL statement.

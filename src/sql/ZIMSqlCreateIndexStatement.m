@@ -38,13 +38,13 @@
 }
 
 - (id) init {
-    NSError *error;
+    NSError *error = nil;
     return [self initWithXmlSchema: nil error: &error];
 }
 
 - (void) index: (NSString *)index on: (NSString *)table {
-	_index = [ZIMSqlExpression prepareIdentifier: index maxCount: 2];
-	_table = [ZIMSqlExpression prepareIdentifier: table maxCount: 1];
+	_index = [ZIMSqlExpression prepareIdentifier: index];
+	_table = [ZIMSqlExpression prepareIdentifier: table];
 }
 
 - (void) unique: (BOOL)unique {
@@ -56,7 +56,7 @@
 }
 
 - (void) column: (NSString *)column descending: (BOOL)descending {
-	[_column addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column maxCount: 1], [ZIMSqlExpression prepareSortOrder: descending]]];
+	[_column addObject: [NSString stringWithFormat: @"%@ %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareSortOrder: descending]]];
 }
 
 - (void) columns: (NSSet *)columns {

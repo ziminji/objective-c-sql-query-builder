@@ -76,8 +76,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="interface_z_i_m_db_connection.html">ZIMDbConnection</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection_pool.html#a0d3e9e53238584ac17dd892061ef89f9">connection:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection_pool.html#ac9fca7a84d8349f3eb6f9af9b7d91e92">closeAll</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection_pool.html#af3438a06ac68bea5fe0cce47c4dd99ff">destoryAll</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection_pool.html#ae59fc061bbb65592101378d3fb02853d">dealloc</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(id)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection_pool.html#aa069d83e0c4649801b4589f15a9cf8da">init</a><code> [implementation]</code></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_db_connection_pool.html#ae59fc061bbb65592101378d3fb02853d">dealloc</a><code> [implementation]</code></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="interface_z_i_m_db_connection_pool.html">ZIMDbConnectionPool</a> *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_z_i_m_db_connection_pool.html#a96fd858d8e333d5f7109c671e464d6ad">sharedInstance</a></td></tr>
@@ -146,11 +146,14 @@ Protected Attributes</h2></td></tr>
           <td class="memname">- (void) dealloc </td>
           <td></td>
           <td class="paramname"></td>
-          <td><code> [implementation]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="user"><dt><b>Signature:</b></dt><dd>dealloc </dd></dl>
+<dl class="user"><dt><b>Discussion:</b></dt><dd>This method will free up any remaining open connections. </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-21 </dd></dl>
 
 </div>
 </div>

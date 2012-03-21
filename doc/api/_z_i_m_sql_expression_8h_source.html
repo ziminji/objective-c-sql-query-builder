@@ -155,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00094"></a>00094 <span class="preprocessor"></span>
 <a name="l00095"></a>00095 <span class="comment">// Default Values -- http://forums.realsoftware.com/viewtopic.php?f=3&amp;t=35179</span>
 <a name="l00096"></a><a class="code" href="_z_i_m_sql_expression_8h.html#ac5509bcfad4c84659d31bd380519927b">00096</a> <span class="preprocessor">#define ZIMSqlDefaultValueIsAutoIncremented             @&quot;PRIMARY KEY AUTOINCREMENT NOT NULL&quot;</span>
-<a name="l00097"></a><a class="code" href="_z_i_m_sql_expression_8h.html#a3d33456872e273cbcaab2404aa44d432">00097</a> <span class="preprocessor"></span><span class="preprocessor">#define ZIMSqlDefaultValueIsNull                                @&quot;DEFAULT NULL&quot;;</span>
+<a name="l00097"></a><a class="code" href="_z_i_m_sql_expression_8h.html#a3d33456872e273cbcaab2404aa44d432">00097</a> <span class="preprocessor"></span><span class="preprocessor">#define ZIMSqlDefaultValueIsNull                                @&quot;DEFAULT NULL&quot;</span>
 <a name="l00098"></a><a class="code" href="_z_i_m_sql_expression_8h.html#a06018ddec9cb5afe6612fff65d087fd7">00098</a> <span class="preprocessor"></span><span class="preprocessor">#define ZIMSqlDefaultValueIsNotNull                             @&quot;NOT NULL&quot;</span>
 <a name="l00099"></a><a class="code" href="_z_i_m_sql_expression_8h.html#a1a31f0db68b8bdb8eeab223b1f9010d4">00099</a> <span class="preprocessor"></span><span class="preprocessor">#define ZIMSqlDefaultValueIsCurrentDate                 @&quot;DEFAULT CURRENT_DATE&quot;</span>
 <a name="l00100"></a><a class="code" href="_z_i_m_sql_expression_8h.html#a9c2bb4a7656d94218619be0e6afac84b">00100</a> <span class="preprocessor"></span><span class="preprocessor">#define ZIMSqlDefaultValueIsCurrentDateTime             @&quot;DEFAULT (datetime(&#39;now&#39;,&#39;localtime&#39;))&quot;</span>
@@ -207,16 +207,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00171"></a>00171 + (<a class="code" href="interface_z_i_m_sql_expression.html">ZIMSqlExpression</a> *) sql: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
 <a name="l00179"></a>00179 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareConnector: (<a class="code" href="class_n_s_string.html">NSString</a> *)token;
 <a name="l00187"></a>00187 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareEnclosure: (<a class="code" href="class_n_s_string.html">NSString</a> *)token;
-<a name="l00195"></a>00195 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: (<a class="code" href="class_n_s_string.html">NSString</a> *)identifier;
-<a name="l00204"></a>00204 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: (<a class="code" href="class_n_s_string.html">NSString</a> *)identifier maxCount: (NSUInteger)count;
-<a name="l00212"></a>00212 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareJoinType: (<a class="code" href="class_n_s_string.html">NSString</a> *)token;
-<a name="l00221"></a>00221 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareOperator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator ofType: (<a class="code" href="class_n_s_string.html">NSString</a> *)type;
-<a name="l00230"></a>00230 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareSortOrder: (BOOL)descending;
-<a name="l00238"></a>00238 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareSortWeight: (<a class="code" href="class_n_s_string.html">NSString</a> *)weight;
-<a name="l00249"></a>00249 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareValue: (<span class="keywordtype">id</span>)value;
-<a name="l00257"></a>00257 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareWildcard: (<a class="code" href="class_n_s_string.html">NSString</a> *)identifier;
-<a name="l00258"></a>00258 
-<a name="l00259"></a>00259 <span class="keyword">@end</span>
+<a name="l00195"></a>00195 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareIdentifier: (<span class="keywordtype">id</span>)identifier;
+<a name="l00203"></a>00203 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareJoinType: (<a class="code" href="class_n_s_string.html">NSString</a> *)token;
+<a name="l00212"></a>00212 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareOperator: (<a class="code" href="class_n_s_string.html">NSString</a> *)operator ofType: (<a class="code" href="class_n_s_string.html">NSString</a> *)type;
+<a name="l00221"></a>00221 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareSortOrder: (BOOL)descending;
+<a name="l00229"></a>00229 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareSortWeight: (<a class="code" href="class_n_s_string.html">NSString</a> *)weight;
+<a name="l00240"></a>00240 + (<a class="code" href="class_n_s_string.html">NSString</a> *) prepareValue: (<span class="keywordtype">id</span>)value;
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->

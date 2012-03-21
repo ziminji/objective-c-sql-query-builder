@@ -35,7 +35,7 @@
 }
 
 - (id) init {
-    NSError *error;
+    NSError *error = nil;
     return [self initWithXmlSchema: nil error: &error];
 }
 
@@ -44,7 +44,7 @@
 }
 
 - (void) index: (NSString *)index exists: (BOOL)exists {
-	_index = [ZIMSqlExpression prepareIdentifier: index maxCount: 2];
+	_index = [ZIMSqlExpression prepareIdentifier: index];
 	_exists = exists;
 }
 

@@ -81,7 +81,7 @@
         if (![fileManager fileExistsAtPath: workingPath]) {
             NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
             if ([fileManager fileExistsAtPath: resourcePath]) {
-                NSError *error;
+                NSError *error = nil;
                 if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
                     @throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
                 }
@@ -357,7 +357,7 @@
 
 - (void) dealloc {
 	[self close];
-	[super dealloc];
+	//[super dealloc];
 }
 
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql {

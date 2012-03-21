@@ -35,7 +35,7 @@
 }
 
 - (id) init {
-    NSError *error;
+    NSError *error = nil;
     return [self initWithXmlSchema: nil error: &error];
 }
 
@@ -44,7 +44,7 @@
 }
 
 - (void) view: (NSString *)view exists: (BOOL)exists {
-	_view = [ZIMSqlExpression prepareIdentifier: view maxCount: 2];
+	_view = [ZIMSqlExpression prepareIdentifier: view];
 	_exists = exists;
 }
 
