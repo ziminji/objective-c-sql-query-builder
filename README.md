@@ -34,6 +34,7 @@ The following is a short-list of some of the features:
 * [Automatic reference counting](http://longweekendmobile.com/2011/09/07/objc-automatic-reference-counting-in-xcode-explained/);
 * Cleanly wraps-up the sqlite3 C based functions.
 * Automatically places the SQLite database in the "Document" directory.
+* Allows for read-only databases.
 * Provides multi-threading support for asynchronous SQLite database calls;
 * Utilizes a PLIST file for setting up connection configurations;
 * Allows database privileges to be restricted.
@@ -152,7 +153,7 @@ Help expand this list with your feedback.
 
 ## License (Apache v2.0)
 
-Copyright 2011 Ziminji
+Copyright 2011-2012 Ziminji
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use these files except in compliance with the
 License. You may obtain a copy of the License at:

@@ -20,12 +20,13 @@
 /*!
  @class					ZIMDbConnection
  @discussion			This class represents an SQLite database connection.
- @updated				2011-07-16
+ @updated				2012-03-23
  */
 @interface ZIMDbConnection : NSObject {
 
 	@protected
 		NSString *_dataSource;
+		BOOL _readonly;
 		NSMutableSet *_privileges;
 		NSLock *_mutex;
 		sqlite3 *_database;
@@ -42,7 +43,7 @@
  @param dataSource		The file name of the database's PLIST to be used.
  @param multithreading	This determines whether locks should be used.
  @return				An instance of this class.
- @updated				2012-03-20
+ @updated				2012-03-23
  */
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!
@@ -77,7 +78,7 @@
 						possible to execute multiple SQL statements via this method.)
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-08-11
+ @updated				2012-03-23
  @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  @see					http://code.google.com/p/sqlite-manager/issues/detail?id=34
  */

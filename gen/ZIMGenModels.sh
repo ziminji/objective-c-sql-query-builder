@@ -354,11 +354,9 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" 1> $PLIST
 	echo "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">" 1>> $PLIST
 	echo "<plist version=\"1.0\">" 1>> $PLIST
-    echo -e "<dict>" 1>> $PLIST
-    echo -e "\t<key>$DATA_SOURCE</key>" 1>> $PLIST
+	echo -e "<dict>" 1>> $PLIST
+	echo -e "\t<key>$DATA_SOURCE</key>" 1>> $PLIST
 	echo -e "\t<dict>" 1>> $PLIST
-	echo -e "\t\t<key>type</key>" 1>> $PLIST
-	echo -e "\t\t<string>SQLite</string>" 1>> $PLIST
 	echo -e "\t\t<key>database</key>" 1>> $PLIST
 	echo -e "\t\t<string>$database</string>" 1>> $PLIST
 	echo -e "\t\t<key>privileges</key>" 1>> $PLIST
@@ -368,9 +366,13 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 	echo -e "\t\t\t<string>UPDATE</string>" 1>> $PLIST
 	echo -e "\t\t\t<string>DELETE</string>" 1>> $PLIST
 	echo -e "\t\t</array>" 1>> $PLIST
+	echo -e "\t\t<key>readonly</key>" 1>> $PLIST
+	echo -e "\t\t<false/>" 1>> $PLIST
+	echo -e "\t\t<key>type</key>" 1>> $PLIST
+	echo -e "\t\t<string>SQLite</string>" 1>> $PLIST
 	echo -e "\t</dict>" 1>> $PLIST
 	echo -e "</dict>" 1>> $PLIST
-    echo "</plist>" 1>> $PLIST
+	echo "</plist>" 1>> $PLIST
 
 	##
 	# Indicates that the BASH script is done.
