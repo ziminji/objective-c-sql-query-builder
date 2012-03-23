@@ -13,6 +13,8 @@
 			<string>UPDATE</string>
 			<string>DELETE</string>
 		</array>
+		<key>readonly</key>
+		<false/>
 		<key>type</key>
 		<string>SQLite</string>
 	</dict>
@@ -20,6 +22,8 @@
 	<dict>
 		<key>database</key>
 		<string>testdb.sqlite</string>
+		<key>readonly</key>
+		<false/>
 		<key>type</key>
 		<string>SQLite</string>
 	</dict>
