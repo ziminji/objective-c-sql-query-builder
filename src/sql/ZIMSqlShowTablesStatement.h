@@ -33,9 +33,9 @@
 }
 /*!
  @method				show:
- @discussion			This method can be used to designate the types of tables to be shown.
+ @discussion			This method can be used to designate the type of tables to be shown.
  @param type			The type of tables to be shown.
- @updated				2012-03-18
+ @updated				2012-03-24
  */
 - (void) show: (NSString *)type;
 /*!

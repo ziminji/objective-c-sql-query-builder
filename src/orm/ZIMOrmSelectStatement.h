@@ -35,50 +35,79 @@
  @discussion			This constructor creates an instance of this class with the specified model.
  @param model			The model's class.
  @return				An instance of this class.
- @updated				2011-07-14
+ @updated				2012-03-24
  */
 - (id) initWithModel: (Class)model;
 /*!
  @method				join:
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) join: (NSString *)table;
+- (void) join: (id)table;
 /*!
  @method				join:type:
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
  @param type			The type of join clause.
- @updated				2011-10-19
+ @updated				2012-03-24
  */
-- (void) join: (NSString *)table type: (NSString *)type; // type of JOIN: CROSS, INNER, LEFT, etc.
+- (void) join: (id)table type: (NSString *)type; // type of JOIN: CROSS, INNER, LEFT, etc.
 /*!
  @method				join:alias:
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) join: (NSString *)table alias: (NSString *)alias;
+- (void) join: (id)table alias: (NSString *)alias;
 /*!
  @method				join:alias:type:
  @discussion			This method will add a join clause to the SQL statement.
  @param table			The table to used in the clause.
  @param alias			The alias to be used.
  @param type			The type of join clause.
- @updated				2011-10-19
+ @updated				2012-03-24
  */
-- (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type; // type of JOIN: CROSS, INNER, LEFT, etc.
+- (void) join: (id)table alias: (NSString *)alias type: (NSString *)type; // type of JOIN: CROSS, INNER, LEFT, etc.
 /*!
  @method				joinOn:operator:column:
- @discussion			This method will add a join condition to the SQL statement.
- @param column1			The column to be tesed on.
+ @discussion			This method will add a join condition to the last defined join clause.
+ @param column1			The column to be tested.
  @param operator		The operator to be used.
  @param column2			The column to be tested on.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
+- (void) joinOn: (id)column1 operator: (NSString *)operator column: (id)column2;
+/*!
+ @method				joinOn:operator:column:connector:
+ @discussion			This method will add a join condition to the last defined join clause.
+ @param column1			The column to be tested.
+ @param operator		The operator to be used.
+ @param column2			The column to be tested on.
+ @param connector		The connector to be used.
+ @updated				2012-03-24
+ */
+- (void) joinOn: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector;
+/*!
+ @method				joinOn:operator:value:
+ @discussion			This method will add a join condition to the last defined join clause.
+ @param column			The column to be tested.
+ @param operator		The operator to be used.
+ @param value			The value to be compared.
+ @updated				2012-03-24
+ */
+- (void) joinOn: (id)column operator: (NSString *)operator value: (id)value;
+/*!
+ @method				joinOn:operator:value:connector:
+ @discussion			This method will add a join condition to the last defined join clause.
+ @param column			The column to be tested.
+ @param operator		The operator to be used.
+ @param value			The value to be compared.
+ @param connector		The connector to be used.
+ @updated				2012-03-24
+ */
+- (void) joinOn: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector;
 /*!
  @method				joinUsing:
  @discussion			This method will add a join condition to the SQL statement.
@@ -107,9 +136,9 @@
  @param column1			The column to be tested.
  @param operator		The operator to be used.
  @param column2			The column to be compared.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
+- (void) where: (id)column1 operator: (NSString *)operator column: (id)column2;
 /*!
  @method				where:operator:column:connector:
  @discussion			This method will add a where clause to the SQL statement.
@@ -117,18 +146,18 @@
  @param operator		The operator to be used.
  @param column2			The column to be compared.
  @param connector		The connector to be used.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
+- (void) where: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector;
 /*!
  @method				where:operator:value:
  @discussion			This method will add a where clause to the SQL statement.
  @param column			The column to be tested.
  @param operator		The operator to be used.
  @param value			The value to be compared.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) where: (NSString *)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
+- (void) where: (id)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
 /*!
  @method				where:operator:value:connector:
  @discussion			This method will add a where clause to the SQL statement.
@@ -136,9 +165,9 @@
  @param operator		The operator to be used.
  @param value			The value to be compared.
  @param connector		The connector to be used.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) where: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
+- (void) where: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
  @method				groupBy:
  @discussion			This method will add a group by clause to the SQL statement.
@@ -167,9 +196,9 @@
  @param column1			The column to be tested.
  @param operator		The operator to be used.
  @param column2			The column to be compared.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) groupByHaving: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
+- (void) groupByHaving: (id)column1 operator: (NSString *)operator column: (id)column2;
 /*!
  @method				groupByHaving:operator:column:connector:
  @discussion			This method will add a having clause to the SQL statement.
@@ -177,18 +206,18 @@
  @param operator		The operator to be used.
  @param column2			The column to be compared.
  @param connector		The connector to be used.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) groupByHaving: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
+- (void) groupByHaving: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector;
 /*!
  @method				groupByHaving:operator:value:
  @discussion			This method will add a having clause to the SQL statement.
  @param column			The column to be tested.
  @param operator		The operator to be used.
  @param value			The value to be compared.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) groupByHaving: (NSString *)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
+- (void) groupByHaving: (id)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
 /*!
  @method				groupByHaving:operator:value:connector:
  @discussion			This method will add a having clause to the SQL statement.
@@ -196,9 +225,9 @@
  @param operator		The operator to be used.
  @param value			The value to be compared.
  @param connector		The connector to be used.
- @updated				2011-04-02
+ @updated				2012-03-24
  */
-- (void) groupByHaving: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
+- (void) groupByHaving: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
  @method				orderBy:
  @discussion			This method will add an order by clause to the SQL statement.

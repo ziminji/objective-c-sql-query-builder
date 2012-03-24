@@ -60,7 +60,7 @@
 	return self;
 }
 
-- (void) setIdentifier: (NSString *)identifier atIndex: (NSUInteger)index {
+- (void) setIdentifier: (id)identifier atIndex: (NSUInteger)index {
 	[_tokens replaceObjectAtIndex: [[_indicies objectAtIndex: index] integerValue] withObject: [ZIMSqlExpression prepareIdentifier: identifier]];
 }
 

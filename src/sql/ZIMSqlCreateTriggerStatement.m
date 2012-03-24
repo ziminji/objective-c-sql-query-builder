@@ -102,19 +102,19 @@
 	[_when addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [ZIMSqlExpression prepareEnclosure: brace], nil]];
 }
 
-- (void) when: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
+- (void) when: (id)column1 operator: (NSString *)operator column: (id)column2 {
 	[self when: column1 operator: operator column: column2 connector: ZIMSqlConnectorAnd];
 }
 
-- (void) when: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector {
+- (void) when: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector {
 	[_when addObject: [NSArray arrayWithObjects: [ZIMSqlExpression prepareConnector: connector], [NSString stringWithFormat: @"%@ %@ %@", [ZIMSqlExpression prepareIdentifier: column1], [operator uppercaseString], [ZIMSqlExpression prepareIdentifier: column2]], nil]];
 }
 
-- (void) when: (NSString *)column operator: (NSString *)operator value: (id)value {
+- (void) when: (id)column operator: (NSString *)operator value: (id)value {
 	[self when: column operator: operator value: value connector: ZIMSqlConnectorAnd];
 }
 
-- (void) when: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
+- (void) when: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
 	operator = [operator uppercaseString];
 	if ([operator isEqualToString: ZIMSqlOperatorBetween] || [operator isEqualToString: ZIMSqlOperatorNotBetween]) {
 		if (![value isKindOfClass: [NSArray class]]) {

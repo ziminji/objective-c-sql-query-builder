@@ -96,10 +96,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#ae237afb0b1ca6f47a58c474d020ac40a">onUpdate:columns:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#aa0922a41f9fc2b4817fae679fa02ad32">whenBlock:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#a99f5cfdff502f82fab490685e2bc180d">whenBlock:connector:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#a9189f9dcfe12455e8c57ed6268bf3484">when:operator:column:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#af8bfee013ba2d99a10f269f53b5a4f05">when:operator:column:connector:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#a1e74062b6c6d2c63e12e3861750ec371">when:operator:value:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#aebc738bf5190291582584c84e5b4e3a9">when:operator:value:connector:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#ac6b6d96b791d79b07c4470360b0727a6">when:operator:column:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#aca14bb9836897e348a237af5e61ebdfd">when:operator:column:connector:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#a209141717d1f548499b34ed81ff7fa2b">when:operator:value:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#aacea9e71f9db99af4f9bd03be7328645">when:operator:value:connector:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#a6188eaa10d5fc19b9bae1961175f280e">sql:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#a71701bb275cda6d6aa0b0b962f3ee1ac">statement</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_create_trigger_statement.html#af7bece4e54344034556b9d97fbc2d0d0">parser:didStartElement:namespaceURI:qualifiedName:attributes:</a><code> [implementation]</code></td></tr>
@@ -645,14 +645,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9189f9dcfe12455e8c57ed6268bf3484"></a><!-- doxytag: member="ZIMSqlCreateTriggerStatement::when:operator:column:" ref="a9189f9dcfe12455e8c57ed6268bf3484" args="(NSString *column1,[operator] NSString *operator,[column] NSString *column2)" -->
+<a class="anchor" id="ac6b6d96b791d79b07c4470360b0727a6"></a><!-- doxytag: member="ZIMSqlCreateTriggerStatement::when:operator:column:" ref="ac6b6d96b791d79b07c4470360b0727a6" args="(id column1,[operator] NSString *operator,[column] id column2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) when: </td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column1</em></td>
         </tr>
         <tr>
@@ -664,7 +664,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey">column:</td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column2</em>&#160;</td>
         </tr>
         <tr>
@@ -685,18 +685,18 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-27 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-23 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="af8bfee013ba2d99a10f269f53b5a4f05"></a><!-- doxytag: member="ZIMSqlCreateTriggerStatement::when:operator:column:connector:" ref="af8bfee013ba2d99a10f269f53b5a4f05" args="(NSString *column1,[operator] NSString *operator,[column] NSString *column2,[connector] NSString *connector)" -->
+<a class="anchor" id="aca14bb9836897e348a237af5e61ebdfd"></a><!-- doxytag: member="ZIMSqlCreateTriggerStatement::when:operator:column:connector:" ref="aca14bb9836897e348a237af5e61ebdfd" args="(id column1,[operator] NSString *operator,[column] id column2,[connector] NSString *connector)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) when: </td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column1</em></td>
         </tr>
         <tr>
@@ -708,7 +708,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey">column:</td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column2</em></td>
         </tr>
         <tr>
@@ -736,18 +736,18 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-27 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-23 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a1e74062b6c6d2c63e12e3861750ec371"></a><!-- doxytag: member="ZIMSqlCreateTriggerStatement::when:operator:value:" ref="a1e74062b6c6d2c63e12e3861750ec371" args="(NSString *column,[operator] NSString *operator,[value] id value)" -->
+<a class="anchor" id="a209141717d1f548499b34ed81ff7fa2b"></a><!-- doxytag: member="ZIMSqlCreateTriggerStatement::when:operator:value:" ref="a209141717d1f548499b34ed81ff7fa2b" args="(id column,[operator] NSString *operator,[value] id value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) when: </td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column</em></td>
         </tr>
         <tr>
@@ -780,18 +780,18 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-27 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-23 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="aebc738bf5190291582584c84e5b4e3a9"></a><!-- doxytag: member="ZIMSqlCreateTriggerStatement::when:operator:value:connector:" ref="aebc738bf5190291582584c84e5b4e3a9" args="(NSString *column,[operator] NSString *operator,[value] id value,[connector] NSString *connector)" -->
+<a class="anchor" id="aacea9e71f9db99af4f9bd03be7328645"></a><!-- doxytag: member="ZIMSqlCreateTriggerStatement::when:operator:value:connector:" ref="aacea9e71f9db99af4f9bd03be7328645" args="(id column,[operator] NSString *operator,[value] id value,[connector] NSString *connector)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) when: </td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column</em></td>
         </tr>
         <tr>
@@ -831,7 +831,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-07-27 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-23 </dd></dl>
 
 </div>
 </div>

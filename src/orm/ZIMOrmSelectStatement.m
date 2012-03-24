@@ -27,29 +27,43 @@
 		}
 		_model = model;
 		_sql = [[ZIMSqlSelectStatement alloc] init];
-		[_sql from: [model table]];
+		NSString *table = [model table];
+		[_sql column: [NSString stringWithFormat: @"%@.*", table]];
+		[_sql from: table];
 	}
 	return self;
 }
 
-- (void) join: (NSString *)table {
+- (void) join: (id)table {
 	[_sql join: table];
 }
 
-- (void) join: (NSString *)table alias: (NSString *)alias {
+- (void) join: (id)table alias: (NSString *)alias {
 	[_sql join: table alias: alias];
 }
 
-- (void) join: (NSString *)table type: (NSString *)type {
+- (void) join: (id)table type: (NSString *)type {
 	[_sql join: table type: type];
 }
 
-- (void) join: (NSString *)table alias: (NSString *)alias type: (NSString *)type {
+- (void) join: (id)table alias: (NSString *)alias type: (NSString *)type {
 	[_sql join: table alias: alias type: type];
 }
 
-- (void) joinOn: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
+- (void) joinOn: (id)column1 operator: (NSString *)operator column: (NSString *)column2 {
 	[_sql joinOn: column1 operator: operator column: column2];
+}
+
+- (void) joinOn: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector {
+	[_sql joinOn: column1 operator: operator column: column2 connector: connector];
+}
+
+- (void) joinOn: (id)column operator: (NSString *)operator value: (id)value {
+	[_sql joinOn: column operator: operator value: value];
+}
+
+- (void) joinOn: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
+	[_sql joinOn: column operator: operator value: value connector: connector];
 }
 
 - (void) joinUsing: (NSString *)column {
@@ -64,19 +78,19 @@
 	[_sql whereBlock: brace connector: connector];
 }
 
-- (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
+- (void) where: (id)column1 operator: (NSString *)operator column: (id)column2 {
 	[_sql where: column1 operator: operator column: column2];
 }
 
-- (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector {
+- (void) where: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector {
 	[_sql where: column1 operator: operator column: column2 connector: connector];
 }
 
-- (void) where: (NSString *)column operator: (NSString *)operator value: (id)value {
+- (void) where: (id)column operator: (NSString *)operator value: (id)value {
 	[_sql where: column operator: operator value: value];
 }
 
-- (void) where: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
+- (void) where: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
 	[_sql where: column operator: operator value: value connector: connector];
 }
 
@@ -92,19 +106,19 @@
 	[_sql groupByHavingBlock: brace connector: connector];
 }
 
-- (void) groupByHaving: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 {
+- (void) groupByHaving: (id)column1 operator: (NSString *)operator column: (id)column2 {
 	[_sql groupByHaving: column1 operator: operator column: column2];
 }
 
-- (void) groupByHaving: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector {
+- (void) groupByHaving: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector {
 	[_sql groupByHaving: column1 operator: operator column: column2 connector: connector];
 }
 
-- (void) groupByHaving: (NSString *)column operator: (NSString *)operator value: (id)value {
+- (void) groupByHaving: (id)column operator: (NSString *)operator value: (id)value {
 	[_sql groupByHaving: column operator: operator value: value];
 }
 
-- (void) groupByHaving: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
+- (void) groupByHaving: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector {
 	[_sql groupByHaving: column operator: operator value: value connector: connector];
 }
 

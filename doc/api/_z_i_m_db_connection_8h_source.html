@@ -82,30 +82,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027         <span class="keyword">@protected</span>
 <a name="l00028"></a><a class="code" href="interface_z_i_m_db_connection.html#adfc5a965a5e12b77fa86c49d0b6061d9">00028</a>                 <a class="code" href="class_n_s_string.html">NSString</a> *<a class="code" href="interface_z_i_m_db_connection.html#adfc5a965a5e12b77fa86c49d0b6061d9">_dataSource</a>;
-<a name="l00029"></a><a class="code" href="interface_z_i_m_db_connection.html#a8f4a6df2eb7c009eba919d070589f0c3">00029</a>                 NSMutableSet *<a class="code" href="interface_z_i_m_db_connection.html#a8f4a6df2eb7c009eba919d070589f0c3">_privileges</a>;
-<a name="l00030"></a><a class="code" href="interface_z_i_m_db_connection.html#a7870f3f4a549395801a08e3cd1557a1e">00030</a>                 NSLock *<a class="code" href="interface_z_i_m_db_connection.html#a7870f3f4a549395801a08e3cd1557a1e">_mutex</a>;
-<a name="l00031"></a><a class="code" href="interface_z_i_m_db_connection.html#a7e5f7fbb6a22a5a090a8456bdadfa6ff">00031</a>                 sqlite3 *<a class="code" href="interface_z_i_m_db_connection.html#a7e5f7fbb6a22a5a090a8456bdadfa6ff">_database</a>;
-<a name="l00032"></a><a class="code" href="interface_z_i_m_db_connection.html#a02559e0f6f2dfe73bb060cdfeaec9b2c">00032</a>                 BOOL <a class="code" href="interface_z_i_m_db_connection.html#a02559e0f6f2dfe73bb060cdfeaec9b2c">_isConnected</a>;
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 }
-<a name="l00047"></a>00047 - (id) initWithDataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource withMultithreadingSupport: (BOOL)multithreading;
-<a name="l00059"></a>00059 - (id) initWithDataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource;
-<a name="l00065"></a>00065 - (void) open;
-<a name="l00073"></a>00073 - (NSNumber *) beginTransaction;
-<a name="l00084"></a>00084 - (NSNumber *) execute: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
-<a name="l00093"></a>00093 - (NSArray *) query: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
-<a name="l00105"></a>00105 - (NSArray *) query: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql asObject: (Class)model;
-<a name="l00113"></a>00113 - (NSNumber *) rollbackTransaction;
-<a name="l00121"></a>00121 - (NSNumber *) commitTransaction;
-<a name="l00129"></a>00129 - (NSNumber *) vacuum;
-<a name="l00136"></a>00136 - (BOOL) isConnected;
-<a name="l00142"></a>00142 - (void) close;
-<a name="l00148"></a>00148 - (void) dealloc;
-<a name="l00158"></a>00158 + (NSNumber *) dataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource execute: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
-<a name="l00167"></a>00167 + (NSArray *) dataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource query: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
-<a name="l00179"></a>00179 + (NSArray *) dataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource query: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql asObject: (Class)model;
-<a name="l00180"></a>00180 
-<a name="l00181"></a>00181 <span class="keyword">@end</span>
+<a name="l00029"></a><a class="code" href="interface_z_i_m_db_connection.html#a6ffc998b55b9c69aee48297fa0615e84">00029</a>                 BOOL <a class="code" href="interface_z_i_m_db_connection.html#a6ffc998b55b9c69aee48297fa0615e84">_readonly</a>;
+<a name="l00030"></a><a class="code" href="interface_z_i_m_db_connection.html#a8f4a6df2eb7c009eba919d070589f0c3">00030</a>                 NSMutableSet *<a class="code" href="interface_z_i_m_db_connection.html#a8f4a6df2eb7c009eba919d070589f0c3">_privileges</a>;
+<a name="l00031"></a><a class="code" href="interface_z_i_m_db_connection.html#a7870f3f4a549395801a08e3cd1557a1e">00031</a>                 NSLock *<a class="code" href="interface_z_i_m_db_connection.html#a7870f3f4a549395801a08e3cd1557a1e">_mutex</a>;
+<a name="l00032"></a><a class="code" href="interface_z_i_m_db_connection.html#a7e5f7fbb6a22a5a090a8456bdadfa6ff">00032</a>                 sqlite3 *<a class="code" href="interface_z_i_m_db_connection.html#a7e5f7fbb6a22a5a090a8456bdadfa6ff">_database</a>;
+<a name="l00033"></a><a class="code" href="interface_z_i_m_db_connection.html#a02559e0f6f2dfe73bb060cdfeaec9b2c">00033</a>                 BOOL <a class="code" href="interface_z_i_m_db_connection.html#a02559e0f6f2dfe73bb060cdfeaec9b2c">_isConnected</a>;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 }
+<a name="l00048"></a>00048 - (id) initWithDataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource withMultithreadingSupport: (BOOL)multithreading;
+<a name="l00060"></a>00060 - (id) initWithDataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource;
+<a name="l00066"></a>00066 - (void) open;
+<a name="l00074"></a>00074 - (NSNumber *) beginTransaction;
+<a name="l00085"></a>00085 - (NSNumber *) execute: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
+<a name="l00094"></a>00094 - (NSArray *) query: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
+<a name="l00106"></a>00106 - (NSArray *) query: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql asObject: (Class)model;
+<a name="l00114"></a>00114 - (NSNumber *) rollbackTransaction;
+<a name="l00122"></a>00122 - (NSNumber *) commitTransaction;
+<a name="l00130"></a>00130 - (NSNumber *) vacuum;
+<a name="l00137"></a>00137 - (BOOL) isConnected;
+<a name="l00143"></a>00143 - (void) close;
+<a name="l00149"></a>00149 - (void) dealloc;
+<a name="l00159"></a>00159 + (NSNumber *) dataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource execute: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
+<a name="l00168"></a>00168 + (NSArray *) dataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource query: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;
+<a name="l00180"></a>00180 + (NSArray *) dataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource query: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql asObject: (Class)model;
+<a name="l00181"></a>00181 
+<a name="l00182"></a>00182 <span class="keyword">@end</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->

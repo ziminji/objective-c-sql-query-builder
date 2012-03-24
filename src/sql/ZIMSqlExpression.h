@@ -171,6 +171,14 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x);
 + (ZIMSqlExpression *) sql: (NSString *)sql;
 /*!
  @method				prepareConnector:
+ @discussion			This method will prepare an alias for an SQL statement.
+ @param token			The token to be prepared.
+ @return				The prepared token.
+ @updated				2012-03-24
+ */
++ (NSString *) prepareAlias: (NSString *)token;
+/*!
+ @method				prepareConnector:
  @discussion			This method will prepare a connector for an SQL statement.
  @param token			The token to be prepared.
  @return				The prepared token.
