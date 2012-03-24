@@ -62,9 +62,9 @@
  @param column1			The column to be tested.
  @param operator		The operator to be used.
  @param column2			The column to be compared.
- @updated				2011-04-01
+ @updated				2012-03-23
  */
-- (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2;
+- (void) where: (id)column1 operator: (NSString *)operator column: (id)column2;
 /*!
  @method				where:operator:column:connector:
  @discussion			This method will add a where clause to the SQL statement.
@@ -72,18 +72,18 @@
  @param operator		The operator to be used.
  @param column2			The column to be compared.
  @param connector		The connector to be used.
- @updated				2011-05-19
+ @updated				2012-03-23
  */
-- (void) where: (NSString *)column1 operator: (NSString *)operator column: (NSString *)column2 connector: (NSString *)connector;
+- (void) where: (id)column1 operator: (NSString *)operator column: (id)column2 connector: (NSString *)connector;
 /*!
  @method				where:operator:value:
  @discussion			This method will add a where clause to the SQL statement.
  @param column			The column to be tested.
  @param operator		The operator to be used.
  @param value			The value to be compared.
- @updated				2011-04-01
+ @updated				2012-03-23
  */
-- (void) where: (NSString *)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
+- (void) where: (id)column operator: (NSString *)operator value: (id)value; // wrap primitives with NSNumber
 /*!
  @method				where:operator:value:connector:
  @discussion			This method will add a where clause to the SQL statement.
@@ -91,9 +91,9 @@
  @param operator		The operator to be used.
  @param value			The value to be compared.
  @param connector		The connector to be used.
- @updated				2011-05-19
+ @updated				2012-03-23
  */
-- (void) where: (NSString *)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
+- (void) where: (id)column operator: (NSString *)operator value: (id)value connector: (NSString *)connector; // wrap primitives with NSNumber
 /*!
  @method				orderBy:
  @discussion			This method will add an order by clause to the SQL statement.
