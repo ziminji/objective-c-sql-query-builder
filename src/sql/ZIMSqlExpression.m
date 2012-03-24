@@ -104,6 +104,15 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x) {
 	return [[ZIMSqlExpression alloc] initWithSqlExpression: sql];
 }
 
++ (NSString *) prepareAlias: (NSString *)token {
+	NSError *error = nil;
+	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: @"[^a-z0-9_ ]" options: NSRegularExpressionCaseInsensitive error: &error];
+	token = [regex stringByReplacingMatchesInString: token options: 0 range: NSMakeRange(0, [token length]) withTemplate: @""];
+	token = [token stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	token = [NSString stringWithFormat: @"[%@]", token];
+	return token;
+}
+
 + (NSString *) prepareConnector: (NSString *)token {
 	if (![token matchesRegex: @"^(and|or)$" options: NSRegularExpressionCaseInsensitive]) {
 		@throw [NSException exceptionWithName: @"ZIMSqlException" reason: @"Invalid connector token provided." userInfo: nil];

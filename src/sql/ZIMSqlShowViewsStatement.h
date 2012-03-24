@@ -31,9 +31,9 @@
 }
 /*!
  @method				show:
- @discussion			This method can be used to designate the types of views to be shown.
+ @discussion			This method can be used to designate the type of views to be shown.
  @param type			The type of views to be shown.
- @updated				2012-03-18
+ @updated				2012-03-24
  */
 - (void) show: (NSString *)type;
 /*!

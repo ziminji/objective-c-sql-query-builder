@@ -86,10 +86,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#ae673ff6247e8571c2be668a13af22de2">column:value:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#ae7af65e7f041aa02af964ada3a16b53c">whereBlock:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#a4906f0d03017fdcddd5a0d41891a22e5">whereBlock:connector:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#ac4c34c0d38edaec6bf2c8c78d9644a71">where:operator:column:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#ad28ef1eeb9e913e40649d9fd6da28883">where:operator:column:connector:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#ad477805dbfff7ddfdef15c4438b46435">where:operator:value:</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#a62c46d9fabc8331ca1f7f95428200961">where:operator:value:connector:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#a6157c12670cac8c106202bd759e38e93">where:operator:column:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#ae4cd67dcd28f96ca2a749f7449b49fb6">where:operator:column:connector:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#ad501463ba44846f91472105d25d2cedd">where:operator:value:</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#a7db60c372243ad9498462307f81d7aa7">where:operator:value:connector:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#a9e0a853e0821eaa7047c1c13517441d3">orderBy:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#ab9fcee7f27f95f546ebbb98a6cdb6634">orderBy:descending:</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="interface_z_i_m_sql_update_statement.html#a86b2ec2290a370353f1266e471290254">orderBy:nulls:</a></td></tr>
@@ -457,14 +457,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac4c34c0d38edaec6bf2c8c78d9644a71"></a><!-- doxytag: member="ZIMSqlUpdateStatement::where:operator:column:" ref="ac4c34c0d38edaec6bf2c8c78d9644a71" args="(NSString *column1,[operator] NSString *operator,[column] NSString *column2)" -->
+<a class="anchor" id="a6157c12670cac8c106202bd759e38e93"></a><!-- doxytag: member="ZIMSqlUpdateStatement::where:operator:column:" ref="a6157c12670cac8c106202bd759e38e93" args="(id column1,[operator] NSString *operator,[column] id column2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) where: </td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column1</em></td>
         </tr>
         <tr>
@@ -476,7 +476,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey">column:</td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column2</em>&#160;</td>
         </tr>
         <tr>
@@ -497,18 +497,18 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-04-01 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-24 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ad28ef1eeb9e913e40649d9fd6da28883"></a><!-- doxytag: member="ZIMSqlUpdateStatement::where:operator:column:connector:" ref="ad28ef1eeb9e913e40649d9fd6da28883" args="(NSString *column1,[operator] NSString *operator,[column] NSString *column2,[connector] NSString *connector)" -->
+<a class="anchor" id="ae4cd67dcd28f96ca2a749f7449b49fb6"></a><!-- doxytag: member="ZIMSqlUpdateStatement::where:operator:column:connector:" ref="ae4cd67dcd28f96ca2a749f7449b49fb6" args="(id column1,[operator] NSString *operator,[column] id column2,[connector] NSString *connector)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) where: </td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column1</em></td>
         </tr>
         <tr>
@@ -520,7 +520,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey">column:</td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column2</em></td>
         </tr>
         <tr>
@@ -548,18 +548,18 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-05-19 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-24 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ad477805dbfff7ddfdef15c4438b46435"></a><!-- doxytag: member="ZIMSqlUpdateStatement::where:operator:value:" ref="ad477805dbfff7ddfdef15c4438b46435" args="(NSString *column,[operator] NSString *operator,[value] id value)" -->
+<a class="anchor" id="ad501463ba44846f91472105d25d2cedd"></a><!-- doxytag: member="ZIMSqlUpdateStatement::where:operator:value:" ref="ad501463ba44846f91472105d25d2cedd" args="(id column,[operator] NSString *operator,[value] id value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) where: </td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column</em></td>
         </tr>
         <tr>
@@ -592,18 +592,18 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-04-01 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-24 </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a62c46d9fabc8331ca1f7f95428200961"></a><!-- doxytag: member="ZIMSqlUpdateStatement::where:operator:value:connector:" ref="a62c46d9fabc8331ca1f7f95428200961" args="(NSString *column,[operator] NSString *operator,[value] id value,[connector] NSString *connector)" -->
+<a class="anchor" id="a7db60c372243ad9498462307f81d7aa7"></a><!-- doxytag: member="ZIMSqlUpdateStatement::where:operator:value:connector:" ref="a7db60c372243ad9498462307f81d7aa7" args="(id column,[operator] NSString *operator,[value] id value,[connector] NSString *connector)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">- (void) where: </td>
           <td></td>
-          <td class="paramtype">(<a class="el" href="class_n_s_string.html">NSString</a> *)&#160;</td>
+          <td class="paramtype">(id)&#160;</td>
           <td class="paramname"><em>column</em></td>
         </tr>
         <tr>
@@ -643,7 +643,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="user"><dt><b>Updated:</b></dt><dd>2011-05-19 </dd></dl>
+<dl class="user"><dt><b>Updated:</b></dt><dd>2012-03-24 </dd></dl>
 
 </div>
 </div>
