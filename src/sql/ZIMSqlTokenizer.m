@@ -31,6 +31,7 @@ static NSSet *_keywords = nil;
 		char whitespace[] = " \t";
 		char eol[] = "\r\n\f";
 		char quote[] = "`\"";
+		char hexadecimal[] = "0123456789abcdefABCDEF";
 		
 		while (position <= length) {
 			char ch = statement[position];
@@ -216,7 +217,7 @@ static NSSet *_keywords = nil;
 						do {
 							position++;
 							next = statement[position];
-						} while ((next >= '0') && (next <= '9'));
+						} while (strchr(hexadecimal, next) != NULL);
 						type = ZIMSqlTokenHexadecimal;
 					}
 					else if (next == '.') {
@@ -252,6 +253,45 @@ static NSSet *_keywords = nil;
 				token[size] = '\0';
 				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", type, @"type", nil]];
 				//NSLog(@"%s", token);
+			}
+			else if ((ch >= 'x') || (ch >= 'X')) {
+				int lookahead = position + 1;
+				if (lookahead == '\'') { // "hexadecimal" token
+					lookahead++;
+					while (lookahead <= length) {
+						if (statement[lookahead] == '\'') {
+							if ((lookahead == length) || (statement[lookahead + 1] != '\'')) {
+								lookahead++;
+								break;
+							}
+							lookahead++;
+						}
+						lookahead++;
+					}
+					int size = lookahead - position;
+					char token[size + 1];
+					strncpy(token, statement + position, size);
+					token[size] = '\0';
+					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenHexadecimal, @"type", nil]]; // TODO validate hexadecimal literal
+					position = lookahead;
+					//NSLog(@"%s", token);
+				}
+				else {
+					int start = position;
+					char next;
+					do {
+						position++;
+						next = statement[position];
+					} while((position <= length) && (((next >= 'a') && (next <= 'z')) || ((next >= 'A') && (next <= 'Z')) || (next == '_') || ((next >= '0') && (next <= '9'))));
+					int size = position - start;
+					char token[size + 1];
+					strncpy(token, statement + start, size);
+					token[size] = '\0';
+					NSString *identifier = [NSString stringWithFormat: @"%s", token];
+					NSString *type = ([ZIMSqlTokenizer isKeyword: identifier]) ? ZIMSqlTokenKeyword : ZIMSqlTokenIdentifier;
+					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: identifier, @"token", type, @"type", nil]];
+					//NSLog(@"%s", token);
+				}
 			}
 			else if (((ch >= 'a') && (ch <= 'z')) || ((ch >= 'A') && (ch <= 'Z')) || (ch == '_')) { // "keyword" token or "identifier" token
 				int start = position;
@@ -341,7 +381,7 @@ static NSSet *_keywords = nil;
 + (BOOL) isKeyword: (NSString *)token {
 	if (_keywords == nil) {
 		_keywords = [NSSet setWithObjects: @"ABORT", @"ABS", @"ACTION", @"ADD", @"AFTER", @"ALL", @"ALTER", @"ANALYZE",
-			@"AND",	@"AS", @"ASC", @"ATTACH", @"AUTOINCREMENT", @"AVG", @"BEFORE", @"BEGIN", @"BETWEEN", @"BY", @"CASCADE",
+			@"AND", @"AS", @"ASC", @"ATTACH", @"AUTOINCREMENT", @"AVG", @"BEFORE", @"BEGIN", @"BETWEEN", @"BY", @"CASCADE",
 			@"CASE", @"CAST", @"CHANGES", @"CHECK", @"COALESCE", @"COLLATE", @"COLUMN", @"COMMIT", @"CONFLICT", @"CONSTRAINT",
 			@"COUNT", @"CREATE", @"CROSS", @"CURRENT_DATE", @"CURRENT_TIME", @"CURRENT_TIMESTAMP", @"DATABASE", @"DATE",
 			@"DATETIME", @"DEFAULT", @"DEFERRABLE", @"DEFERRED", @"DELETE", @"DESC", @"DETACH", @"DISTINCT", @"DROP", @"EACH",
