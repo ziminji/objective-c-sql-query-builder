@@ -45,8 +45,9 @@
  @discussion			This method initialize the class with the specified SQL statement.
  @param sql				The SQL statement to be tokenized.
  @return				An instance of this class.
- @updated				2011-07-16
+ @updated				2012-03-25
  @see					http://www.sqlite.org/lang_expr.html
+ @see					http://dev.mysql.com/doc/refman/5.0/en/hexadecimal-literals.html
  */
 - (id) initWithSqlStatement: (NSString *)sql;
 /*!
