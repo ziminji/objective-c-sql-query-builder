@@ -312,10 +312,10 @@
 	for (int i = 0; i < columnCount; i++) {
 		Ivar var = vars[i];
 		NSString *columnName = [NSString stringWithUTF8String: ivar_getName(var)];
-		if ([columnName hasPrefix: @"_"]) {
-			columnName = [columnName substringWithRange: NSMakeRange(1, [columnName length])];
-		}
 		if (![configurations containsObject: columnName]) {
+			if ([columnName hasPrefix: @"_"]) {
+				columnName = [columnName substringWithRange: NSMakeRange(1, [columnName length])];
+			}
 			NSString *columnType = [NSString stringWithUTF8String: ivar_getTypeEncoding(var)]; // http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
 			[columns setObject: columnType forKey: columnName];
 		}
