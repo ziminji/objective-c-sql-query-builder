@@ -151,7 +151,7 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		##
 		echo "/*!" 1>> $MODEL_H
 		echo " @class $CLASS_NAME" 1>> $MODEL_H
-		echo " @discussion This class represents a record in an SQLite database table." 1>> $MODEL_H
+		echo " @discussion This class represents a record in the \"$table\" table." 1>> $MODEL_H
 		echo " @updated $DATE_MODIFIED" 1>> $MODEL_H
 		echo " */" 1>> $MODEL_H
 		
@@ -161,9 +161,9 @@ if [ $ARGCT -ge 1 -a -e $1 ]; then
 		echo "@interface $CLASS_NAME : ZIMOrmModel {" 1>> $MODEL_H
 		
 		##
-		# Generates the @protected declaration to limit the visibility of instance variables.
+		# Generates the @private declaration to limit the visibility of instance variables.
 		##
-		echo -e "\n\t@protected" 1>> $MODEL_H
+		echo -e "\n\t@private" 1>> $MODEL_H
 
 		##
 		# Fetches an array with the column information.
