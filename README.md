@@ -36,7 +36,7 @@ The following is a short-list of some of the features:
 * Automatically places the SQLite database in the "Document" directory.
 * Allows for read-only databases.
 * Provides multi-threading support for asynchronous SQLite database calls;
-* Utilizes a PLIST file for setting up connection configurations;
+* Utilizes a PLIST file for configuring SQLite database connections;
 * Allows database privileges to be restricted.
 * Has an easy to use SQLite database connection pool.
 * Capable of executing an SQL statement with one line of code.
@@ -127,9 +127,9 @@ You can also email any bug-fixes, unit-tests, or recommendations to oss@ziminji.
 
 ### Known Issues
 
-Usually, code is not posted to this repository unless it works; however, there are times when some code may get posted
-even though it still contains some bugs.  When this occurs, every attempt will be made to list these known bugs in this
-README (if they are not already listed under the "Issues" tab).
+Usually, code is not posted to this SQLite repository unless it works; however, there are times when some code may get
+posted even though it still contains some bugs.  When this occurs, every attempt will be made to list these known bugs
+in this README (if they are not already listed under the "Issues" tab).
 
 At the current time, there are no known bugs. However, the "XML to DDL" schema processing is still being developed.
 
