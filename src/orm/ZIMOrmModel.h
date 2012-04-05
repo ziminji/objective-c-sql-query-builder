@@ -147,7 +147,7 @@
  @method				columns
  @discussion			This method will return the table name associated with this class.
  @return				A list of name/type pairs.
- @updated				2012-03-25
+ @updated				2012-04-05
  @see					http://stackoverflow.com/questions/1213901/how-do-i-list-all-instance-variables-of-a-class-in-objective-c
  @see					http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
  */
