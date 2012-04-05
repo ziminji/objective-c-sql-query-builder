@@ -136,8 +136,8 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x);
 
 /*!
  @class					ZIMSqlExpression
- @discussion			This class handles the formatting of a SQL expression.
- @updated				2012-03-14
+ @discussion			This class handles the formatting of an SQL expression.
+ @updated				2012-04-04
  */
 @interface ZIMSqlExpression : NSObject {
 
