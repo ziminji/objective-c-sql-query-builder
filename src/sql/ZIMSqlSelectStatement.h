@@ -20,13 +20,14 @@
 /*!
  @class					ZIMSqlSelectStatement
  @discussion			This class represents an SQL select statement.
- @updated				2012-03-18
+ @updated				2012-04-10
  @see					http://www.sqlite.org/lang_select.html
  */
 @interface ZIMSqlSelectStatement : NSObject <ZIMSqlStatement, ZIMSqlDataManipulationCommand> {
 
 	@protected
 		BOOL _distinct;
+		NSString *_all;
 		NSMutableArray *_column;
 		NSMutableArray *_table;
 		NSMutableArray *_join;
@@ -47,6 +48,13 @@
  */
 - (void) distinct: (BOOL)distinct;
 /*!
+ @method				all:
+ @discussion			This method will set the wildcard to be used in the SQL statement.
+ @param column			The column to be selected.
+ @updated				2012-04-10
+ */
+- (void) all: (NSString *)all;
+/*!
  @method				column:
  @discussion			This method will add a column to the SQL statement.
  @param column			The column to be selected.
@@ -61,6 +69,13 @@
  @updated				2012-03-24
  */
 - (void) column: (id)column alias: (NSString *)alias;
+/*!
+ @method				columns:
+ @discussion			This method will add the columns to the SQL statement.
+ @param column			The columns to be selected.
+ @updated				2012-04-10
+ */
+- (void) columns: (NSArray *)columns;
 /*!
  @method				from:
  @discussion			This method will add a from clause to the SQL statement.
@@ -338,7 +353,7 @@
  @method				statement
  @discussion			This method will return the SQL statement.
  @return				The SQL statement that was constructed.
- @updated				2012-03-18
+ @updated				2012-04-10
  */
 - (NSString *) statement;
 
