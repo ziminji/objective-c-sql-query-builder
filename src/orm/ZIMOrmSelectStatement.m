@@ -28,7 +28,7 @@
 		_model = model;
 		_sql = [[ZIMSqlSelectStatement alloc] init];
 		NSString *table = [model table];
-		[_sql column: [NSString stringWithFormat: @"%@.*", table]];
+		[_sql all: [NSString stringWithFormat: @"%@.*", table]];
 		[_sql from: table];
 	}
 	return self;
