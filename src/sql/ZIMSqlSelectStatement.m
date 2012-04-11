@@ -22,6 +22,7 @@
 - (id) init {
 	if ((self = [super init])) {
 		_distinct = NO;
+		_all = @"*";
 		_column = [[NSMutableArray alloc] init];
 		_table = [[NSMutableArray alloc] init];
 		_join = [[NSMutableArray alloc] init];
@@ -40,12 +41,31 @@
 	_distinct = distinct;
 }
 
+- (void) all: (NSString *)all {
+	if (all != nil) {
+		_all = [ZIMSqlExpression prepareIdentifier: all];
+		if (![_all hasSuffix: @".*"]) {
+			_all = [NSString stringWithFormat: @"%@.*", _all];
+		}
+	}
+	else {
+		_all = @"*";
+	}
+	[_column removeAllObjects];
+}
+
 - (void) column: (id)column {
 	[_column addObject: [ZIMSqlExpression prepareIdentifier: column]];
 }
 
 - (void) column: (id)column alias: (NSString *)alias {
 	[_column addObject: [NSString stringWithFormat: @"%@ AS %@", [ZIMSqlExpression prepareIdentifier: column], [ZIMSqlExpression prepareAlias: alias]]];
+}
+
+- (void) columns: (NSArray *)columns {
+	for (id column in columns) {
+		[_column addObject: [ZIMSqlExpression prepareIdentifier: column]];
+	}
 }
 
 - (void) from: (id)table {
@@ -313,14 +333,14 @@
 	if (_distinct) {
 		[sql appendString: @"DISTINCT "];
 	}
-	
+
 	if ([_column count] > 0) {
 		[sql appendString: [_column componentsJoinedByString: @", "]];
 	}
 	else {
-		[sql appendString: @"*"];
+		[sql appendString: _all];
 	}
-	
+
 	if ([_table count] > 0) {
 		[sql appendString: @" FROM "];
 		[sql appendString: [_table componentsJoinedByString: @", "]];
