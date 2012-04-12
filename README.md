@@ -13,9 +13,9 @@ The third part consists of a BASH script that can be used to generate the necess
 schema.  The fourth part consists of the database configuration files for the SQLite database connection.  The final part
 has the schema for handling XML to DDL.
 
-All classes are designed to be used in iPhone/iOS applications.  These classes are compliant with iOS 5 and use [automatic
-reference counting](http://clang.llvm.org/docs/AutomaticReferenceCounting.html).  For those that are still compiling using
-an older iOS SDK, download the code tagged v0.6.19.1 -- Pre-ARC.
+All classes are designed to be used in iPhone/iOS applications.  The classes in the "ARC" branches are compliant with iOS 5's
+[automatic reference counting](http://clang.llvm.org/docs/AutomaticReferenceCounting.html).  For projects still using Retains,
+Releases, and Autoreleases (i.e. Pre-ARC) use the classes in the "RRA" branches.
 
 ## Supported Platforms
 
