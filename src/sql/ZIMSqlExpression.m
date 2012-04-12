@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 Ziminji
+ * Copyright 2011-2012 Ziminji
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ NSString *ZIMSqlDefaultValue(id value) {
 		NSData *data = (NSData *)value;
 		int length = [data length];
 		NSMutableString *buffer = [[[NSMutableString alloc] init] autorelease];
-		[buffer appendString: @"DEFAULT '"];
+		[buffer appendString: @"DEFAULT x'"];
 		const unsigned char *dataBuffer = [data bytes];
 		for (int i = 0; i < length; i++) {
 			[buffer appendFormat: @"%02x", (unsigned long)dataBuffer[i]];
@@ -216,7 +216,7 @@ static NSSet *_setOperators = nil;
 		NSData *data = (NSData *)value;
 		int length = [data length];
 		NSMutableString *buffer = [[[NSMutableString alloc] init] autorelease];
-		[buffer appendString: @"'"];
+		[buffer appendString: @"x'"];
 		const unsigned char *dataBuffer = [data bytes];
 		for (int i = 0; i < length; i++) {
 			[buffer appendFormat: @"%02x", (unsigned long)dataBuffer[i]];
