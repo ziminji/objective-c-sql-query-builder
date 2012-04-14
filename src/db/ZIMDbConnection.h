@@ -20,12 +20,13 @@
 /*!
  @class					ZIMDbConnection
  @discussion			This class represents an SQLite database connection.
- @updated				2011-07-16
+ @updated				2012-03-23
  */
 @interface ZIMDbConnection : NSObject {
 
 	@protected
 		NSString *_dataSource;
+		BOOL _readonly;
 		NSMutableSet *_privileges;
 		NSLock *_mutex;
 		sqlite3 *_database;
@@ -42,7 +43,7 @@
  @param dataSource		The file name of the database's PLIST to be used.
  @param multithreading	This determines whether locks should be used.
  @return				An instance of this class.
- @updated				2011-07-20
+ @updated				2012-03-23
  */
 - (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!
@@ -77,7 +78,7 @@
 						possible to execute multiple SQL statements via this method.)
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-08-11
+ @updated				2012-03-23
  @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  @see					http://code.google.com/p/sqlite-manager/issues/detail?id=34
  */
@@ -100,7 +101,7 @@
 						accessible instance variables and does not necessarily have to conform
 						to the Active Record design pattern.
  @return				The result set (i.e. an array of records).
- @updated				2011-07-02
+ @updated				2011-10-19
  */
 - (NSArray *) query: (NSString *)sql asObject: (Class)model;
 /*!
@@ -141,12 +142,18 @@
  */
 - (void) close;
 /*!
+ @method				dealloc
+ @discussion			This method will free up the connection should it still remain open.
+ @updated				2012-03-21
+ */
+- (void) dealloc;
+/*!
  @method				dataSource:execute:
  @discussion			This method will execute the specified SQL statement.
  @param dataSource		The file name of the database to be used.
  @param sql				The SQL statement to be used.
  @return				Either the last insert row id or TRUE.
- @updated				2011-07-16
+ @updated				2011-10-23
  @see					http://www.sqlite.org/c3ref/last_insert_rowid.html
  */
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql;
@@ -156,7 +163,7 @@
  @param dataSource		The file name of the database to be used.
  @param sql				The SQL statement to be used.
  @return				The result set.
- @updated				2011-07-16
+ @updated				2011-10-23
  */
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql;
 /*!
@@ -168,7 +175,7 @@
 						accessible instance variables and does not necessarily have to conform
 						to the Active Record design pattern.
  @return				The result set.
- @updated				2011-07-16
+ @updated				2011-10-23
  */
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql asObject: (Class)model;
 
