@@ -49,7 +49,7 @@
  @param columnType	The integer value of the data type for the specified column.
  @param statement	The prepared SQL statement.
  @return			The prepared value.
- @updated			2011-07-05
+ @updated			2011-10-19
  */
 - (id) columnValueAtIndex: (int)column withColumnType: (int)columnType inStatement: (sqlite3_stmt *)statement;
 @end
@@ -76,20 +76,33 @@
         if ((type == nil) || ![[type lowercaseString] isEqualToString: @"sqlite"] || (database == nil)) {
             @throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to load data source." userInfo: nil];
         }
-        NSFileManager *fileManager = [[NSFileManager alloc] init];
-        NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
-        if (![fileManager fileExistsAtPath: workingPath]) {
+		NSFileManager *fileManager = [[NSFileManager alloc] init];
+		NSString *readonly = [config objectForKey: @"readonly"];
+		if ((readonly != nil) && [readonly boolValue]) {
             NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
-            if ([fileManager fileExistsAtPath: resourcePath]) {
-                NSError *error;
-                if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
-                    [fileManager release];
-                    @throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
-                }
+            if (![fileManager fileExistsAtPath: resourcePath]) {
+				[fileManager release];
+                @throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to find data source in resource directory." userInfo: nil];
             }
-        }
-        _dataSource = [workingPath copy];
-        [fileManager release];
+			_dataSource = [resourcePath copy];
+			_readonly = YES;
+		}
+		else {
+			NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
+	        if (![fileManager fileExistsAtPath: workingPath]) {
+	            NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
+	            if ([fileManager fileExistsAtPath: resourcePath]) {
+	                NSError *error = nil;
+	                if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
+						[fileManager release];
+	                    @throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to copy data source in resource directory to working directory. '%@'", [error localizedDescription]] userInfo: nil];
+	                }
+	            }
+	        }
+	        _dataSource = [workingPath copy];
+			_readonly = NO;
+		}
+		[fileManager release];
         NSArray *privileges = [config objectForKey: @"privileges"];
         if (privileges != nil) {
             _privileges = [[NSMutableSet alloc] init];
@@ -135,7 +148,7 @@
 
 	NSString *command = [[NSString firstTokenInString: sql scanUpToCharactersFromSet: [NSCharacterSet characterSetWithCharactersInString: @" ;\"'`[]\n\r\t"]] uppercaseString];
 
-	if ((_privileges != nil) && ![_privileges containsObject: command]) {
+	if (((_privileges != nil) && ![_privileges containsObject: command]) || _readonly) {
 		if (_mutex != nil) {
 			[_mutex unlock];
 		}
@@ -156,8 +169,13 @@
 	NSNumber *result = nil;
 
 	if ([command isEqualToString: @"INSERT"]) {
-	 	// Known limitations: http://www.sqlite.org/c3ref/last_insert_rowid.html
-		result = [NSNumber numberWithInt: sqlite3_last_insert_rowid(_database)];
+		@try {
+			// Known limitations: http://www.sqlite.org/c3ref/last_insert_rowid.html
+			result = [NSNumber numberWithInt: sqlite3_last_insert_rowid(_database)];
+		}
+		@catch (NSException *exception) {
+			result = [NSNumber numberWithInt: 0];
+		}
 	}
 	else {
 		result = [NSNumber numberWithBool: YES];
@@ -378,6 +396,7 @@
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSNumber *result = [connection execute: sql];
+	[connection close];
 	[connection release];
 	return result;
 }
@@ -385,6 +404,7 @@
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSArray *records = [connection query: sql];
+	[connection close];
 	[connection release];
 	return records;
 }
@@ -392,6 +412,7 @@
 + (NSArray *) dataSource: (NSString *)dataSource query: (NSString *)sql asObject: (Class)model {
 	ZIMDbConnection *connection = [[ZIMDbConnection alloc] initWithDataSource: dataSource withMultithreadingSupport: NO];
 	NSArray *records = [connection query: sql asObject: model];
+	[connection close];
 	[connection release];
 	return records;
 }
