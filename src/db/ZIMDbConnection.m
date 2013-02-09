@@ -374,7 +374,6 @@
 
 - (void) dealloc {
 	[self close];
-	//[super dealloc];
 }
 
 + (NSNumber *) dataSource: (NSString *)dataSource execute: (NSString *)sql {
