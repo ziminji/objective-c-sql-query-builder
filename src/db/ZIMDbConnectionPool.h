@@ -61,7 +61,7 @@
 /*!
  @method				dealloc
  @discussion			This method will free up any remaining open connections.
- @updated				2012-03-21
+ @updated				2013-02-09
  */
 - (void) dealloc;
 

@@ -62,7 +62,6 @@
 
 - (void) dealloc {
 	[self closeAll];
-	//[super dealloc];
 }
 
 @end
