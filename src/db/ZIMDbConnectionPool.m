@@ -21,11 +21,10 @@
 
 + (ZIMDbConnectionPool *) sharedInstance {
 	static ZIMDbConnectionPool *_singleton = nil;
-	@synchronized(self) {
-		if (_singleton == nil) {
-			_singleton = [[ZIMDbConnectionPool alloc] init];
-		}
-	}
+	static dispatch_once_t _dispatched;
+	dispatch_once(&_dispatched, ^{
+		_singleton = [[ZIMDbConnectionPool alloc] init];
+	});
 	return _singleton;
 }
 
