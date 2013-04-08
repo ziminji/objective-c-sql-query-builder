@@ -365,7 +365,7 @@
 		else {
 			joinCondition = (NSArray *)[join objectAtIndex: 2];
 			if ([joinCondition count] > 0) {
-				[sql appendFormat: @" USING %@", [joinCondition componentsJoinedByString: @", "]];
+				[sql appendFormat: @" USING (%@)", [joinCondition componentsJoinedByString: @", "]];
 			}
 		}
 	}
