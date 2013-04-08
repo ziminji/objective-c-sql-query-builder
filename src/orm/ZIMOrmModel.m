@@ -189,7 +189,7 @@
 			doInsert = ((_saved == nil) || ![_saved isEqualToString: hashCode]);
 			if (doInsert) {
 				ZIMSqlSelectStatement *select = [[ZIMSqlSelectStatement alloc] init];
-				[select column: @"1" alias: @"IsFound"];
+				[select column: [NSNumber numberWithInteger: 1] alias: @"IsFound"];
 				[select from: [[self class] table]];
 				for (NSString *column in primaryKey) {
 					[select where: column operator: ZIMSqlOperatorEqualTo value: [self valueForKey: column]];
