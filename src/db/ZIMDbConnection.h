@@ -34,6 +34,19 @@
 
 }
 /*!
+ @method				initWithDictionary:withMultithreadingSupport:
+ @discussion			This constructor creates an instance of this class with the specified data source configuration passed as a dictionary,
+ and will attempt to open a database connection.  If the data source does not already
+ exist in the working directoy, an attempt will be made to copy the data source from
+ the resource directory to the working directory; otherwise, the data source will be
+ created in the working directory.
+ @param dictionary		The config of the dataSource (as in the PLIST).
+ @param multithreading	This determines whether locks should be used.
+ @return				An instance of this class.
+ @updated				2013-06-15
+ */
+- (id) initWithDictionary: (NSString *)dictionary withMultithreadingSupport: (BOOL)multithreading;
+/*!
  @method				initWithDataSource:withMultithreadingSupport:
  @discussion			This constructor creates an instance of this class with the specified data source
 						and will attempt to open a database connection.  If the data source does not already
