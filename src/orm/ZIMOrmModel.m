@@ -314,7 +314,7 @@
 		NSString *columnName = [NSString stringWithUTF8String: ivar_getName(var)];
 		if (![configurations containsObject: columnName]) {
 			if ([columnName hasPrefix: @"_"]) {
-				columnName = [columnName substringWithRange: NSMakeRange(1, [columnName length])];
+				columnName = [columnName substringFromIndex: 1];
 			}
 			NSString *columnType = [NSString stringWithUTF8String: ivar_getTypeEncoding(var)]; // http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
 			[columns setObject: columnType forKey: columnName];
