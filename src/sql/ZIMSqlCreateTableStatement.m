@@ -149,7 +149,7 @@
 		[sql appendString: @" TEMPORARY"];
 	}
 	
-	[sql appendFormat: @" TABLE %@ (", _table];
+	[sql appendFormat: @" TABLE IF NOT EXISTS %@ (", _table];
 
 	int i = 0;
 	for (NSString *column in _columnArray) {
