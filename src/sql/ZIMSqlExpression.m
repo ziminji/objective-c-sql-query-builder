@@ -39,7 +39,7 @@ NSString *ZIMSqlDefaultValue(id value) {
 		[buffer appendString: @"DEFAULT x'"];
 		const unsigned char *dataBuffer = [data bytes];
 		for (int i = 0; i < length; i++) {
-			[buffer appendFormat: @"%02x", (unsigned long)dataBuffer[i]];
+			[buffer appendFormat: @"%02lx", (unsigned long)dataBuffer[i]];
 		}
 		[buffer appendString: @"'"];
 		return buffer;
@@ -228,7 +228,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x) {
 		[buffer appendString: @"x'"];
 		const unsigned char *dataBuffer = [data bytes];
 		for (int i = 0; i < length; i++) {
-			[buffer appendFormat: @"%02x", (unsigned long)dataBuffer[i]];
+			[buffer appendFormat: @"%02lx", (unsigned long)dataBuffer[i]];
 		}
 		[buffer appendString: @"'"];
 		return buffer;
