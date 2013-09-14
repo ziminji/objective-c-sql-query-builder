@@ -73,11 +73,9 @@
 	if ([_columnDictionary objectForKey: column] == nil) {
 		[_columnArray addObject: column];
 	}
+	[_columnDictionary setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
 	if (primaryKey) {
-		[_columnDictionary setObject: [NSString stringWithFormat: @"%@ %@ PRIMARY KEY", column, type] forKey: column];
-	}
-	else {
-		[_columnDictionary setObject: [NSString stringWithFormat: @"%@ %@", column, type] forKey: column];
+		[self primaryKey: @[column]];
 	}
 }
 
