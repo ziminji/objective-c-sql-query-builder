@@ -94,7 +94,7 @@
  @param column			The column to be created.
  @param type			The datatype of the column.
  @param primaryKey		This marks the specified column as the primary key.
- @updated				2011-10-30
+ @updated				2013-09-14
  */
 - (void) column: (NSString *)column type: (NSString *)type primaryKey: (BOOL)primaryKey;
 /*!
