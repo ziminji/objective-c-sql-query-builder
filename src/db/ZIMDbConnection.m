@@ -136,7 +136,7 @@
 		if (!_isConnected) {
 			if (sqlite3_open([_dataSource UTF8String], &_database) != SQLITE_OK) {
 				sqlite3_close(_database);
-				@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to open database connection. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+				@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to open database connection. '%S'", (const unichar *)sqlite3_errmsg16(_database)] userInfo: nil];
 			}
 			_isConnected = YES;
 		}
@@ -169,7 +169,7 @@
 		if (_mutex != nil) {
 			[_mutex unlock];
 		}
-		@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to execute SQL statement. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+		@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to execute SQL statement. '%S'", (const unichar *)sqlite3_errmsg16(_database)] userInfo: nil];
 	}
 
 	NSNumber *result = nil;
@@ -180,11 +180,11 @@
 			result = [NSNumber numberWithInt: sqlite3_last_insert_rowid(_database)];
 		}
 		@catch (NSException *exception) {
-			result = [NSNumber numberWithInt: 0];
+			result = @(0);
 		}
 	}
 	else {
-		result = [NSNumber numberWithBool: YES];
+		result = @(YES);
 	}
 
 	//sqlite3_finalize(statement);
@@ -223,7 +223,7 @@
 			[_mutex unlock];
 		}
 		
-		@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to perform query with SQL statement. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+		@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to perform query with SQL statement. '%S'", (const unichar *)sqlite3_errmsg16(_database)] userInfo: nil];
 	}
 
 	NSMutableArray *columnNames = [[NSMutableArray alloc] init];
@@ -374,7 +374,7 @@
 	@synchronized(self) {
 		if (_isConnected) {
 			if (sqlite3_close(_database) != SQLITE_OK) {
-				@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to close database connection. '%S'", sqlite3_errmsg16(_database)] userInfo: nil];
+				@throw [NSException exceptionWithName: @"ZIMDbException" reason: [NSString stringWithFormat: @"Failed to close database connection. '%S'", (const unichar *)sqlite3_errmsg16(_database)] userInfo: nil];
 			}
 			_isConnected = NO;
 		}

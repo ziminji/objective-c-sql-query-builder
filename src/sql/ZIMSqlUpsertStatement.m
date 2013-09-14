@@ -44,7 +44,7 @@
 
 - (NSString *) statement {
 	// Note: Because "INSERT OR REPLACE" requires prior knowledge of the table's columns to properly update a record,
-	// this method to mimicing an upsert statement was chosen.  Therefore, always match against either the primary key
+	// this method for mimicing an upsert statement was chosen.  Therefore, always match against either the primary key
 	// or a unique key.
 
 	NSMutableString *sql = [[NSMutableString alloc] init];

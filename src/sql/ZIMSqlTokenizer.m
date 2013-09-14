@@ -43,12 +43,12 @@ static NSSet *_keywords = nil;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenOperator, @"type", nil]];
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenOperator}];
 					//NSLog(@"%s", token);
 				}
 				else {
 					char token = ch;
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%c", token], @"token", ZIMSqlTokenOperator, @"type", nil]];
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%c", token], @"type": ZIMSqlTokenOperator}];
 					//NSLog(@"%c", token);
 				}
 				position = lookahead;
@@ -61,12 +61,12 @@ static NSSet *_keywords = nil;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenOperator, @"type", nil]];
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenOperator}];
 					//NSLog(@"%s", token);
 				}
 				else {
 					char token = ch;
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%c", token], @"token", ZIMSqlTokenOperator, @"type", nil]];
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%c", token], @"type": ZIMSqlTokenOperator}];
 					//NSLog(@"%c", token);
 				}
 				position = lookahead;
@@ -80,12 +80,12 @@ static NSSet *_keywords = nil;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenOperator, @"type", nil]];
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenOperator}];
 					//NSLog(@"%s", token);
 				}
 				else {
 					char token = ch;
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%c", token], @"token", ZIMSqlTokenOperator, @"type", nil]];
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%c", token], @"type": ZIMSqlTokenOperator}];
 					//NSLog(@"%c", token);
 				}
 				position = lookahead;
@@ -101,7 +101,7 @@ static NSSet *_keywords = nil;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
-				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenWhitespace, @"type", nil]];
+				[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenWhitespace}];
 				//NSLog(@"%s", token);
 			}
 			else if (ch == '#') { // "whitespace" token (i.e. MySQL-style comment)
@@ -114,14 +114,14 @@ static NSSet *_keywords = nil;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
-				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenWhitespace, @"type", nil]];
+				[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenWhitespace}];
 				//NSLog(@"%s", token);
 			}
 			else if (ch == '-') { // "whitespace" token (i.e. SQL-style comment) or "operator" token
 				int lookahead = position + 1;
 				if ((lookahead > length) || (statement[lookahead] != '-')) {
 					char token = ch;
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%c", token], @"token", ZIMSqlTokenOperator, @"type", nil]];
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%c", token], @"type": ZIMSqlTokenOperator}];
 					//NSLog(@"%c", token);
 				}
 				else {
@@ -133,7 +133,7 @@ static NSSet *_keywords = nil;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenWhitespace, @"type", nil]];
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenWhitespace}];
 					//NSLog(@"%s", token);
 				}
 				position = lookahead;
@@ -142,7 +142,7 @@ static NSSet *_keywords = nil;
 				int lookahead = position + 1;
 				if ((lookahead > length) || (statement[lookahead] != '*')) {
 					char token = ch;
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%c", token], @"token", ZIMSqlTokenOperator, @"type", nil]];
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%c", token], @"type": ZIMSqlTokenOperator}];
 					//NSLog(@"%c", token);
 				}			
 				else {
@@ -155,7 +155,7 @@ static NSSet *_keywords = nil;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenWhitespace, @"type", nil]];
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenWhitespace}];
 					//NSLog(@"%s", token);
 				}
 				position = lookahead;
@@ -170,7 +170,7 @@ static NSSet *_keywords = nil;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
-				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenIdentifier, @"type", nil]];
+				[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenIdentifier}];
 				//NSLog(@"%s", token);
 			}
 			else if (strchr(quote, ch) != NULL) { // "identifier" token (SQL-style)
@@ -183,7 +183,7 @@ static NSSet *_keywords = nil;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
-				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenIdentifier, @"type", nil]];
+				[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenIdentifier}];
 				//NSLog(@"%s", token);
 			}
 			else if (ch == '\'') { // "literal" token
@@ -202,7 +202,7 @@ static NSSet *_keywords = nil;
 				char token[size + 1];
 				strncpy(token, statement + position, size);
 				token[size] = '\0';
-				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenLiteral, @"type", nil]];
+				[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenLiteral}];
 				position = lookahead;
 				//NSLog(@"%s", token);
 			}
@@ -251,7 +251,7 @@ static NSSet *_keywords = nil;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
-				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", type, @"type", nil]];
+				[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": type}];
 				//NSLog(@"%s", token);
 			}
 			else if ((ch >= 'x') || (ch >= 'X')) {
@@ -272,7 +272,7 @@ static NSSet *_keywords = nil;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: [NSString stringWithFormat: @"%s", token], @"token", ZIMSqlTokenHexadecimal, @"type", nil]]; // TODO validate hexadecimal literal
+					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%s", token], @"type": ZIMSqlTokenHexadecimal}]; // TODO validate hexadecimal literal
 					position = lookahead;
 					//NSLog(@"%s", token);
 				}
@@ -289,7 +289,7 @@ static NSSet *_keywords = nil;
 					token[size] = '\0';
 					NSString *identifier = [NSString stringWithFormat: @"%s", token];
 					NSString *type = ([ZIMSqlTokenizer isKeyword: identifier]) ? ZIMSqlTokenKeyword : ZIMSqlTokenIdentifier;
-					[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: identifier, @"token", type, @"type", nil]];
+					[_tuples addObject: @{@"token": identifier, @"type": type}];
 					//NSLog(@"%s", token);
 				}
 			}
@@ -306,7 +306,7 @@ static NSSet *_keywords = nil;
 				token[size] = '\0';
 				NSString *identifier = [NSString stringWithFormat: @"%s", token];
 				NSString *type = ([ZIMSqlTokenizer isKeyword: identifier]) ? ZIMSqlTokenKeyword : ZIMSqlTokenIdentifier;
-				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: identifier, @"token", type, @"type", nil]];
+				[_tuples addObject: @{@"token": identifier, @"type": type}];
 				//NSLog(@"%s", token);
 			}
 			else { // miscellaneous token
@@ -330,7 +330,7 @@ static NSSet *_keywords = nil;
 						type = token;
 						break;
 				}
-				[_tuples addObject: [NSDictionary dictionaryWithObjectsAndKeys: token, @"token", type, @"type", nil]];
+				[_tuples addObject: @{@"token": token, @"type": type}];
 				position++;
 				//NSLog(@"%c", token);
 			}

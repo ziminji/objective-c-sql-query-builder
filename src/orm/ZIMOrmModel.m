@@ -73,7 +73,7 @@
 }
 
 - (id) hasOne: (Class)model foreignKey: (NSArray *)foreignKey {
-	NSArray *records = [self hasMany: model foreignKey: foreignKey options: [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInteger: 1], ZIMOrmOptionLimit, nil]];
+	NSArray *records = [self hasMany: model foreignKey: foreignKey options: @{ZIMOrmOptionLimit: @(1)}];
 	return [records objectAtIndex: 0];
 }
 
@@ -189,7 +189,7 @@
 			doInsert = ((_saved == nil) || ![_saved isEqualToString: hashCode]);
 			if (doInsert) {
 				ZIMSqlSelectStatement *select = [[ZIMSqlSelectStatement alloc] init];
-				[select column: [NSNumber numberWithInteger: 1] alias: @"IsFound"];
+				[select column: @(1) alias: @"IsFound"];
 				[select from: [[self class] table]];
 				for (NSString *column in primaryKey) {
 					[select where: column operator: ZIMSqlOperatorEqualTo value: [self valueForKey: column]];
