@@ -64,10 +64,9 @@
     #define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch
 #endif
 
-- (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
+- (id) initWithDictionary: (NSDictionary *)dictionary withMultithreadingSupport: (BOOL)multithreading {
 	if ((self = [super init])) {
-		NSString *plist = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: ZIMDbPropertyList];
-		NSDictionary *config = [[NSDictionary dictionaryWithContentsOfFile: plist] objectForKey: dataSource];
+		NSDictionary *config = dictionary;
 		if (config == nil) {
             @throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to load data source." userInfo: nil];
         }
@@ -77,9 +76,15 @@
             @throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to load data source." userInfo: nil];
         }
 		NSFileManager *fileManager = [[NSFileManager alloc] init];
+        
+        NSString *databaseLocation = [config objectForKey: @"databaseLocation"];
+        if(!databaseLocation) {
+            databaseLocation = [[NSBundle mainBundle] resourcePath];
+        }
+        NSString *resourcePath = [databaseLocation stringByAppendingPathComponent: database];
+        
 		NSString *readonly = [config objectForKey: @"readonly"];
 		if ((readonly != nil) && [readonly boolValue]) {
-            NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
             if (![fileManager fileExistsAtPath: resourcePath]) {
                 @throw [NSException exceptionWithName: @"ZIMDbException" reason: @"Failed to find data source in resource directory." userInfo: nil];
             }
@@ -89,7 +94,6 @@
 		else {
 			NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
 	        if (![fileManager fileExistsAtPath: workingPath]) {
-	            NSString *resourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: database];
 	            if ([fileManager fileExistsAtPath: resourcePath]) {
 	                NSError *error = nil;
 	                if (![fileManager copyItemAtPath: resourcePath toPath: workingPath error: &error]) {
@@ -116,6 +120,11 @@
 		[self open];
 	}
 	return self;
+}
+
+- (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
+    NSString *plist = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: ZIMDbPropertyList];
+    return [self initWithDictionary: [[NSDictionary dictionaryWithContentsOfFile: plist] objectForKey: dataSource] withMultithreadingSupport: multithreading];
 }
 
 - (id) initWithDataSource: (NSString *)dataSource {
