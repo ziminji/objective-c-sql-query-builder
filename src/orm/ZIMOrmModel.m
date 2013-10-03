@@ -291,7 +291,7 @@
 }
 
 + (NSArray *) primaryKey {
-	return [NSArray arrayWithObject: @"pk"];
+	return @[@"pk"];
 }
 
 + (BOOL) isAutoIncremented {

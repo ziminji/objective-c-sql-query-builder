@@ -92,7 +92,7 @@
 			_readonly = YES;
 		}
 		else {
-			NSString *workingPath = [NSString pathWithComponents: [NSArray arrayWithObjects: [(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database, nil]];
+			NSString *workingPath = [NSString pathWithComponents: @[[(NSArray *)NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0], database]];
 	        if (![fileManager fileExistsAtPath: workingPath]) {
 	            if ([fileManager fileExistsAtPath: resourcePath]) {
 	                NSError *error = nil;

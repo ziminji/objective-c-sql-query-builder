@@ -137,7 +137,7 @@
                 array = [[NSMutableArray alloc] init];
                 [_schema setObject: array forKey: @"database/table/column/@*"];
             }
-            [array addObject: [NSArray arrayWithObjects: [attributes objectForKey: @"name"], attributes, nil]];
+            [array addObject: @[[attributes objectForKey: @"name"], attributes]];
         }
     }
 }
