@@ -64,7 +64,7 @@
     #define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch
 #endif
 
-- (id) initWithDictionary: (NSDictionary *)dictionary withMultithreadingSupport: (BOOL)multithreading {
+- (instancetype) initWithDictionary: (NSDictionary *)dictionary withMultithreadingSupport: (BOOL)multithreading {
 	if ((self = [super init])) {
 		NSDictionary *config = dictionary;
 		if (config == nil) {
@@ -122,12 +122,12 @@
 	return self;
 }
 
-- (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
+- (instancetype) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading {
     NSString *plist = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: ZIMDbPropertyList];
     return [self initWithDictionary: [[NSDictionary dictionaryWithContentsOfFile: plist] objectForKey: dataSource] withMultithreadingSupport: multithreading];
 }
 
-- (id) initWithDataSource: (NSString *)dataSource {
+- (instancetype) initWithDataSource: (NSString *)dataSource {
 	return [self initWithDataSource: dataSource withMultithreadingSupport: NO];
 }
 

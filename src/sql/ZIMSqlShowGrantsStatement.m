@@ -22,7 +22,7 @@
     #define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch
 #endif
 
-- (id) init {
+- (instancetype) init {
 	if ((self = [super init])) {
 		NSString *file = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: ZIMDbPropertyList];
 		_plist = [NSDictionary dictionaryWithContentsOfFile: file];

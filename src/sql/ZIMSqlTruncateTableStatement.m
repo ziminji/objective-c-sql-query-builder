@@ -18,7 +18,7 @@
 
 @implementation ZIMSqlTruncateTableStatement
 
-- (id) init {
+- (instancetype) init {
 	if ((self = [super init])) {
 		_tableIdentifier = nil;
 		_tableName = nil;

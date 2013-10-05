@@ -46,7 +46,7 @@
 
 @synthesize delegate = _delegate;
 
-- (id) initWithDelegate: (id)delegate {
+- (instancetype) initWithDelegate: (id)delegate {
 	if ((self = [super init])) {
 		_delegate = delegate;
 		_saved = nil;
@@ -54,7 +54,7 @@
 	return self;
 }
 
-- (id) init {
+- (instancetype) init {
 	return [self initWithDelegate: nil];
 }
 

@@ -92,8 +92,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00036"></a>00036 
 <a name="l00037"></a><a class="code" href="interface_z_i_m_orm_model.html#ae4bdfc1b7bd4b95be8a891f3678f7530">00037</a> <span class="keyword">@property</span> (nonatomic, unsafe_unretained) <span class="keywordtype">id</span> delegate;
 <a name="l00038"></a>00038 
-<a name="l00046"></a>00046 - (id) initWithDelegate: (<span class="keywordtype">id</span>)delegate;
-<a name="l00053"></a>00053 - (id) init;
+<a name="l00046"></a>00046 - (instancetype) initWithDelegate: (<span class="keywordtype">id</span>)delegate;
+<a name="l00053"></a>00053 - (instancetype) init;
 <a name="l00064"></a>00064 - (id) belongsTo: (Class)model foreignKey: (NSArray *)foreignKey; <span class="comment">// the foreign key array is an ordered list of columns in &quot;self&quot;</span>
 <a name="l00075"></a>00075 <span class="comment"></span>- (id) hasOne: (Class)model foreignKey: (NSArray *)foreignKey; <span class="comment">// i.e. the foreign key array is an ordered list of columns in &quot;model&quot;</span>
 <a name="l00086"></a>00086 <span class="comment"></span>- (NSArray *) hasMany: (Class)model foreignKey: (NSArray *)foreignKey; <span class="comment">// i.e. the foreign key array is an ordered list of columns in &quot;model&quot;</span>

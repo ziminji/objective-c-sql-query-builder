@@ -28,7 +28,7 @@
 	return _singleton;
 }
 
-- (id) init {
+- (instancetype) init {
 	if ((self = [super init])) {
 		_connections = [[NSMutableDictionary alloc] init];
 	}

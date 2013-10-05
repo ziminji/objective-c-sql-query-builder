@@ -45,7 +45,7 @@
  @return				An instance of this class.
  @updated				2013-06-15
  */
-- (id) initWithDictionary: (NSString *)dictionary withMultithreadingSupport: (BOOL)multithreading;
+- (instancetype) initWithDictionary: (NSString *)dictionary withMultithreadingSupport: (BOOL)multithreading;
 /*!
  @method				initWithDataSource:withMultithreadingSupport:
  @discussion			This constructor creates an instance of this class with the specified data source
@@ -58,7 +58,7 @@
  @return				An instance of this class.
  @updated				2012-03-23
  */
-- (id) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
+- (instancetype) initWithDataSource: (NSString *)dataSource withMultithreadingSupport: (BOOL)multithreading;
 /*!
  @method				initWithDataSource:
  @discussion			This constructor creates an instance of this class with the specified data source
@@ -70,7 +70,7 @@
  @return				An instance of this class.
  @updated				2011-07-16
  */
-- (id) initWithDataSource: (NSString *)dataSource;
+- (instancetype) initWithDataSource: (NSString *)dataSource;
 /*!
  @method				open
  @discussion			This method will open a connection to the database.

@@ -20,7 +20,7 @@
 
 @implementation ZIMOrmSelectStatement
 
-- (id) initWithModel: (Class)model {
+- (instancetype) initWithModel: (Class)model {
 	if ((self = [super init])) {
 		if (![ZIMOrmModel isModel: model]) {
 			@throw [NSException exceptionWithName: @"ZIMOrmException" reason: @"Invalid class type specified." userInfo: nil];

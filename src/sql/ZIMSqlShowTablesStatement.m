@@ -19,7 +19,7 @@
 
 @implementation ZIMSqlShowTablesStatement
 
-- (id) init {
+- (instancetype) init {
 	if ((self = [super init])) {
 		_from = @"[sqlite_master]";
 		_like = nil;

@@ -45,14 +45,14 @@
  @see					http://db.apache.org/ddlutils/
  @see					http://db.apache.org/ddlutils/schema/
  */
-- (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error;
+- (instancetype) initWithXmlSchema: (NSData *)xml error: (NSError **)error;
 /*!
  @method				init
  @discussion			This method initializes the class.
  @return                An instance of this class.
  @updated				2012-03-20
  */
-- (id) init;
+- (instancetype) init;
 /*!
  @method				view:
  @discussion			This method sets the name for the view in the SQL statement.

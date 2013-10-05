@@ -18,7 +18,7 @@
 
 @implementation ZIMSqlDropViewStatement
 
-- (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error {
+- (instancetype) initWithXmlSchema: (NSData *)xml error: (NSError **)error {
 	if ((self = [super init])) {
 		_view = nil;
 		_exists = NO;
@@ -34,7 +34,7 @@
 	return self;
 }
 
-- (id) init {
+- (instancetype) init {
     NSError *error = nil;
     return [self initWithXmlSchema: nil error: &error];
 }

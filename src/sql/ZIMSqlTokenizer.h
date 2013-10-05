@@ -49,7 +49,7 @@
  @see					http://www.sqlite.org/lang_expr.html
  @see					http://dev.mysql.com/doc/refman/5.0/en/hexadecimal-literals.html
  */
-- (id) initWithSqlStatement: (NSString *)sql;
+- (instancetype) initWithSqlStatement: (NSString *)sql;
 /*!
  @method				objectAtIndex:
  @discussion			This method returns the object located at index.
