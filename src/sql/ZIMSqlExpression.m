@@ -89,7 +89,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x) {
 
 @implementation ZIMSqlExpression
 
-- (id) initWithSqlExpression: (NSString *)sql {
+- (instancetype) initWithSqlExpression: (NSString *)sql {
 	if ((self = [super init])) {
 		_expression = sql;
 	}

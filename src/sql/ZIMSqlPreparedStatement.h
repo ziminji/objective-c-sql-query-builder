@@ -35,7 +35,7 @@
  @return				An instance of this class.
  @updated				2011-10-19
  */
-- (id) initWithSqlStatement: (NSString *)sql;
+- (instancetype) initWithSqlStatement: (NSString *)sql;
 /*!
  @method				setIdentifier:atIndex:
  @discussion			This method will set an identifier for the parameter with the specified index

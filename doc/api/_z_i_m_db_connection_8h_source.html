@@ -89,8 +89,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00033"></a><a class="code" href="interface_z_i_m_db_connection.html#a02559e0f6f2dfe73bb060cdfeaec9b2c">00033</a>                 BOOL <a class="code" href="interface_z_i_m_db_connection.html#a02559e0f6f2dfe73bb060cdfeaec9b2c">_isConnected</a>;
 <a name="l00034"></a>00034 
 <a name="l00035"></a>00035 }
-<a name="l00048"></a>00048 - (id) initWithDataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource withMultithreadingSupport: (BOOL)multithreading;
-<a name="l00060"></a>00060 - (id) initWithDataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource;
+<a name="l00048"></a>00048 - (instancetype) initWithDataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource withMultithreadingSupport: (BOOL)multithreading;
+<a name="l00060"></a>00060 - (instancetype) initWithDataSource: (<a class="code" href="class_n_s_string.html">NSString</a> *)dataSource;
 <a name="l00066"></a>00066 - (void) open;
 <a name="l00074"></a>00074 - (NSNumber *) beginTransaction;
 <a name="l00085"></a>00085 - (NSNumber *) execute: (<a class="code" href="class_n_s_string.html">NSString</a> *)sql;

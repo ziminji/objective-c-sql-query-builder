@@ -18,7 +18,7 @@
 
 @implementation ZIMSqlDeleteStatement
 
-- (id) init {
+- (instancetype) init {
 	if ((self = [super init])) {
 		_table = nil;
 		_where = [[NSMutableArray alloc] init];

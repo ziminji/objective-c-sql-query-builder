@@ -18,7 +18,7 @@
 
 @implementation ZIMSqlCreateIndexStatement
 
-- (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error {
+- (instancetype) initWithXmlSchema: (NSData *)xml error: (NSError **)error {
 	if ((self = [super init])) {
 		_unique = NO;
 		_index = nil;
@@ -37,7 +37,7 @@
 	return self;
 }
 
-- (id) init {
+- (instancetype) init {
     NSError *error = nil;
     return [self initWithXmlSchema: nil error: &error];
 }

@@ -37,7 +37,7 @@
  @return				An instance of this class.
  @updated				2012-03-24
  */
-- (id) initWithModel: (Class)model;
+- (instancetype) initWithModel: (Class)model;
 /*!
  @method				join:
  @discussion			This method will add a join clause to the SQL statement.

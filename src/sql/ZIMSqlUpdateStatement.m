@@ -18,7 +18,7 @@
 
 @implementation ZIMSqlUpdateStatement
 
-- (id) init {
+- (instancetype) init {
 	if ((self = [super init])) {
 		_table = nil;
 		_column = [[NSMutableArray alloc] init];

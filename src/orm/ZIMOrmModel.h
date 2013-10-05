@@ -43,14 +43,14 @@
  @return                An instance of this class.
  @updated				2011-07-31
  */
-- (id) initWithDelegate: (id)delegate;
+- (instancetype) initWithDelegate: (id)delegate;
 /*!
  @method				init
  @discussion			This method initializes the class.
  @return                An instance of this class.
  @updated				2011-07-31
  */
-- (id) init;
+- (instancetype) init;
 /*!
  @method				belongsTo:foreignKey:
  @discussion			This method uses the values stored in the foreign key columns of the current instance (i.e "self")

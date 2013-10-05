@@ -18,7 +18,7 @@
 
 @implementation ZIMSqlCreateTriggerStatement
 
-- (id) initWithXmlSchema: (NSData *)xml error: (NSError **)error {
+- (instancetype) initWithXmlSchema: (NSData *)xml error: (NSError **)error {
 	if ((self = [super init])) {
 		_trigger = nil;
 		_temporary = NO;
@@ -39,7 +39,7 @@
 	return self;
 }
 
-- (id) init {
+- (instancetype) init {
     NSError *error = nil;
     return [self initWithXmlSchema: nil error: &error];
 }

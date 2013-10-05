@@ -18,7 +18,7 @@
 
 @implementation ZIMSqlShowColumnsStatement
 
-- (id) init {
+- (instancetype) init {
 	if ((self = [super init])) {
 		_table = nil;
 	}

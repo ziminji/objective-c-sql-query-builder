@@ -153,7 +153,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x);
  @return				An instance of this class.
  @updated				2012-03-14
  */
-- (id) initWithSqlExpression: (NSString *)sql;
+- (instancetype) initWithSqlExpression: (NSString *)sql;
 /*!
  @method				expression
  @discussion			This method returns the wrapped SQL expression.

@@ -19,7 +19,7 @@
 
 @implementation ZIMSqlPreparedStatement
 
-- (id) initWithSqlStatement: (NSString *)sql {
+- (instancetype) initWithSqlStatement: (NSString *)sql {
 	if ((self = [super init])) {
 		_tokens = [[NSMutableArray alloc] init];
 		_indicies = [[NSMutableArray alloc] init];

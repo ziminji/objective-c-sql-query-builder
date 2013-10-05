@@ -19,7 +19,7 @@
 
 @implementation ZIMSqlSelectStatement
 
-- (id) init {
+- (instancetype) init {
 	if ((self = [super init])) {
 		_distinct = NO;
 		_all = @"*";

@@ -32,7 +32,7 @@
 
 @implementation ZIMSqlAlterTableStatement
 
-- (id) initWithXmlSchema: (NSData *)before withChanges: (NSData *)after error: (NSError **)error {
+- (instancetype) initWithXmlSchema: (NSData *)before withChanges: (NSData *)after error: (NSError **)error {
 	if ((self = [super init])) {
 		_table = nil;
 		_clause = nil;
@@ -61,7 +61,7 @@
 	return self;
 }
 
-- (id) init {
+- (instancetype) init {
     NSError *error = nil;
     return [self initWithXmlSchema: nil withChanges: nil error: &error];
 }
