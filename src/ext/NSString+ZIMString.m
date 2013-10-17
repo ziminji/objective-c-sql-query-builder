@@ -18,6 +18,9 @@
 
 @implementation NSString (ZIMString)
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (BOOL) matchesRegex: (NSString *)pattern options: (NSRegularExpressionOptions)options {
 	NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: pattern options: options error: &error];

@@ -18,6 +18,9 @@
 
 @implementation ZIMSqlDropViewStatement
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (instancetype) initWithXmlSchema: (NSData *)xml error: (NSError **)error {
 	if ((self = [super init])) {
 		_view = nil;
@@ -63,6 +66,9 @@
 	
 	return sql;
 }
+
+#pragma mark -
+#pragma mark Private Methods
 
 - (void) parser: (NSXMLParser *)parser didStartElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName attributes: (NSDictionary *)attributes {
 	[_stack addObject: element];

@@ -19,6 +19,9 @@
 
 @implementation ZIMMessageDigest
 
+#pragma mark -
+#pragma mark Public Methods
+
 + (NSString *) md2: (NSString *)string {
 	const char *cString = [string UTF8String];
 	unsigned char digest[CC_MD2_DIGEST_LENGTH];

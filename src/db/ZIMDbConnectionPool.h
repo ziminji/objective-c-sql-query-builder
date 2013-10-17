@@ -35,9 +35,9 @@
  @method				sharedInstance
  @discussion			This method will return a singleton instance of this class.
  @return				A singleton instance of this class.
- @updated				2011-07-16
+ @updated				2013-10-16
  */
-+ (ZIMDbConnectionPool *) sharedInstance;
++ (instancetype) sharedInstance;
 /*!
  @method				connection:
  @discussion			This method will return a connection for the specified data source.
