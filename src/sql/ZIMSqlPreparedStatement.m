@@ -19,6 +19,9 @@
 
 @implementation ZIMSqlPreparedStatement
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (instancetype) initWithSqlStatement: (NSString *)sql {
 	if ((self = [super init])) {
 		_tokens = [[NSMutableArray alloc] init];

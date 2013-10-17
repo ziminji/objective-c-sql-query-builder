@@ -19,13 +19,13 @@
 
 @implementation ZIMDbConnectionPool
 
-+ (ZIMDbConnectionPool *) sharedInstance {
-	static ZIMDbConnectionPool *_singleton = nil;
++ (instancetype) sharedInstance {
+	static ZIMDbConnectionPool *_instance = nil;
 	static dispatch_once_t _dispatched;
 	dispatch_once(&_dispatched, ^{
-		_singleton = [[ZIMDbConnectionPool alloc] init];
+		_instance = [[ZIMDbConnectionPool alloc] init];
 	});
-	return _singleton;
+	return _instance;
 }
 
 - (instancetype) init {

@@ -19,6 +19,9 @@
 
 @implementation ZIMSqlShowTriggersStatement
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (instancetype) init {
 	if ((self = [super init])) {
 		_from = @"[sqlite_master]";

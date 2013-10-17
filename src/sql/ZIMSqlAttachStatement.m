@@ -18,6 +18,9 @@
 
 @implementation ZIMSqlAttachStatement
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (instancetype) init {
 	if ((self = [super init])) {
 		// do nothing

@@ -18,6 +18,9 @@
 
 @implementation ZIMSqlAnalyzeStatement
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (instancetype) init {
 	if ((self = [super init])) {
 		_table = nil;

@@ -32,6 +32,9 @@
 
 @implementation ZIMSqlAlterTableStatement
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (instancetype) initWithXmlSchema: (NSData *)before withChanges: (NSData *)after error: (NSError **)error {
 	if ((self = [super init])) {
 		_table = nil;
@@ -110,6 +113,9 @@
 	}
 	return [NSString stringWithFormat: @"ALTER TABLE %@ %@;", [ZIMSqlExpression prepareIdentifier: _table], _clause];
 }
+
+#pragma mark -
+#pragma mark Private Methods
 
 - (void) parser: (NSXMLParser *)parser didStartElement: (NSString *)element namespaceURI: (NSString *)namespaceURI qualifiedName: (NSString *)qualifiedName attributes: (NSDictionary *)attributes {
 	[_stack addObject: element];

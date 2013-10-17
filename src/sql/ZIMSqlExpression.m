@@ -89,6 +89,9 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x) {
 
 @implementation ZIMSqlExpression
 
+#pragma mark -
+#pragma mark Public Methods
+
 - (instancetype) initWithSqlExpression: (NSString *)sql {
 	if ((self = [super init])) {
 		_expression = sql;

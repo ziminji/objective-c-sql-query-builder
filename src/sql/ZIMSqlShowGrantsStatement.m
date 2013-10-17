@@ -16,11 +16,14 @@
 
 #import "ZIMSqlShowGrantsStatement.h"
 
+#if !defined(ZIMDbPropertyList)
+	#define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch
+#endif
+
 @implementation ZIMSqlShowGrantsStatement
 
-#if !defined(ZIMDbPropertyList)
-    #define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch
-#endif
+#pragma mark -
+#pragma mark Public Methods
 
 - (instancetype) init {
 	if ((self = [super init])) {
