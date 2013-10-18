@@ -60,10 +60,6 @@
 	#define SQLITE_DATE 6 // Defines the integer value for the table column datatype
 #endif
 
-#if !defined(ZIMDbPropertyList)
-    #define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch
-#endif
-
 - (instancetype) initWithDictionary: (NSDictionary *)dictionary withMultithreadingSupport: (BOOL)multithreading {
 	if ((self = [super init])) {
 		NSDictionary *config = dictionary;
@@ -177,7 +173,7 @@
 	if ([command isEqualToString: @"INSERT"]) {
 		@try {
 			// Known limitations: http://www.sqlite.org/c3ref/last_insert_rowid.html
-			result = [NSNumber numberWithInt: sqlite3_last_insert_rowid(_database)];
+			result = [NSNumber numberWithLongLong: (long long)sqlite3_last_insert_rowid(_database)];
 		}
 		@catch (NSException *exception) {
 			result = @(0);

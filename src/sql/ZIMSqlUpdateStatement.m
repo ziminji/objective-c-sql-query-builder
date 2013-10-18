@@ -152,11 +152,11 @@
 	}
 	
 	if (_limit > 0) {
-		[sql appendFormat: @" LIMIT %u", _limit];
+		[sql appendFormat: @" LIMIT %lu", (unsigned long)_limit];
 	}
 	
 	if (_offset > 0) {
-		[sql appendFormat: @" OFFSET %u", _offset];
+		[sql appendFormat: @" OFFSET %lu", (unsigned long)_offset];
 	}
 
 	[sql appendString: @";"];

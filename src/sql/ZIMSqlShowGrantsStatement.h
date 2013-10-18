@@ -16,6 +16,10 @@
 
 #import "ZIMSqlStatement.h"
 
+#if !defined(ZIMDbPropertyList)
+	#define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch
+#endif
+
 /*!
  @class					ZIMSqlShowGrantsStatement
  @discussion			This class represents an SQL show grants statement.
