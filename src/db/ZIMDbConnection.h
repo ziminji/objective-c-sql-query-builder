@@ -17,6 +17,10 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h> // Requires libsqlite3.dylib
 
+#if !defined(ZIMDbPropertyList)
+	#define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch
+#endif
+
 /*!
  @class					ZIMDbConnection
  @discussion			This class represents an SQLite database connection.

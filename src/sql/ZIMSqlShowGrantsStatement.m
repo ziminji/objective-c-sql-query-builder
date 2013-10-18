@@ -16,10 +16,6 @@
 
 #import "ZIMSqlShowGrantsStatement.h"
 
-#if !defined(ZIMDbPropertyList)
-	#define ZIMDbPropertyList @"db.plist" // Override this pre-processing instruction in your <project-name>_Prefix.pch
-#endif
-
 @implementation ZIMSqlShowGrantsStatement
 
 #pragma mark -

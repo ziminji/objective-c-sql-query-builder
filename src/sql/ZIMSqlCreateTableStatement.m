@@ -99,8 +99,8 @@
 	if (columns != nil) {
 		NSMutableString *primaryKey = [[NSMutableString alloc] init];
 		[primaryKey appendString: @"PRIMARY KEY ("];
-		int length = [columns count];
-		for (int index = 0; index < length; index++) {
+		NSInteger length = [columns count];
+		for (NSInteger index = 0; index < length; index++) {
 			NSString *column = [ZIMSqlExpression prepareIdentifier: [columns objectAtIndex: index]];
 			if ([_columnDictionary objectForKey: column] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before primary key can be assigned.", column] userInfo: nil];
@@ -122,8 +122,8 @@
 	if (columns != nil) {
 		NSMutableString *unique = [[NSMutableString alloc] init];
 		[unique appendString: @"UNIQUE ("];
-		int length = [columns count];
-		for (int index = 0; index < length; index++) {
+		NSInteger length = [columns count];
+		for (NSInteger index = 0; index < length; index++) {
 			NSString *column = [ZIMSqlExpression prepareIdentifier: [columns objectAtIndex: index]];
 			if ([_columnDictionary objectForKey: column] == nil) {
 				@throw [NSException exceptionWithName: @"ZIMSqlException" reason: [NSString stringWithFormat: @"Must declare column '%@' before applying unique constraint.", column] userInfo: nil];
@@ -152,7 +152,7 @@
 	
 	[sql appendFormat: @" TABLE IF NOT EXISTS %@ (", _table];
 
-	int i = 0;
+	NSInteger i = 0;
 	for (NSString *column in _columnArray) {
 		if (i > 0) {
 			[sql appendFormat: @", %@", (NSString *)[_columnDictionary objectForKey: column]];

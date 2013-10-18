@@ -64,8 +64,8 @@
 	}
 	id record = [[model alloc] init];
 	NSArray *primaryKey = [model primaryKey];
-	int columnCount = [primaryKey count];
-	for (int i = 0; i < columnCount; i++) {
+	NSInteger columnCount = [primaryKey count];
+	for (NSInteger i = 0; i < columnCount; i++) {
 		[record setValue: [self valueForKey: [foreignKey objectAtIndex: i]] forKey: [primaryKey objectAtIndex: i]];
 	}
 	[(ZIMOrmModel *)record load];
@@ -88,8 +88,8 @@
 	ZIMSqlSelectStatement *sql = [[ZIMSqlSelectStatement alloc] init];
 	[sql from: [model table]];
 	NSArray *primaryKey = [[self class] primaryKey];
-	int columnCount = [primaryKey count];
-	for (int i = 0; i < columnCount; i++) {
+	NSInteger columnCount = [primaryKey count];
+	for (NSInteger i = 0; i < columnCount; i++) {
 		[sql where: [foreignKey objectAtIndex: i] operator: ZIMSqlOperatorEqualTo value: [self valueForKey: [primaryKey objectAtIndex: i]]];
 	}
 	if (options != nil) {
@@ -271,9 +271,9 @@
 		if ([buffer length] > 0) {
 			const char *cString = [buffer UTF8String];
 			unsigned char digest[CC_SHA512_DIGEST_LENGTH];
-			CC_SHA512(cString, strlen(cString), digest);
+			CC_SHA512(cString, (CC_LONG)strlen(cString), digest);
 			NSMutableString *hash = [NSMutableString stringWithCapacity: CC_SHA512_DIGEST_LENGTH * 2];
-			for (int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++) {
+			for (NSInteger i = 0; i < CC_SHA512_DIGEST_LENGTH; i++) {
 				[hash appendFormat: @"%02x", digest[i]];
 			}
 			return [hash lowercaseString];
@@ -307,9 +307,9 @@
 	NSSet *configurations = [[NSSet alloc] initWithObjects: @"_saved", nil];
 	unsigned int columnCount;
 	Ivar *vars = class_copyIvarList([self class], &columnCount);
-	int capacity = (columnCount - [configurations count]) * 2;
+	NSInteger capacity = (columnCount - [configurations count]) * 2;
 	NSMutableDictionary *columns = [[NSMutableDictionary alloc] initWithCapacity: capacity];
-	for (int i = 0; i < columnCount; i++) {
+	for (NSInteger i = 0; i < columnCount; i++) {
 		Ivar var = vars[i];
 		NSString *columnName = [NSString stringWithUTF8String: ivar_getName(var)];
 		if (![configurations containsObject: columnName]) {

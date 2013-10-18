@@ -31,8 +31,8 @@ static NSSet *_keywords = nil;
 		_tuples = [[NSMutableArray alloc] init];
 
 		const char *statement = [sql UTF8String];
-		int position = 0;
-		int length = strlen(statement) - 1;
+		NSInteger position = 0;
+		NSInteger length = strlen(statement) - 1;
 		
 		char whitespace[] = " \t";
 		char eol[] = "\r\n\f";
@@ -42,10 +42,10 @@ static NSSet *_keywords = nil;
 		while (position <= length) {
 			char ch = statement[position];
 			if (ch == '|') { // "operator" token
-				int lookahead = position + 1;
+				NSInteger lookahead = position + 1;
 				if ((lookahead <= length) && (statement[lookahead] == '|')) {
 					lookahead++;
-					int size = lookahead - position;
+					NSInteger size = lookahead - position;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
@@ -60,10 +60,10 @@ static NSSet *_keywords = nil;
 				position = lookahead;
 			}
 			else if ((ch == '!') || (ch == '=')) { // "operator" token
-				int lookahead = position + 1;
+				NSInteger lookahead = position + 1;
 				if ((lookahead <= length) && (statement[lookahead] == '=')) {
 					lookahead++;
-					int size = lookahead - position;
+					NSInteger size = lookahead - position;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
@@ -78,11 +78,11 @@ static NSSet *_keywords = nil;
 				position = lookahead;
 			}
 			else if ((ch == '<') || (ch == '>')) { // "operator" token
-				int lookahead = position + 1;
+				NSInteger lookahead = position + 1;
 				char next = statement[lookahead];
 				if ((next == '=') || (next == ch) || ((next == '>') && (ch == '<'))) {
 					lookahead++;
-					int size = lookahead - position;
+					NSInteger size = lookahead - position;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
@@ -97,13 +97,13 @@ static NSSet *_keywords = nil;
 				position = lookahead;
 			}
 			else if ((strchr(whitespace, ch) != NULL) || (strchr(eol, ch) != NULL)) { // "whitespace" token
-				int start = position;
+				NSInteger start = position;
 				char next;
 				do {
 					position++;
 					next = statement[position];
 				} while((next != '\0') && ((strchr(whitespace, next) != NULL) || (strchr(eol, next) != NULL)));
-				int size = position - start;
+				NSInteger size = position - start;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
@@ -111,12 +111,12 @@ static NSSet *_keywords = nil;
 				//NSLog(@"%s", token);
 			}
 			else if (ch == '#') { // "whitespace" token (i.e. MySQL-style comment)
-				int start = position;
+				NSInteger start = position;
 				do {
 					position++;
 				} while((position < length) && (strchr(eol, statement[position]) == NULL));
 				position++;
-				int size = position - start;
+				NSInteger size = position - start;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
@@ -124,7 +124,7 @@ static NSSet *_keywords = nil;
 				//NSLog(@"%s", token);
 			}
 			else if (ch == '-') { // "whitespace" token (i.e. SQL-style comment) or "operator" token
-				int lookahead = position + 1;
+				NSInteger lookahead = position + 1;
 				if ((lookahead > length) || (statement[lookahead] != '-')) {
 					char token = ch;
 					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%c", token], @"type": ZIMSqlTokenOperator}];
@@ -135,7 +135,7 @@ static NSSet *_keywords = nil;
 						lookahead++;
 					}
 					lookahead++;
-					int size = lookahead - position;
+					NSInteger size = lookahead - position;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
@@ -145,7 +145,7 @@ static NSSet *_keywords = nil;
 				position = lookahead;
 			}
 			else if (ch == '/') { // "whitespace" token (i.e. C-style comment) or "operator" token
-				int lookahead = position + 1;
+				NSInteger lookahead = position + 1;
 				if ((lookahead > length) || (statement[lookahead] != '*')) {
 					char token = ch;
 					[_tuples addObject: @{@"token": [NSString stringWithFormat: @"%c", token], @"type": ZIMSqlTokenOperator}];
@@ -157,7 +157,7 @@ static NSSet *_keywords = nil;
 						lookahead++;
 					}
 					lookahead++;
-					int size = MIN(lookahead, length + 1) - position;
+					NSInteger size = MIN(lookahead, length + 1) - position;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
@@ -167,12 +167,12 @@ static NSSet *_keywords = nil;
 				position = lookahead;
 			}
 			else if (ch == '[') { // "identifier" token (Microsoft-style)
-				int start = position;
+				NSInteger start = position;
 				do {
 					position++;
 				} while((position < length) && (statement[position] != ']'));
 				position++;
-				int size = position - start;
+				NSInteger size = position - start;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
@@ -180,12 +180,12 @@ static NSSet *_keywords = nil;
 				//NSLog(@"%s", token);
 			}
 			else if (strchr(quote, ch) != NULL) { // "identifier" token (SQL-style)
-				int start = position;
+				NSInteger start = position;
 				do {
 					position++;
 				} while((position < length) && (statement[position] != ch));
 				position++;
-				int size = position - start;
+				NSInteger size = position - start;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
@@ -193,7 +193,7 @@ static NSSet *_keywords = nil;
 				//NSLog(@"%s", token);
 			}
 			else if (ch == '\'') { // "literal" token
-				int lookahead = position + 1;
+				NSInteger lookahead = position + 1;
 				while (lookahead <= length) {
 					if (statement[lookahead] == '\'') {
 						if ((lookahead == length) || (statement[lookahead + 1] != '\'')) {
@@ -204,7 +204,7 @@ static NSSet *_keywords = nil;
 					}
 					lookahead++;
 				}
-				int size = lookahead - position;
+				NSInteger size = lookahead - position;
 				char token[size + 1];
 				strncpy(token, statement + position, size);
 				token[size] = '\0';
@@ -214,7 +214,7 @@ static NSSet *_keywords = nil;
 			}
 			else if ((ch >= '0') && (ch <= '9')) { // "integer" token, "real" token, or "hexadecimal" token
 				NSString *type;
-				int start = position;
+				NSInteger start = position;
 				char next;
 				if (ch == '0') {
 					position++;
@@ -253,7 +253,7 @@ static NSSet *_keywords = nil;
 						type = ZIMSqlTokenInteger;
 					}
 				}
-				int size = position - start;
+				NSInteger size = position - start;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';
@@ -261,7 +261,7 @@ static NSSet *_keywords = nil;
 				//NSLog(@"%s", token);
 			}
 			else if ((ch >= 'x') || (ch >= 'X')) {
-				int lookahead = position + 1;
+				NSInteger lookahead = position + 1;
 				if (lookahead == '\'') { // "hexadecimal" token
 					lookahead++;
 					while (lookahead <= length) {
@@ -274,7 +274,7 @@ static NSSet *_keywords = nil;
 						}
 						lookahead++;
 					}
-					int size = lookahead - position;
+					NSInteger size = lookahead - position;
 					char token[size + 1];
 					strncpy(token, statement + position, size);
 					token[size] = '\0';
@@ -283,13 +283,13 @@ static NSSet *_keywords = nil;
 					//NSLog(@"%s", token);
 				}
 				else {
-					int start = position;
+					NSInteger start = position;
 					char next;
 					do {
 						position++;
 						next = statement[position];
 					} while((position <= length) && (((next >= 'a') && (next <= 'z')) || ((next >= 'A') && (next <= 'Z')) || (next == '_') || ((next >= '0') && (next <= '9'))));
-					int size = position - start;
+					NSInteger size = position - start;
 					char token[size + 1];
 					strncpy(token, statement + start, size);
 					token[size] = '\0';
@@ -300,13 +300,13 @@ static NSSet *_keywords = nil;
 				}
 			}
 			else if (((ch >= 'a') && (ch <= 'z')) || ((ch >= 'A') && (ch <= 'Z')) || (ch == '_')) { // "keyword" token or "identifier" token
-				int start = position;
+				NSInteger start = position;
 				char next;
 				do {
 					position++;
 					next = statement[position];
 				} while((position <= length) && (((next >= 'a') && (next <= 'z')) || ((next >= 'A') && (next <= 'Z')) || (next == '_') || ((next >= '0') && (next <= '9'))));
-				int size = position - start;
+				NSInteger size = position - start;
 				char token[size + 1];
 				strncpy(token, statement + start, size);
 				token[size] = '\0';

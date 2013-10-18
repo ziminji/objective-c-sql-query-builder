@@ -34,11 +34,11 @@ NSString *ZIMSqlDefaultValue(id value) {
 	}
 	else if ([value isKindOfClass: [NSData class]]) {
 		NSData *data = (NSData *)value;
-		int length = [data length];
+		NSInteger length = [data length];
 		NSMutableString *buffer = [[NSMutableString alloc] init];
 		[buffer appendString: @"DEFAULT x'"];
 		const unsigned char *dataBuffer = [data bytes];
-		for (int i = 0; i < length; i++) {
+		for (NSInteger i = 0; i < length; i++) {
 			[buffer appendFormat: @"%02lx", (unsigned long)dataBuffer[i]];
 		}
 		[buffer appendString: @"'"];
@@ -56,35 +56,35 @@ NSString *ZIMSqlDefaultValue(id value) {
 }
 
 NSString *ZIMSqlDataTypeChar(NSUInteger x) {
-	return [NSString stringWithFormat: @"CHAR(%u)", x];
+	return [NSString stringWithFormat: @"CHAR(%lu)", (unsigned long)x];
 }
 
 NSString *ZIMSqlDataTypeCharacter(NSUInteger x) {
-	return [NSString stringWithFormat: @"CHARACTER(%u)", x];
+	return [NSString stringWithFormat: @"CHARACTER(%lu)", (unsigned long)x];
 }
 
 NSString *ZIMSqlDataTypeDecimal(NSUInteger x, NSUInteger y) {
-	return [NSString stringWithFormat: @"DECIMAL(%u, %u)", x, y];
+	return [NSString stringWithFormat: @"DECIMAL(%lu, %lu)", (unsigned long)x, (unsigned long)y];
 }
 
 NSString *ZIMSqlDataTypeNativeCharacter(NSUInteger x) {
-	return [NSString stringWithFormat: @"NATIVE CHARACTER(%u)", x];
+	return [NSString stringWithFormat: @"NATIVE CHARACTER(%lu)", (unsigned long)x];
 }
 
 NSString *ZIMSqlDataTypeNChar(NSUInteger x) {
-	return [NSString stringWithFormat: @"NCHAR(%u)", x];
+	return [NSString stringWithFormat: @"NCHAR(%lu)", (unsigned long)x];
 }
 
 NSString *ZIMSqlDataTypeNVarChar(NSUInteger x) {
-	return [NSString stringWithFormat: @"NVARCHAR(%u)", x];
+	return [NSString stringWithFormat: @"NVARCHAR(%lu)", (unsigned long)x];
 }
 
 NSString *ZIMSqlDataTypeVarChar(NSUInteger x) {
-	return [NSString stringWithFormat: @"VARCHAR(%u)", x];
+	return [NSString stringWithFormat: @"VARCHAR(%lu)", (unsigned long)x];
 }
 
 NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x) {
-	return [NSString stringWithFormat: @"VARYING CHARACTER(%u)", x];
+	return [NSString stringWithFormat: @"VARYING CHARACTER(%lu)", (unsigned long)x];
 }
 
 @implementation ZIMSqlExpression
@@ -134,10 +134,10 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x) {
 	if ([identifier isKindOfClass: [NSString class]]) {
 		NSMutableString *buffer = [[NSMutableString alloc] init];
 		NSArray *tokens = [(NSString *)identifier componentsSeparatedByString: @"."];
-		int length = [tokens count];
+		NSInteger length = [tokens count];
 		NSError *error = nil;
 		NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern: @"[^a-z0-9_ ]" options: NSRegularExpressionCaseInsensitive error: &error];
-		for (int index = 0; index < length; index++) {
+		for (NSInteger index = 0; index < length; index++) {
 			if (index > 0) {
 				[buffer appendString: @"."];
 			}
@@ -206,7 +206,7 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x) {
 	else if ([value isKindOfClass: [NSArray class]]) {
 		NSMutableString *buffer = [[NSMutableString alloc] init];
 		[buffer appendString: @"("];
-		for (int i = 0; i < [value count]; i++) {
+		for (NSInteger i = 0; i < [value count]; i++) {
 			if (i > 0) {
 				[buffer appendString: @", "];
 			}
@@ -226,11 +226,11 @@ NSString *ZIMSqlDataTypeVaryingCharacter(NSUInteger x) {
 	}
 	else if ([value isKindOfClass: [NSData class]]) {
 		NSData *data = (NSData *)value;
-		int length = [data length];
+		NSInteger length = [data length];
 		NSMutableString *buffer = [[NSMutableString alloc] init];
 		[buffer appendString: @"x'"];
 		const unsigned char *dataBuffer = [data bytes];
-		for (int i = 0; i < length; i++) {
+		for (NSInteger i = 0; i < length; i++) {
 			[buffer appendFormat: @"%02lx", (unsigned long)dataBuffer[i]];
 		}
 		[buffer appendString: @"'"];

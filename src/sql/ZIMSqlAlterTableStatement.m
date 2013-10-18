@@ -74,7 +74,7 @@
 }
 
 - (void) autoincrement: (NSUInteger)position {
-	_clause = [NSString stringWithFormat: @"UPDATE [sqlite_sequence] SET [seq] = %u", position];
+	_clause = [NSString stringWithFormat: @"UPDATE [sqlite_sequence] SET [seq] = %lu", (unsigned long)position];
 }
 
 - (void) column: (NSString *)column type: (NSString *)type {
@@ -176,12 +176,12 @@
         }
         else {
             array = [_schema objectForKey: @"database/table/column/@*"];
-            int size = [array count];
-            for (int i = 0; i < size; i++) {
+            NSInteger size = [array count];
+            for (NSInteger i = 0; i < size; i++) {
                 NSArray *column = [array objectAtIndex: i];
                 a0 = [column objectAtIndex: 0];
                 BOOL found = NO;
-                for (int j = 0; j < size; j++) {
+                for (NSInteger j = 0; j < size; j++) {
                     if (i != j) {
                         a1 = [[array objectAtIndex: j] objectAtIndex: 0];
                         if ([a0 isEqualToString: a1]) {
