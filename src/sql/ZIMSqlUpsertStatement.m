@@ -59,6 +59,9 @@
 
 	for (NSString *column in _column) {
 		if ([_compositeKey containsObject: column]) {
+			if ([_column count] == 1) {
+				[set addObject: [NSString stringWithFormat: @"%@ = %@", column, [_column objectForKey: column]]];
+			}
 			[where addObject: [NSString stringWithFormat: @"%@ = %@", column, [_column objectForKey: column]]];
 		}
 		else {
