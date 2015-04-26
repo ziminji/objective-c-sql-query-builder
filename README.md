@@ -158,7 +158,7 @@ Help expand this list with your feedback.
 
 ## License (Apache v2.0)
 
->Copyright 2011-2012 Ziminji
+>Copyright 2011-2015 Ziminji
 >
 >Licensed under the Apache License, Version 2.0 (the "License"); you may not use these files except in compliance with the
 >License. You may obtain a copy of the License at:
