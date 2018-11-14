@@ -1,4 +1,5 @@
 # Objective-C SQL Query Builder
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 This Objective-C SQLite project is a lightweight library that offers more than just a set of [SQLite](http://www.sqlite.org/)
 wrapper classes.  It is divided up into five parts.  The first part consists of a set of Objective-C classes that handle
@@ -76,6 +77,17 @@ Using these classes in an Xcode project is easy to do.  Here is how:
 8. Select "Default" for the "Reference Type".
 9. Choose "Recursively create groups for any added folders".
 10. Click "Add".
+
+##### Installation with Carthage (iOS 8+)
+
+[Carthage](https://github.com/Carthage/Carthage) is a lightweight dependency manager for Swift and Objective-C. It leverages CocoaTouch modules and is less invasive than CocoaPods.
+
+To install with Carthage, follow the instruction on [Carthage](https://github.com/Carthage/Carthage)
+
+Cartfile
+```
+github "ziminji/objective-c-sql-query-builder"
+```
 
 ### Required Files
 

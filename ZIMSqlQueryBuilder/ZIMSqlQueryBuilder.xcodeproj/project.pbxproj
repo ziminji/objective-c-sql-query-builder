@@ -1,0 +1,1744 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41C6F36421999AFE0018396F /* ZIMMessageDigest.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31321999AFE0018396F /* ZIMMessageDigest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F36521999AFE0018396F /* ZIMMessageDigest.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31321999AFE0018396F /* ZIMMessageDigest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F36621999AFE0018396F /* ZIMMessageDigest.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31321999AFE0018396F /* ZIMMessageDigest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F36721999AFE0018396F /* ZIMMessageDigest.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31321999AFE0018396F /* ZIMMessageDigest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F36821999AFE0018396F /* ZIMMessageDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31421999AFE0018396F /* ZIMMessageDigest.m */; };
+		41C6F36921999AFE0018396F /* ZIMMessageDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31421999AFE0018396F /* ZIMMessageDigest.m */; };
+		41C6F36A21999AFE0018396F /* ZIMMessageDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31421999AFE0018396F /* ZIMMessageDigest.m */; };
+		41C6F36B21999AFE0018396F /* ZIMMessageDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31421999AFE0018396F /* ZIMMessageDigest.m */; };
+		41C6F36C21999AFE0018396F /* NSString+ZIMString.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31621999AFE0018396F /* NSString+ZIMString.m */; };
+		41C6F36D21999AFE0018396F /* NSString+ZIMString.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31621999AFE0018396F /* NSString+ZIMString.m */; };
+		41C6F36E21999AFE0018396F /* NSString+ZIMString.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31621999AFE0018396F /* NSString+ZIMString.m */; };
+		41C6F36F21999AFE0018396F /* NSString+ZIMString.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31621999AFE0018396F /* NSString+ZIMString.m */; };
+		41C6F37021999AFE0018396F /* NSString+ZIMString.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31721999AFE0018396F /* NSString+ZIMString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37121999AFE0018396F /* NSString+ZIMString.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31721999AFE0018396F /* NSString+ZIMString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37221999AFE0018396F /* NSString+ZIMString.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31721999AFE0018396F /* NSString+ZIMString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37321999AFE0018396F /* NSString+ZIMString.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31721999AFE0018396F /* NSString+ZIMString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37421999AFE0018396F /* ZIMDbConnectionPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31921999AFE0018396F /* ZIMDbConnectionPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37521999AFE0018396F /* ZIMDbConnectionPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31921999AFE0018396F /* ZIMDbConnectionPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37621999AFE0018396F /* ZIMDbConnectionPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31921999AFE0018396F /* ZIMDbConnectionPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37721999AFE0018396F /* ZIMDbConnectionPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31921999AFE0018396F /* ZIMDbConnectionPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37821999AFE0018396F /* ZIMDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31A21999AFE0018396F /* ZIMDbConnection.m */; };
+		41C6F37921999AFE0018396F /* ZIMDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31A21999AFE0018396F /* ZIMDbConnection.m */; };
+		41C6F37A21999AFE0018396F /* ZIMDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31A21999AFE0018396F /* ZIMDbConnection.m */; };
+		41C6F37B21999AFE0018396F /* ZIMDbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31A21999AFE0018396F /* ZIMDbConnection.m */; };
+		41C6F37C21999AFE0018396F /* ZIMDbSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31B21999AFE0018396F /* ZIMDbSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37D21999AFE0018396F /* ZIMDbSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31B21999AFE0018396F /* ZIMDbSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37E21999AFE0018396F /* ZIMDbSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31B21999AFE0018396F /* ZIMDbSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F37F21999AFE0018396F /* ZIMDbSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31B21999AFE0018396F /* ZIMDbSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F38021999AFE0018396F /* ZIMDbConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31C21999AFE0018396F /* ZIMDbConnectionPool.m */; };
+		41C6F38121999AFE0018396F /* ZIMDbConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31C21999AFE0018396F /* ZIMDbConnectionPool.m */; };
+		41C6F38221999AFE0018396F /* ZIMDbConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31C21999AFE0018396F /* ZIMDbConnectionPool.m */; };
+		41C6F38321999AFE0018396F /* ZIMDbConnectionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F31C21999AFE0018396F /* ZIMDbConnectionPool.m */; };
+		41C6F38421999AFE0018396F /* ZIMDbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31D21999AFE0018396F /* ZIMDbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F38521999AFE0018396F /* ZIMDbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31D21999AFE0018396F /* ZIMDbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F38621999AFE0018396F /* ZIMDbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31D21999AFE0018396F /* ZIMDbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F38721999AFE0018396F /* ZIMDbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31D21999AFE0018396F /* ZIMDbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F38821999AFE0018396F /* ZIMOrmModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31F21999AFE0018396F /* ZIMOrmModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F38921999AFE0018396F /* ZIMOrmModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31F21999AFE0018396F /* ZIMOrmModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F38A21999AFE0018396F /* ZIMOrmModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31F21999AFE0018396F /* ZIMOrmModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F38B21999AFE0018396F /* ZIMOrmModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F31F21999AFE0018396F /* ZIMOrmModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F38C21999AFE0018396F /* ZIMOrmSelectStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32021999AFE0018396F /* ZIMOrmSelectStatement.m */; };
+		41C6F38D21999AFE0018396F /* ZIMOrmSelectStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32021999AFE0018396F /* ZIMOrmSelectStatement.m */; };
+		41C6F38E21999AFE0018396F /* ZIMOrmSelectStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32021999AFE0018396F /* ZIMOrmSelectStatement.m */; };
+		41C6F38F21999AFE0018396F /* ZIMOrmSelectStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32021999AFE0018396F /* ZIMOrmSelectStatement.m */; };
+		41C6F39021999AFE0018396F /* ZIMOrmModelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32121999AFE0018396F /* ZIMOrmModelDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39121999AFE0018396F /* ZIMOrmModelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32121999AFE0018396F /* ZIMOrmModelDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39221999AFE0018396F /* ZIMOrmModelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32121999AFE0018396F /* ZIMOrmModelDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39321999AFE0018396F /* ZIMOrmModelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32121999AFE0018396F /* ZIMOrmModelDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39421999AFE0018396F /* ZIMOrmSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32221999AFE0018396F /* ZIMOrmSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39521999AFE0018396F /* ZIMOrmSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32221999AFE0018396F /* ZIMOrmSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39621999AFE0018396F /* ZIMOrmSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32221999AFE0018396F /* ZIMOrmSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39721999AFE0018396F /* ZIMOrmSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32221999AFE0018396F /* ZIMOrmSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39821999AFE0018396F /* ZIMOrmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32321999AFE0018396F /* ZIMOrmModel.m */; };
+		41C6F39921999AFE0018396F /* ZIMOrmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32321999AFE0018396F /* ZIMOrmModel.m */; };
+		41C6F39A21999AFE0018396F /* ZIMOrmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32321999AFE0018396F /* ZIMOrmModel.m */; };
+		41C6F39B21999AFE0018396F /* ZIMOrmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32321999AFE0018396F /* ZIMOrmModel.m */; };
+		41C6F39C21999AFE0018396F /* ZIMOrmSelectStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32421999AFE0018396F /* ZIMOrmSelectStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39D21999AFE0018396F /* ZIMOrmSelectStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32421999AFE0018396F /* ZIMOrmSelectStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39E21999AFE0018396F /* ZIMOrmSelectStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32421999AFE0018396F /* ZIMOrmSelectStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F39F21999AFE0018396F /* ZIMOrmSelectStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32421999AFE0018396F /* ZIMOrmSelectStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3A021999AFE0018396F /* ZIMSqlReindexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32621999AFE0018396F /* ZIMSqlReindexStatement.m */; };
+		41C6F3A121999AFE0018396F /* ZIMSqlReindexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32621999AFE0018396F /* ZIMSqlReindexStatement.m */; };
+		41C6F3A221999AFE0018396F /* ZIMSqlReindexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32621999AFE0018396F /* ZIMSqlReindexStatement.m */; };
+		41C6F3A321999AFE0018396F /* ZIMSqlReindexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32621999AFE0018396F /* ZIMSqlReindexStatement.m */; };
+		41C6F3A421999AFE0018396F /* ZIMSqlTruncateTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32721999AFE0018396F /* ZIMSqlTruncateTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3A521999AFE0018396F /* ZIMSqlTruncateTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32721999AFE0018396F /* ZIMSqlTruncateTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3A621999AFE0018396F /* ZIMSqlTruncateTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32721999AFE0018396F /* ZIMSqlTruncateTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3A721999AFE0018396F /* ZIMSqlTruncateTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32721999AFE0018396F /* ZIMSqlTruncateTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3A821999AFE0018396F /* ZIMSqlCreateTriggerStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32821999AFE0018396F /* ZIMSqlCreateTriggerStatement.m */; };
+		41C6F3A921999AFE0018396F /* ZIMSqlCreateTriggerStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32821999AFE0018396F /* ZIMSqlCreateTriggerStatement.m */; };
+		41C6F3AA21999AFE0018396F /* ZIMSqlCreateTriggerStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32821999AFE0018396F /* ZIMSqlCreateTriggerStatement.m */; };
+		41C6F3AB21999AFE0018396F /* ZIMSqlCreateTriggerStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32821999AFE0018396F /* ZIMSqlCreateTriggerStatement.m */; };
+		41C6F3AC21999AFE0018396F /* ZIMSqlAlterTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32921999AFE0018396F /* ZIMSqlAlterTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3AD21999AFE0018396F /* ZIMSqlAlterTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32921999AFE0018396F /* ZIMSqlAlterTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3AE21999AFE0018396F /* ZIMSqlAlterTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32921999AFE0018396F /* ZIMSqlAlterTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3AF21999AFE0018396F /* ZIMSqlAlterTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32921999AFE0018396F /* ZIMSqlAlterTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3B021999AFE0018396F /* ZIMSqlDeleteStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32A21999AFE0018396F /* ZIMSqlDeleteStatement.m */; };
+		41C6F3B121999AFE0018396F /* ZIMSqlDeleteStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32A21999AFE0018396F /* ZIMSqlDeleteStatement.m */; };
+		41C6F3B221999AFE0018396F /* ZIMSqlDeleteStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32A21999AFE0018396F /* ZIMSqlDeleteStatement.m */; };
+		41C6F3B321999AFE0018396F /* ZIMSqlDeleteStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32A21999AFE0018396F /* ZIMSqlDeleteStatement.m */; };
+		41C6F3B421999AFE0018396F /* ZIMSqlExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32B21999AFE0018396F /* ZIMSqlExpression.m */; };
+		41C6F3B521999AFE0018396F /* ZIMSqlExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32B21999AFE0018396F /* ZIMSqlExpression.m */; };
+		41C6F3B621999AFE0018396F /* ZIMSqlExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32B21999AFE0018396F /* ZIMSqlExpression.m */; };
+		41C6F3B721999AFE0018396F /* ZIMSqlExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32B21999AFE0018396F /* ZIMSqlExpression.m */; };
+		41C6F3B821999AFE0018396F /* ZIMSqlCreateTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32C21999AFE0018396F /* ZIMSqlCreateTableStatement.m */; };
+		41C6F3B921999AFE0018396F /* ZIMSqlCreateTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32C21999AFE0018396F /* ZIMSqlCreateTableStatement.m */; };
+		41C6F3BA21999AFE0018396F /* ZIMSqlCreateTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32C21999AFE0018396F /* ZIMSqlCreateTableStatement.m */; };
+		41C6F3BB21999AFE0018396F /* ZIMSqlCreateTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32C21999AFE0018396F /* ZIMSqlCreateTableStatement.m */; };
+		41C6F3BC21999AFE0018396F /* ZIMSqlUpsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32D21999AFE0018396F /* ZIMSqlUpsertStatement.m */; };
+		41C6F3BD21999AFE0018396F /* ZIMSqlUpsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32D21999AFE0018396F /* ZIMSqlUpsertStatement.m */; };
+		41C6F3BE21999AFE0018396F /* ZIMSqlUpsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32D21999AFE0018396F /* ZIMSqlUpsertStatement.m */; };
+		41C6F3BF21999AFE0018396F /* ZIMSqlUpsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32D21999AFE0018396F /* ZIMSqlUpsertStatement.m */; };
+		41C6F3C021999AFE0018396F /* ZIMSqlDetachStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32E21999AFE0018396F /* ZIMSqlDetachStatement.m */; };
+		41C6F3C121999AFE0018396F /* ZIMSqlDetachStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32E21999AFE0018396F /* ZIMSqlDetachStatement.m */; };
+		41C6F3C221999AFE0018396F /* ZIMSqlDetachStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32E21999AFE0018396F /* ZIMSqlDetachStatement.m */; };
+		41C6F3C321999AFE0018396F /* ZIMSqlDetachStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F32E21999AFE0018396F /* ZIMSqlDetachStatement.m */; };
+		41C6F3C421999AFE0018396F /* ZIMSqlShowViewsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32F21999AFE0018396F /* ZIMSqlShowViewsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3C521999AFE0018396F /* ZIMSqlShowViewsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32F21999AFE0018396F /* ZIMSqlShowViewsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3C621999AFE0018396F /* ZIMSqlShowViewsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32F21999AFE0018396F /* ZIMSqlShowViewsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3C721999AFE0018396F /* ZIMSqlShowViewsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F32F21999AFE0018396F /* ZIMSqlShowViewsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3C821999AFE0018396F /* ZIMSqlShowGrantsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33021999AFE0018396F /* ZIMSqlShowGrantsStatement.m */; };
+		41C6F3C921999AFE0018396F /* ZIMSqlShowGrantsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33021999AFE0018396F /* ZIMSqlShowGrantsStatement.m */; };
+		41C6F3CA21999AFE0018396F /* ZIMSqlShowGrantsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33021999AFE0018396F /* ZIMSqlShowGrantsStatement.m */; };
+		41C6F3CB21999AFE0018396F /* ZIMSqlShowGrantsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33021999AFE0018396F /* ZIMSqlShowGrantsStatement.m */; };
+		41C6F3CC21999AFE0018396F /* ZIMSqlAnalyzeStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33121999AFE0018396F /* ZIMSqlAnalyzeStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3CD21999AFE0018396F /* ZIMSqlAnalyzeStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33121999AFE0018396F /* ZIMSqlAnalyzeStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3CE21999AFE0018396F /* ZIMSqlAnalyzeStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33121999AFE0018396F /* ZIMSqlAnalyzeStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3CF21999AFE0018396F /* ZIMSqlAnalyzeStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33121999AFE0018396F /* ZIMSqlAnalyzeStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3D021999AFE0018396F /* ZIMSqlDropTriggerStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33221999AFE0018396F /* ZIMSqlDropTriggerStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3D121999AFE0018396F /* ZIMSqlDropTriggerStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33221999AFE0018396F /* ZIMSqlDropTriggerStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3D221999AFE0018396F /* ZIMSqlDropTriggerStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33221999AFE0018396F /* ZIMSqlDropTriggerStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3D321999AFE0018396F /* ZIMSqlDropTriggerStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33221999AFE0018396F /* ZIMSqlDropTriggerStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3D421999AFE0018396F /* ZIMSqlUpdateStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33321999AFE0018396F /* ZIMSqlUpdateStatement.m */; };
+		41C6F3D521999AFE0018396F /* ZIMSqlUpdateStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33321999AFE0018396F /* ZIMSqlUpdateStatement.m */; };
+		41C6F3D621999AFE0018396F /* ZIMSqlUpdateStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33321999AFE0018396F /* ZIMSqlUpdateStatement.m */; };
+		41C6F3D721999AFE0018396F /* ZIMSqlUpdateStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33321999AFE0018396F /* ZIMSqlUpdateStatement.m */; };
+		41C6F3D821999AFE0018396F /* ZIMSqlShowTablesStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33421999AFE0018396F /* ZIMSqlShowTablesStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3D921999AFE0018396F /* ZIMSqlShowTablesStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33421999AFE0018396F /* ZIMSqlShowTablesStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3DA21999AFE0018396F /* ZIMSqlShowTablesStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33421999AFE0018396F /* ZIMSqlShowTablesStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3DB21999AFE0018396F /* ZIMSqlShowTablesStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33421999AFE0018396F /* ZIMSqlShowTablesStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3DC21999AFE0018396F /* ZIMSqlSelectStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33521999AFE0018396F /* ZIMSqlSelectStatement.m */; };
+		41C6F3DD21999AFE0018396F /* ZIMSqlSelectStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33521999AFE0018396F /* ZIMSqlSelectStatement.m */; };
+		41C6F3DE21999AFE0018396F /* ZIMSqlSelectStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33521999AFE0018396F /* ZIMSqlSelectStatement.m */; };
+		41C6F3DF21999AFE0018396F /* ZIMSqlSelectStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33521999AFE0018396F /* ZIMSqlSelectStatement.m */; };
+		41C6F3E021999AFE0018396F /* ZIMSqlCreateIndexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33621999AFE0018396F /* ZIMSqlCreateIndexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3E121999AFE0018396F /* ZIMSqlCreateIndexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33621999AFE0018396F /* ZIMSqlCreateIndexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3E221999AFE0018396F /* ZIMSqlCreateIndexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33621999AFE0018396F /* ZIMSqlCreateIndexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3E321999AFE0018396F /* ZIMSqlCreateIndexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33621999AFE0018396F /* ZIMSqlCreateIndexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3E421999AFE0018396F /* ZIMSqlTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33721999AFE0018396F /* ZIMSqlTokenizer.m */; };
+		41C6F3E521999AFE0018396F /* ZIMSqlTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33721999AFE0018396F /* ZIMSqlTokenizer.m */; };
+		41C6F3E621999AFE0018396F /* ZIMSqlTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33721999AFE0018396F /* ZIMSqlTokenizer.m */; };
+		41C6F3E721999AFE0018396F /* ZIMSqlTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33721999AFE0018396F /* ZIMSqlTokenizer.m */; };
+		41C6F3E821999AFE0018396F /* ZIMSqlAttachStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33821999AFE0018396F /* ZIMSqlAttachStatement.m */; };
+		41C6F3E921999AFE0018396F /* ZIMSqlAttachStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33821999AFE0018396F /* ZIMSqlAttachStatement.m */; };
+		41C6F3EA21999AFE0018396F /* ZIMSqlAttachStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33821999AFE0018396F /* ZIMSqlAttachStatement.m */; };
+		41C6F3EB21999AFE0018396F /* ZIMSqlAttachStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33821999AFE0018396F /* ZIMSqlAttachStatement.m */; };
+		41C6F3EC21999AFE0018396F /* ZIMSqlShowColumnsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33921999AFE0018396F /* ZIMSqlShowColumnsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3ED21999AFE0018396F /* ZIMSqlShowColumnsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33921999AFE0018396F /* ZIMSqlShowColumnsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3EE21999AFE0018396F /* ZIMSqlShowColumnsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33921999AFE0018396F /* ZIMSqlShowColumnsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3EF21999AFE0018396F /* ZIMSqlShowColumnsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33921999AFE0018396F /* ZIMSqlShowColumnsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3F021999AFE0018396F /* ZIMSqlDropIndexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33A21999AFE0018396F /* ZIMSqlDropIndexStatement.m */; };
+		41C6F3F121999AFE0018396F /* ZIMSqlDropIndexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33A21999AFE0018396F /* ZIMSqlDropIndexStatement.m */; };
+		41C6F3F221999AFE0018396F /* ZIMSqlDropIndexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33A21999AFE0018396F /* ZIMSqlDropIndexStatement.m */; };
+		41C6F3F321999AFE0018396F /* ZIMSqlDropIndexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33A21999AFE0018396F /* ZIMSqlDropIndexStatement.m */; };
+		41C6F3F421999AFE0018396F /* ZIMSqlDropTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33B21999AFE0018396F /* ZIMSqlDropTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3F521999AFE0018396F /* ZIMSqlDropTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33B21999AFE0018396F /* ZIMSqlDropTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3F621999AFE0018396F /* ZIMSqlDropTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33B21999AFE0018396F /* ZIMSqlDropTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3F721999AFE0018396F /* ZIMSqlDropTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33B21999AFE0018396F /* ZIMSqlDropTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3F821999AFE0018396F /* ZIMSqlCreateViewStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33C21999AFE0018396F /* ZIMSqlCreateViewStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3F921999AFE0018396F /* ZIMSqlCreateViewStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33C21999AFE0018396F /* ZIMSqlCreateViewStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3FA21999AFE0018396F /* ZIMSqlCreateViewStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33C21999AFE0018396F /* ZIMSqlCreateViewStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3FB21999AFE0018396F /* ZIMSqlCreateViewStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33C21999AFE0018396F /* ZIMSqlCreateViewStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F3FC21999AFE0018396F /* ZIMSqlExplainStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33D21999AFE0018396F /* ZIMSqlExplainStatement.m */; };
+		41C6F3FD21999AFE0018396F /* ZIMSqlExplainStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33D21999AFE0018396F /* ZIMSqlExplainStatement.m */; };
+		41C6F3FE21999AFE0018396F /* ZIMSqlExplainStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33D21999AFE0018396F /* ZIMSqlExplainStatement.m */; };
+		41C6F3FF21999AFE0018396F /* ZIMSqlExplainStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33D21999AFE0018396F /* ZIMSqlExplainStatement.m */; };
+		41C6F40021999AFE0018396F /* ZIMSqlShowTriggersStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33E21999AFE0018396F /* ZIMSqlShowTriggersStatement.m */; };
+		41C6F40121999AFE0018396F /* ZIMSqlShowTriggersStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33E21999AFE0018396F /* ZIMSqlShowTriggersStatement.m */; };
+		41C6F40221999AFE0018396F /* ZIMSqlShowTriggersStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33E21999AFE0018396F /* ZIMSqlShowTriggersStatement.m */; };
+		41C6F40321999AFE0018396F /* ZIMSqlShowTriggersStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F33E21999AFE0018396F /* ZIMSqlShowTriggersStatement.m */; };
+		41C6F40421999AFE0018396F /* ZIMSqlDropViewStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33F21999AFE0018396F /* ZIMSqlDropViewStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F40521999AFE0018396F /* ZIMSqlDropViewStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33F21999AFE0018396F /* ZIMSqlDropViewStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F40621999AFE0018396F /* ZIMSqlDropViewStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33F21999AFE0018396F /* ZIMSqlDropViewStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F40721999AFE0018396F /* ZIMSqlDropViewStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F33F21999AFE0018396F /* ZIMSqlDropViewStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F40821999AFE0018396F /* ZIMSqlInsertStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34021999AFE0018396F /* ZIMSqlInsertStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F40921999AFE0018396F /* ZIMSqlInsertStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34021999AFE0018396F /* ZIMSqlInsertStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F40A21999AFE0018396F /* ZIMSqlInsertStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34021999AFE0018396F /* ZIMSqlInsertStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F40B21999AFE0018396F /* ZIMSqlInsertStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34021999AFE0018396F /* ZIMSqlInsertStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F40C21999AFE0018396F /* ZIMSqlPreparedStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34121999AFE0018396F /* ZIMSqlPreparedStatement.m */; };
+		41C6F40D21999AFE0018396F /* ZIMSqlPreparedStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34121999AFE0018396F /* ZIMSqlPreparedStatement.m */; };
+		41C6F40E21999AFE0018396F /* ZIMSqlPreparedStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34121999AFE0018396F /* ZIMSqlPreparedStatement.m */; };
+		41C6F40F21999AFE0018396F /* ZIMSqlPreparedStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34121999AFE0018396F /* ZIMSqlPreparedStatement.m */; };
+		41C6F41021999AFE0018396F /* ZIMSqlTransactionControlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34221999AFE0018396F /* ZIMSqlTransactionControlCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41121999AFE0018396F /* ZIMSqlTransactionControlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34221999AFE0018396F /* ZIMSqlTransactionControlCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41221999AFE0018396F /* ZIMSqlTransactionControlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34221999AFE0018396F /* ZIMSqlTransactionControlCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41321999AFE0018396F /* ZIMSqlTransactionControlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34221999AFE0018396F /* ZIMSqlTransactionControlCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41421999AFE0018396F /* ZIMSqlSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34321999AFE0018396F /* ZIMSqlSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41521999AFE0018396F /* ZIMSqlSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34321999AFE0018396F /* ZIMSqlSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41621999AFE0018396F /* ZIMSqlSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34321999AFE0018396F /* ZIMSqlSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41721999AFE0018396F /* ZIMSqlSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34321999AFE0018396F /* ZIMSqlSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41821999AFE0018396F /* ZIMSqlDataManipulationCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34421999AFE0018396F /* ZIMSqlDataManipulationCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41921999AFE0018396F /* ZIMSqlDataManipulationCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34421999AFE0018396F /* ZIMSqlDataManipulationCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41A21999AFE0018396F /* ZIMSqlDataManipulationCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34421999AFE0018396F /* ZIMSqlDataManipulationCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41B21999AFE0018396F /* ZIMSqlDataManipulationCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34421999AFE0018396F /* ZIMSqlDataManipulationCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41C21999AFE0018396F /* ZIMSqlExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34521999AFE0018396F /* ZIMSqlExpression.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41D21999AFE0018396F /* ZIMSqlExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34521999AFE0018396F /* ZIMSqlExpression.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41E21999AFE0018396F /* ZIMSqlExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34521999AFE0018396F /* ZIMSqlExpression.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F41F21999AFE0018396F /* ZIMSqlExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34521999AFE0018396F /* ZIMSqlExpression.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42021999AFE0018396F /* ZIMSqlDeleteStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34621999AFE0018396F /* ZIMSqlDeleteStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42121999AFE0018396F /* ZIMSqlDeleteStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34621999AFE0018396F /* ZIMSqlDeleteStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42221999AFE0018396F /* ZIMSqlDeleteStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34621999AFE0018396F /* ZIMSqlDeleteStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42321999AFE0018396F /* ZIMSqlDeleteStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34621999AFE0018396F /* ZIMSqlDeleteStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42421999AFE0018396F /* ZIMSqlAlterTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34721999AFE0018396F /* ZIMSqlAlterTableStatement.m */; };
+		41C6F42521999AFE0018396F /* ZIMSqlAlterTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34721999AFE0018396F /* ZIMSqlAlterTableStatement.m */; };
+		41C6F42621999AFE0018396F /* ZIMSqlAlterTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34721999AFE0018396F /* ZIMSqlAlterTableStatement.m */; };
+		41C6F42721999AFE0018396F /* ZIMSqlAlterTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34721999AFE0018396F /* ZIMSqlAlterTableStatement.m */; };
+		41C6F42821999AFE0018396F /* ZIMSqlDataControlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34821999AFE0018396F /* ZIMSqlDataControlCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42921999AFE0018396F /* ZIMSqlDataControlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34821999AFE0018396F /* ZIMSqlDataControlCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42A21999AFE0018396F /* ZIMSqlDataControlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34821999AFE0018396F /* ZIMSqlDataControlCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42B21999AFE0018396F /* ZIMSqlDataControlCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34821999AFE0018396F /* ZIMSqlDataControlCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42C21999AFE0018396F /* ZIMSqlReindexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34921999AFE0018396F /* ZIMSqlReindexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42D21999AFE0018396F /* ZIMSqlReindexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34921999AFE0018396F /* ZIMSqlReindexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42E21999AFE0018396F /* ZIMSqlReindexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34921999AFE0018396F /* ZIMSqlReindexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F42F21999AFE0018396F /* ZIMSqlReindexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34921999AFE0018396F /* ZIMSqlReindexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F43021999AFE0018396F /* ZIMSqlTruncateTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34A21999AFE0018396F /* ZIMSqlTruncateTableStatement.m */; };
+		41C6F43121999AFE0018396F /* ZIMSqlTruncateTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34A21999AFE0018396F /* ZIMSqlTruncateTableStatement.m */; };
+		41C6F43221999AFE0018396F /* ZIMSqlTruncateTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34A21999AFE0018396F /* ZIMSqlTruncateTableStatement.m */; };
+		41C6F43321999AFE0018396F /* ZIMSqlTruncateTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34A21999AFE0018396F /* ZIMSqlTruncateTableStatement.m */; };
+		41C6F43421999AFE0018396F /* ZIMSqlCreateTriggerStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34B21999AFE0018396F /* ZIMSqlCreateTriggerStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F43521999AFE0018396F /* ZIMSqlCreateTriggerStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34B21999AFE0018396F /* ZIMSqlCreateTriggerStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F43621999AFE0018396F /* ZIMSqlCreateTriggerStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34B21999AFE0018396F /* ZIMSqlCreateTriggerStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F43721999AFE0018396F /* ZIMSqlCreateTriggerStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34B21999AFE0018396F /* ZIMSqlCreateTriggerStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F43821999AFE0018396F /* ZIMSqlSelectStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34C21999AFE0018396F /* ZIMSqlSelectStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F43921999AFE0018396F /* ZIMSqlSelectStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34C21999AFE0018396F /* ZIMSqlSelectStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F43A21999AFE0018396F /* ZIMSqlSelectStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34C21999AFE0018396F /* ZIMSqlSelectStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F43B21999AFE0018396F /* ZIMSqlSelectStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34C21999AFE0018396F /* ZIMSqlSelectStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F43C21999AFE0018396F /* ZIMSqlCreateIndexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34D21999AFE0018396F /* ZIMSqlCreateIndexStatement.m */; };
+		41C6F43D21999AFE0018396F /* ZIMSqlCreateIndexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34D21999AFE0018396F /* ZIMSqlCreateIndexStatement.m */; };
+		41C6F43E21999AFE0018396F /* ZIMSqlCreateIndexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34D21999AFE0018396F /* ZIMSqlCreateIndexStatement.m */; };
+		41C6F43F21999AFE0018396F /* ZIMSqlCreateIndexStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34D21999AFE0018396F /* ZIMSqlCreateIndexStatement.m */; };
+		41C6F44021999AFE0018396F /* ZIMSqlShowTablesStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34E21999AFE0018396F /* ZIMSqlShowTablesStatement.m */; };
+		41C6F44121999AFE0018396F /* ZIMSqlShowTablesStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34E21999AFE0018396F /* ZIMSqlShowTablesStatement.m */; };
+		41C6F44221999AFE0018396F /* ZIMSqlShowTablesStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34E21999AFE0018396F /* ZIMSqlShowTablesStatement.m */; };
+		41C6F44321999AFE0018396F /* ZIMSqlShowTablesStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F34E21999AFE0018396F /* ZIMSqlShowTablesStatement.m */; };
+		41C6F44421999AFE0018396F /* ZIMSqlUpdateStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34F21999AFE0018396F /* ZIMSqlUpdateStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F44521999AFE0018396F /* ZIMSqlUpdateStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34F21999AFE0018396F /* ZIMSqlUpdateStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F44621999AFE0018396F /* ZIMSqlUpdateStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34F21999AFE0018396F /* ZIMSqlUpdateStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F44721999AFE0018396F /* ZIMSqlUpdateStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F34F21999AFE0018396F /* ZIMSqlUpdateStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F44821999AFE0018396F /* ZIMSqlDropTriggerStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35021999AFE0018396F /* ZIMSqlDropTriggerStatement.m */; };
+		41C6F44921999AFE0018396F /* ZIMSqlDropTriggerStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35021999AFE0018396F /* ZIMSqlDropTriggerStatement.m */; };
+		41C6F44A21999AFE0018396F /* ZIMSqlDropTriggerStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35021999AFE0018396F /* ZIMSqlDropTriggerStatement.m */; };
+		41C6F44B21999AFE0018396F /* ZIMSqlDropTriggerStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35021999AFE0018396F /* ZIMSqlDropTriggerStatement.m */; };
+		41C6F44C21999AFE0018396F /* ZIMSqlAnalyzeStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35121999AFE0018396F /* ZIMSqlAnalyzeStatement.m */; };
+		41C6F44D21999AFE0018396F /* ZIMSqlAnalyzeStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35121999AFE0018396F /* ZIMSqlAnalyzeStatement.m */; };
+		41C6F44E21999AFE0018396F /* ZIMSqlAnalyzeStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35121999AFE0018396F /* ZIMSqlAnalyzeStatement.m */; };
+		41C6F44F21999AFE0018396F /* ZIMSqlAnalyzeStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35121999AFE0018396F /* ZIMSqlAnalyzeStatement.m */; };
+		41C6F45021999AFE0018396F /* ZIMSqlDataDefinitionCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35221999AFE0018396F /* ZIMSqlDataDefinitionCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45121999AFE0018396F /* ZIMSqlDataDefinitionCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35221999AFE0018396F /* ZIMSqlDataDefinitionCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45221999AFE0018396F /* ZIMSqlDataDefinitionCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35221999AFE0018396F /* ZIMSqlDataDefinitionCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45321999AFE0018396F /* ZIMSqlDataDefinitionCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35221999AFE0018396F /* ZIMSqlDataDefinitionCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45421999AFE0018396F /* ZIMSqlShowViewsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35321999AFE0018396F /* ZIMSqlShowViewsStatement.m */; };
+		41C6F45521999AFE0018396F /* ZIMSqlShowViewsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35321999AFE0018396F /* ZIMSqlShowViewsStatement.m */; };
+		41C6F45621999AFE0018396F /* ZIMSqlShowViewsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35321999AFE0018396F /* ZIMSqlShowViewsStatement.m */; };
+		41C6F45721999AFE0018396F /* ZIMSqlShowViewsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35321999AFE0018396F /* ZIMSqlShowViewsStatement.m */; };
+		41C6F45821999AFE0018396F /* ZIMSqlShowGrantsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35421999AFE0018396F /* ZIMSqlShowGrantsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45921999AFE0018396F /* ZIMSqlShowGrantsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35421999AFE0018396F /* ZIMSqlShowGrantsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45A21999AFE0018396F /* ZIMSqlShowGrantsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35421999AFE0018396F /* ZIMSqlShowGrantsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45B21999AFE0018396F /* ZIMSqlShowGrantsStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35421999AFE0018396F /* ZIMSqlShowGrantsStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45C21999AFE0018396F /* ZIMSqlDetachStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35521999AFE0018396F /* ZIMSqlDetachStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45D21999AFE0018396F /* ZIMSqlDetachStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35521999AFE0018396F /* ZIMSqlDetachStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45E21999AFE0018396F /* ZIMSqlDetachStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35521999AFE0018396F /* ZIMSqlDetachStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F45F21999AFE0018396F /* ZIMSqlDetachStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35521999AFE0018396F /* ZIMSqlDetachStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46021999AFE0018396F /* ZIMSqlUpsertStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35621999AFE0018396F /* ZIMSqlUpsertStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46121999AFE0018396F /* ZIMSqlUpsertStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35621999AFE0018396F /* ZIMSqlUpsertStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46221999AFE0018396F /* ZIMSqlUpsertStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35621999AFE0018396F /* ZIMSqlUpsertStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46321999AFE0018396F /* ZIMSqlUpsertStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35621999AFE0018396F /* ZIMSqlUpsertStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46421999AFE0018396F /* ZIMSqlCreateTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35721999AFE0018396F /* ZIMSqlCreateTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46521999AFE0018396F /* ZIMSqlCreateTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35721999AFE0018396F /* ZIMSqlCreateTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46621999AFE0018396F /* ZIMSqlCreateTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35721999AFE0018396F /* ZIMSqlCreateTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46721999AFE0018396F /* ZIMSqlCreateTableStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35721999AFE0018396F /* ZIMSqlCreateTableStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46821999AFE0018396F /* ZIMSqlExplainStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35821999AFE0018396F /* ZIMSqlExplainStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46921999AFE0018396F /* ZIMSqlExplainStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35821999AFE0018396F /* ZIMSqlExplainStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46A21999AFE0018396F /* ZIMSqlExplainStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35821999AFE0018396F /* ZIMSqlExplainStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46B21999AFE0018396F /* ZIMSqlExplainStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35821999AFE0018396F /* ZIMSqlExplainStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F46C21999AFE0018396F /* ZIMSqlCreateViewStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35921999AFE0018396F /* ZIMSqlCreateViewStatement.m */; };
+		41C6F46D21999AFE0018396F /* ZIMSqlCreateViewStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35921999AFE0018396F /* ZIMSqlCreateViewStatement.m */; };
+		41C6F46E21999AFE0018396F /* ZIMSqlCreateViewStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35921999AFE0018396F /* ZIMSqlCreateViewStatement.m */; };
+		41C6F46F21999AFE0018396F /* ZIMSqlCreateViewStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35921999AFE0018396F /* ZIMSqlCreateViewStatement.m */; };
+		41C6F47021999AFE0018396F /* ZIMSqlDropTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35A21999AFE0018396F /* ZIMSqlDropTableStatement.m */; };
+		41C6F47121999AFE0018396F /* ZIMSqlDropTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35A21999AFE0018396F /* ZIMSqlDropTableStatement.m */; };
+		41C6F47221999AFE0018396F /* ZIMSqlDropTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35A21999AFE0018396F /* ZIMSqlDropTableStatement.m */; };
+		41C6F47321999AFE0018396F /* ZIMSqlDropTableStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35A21999AFE0018396F /* ZIMSqlDropTableStatement.m */; };
+		41C6F47421999AFE0018396F /* ZIMSqlDropIndexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35B21999AFE0018396F /* ZIMSqlDropIndexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F47521999AFE0018396F /* ZIMSqlDropIndexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35B21999AFE0018396F /* ZIMSqlDropIndexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F47621999AFE0018396F /* ZIMSqlDropIndexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35B21999AFE0018396F /* ZIMSqlDropIndexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F47721999AFE0018396F /* ZIMSqlDropIndexStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35B21999AFE0018396F /* ZIMSqlDropIndexStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F47821999AFE0018396F /* ZIMSqlAttachStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35C21999AFE0018396F /* ZIMSqlAttachStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F47921999AFE0018396F /* ZIMSqlAttachStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35C21999AFE0018396F /* ZIMSqlAttachStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F47A21999AFE0018396F /* ZIMSqlAttachStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35C21999AFE0018396F /* ZIMSqlAttachStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F47B21999AFE0018396F /* ZIMSqlAttachStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35C21999AFE0018396F /* ZIMSqlAttachStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F47C21999AFE0018396F /* ZIMSqlShowColumnsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35D21999AFE0018396F /* ZIMSqlShowColumnsStatement.m */; };
+		41C6F47D21999AFE0018396F /* ZIMSqlShowColumnsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35D21999AFE0018396F /* ZIMSqlShowColumnsStatement.m */; };
+		41C6F47E21999AFE0018396F /* ZIMSqlShowColumnsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35D21999AFE0018396F /* ZIMSqlShowColumnsStatement.m */; };
+		41C6F47F21999AFE0018396F /* ZIMSqlShowColumnsStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F35D21999AFE0018396F /* ZIMSqlShowColumnsStatement.m */; };
+		41C6F48021999AFE0018396F /* ZIMSqlStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35E21999AFE0018396F /* ZIMSqlStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48121999AFE0018396F /* ZIMSqlStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35E21999AFE0018396F /* ZIMSqlStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48221999AFE0018396F /* ZIMSqlStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35E21999AFE0018396F /* ZIMSqlStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48321999AFE0018396F /* ZIMSqlStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35E21999AFE0018396F /* ZIMSqlStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48421999AFE0018396F /* ZIMSqlTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35F21999AFE0018396F /* ZIMSqlTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48521999AFE0018396F /* ZIMSqlTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35F21999AFE0018396F /* ZIMSqlTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48621999AFE0018396F /* ZIMSqlTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35F21999AFE0018396F /* ZIMSqlTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48721999AFE0018396F /* ZIMSqlTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F35F21999AFE0018396F /* ZIMSqlTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48821999AFE0018396F /* ZIMSqlPreparedStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F36021999AFE0018396F /* ZIMSqlPreparedStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48921999AFE0018396F /* ZIMSqlPreparedStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F36021999AFE0018396F /* ZIMSqlPreparedStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48A21999AFE0018396F /* ZIMSqlPreparedStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F36021999AFE0018396F /* ZIMSqlPreparedStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48B21999AFE0018396F /* ZIMSqlPreparedStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F36021999AFE0018396F /* ZIMSqlPreparedStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F48C21999AFE0018396F /* ZIMSqlInsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F36121999AFE0018396F /* ZIMSqlInsertStatement.m */; };
+		41C6F48D21999AFE0018396F /* ZIMSqlInsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F36121999AFE0018396F /* ZIMSqlInsertStatement.m */; };
+		41C6F48E21999AFE0018396F /* ZIMSqlInsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F36121999AFE0018396F /* ZIMSqlInsertStatement.m */; };
+		41C6F48F21999AFE0018396F /* ZIMSqlInsertStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F36121999AFE0018396F /* ZIMSqlInsertStatement.m */; };
+		41C6F49021999AFE0018396F /* ZIMSqlDropViewStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F36221999AFE0018396F /* ZIMSqlDropViewStatement.m */; };
+		41C6F49121999AFE0018396F /* ZIMSqlDropViewStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F36221999AFE0018396F /* ZIMSqlDropViewStatement.m */; };
+		41C6F49221999AFE0018396F /* ZIMSqlDropViewStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F36221999AFE0018396F /* ZIMSqlDropViewStatement.m */; };
+		41C6F49321999AFE0018396F /* ZIMSqlDropViewStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C6F36221999AFE0018396F /* ZIMSqlDropViewStatement.m */; };
+		41C6F49421999AFE0018396F /* ZIMSqlShowTriggersStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F36321999AFE0018396F /* ZIMSqlShowTriggersStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F49521999AFE0018396F /* ZIMSqlShowTriggersStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F36321999AFE0018396F /* ZIMSqlShowTriggersStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F49621999AFE0018396F /* ZIMSqlShowTriggersStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F36321999AFE0018396F /* ZIMSqlShowTriggersStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41C6F49721999AFE0018396F /* ZIMSqlShowTriggersStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 41C6F36321999AFE0018396F /* ZIMSqlShowTriggersStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C5A76761ED95A50004F87A2 /* ZIMSqlQueryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C5A76751ED95A50004F87A2 /* ZIMSqlQueryBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C5A76771ED95B66004F87A2 /* ZIMSqlQueryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C5A76751ED95A50004F87A2 /* ZIMSqlQueryBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C5A76781ED95B66004F87A2 /* ZIMSqlQueryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C5A76751ED95A50004F87A2 /* ZIMSqlQueryBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C5A76791ED95B67004F87A2 /* ZIMSqlQueryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C5A76751ED95A50004F87A2 /* ZIMSqlQueryBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		41C6F31321999AFE0018396F /* ZIMMessageDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMMessageDigest.h; sourceTree = "<group>"; };
+		41C6F31421999AFE0018396F /* ZIMMessageDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMMessageDigest.m; sourceTree = "<group>"; };
+		41C6F31621999AFE0018396F /* NSString+ZIMString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZIMString.m"; sourceTree = "<group>"; };
+		41C6F31721999AFE0018396F /* NSString+ZIMString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZIMString.h"; sourceTree = "<group>"; };
+		41C6F31921999AFE0018396F /* ZIMDbConnectionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDbConnectionPool.h; sourceTree = "<group>"; };
+		41C6F31A21999AFE0018396F /* ZIMDbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMDbConnection.m; sourceTree = "<group>"; };
+		41C6F31B21999AFE0018396F /* ZIMDbSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDbSdk.h; sourceTree = "<group>"; };
+		41C6F31C21999AFE0018396F /* ZIMDbConnectionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMDbConnectionPool.m; sourceTree = "<group>"; };
+		41C6F31D21999AFE0018396F /* ZIMDbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMDbConnection.h; sourceTree = "<group>"; };
+		41C6F31F21999AFE0018396F /* ZIMOrmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMOrmModel.h; sourceTree = "<group>"; };
+		41C6F32021999AFE0018396F /* ZIMOrmSelectStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMOrmSelectStatement.m; sourceTree = "<group>"; };
+		41C6F32121999AFE0018396F /* ZIMOrmModelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMOrmModelDelegate.h; sourceTree = "<group>"; };
+		41C6F32221999AFE0018396F /* ZIMOrmSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMOrmSdk.h; sourceTree = "<group>"; };
+		41C6F32321999AFE0018396F /* ZIMOrmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMOrmModel.m; sourceTree = "<group>"; };
+		41C6F32421999AFE0018396F /* ZIMOrmSelectStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMOrmSelectStatement.h; sourceTree = "<group>"; };
+		41C6F32621999AFE0018396F /* ZIMSqlReindexStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlReindexStatement.m; sourceTree = "<group>"; };
+		41C6F32721999AFE0018396F /* ZIMSqlTruncateTableStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlTruncateTableStatement.h; sourceTree = "<group>"; };
+		41C6F32821999AFE0018396F /* ZIMSqlCreateTriggerStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlCreateTriggerStatement.m; sourceTree = "<group>"; };
+		41C6F32921999AFE0018396F /* ZIMSqlAlterTableStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlAlterTableStatement.h; sourceTree = "<group>"; };
+		41C6F32A21999AFE0018396F /* ZIMSqlDeleteStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDeleteStatement.m; sourceTree = "<group>"; };
+		41C6F32B21999AFE0018396F /* ZIMSqlExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlExpression.m; sourceTree = "<group>"; };
+		41C6F32C21999AFE0018396F /* ZIMSqlCreateTableStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlCreateTableStatement.m; sourceTree = "<group>"; };
+		41C6F32D21999AFE0018396F /* ZIMSqlUpsertStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlUpsertStatement.m; sourceTree = "<group>"; };
+		41C6F32E21999AFE0018396F /* ZIMSqlDetachStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDetachStatement.m; sourceTree = "<group>"; };
+		41C6F32F21999AFE0018396F /* ZIMSqlShowViewsStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlShowViewsStatement.h; sourceTree = "<group>"; };
+		41C6F33021999AFE0018396F /* ZIMSqlShowGrantsStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlShowGrantsStatement.m; sourceTree = "<group>"; };
+		41C6F33121999AFE0018396F /* ZIMSqlAnalyzeStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlAnalyzeStatement.h; sourceTree = "<group>"; };
+		41C6F33221999AFE0018396F /* ZIMSqlDropTriggerStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDropTriggerStatement.h; sourceTree = "<group>"; };
+		41C6F33321999AFE0018396F /* ZIMSqlUpdateStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlUpdateStatement.m; sourceTree = "<group>"; };
+		41C6F33421999AFE0018396F /* ZIMSqlShowTablesStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlShowTablesStatement.h; sourceTree = "<group>"; };
+		41C6F33521999AFE0018396F /* ZIMSqlSelectStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlSelectStatement.m; sourceTree = "<group>"; };
+		41C6F33621999AFE0018396F /* ZIMSqlCreateIndexStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlCreateIndexStatement.h; sourceTree = "<group>"; };
+		41C6F33721999AFE0018396F /* ZIMSqlTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlTokenizer.m; sourceTree = "<group>"; };
+		41C6F33821999AFE0018396F /* ZIMSqlAttachStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlAttachStatement.m; sourceTree = "<group>"; };
+		41C6F33921999AFE0018396F /* ZIMSqlShowColumnsStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlShowColumnsStatement.h; sourceTree = "<group>"; };
+		41C6F33A21999AFE0018396F /* ZIMSqlDropIndexStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDropIndexStatement.m; sourceTree = "<group>"; };
+		41C6F33B21999AFE0018396F /* ZIMSqlDropTableStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDropTableStatement.h; sourceTree = "<group>"; };
+		41C6F33C21999AFE0018396F /* ZIMSqlCreateViewStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlCreateViewStatement.h; sourceTree = "<group>"; };
+		41C6F33D21999AFE0018396F /* ZIMSqlExplainStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlExplainStatement.m; sourceTree = "<group>"; };
+		41C6F33E21999AFE0018396F /* ZIMSqlShowTriggersStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlShowTriggersStatement.m; sourceTree = "<group>"; };
+		41C6F33F21999AFE0018396F /* ZIMSqlDropViewStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDropViewStatement.h; sourceTree = "<group>"; };
+		41C6F34021999AFE0018396F /* ZIMSqlInsertStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlInsertStatement.h; sourceTree = "<group>"; };
+		41C6F34121999AFE0018396F /* ZIMSqlPreparedStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlPreparedStatement.m; sourceTree = "<group>"; };
+		41C6F34221999AFE0018396F /* ZIMSqlTransactionControlCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlTransactionControlCommand.h; sourceTree = "<group>"; };
+		41C6F34321999AFE0018396F /* ZIMSqlSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlSdk.h; sourceTree = "<group>"; };
+		41C6F34421999AFE0018396F /* ZIMSqlDataManipulationCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDataManipulationCommand.h; sourceTree = "<group>"; };
+		41C6F34521999AFE0018396F /* ZIMSqlExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlExpression.h; sourceTree = "<group>"; };
+		41C6F34621999AFE0018396F /* ZIMSqlDeleteStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDeleteStatement.h; sourceTree = "<group>"; };
+		41C6F34721999AFE0018396F /* ZIMSqlAlterTableStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlAlterTableStatement.m; sourceTree = "<group>"; };
+		41C6F34821999AFE0018396F /* ZIMSqlDataControlCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDataControlCommand.h; sourceTree = "<group>"; };
+		41C6F34921999AFE0018396F /* ZIMSqlReindexStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlReindexStatement.h; sourceTree = "<group>"; };
+		41C6F34A21999AFE0018396F /* ZIMSqlTruncateTableStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlTruncateTableStatement.m; sourceTree = "<group>"; };
+		41C6F34B21999AFE0018396F /* ZIMSqlCreateTriggerStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlCreateTriggerStatement.h; sourceTree = "<group>"; };
+		41C6F34C21999AFE0018396F /* ZIMSqlSelectStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlSelectStatement.h; sourceTree = "<group>"; };
+		41C6F34D21999AFE0018396F /* ZIMSqlCreateIndexStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlCreateIndexStatement.m; sourceTree = "<group>"; };
+		41C6F34E21999AFE0018396F /* ZIMSqlShowTablesStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlShowTablesStatement.m; sourceTree = "<group>"; };
+		41C6F34F21999AFE0018396F /* ZIMSqlUpdateStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlUpdateStatement.h; sourceTree = "<group>"; };
+		41C6F35021999AFE0018396F /* ZIMSqlDropTriggerStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDropTriggerStatement.m; sourceTree = "<group>"; };
+		41C6F35121999AFE0018396F /* ZIMSqlAnalyzeStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlAnalyzeStatement.m; sourceTree = "<group>"; };
+		41C6F35221999AFE0018396F /* ZIMSqlDataDefinitionCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDataDefinitionCommand.h; sourceTree = "<group>"; };
+		41C6F35321999AFE0018396F /* ZIMSqlShowViewsStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlShowViewsStatement.m; sourceTree = "<group>"; };
+		41C6F35421999AFE0018396F /* ZIMSqlShowGrantsStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlShowGrantsStatement.h; sourceTree = "<group>"; };
+		41C6F35521999AFE0018396F /* ZIMSqlDetachStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDetachStatement.h; sourceTree = "<group>"; };
+		41C6F35621999AFE0018396F /* ZIMSqlUpsertStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlUpsertStatement.h; sourceTree = "<group>"; };
+		41C6F35721999AFE0018396F /* ZIMSqlCreateTableStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlCreateTableStatement.h; sourceTree = "<group>"; };
+		41C6F35821999AFE0018396F /* ZIMSqlExplainStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlExplainStatement.h; sourceTree = "<group>"; };
+		41C6F35921999AFE0018396F /* ZIMSqlCreateViewStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlCreateViewStatement.m; sourceTree = "<group>"; };
+		41C6F35A21999AFE0018396F /* ZIMSqlDropTableStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDropTableStatement.m; sourceTree = "<group>"; };
+		41C6F35B21999AFE0018396F /* ZIMSqlDropIndexStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlDropIndexStatement.h; sourceTree = "<group>"; };
+		41C6F35C21999AFE0018396F /* ZIMSqlAttachStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlAttachStatement.h; sourceTree = "<group>"; };
+		41C6F35D21999AFE0018396F /* ZIMSqlShowColumnsStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlShowColumnsStatement.m; sourceTree = "<group>"; };
+		41C6F35E21999AFE0018396F /* ZIMSqlStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlStatement.h; sourceTree = "<group>"; };
+		41C6F35F21999AFE0018396F /* ZIMSqlTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlTokenizer.h; sourceTree = "<group>"; };
+		41C6F36021999AFE0018396F /* ZIMSqlPreparedStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlPreparedStatement.h; sourceTree = "<group>"; };
+		41C6F36121999AFE0018396F /* ZIMSqlInsertStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlInsertStatement.m; sourceTree = "<group>"; };
+		41C6F36221999AFE0018396F /* ZIMSqlDropViewStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZIMSqlDropViewStatement.m; sourceTree = "<group>"; };
+		41C6F36321999AFE0018396F /* ZIMSqlShowTriggersStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlShowTriggersStatement.h; sourceTree = "<group>"; };
+		8C0968781ED8C64500CC19F2 /* ZIMSqlQueryBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZIMSqlQueryBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0968861ED8C99400CC19F2 /* ZIMSqlQueryBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZIMSqlQueryBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0968931ED8CBF300CC19F2 /* ZIMSqlQueryBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZIMSqlQueryBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0968A01ED8CE5500CC19F2 /* ZIMSqlQueryBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZIMSqlQueryBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0968A91ED8D80300CC19F2 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		8C0968AA1ED8D80300CC19F2 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
+		8C0968AB1ED8D80300CC19F2 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
+		8C0968AC1ED8D80300CC19F2 /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-watchOS.plist"; sourceTree = "<group>"; };
+		8C5A76751ED95A50004F87A2 /* ZIMSqlQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZIMSqlQueryBuilder.h; sourceTree = "<group>"; };
+		8C800AF41F3B56FF00880A95 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C0968741ED8C64500CC19F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0968821ED8C99400CC19F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C09688F1ED8CBF300CC19F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C09689C1ED8CE5500CC19F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		41C6F31121999AFE0018396F /* src */ = {
+			isa = PBXGroup;
+			children = (
+				41C6F31221999AFE0018396F /* util */,
+				41C6F31521999AFE0018396F /* ext */,
+				41C6F31821999AFE0018396F /* db */,
+				41C6F31E21999AFE0018396F /* orm */,
+				41C6F32521999AFE0018396F /* sql */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+		41C6F31221999AFE0018396F /* util */ = {
+			isa = PBXGroup;
+			children = (
+				41C6F31321999AFE0018396F /* ZIMMessageDigest.h */,
+				41C6F31421999AFE0018396F /* ZIMMessageDigest.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		41C6F31521999AFE0018396F /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				41C6F31621999AFE0018396F /* NSString+ZIMString.m */,
+				41C6F31721999AFE0018396F /* NSString+ZIMString.h */,
+			);
+			path = ext;
+			sourceTree = "<group>";
+		};
+		41C6F31821999AFE0018396F /* db */ = {
+			isa = PBXGroup;
+			children = (
+				41C6F31921999AFE0018396F /* ZIMDbConnectionPool.h */,
+				41C6F31A21999AFE0018396F /* ZIMDbConnection.m */,
+				41C6F31B21999AFE0018396F /* ZIMDbSdk.h */,
+				41C6F31C21999AFE0018396F /* ZIMDbConnectionPool.m */,
+				41C6F31D21999AFE0018396F /* ZIMDbConnection.h */,
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
+		41C6F31E21999AFE0018396F /* orm */ = {
+			isa = PBXGroup;
+			children = (
+				41C6F31F21999AFE0018396F /* ZIMOrmModel.h */,
+				41C6F32021999AFE0018396F /* ZIMOrmSelectStatement.m */,
+				41C6F32121999AFE0018396F /* ZIMOrmModelDelegate.h */,
+				41C6F32221999AFE0018396F /* ZIMOrmSdk.h */,
+				41C6F32321999AFE0018396F /* ZIMOrmModel.m */,
+				41C6F32421999AFE0018396F /* ZIMOrmSelectStatement.h */,
+			);
+			path = orm;
+			sourceTree = "<group>";
+		};
+		41C6F32521999AFE0018396F /* sql */ = {
+			isa = PBXGroup;
+			children = (
+				41C6F32621999AFE0018396F /* ZIMSqlReindexStatement.m */,
+				41C6F32721999AFE0018396F /* ZIMSqlTruncateTableStatement.h */,
+				41C6F32821999AFE0018396F /* ZIMSqlCreateTriggerStatement.m */,
+				41C6F32921999AFE0018396F /* ZIMSqlAlterTableStatement.h */,
+				41C6F32A21999AFE0018396F /* ZIMSqlDeleteStatement.m */,
+				41C6F32B21999AFE0018396F /* ZIMSqlExpression.m */,
+				41C6F32C21999AFE0018396F /* ZIMSqlCreateTableStatement.m */,
+				41C6F32D21999AFE0018396F /* ZIMSqlUpsertStatement.m */,
+				41C6F32E21999AFE0018396F /* ZIMSqlDetachStatement.m */,
+				41C6F32F21999AFE0018396F /* ZIMSqlShowViewsStatement.h */,
+				41C6F33021999AFE0018396F /* ZIMSqlShowGrantsStatement.m */,
+				41C6F33121999AFE0018396F /* ZIMSqlAnalyzeStatement.h */,
+				41C6F33221999AFE0018396F /* ZIMSqlDropTriggerStatement.h */,
+				41C6F33321999AFE0018396F /* ZIMSqlUpdateStatement.m */,
+				41C6F33421999AFE0018396F /* ZIMSqlShowTablesStatement.h */,
+				41C6F33521999AFE0018396F /* ZIMSqlSelectStatement.m */,
+				41C6F33621999AFE0018396F /* ZIMSqlCreateIndexStatement.h */,
+				41C6F33721999AFE0018396F /* ZIMSqlTokenizer.m */,
+				41C6F33821999AFE0018396F /* ZIMSqlAttachStatement.m */,
+				41C6F33921999AFE0018396F /* ZIMSqlShowColumnsStatement.h */,
+				41C6F33A21999AFE0018396F /* ZIMSqlDropIndexStatement.m */,
+				41C6F33B21999AFE0018396F /* ZIMSqlDropTableStatement.h */,
+				41C6F33C21999AFE0018396F /* ZIMSqlCreateViewStatement.h */,
+				41C6F33D21999AFE0018396F /* ZIMSqlExplainStatement.m */,
+				41C6F33E21999AFE0018396F /* ZIMSqlShowTriggersStatement.m */,
+				41C6F33F21999AFE0018396F /* ZIMSqlDropViewStatement.h */,
+				41C6F34021999AFE0018396F /* ZIMSqlInsertStatement.h */,
+				41C6F34121999AFE0018396F /* ZIMSqlPreparedStatement.m */,
+				41C6F34221999AFE0018396F /* ZIMSqlTransactionControlCommand.h */,
+				41C6F34321999AFE0018396F /* ZIMSqlSdk.h */,
+				41C6F34421999AFE0018396F /* ZIMSqlDataManipulationCommand.h */,
+				41C6F34521999AFE0018396F /* ZIMSqlExpression.h */,
+				41C6F34621999AFE0018396F /* ZIMSqlDeleteStatement.h */,
+				41C6F34721999AFE0018396F /* ZIMSqlAlterTableStatement.m */,
+				41C6F34821999AFE0018396F /* ZIMSqlDataControlCommand.h */,
+				41C6F34921999AFE0018396F /* ZIMSqlReindexStatement.h */,
+				41C6F34A21999AFE0018396F /* ZIMSqlTruncateTableStatement.m */,
+				41C6F34B21999AFE0018396F /* ZIMSqlCreateTriggerStatement.h */,
+				41C6F34C21999AFE0018396F /* ZIMSqlSelectStatement.h */,
+				41C6F34D21999AFE0018396F /* ZIMSqlCreateIndexStatement.m */,
+				41C6F34E21999AFE0018396F /* ZIMSqlShowTablesStatement.m */,
+				41C6F34F21999AFE0018396F /* ZIMSqlUpdateStatement.h */,
+				41C6F35021999AFE0018396F /* ZIMSqlDropTriggerStatement.m */,
+				41C6F35121999AFE0018396F /* ZIMSqlAnalyzeStatement.m */,
+				41C6F35221999AFE0018396F /* ZIMSqlDataDefinitionCommand.h */,
+				41C6F35321999AFE0018396F /* ZIMSqlShowViewsStatement.m */,
+				41C6F35421999AFE0018396F /* ZIMSqlShowGrantsStatement.h */,
+				41C6F35521999AFE0018396F /* ZIMSqlDetachStatement.h */,
+				41C6F35621999AFE0018396F /* ZIMSqlUpsertStatement.h */,
+				41C6F35721999AFE0018396F /* ZIMSqlCreateTableStatement.h */,
+				41C6F35821999AFE0018396F /* ZIMSqlExplainStatement.h */,
+				41C6F35921999AFE0018396F /* ZIMSqlCreateViewStatement.m */,
+				41C6F35A21999AFE0018396F /* ZIMSqlDropTableStatement.m */,
+				41C6F35B21999AFE0018396F /* ZIMSqlDropIndexStatement.h */,
+				41C6F35C21999AFE0018396F /* ZIMSqlAttachStatement.h */,
+				41C6F35D21999AFE0018396F /* ZIMSqlShowColumnsStatement.m */,
+				41C6F35E21999AFE0018396F /* ZIMSqlStatement.h */,
+				41C6F35F21999AFE0018396F /* ZIMSqlTokenizer.h */,
+				41C6F36021999AFE0018396F /* ZIMSqlPreparedStatement.h */,
+				41C6F36121999AFE0018396F /* ZIMSqlInsertStatement.m */,
+				41C6F36221999AFE0018396F /* ZIMSqlDropViewStatement.m */,
+				41C6F36321999AFE0018396F /* ZIMSqlShowTriggersStatement.h */,
+			);
+			path = sql;
+			sourceTree = "<group>";
+		};
+		8C09686C1ED8C3A200CC19F2 = {
+			isa = PBXGroup;
+			children = (
+				41C6F31121999AFE0018396F /* src */,
+				8C0968A81ED8D24F00CC19F2 /* Sources */,
+				8C0968791ED8C64500CC19F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8C0968791ED8C64500CC19F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C0968781ED8C64500CC19F2 /* ZIMSqlQueryBuilder.framework */,
+				8C0968861ED8C99400CC19F2 /* ZIMSqlQueryBuilder.framework */,
+				8C0968931ED8CBF300CC19F2 /* ZIMSqlQueryBuilder.framework */,
+				8C0968A01ED8CE5500CC19F2 /* ZIMSqlQueryBuilder.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C0968A81ED8D24F00CC19F2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8C0968A91ED8D80300CC19F2 /* Info-iOS.plist */,
+				8C0968AA1ED8D80300CC19F2 /* Info-macOS.plist */,
+				8C0968AB1ED8D80300CC19F2 /* Info-tvOS.plist */,
+				8C0968AC1ED8D80300CC19F2 /* Info-watchOS.plist */,
+				8C5A76751ED95A50004F87A2 /* ZIMSqlQueryBuilder.h */,
+				8C800AF41F3B56FF00880A95 /* README.md */,
+			);
+			name = Sources;
+			path = Sources/ZIMSqlQueryBuilder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8C0968751ED8C64500CC19F2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C6F45C21999AFE0018396F /* ZIMSqlDetachStatement.h in Headers */,
+				41C6F3F421999AFE0018396F /* ZIMSqlDropTableStatement.h in Headers */,
+				8C5A76761ED95A50004F87A2 /* ZIMSqlQueryBuilder.h in Headers */,
+				41C6F45821999AFE0018396F /* ZIMSqlShowGrantsStatement.h in Headers */,
+				41C6F48421999AFE0018396F /* ZIMSqlTokenizer.h in Headers */,
+				41C6F42821999AFE0018396F /* ZIMSqlDataControlCommand.h in Headers */,
+				41C6F3C421999AFE0018396F /* ZIMSqlShowViewsStatement.h in Headers */,
+				41C6F47421999AFE0018396F /* ZIMSqlDropIndexStatement.h in Headers */,
+				41C6F41421999AFE0018396F /* ZIMSqlSdk.h in Headers */,
+				41C6F44421999AFE0018396F /* ZIMSqlUpdateStatement.h in Headers */,
+				41C6F41821999AFE0018396F /* ZIMSqlDataManipulationCommand.h in Headers */,
+				41C6F3D821999AFE0018396F /* ZIMSqlShowTablesStatement.h in Headers */,
+				41C6F3D021999AFE0018396F /* ZIMSqlDropTriggerStatement.h in Headers */,
+				41C6F42C21999AFE0018396F /* ZIMSqlReindexStatement.h in Headers */,
+				41C6F46821999AFE0018396F /* ZIMSqlExplainStatement.h in Headers */,
+				41C6F3F821999AFE0018396F /* ZIMSqlCreateViewStatement.h in Headers */,
+				41C6F46021999AFE0018396F /* ZIMSqlUpsertStatement.h in Headers */,
+				41C6F38421999AFE0018396F /* ZIMDbConnection.h in Headers */,
+				41C6F40421999AFE0018396F /* ZIMSqlDropViewStatement.h in Headers */,
+				41C6F42021999AFE0018396F /* ZIMSqlDeleteStatement.h in Headers */,
+				41C6F49421999AFE0018396F /* ZIMSqlShowTriggersStatement.h in Headers */,
+				41C6F38821999AFE0018396F /* ZIMOrmModel.h in Headers */,
+				41C6F37C21999AFE0018396F /* ZIMDbSdk.h in Headers */,
+				41C6F46421999AFE0018396F /* ZIMSqlCreateTableStatement.h in Headers */,
+				41C6F43421999AFE0018396F /* ZIMSqlCreateTriggerStatement.h in Headers */,
+				41C6F3CC21999AFE0018396F /* ZIMSqlAnalyzeStatement.h in Headers */,
+				41C6F37021999AFE0018396F /* NSString+ZIMString.h in Headers */,
+				41C6F39021999AFE0018396F /* ZIMOrmModelDelegate.h in Headers */,
+				41C6F3AC21999AFE0018396F /* ZIMSqlAlterTableStatement.h in Headers */,
+				41C6F45021999AFE0018396F /* ZIMSqlDataDefinitionCommand.h in Headers */,
+				41C6F39C21999AFE0018396F /* ZIMOrmSelectStatement.h in Headers */,
+				41C6F40821999AFE0018396F /* ZIMSqlInsertStatement.h in Headers */,
+				41C6F36421999AFE0018396F /* ZIMMessageDigest.h in Headers */,
+				41C6F3A421999AFE0018396F /* ZIMSqlTruncateTableStatement.h in Headers */,
+				41C6F39421999AFE0018396F /* ZIMOrmSdk.h in Headers */,
+				41C6F37421999AFE0018396F /* ZIMDbConnectionPool.h in Headers */,
+				41C6F41C21999AFE0018396F /* ZIMSqlExpression.h in Headers */,
+				41C6F48821999AFE0018396F /* ZIMSqlPreparedStatement.h in Headers */,
+				41C6F48021999AFE0018396F /* ZIMSqlStatement.h in Headers */,
+				41C6F41021999AFE0018396F /* ZIMSqlTransactionControlCommand.h in Headers */,
+				41C6F43821999AFE0018396F /* ZIMSqlSelectStatement.h in Headers */,
+				41C6F3E021999AFE0018396F /* ZIMSqlCreateIndexStatement.h in Headers */,
+				41C6F3EC21999AFE0018396F /* ZIMSqlShowColumnsStatement.h in Headers */,
+				41C6F47821999AFE0018396F /* ZIMSqlAttachStatement.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0968831ED8C99400CC19F2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C6F45D21999AFE0018396F /* ZIMSqlDetachStatement.h in Headers */,
+				41C6F3F521999AFE0018396F /* ZIMSqlDropTableStatement.h in Headers */,
+				8C5A76771ED95B66004F87A2 /* ZIMSqlQueryBuilder.h in Headers */,
+				41C6F45921999AFE0018396F /* ZIMSqlShowGrantsStatement.h in Headers */,
+				41C6F48521999AFE0018396F /* ZIMSqlTokenizer.h in Headers */,
+				41C6F42921999AFE0018396F /* ZIMSqlDataControlCommand.h in Headers */,
+				41C6F3C521999AFE0018396F /* ZIMSqlShowViewsStatement.h in Headers */,
+				41C6F47521999AFE0018396F /* ZIMSqlDropIndexStatement.h in Headers */,
+				41C6F41521999AFE0018396F /* ZIMSqlSdk.h in Headers */,
+				41C6F44521999AFE0018396F /* ZIMSqlUpdateStatement.h in Headers */,
+				41C6F41921999AFE0018396F /* ZIMSqlDataManipulationCommand.h in Headers */,
+				41C6F3D921999AFE0018396F /* ZIMSqlShowTablesStatement.h in Headers */,
+				41C6F3D121999AFE0018396F /* ZIMSqlDropTriggerStatement.h in Headers */,
+				41C6F42D21999AFE0018396F /* ZIMSqlReindexStatement.h in Headers */,
+				41C6F46921999AFE0018396F /* ZIMSqlExplainStatement.h in Headers */,
+				41C6F3F921999AFE0018396F /* ZIMSqlCreateViewStatement.h in Headers */,
+				41C6F46121999AFE0018396F /* ZIMSqlUpsertStatement.h in Headers */,
+				41C6F38521999AFE0018396F /* ZIMDbConnection.h in Headers */,
+				41C6F40521999AFE0018396F /* ZIMSqlDropViewStatement.h in Headers */,
+				41C6F42121999AFE0018396F /* ZIMSqlDeleteStatement.h in Headers */,
+				41C6F49521999AFE0018396F /* ZIMSqlShowTriggersStatement.h in Headers */,
+				41C6F38921999AFE0018396F /* ZIMOrmModel.h in Headers */,
+				41C6F37D21999AFE0018396F /* ZIMDbSdk.h in Headers */,
+				41C6F46521999AFE0018396F /* ZIMSqlCreateTableStatement.h in Headers */,
+				41C6F43521999AFE0018396F /* ZIMSqlCreateTriggerStatement.h in Headers */,
+				41C6F3CD21999AFE0018396F /* ZIMSqlAnalyzeStatement.h in Headers */,
+				41C6F37121999AFE0018396F /* NSString+ZIMString.h in Headers */,
+				41C6F39121999AFE0018396F /* ZIMOrmModelDelegate.h in Headers */,
+				41C6F3AD21999AFE0018396F /* ZIMSqlAlterTableStatement.h in Headers */,
+				41C6F45121999AFE0018396F /* ZIMSqlDataDefinitionCommand.h in Headers */,
+				41C6F39D21999AFE0018396F /* ZIMOrmSelectStatement.h in Headers */,
+				41C6F40921999AFE0018396F /* ZIMSqlInsertStatement.h in Headers */,
+				41C6F36521999AFE0018396F /* ZIMMessageDigest.h in Headers */,
+				41C6F3A521999AFE0018396F /* ZIMSqlTruncateTableStatement.h in Headers */,
+				41C6F39521999AFE0018396F /* ZIMOrmSdk.h in Headers */,
+				41C6F37521999AFE0018396F /* ZIMDbConnectionPool.h in Headers */,
+				41C6F41D21999AFE0018396F /* ZIMSqlExpression.h in Headers */,
+				41C6F48921999AFE0018396F /* ZIMSqlPreparedStatement.h in Headers */,
+				41C6F48121999AFE0018396F /* ZIMSqlStatement.h in Headers */,
+				41C6F41121999AFE0018396F /* ZIMSqlTransactionControlCommand.h in Headers */,
+				41C6F43921999AFE0018396F /* ZIMSqlSelectStatement.h in Headers */,
+				41C6F3E121999AFE0018396F /* ZIMSqlCreateIndexStatement.h in Headers */,
+				41C6F3ED21999AFE0018396F /* ZIMSqlShowColumnsStatement.h in Headers */,
+				41C6F47921999AFE0018396F /* ZIMSqlAttachStatement.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0968901ED8CBF300CC19F2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C6F45E21999AFE0018396F /* ZIMSqlDetachStatement.h in Headers */,
+				41C6F3F621999AFE0018396F /* ZIMSqlDropTableStatement.h in Headers */,
+				8C5A76781ED95B66004F87A2 /* ZIMSqlQueryBuilder.h in Headers */,
+				41C6F45A21999AFE0018396F /* ZIMSqlShowGrantsStatement.h in Headers */,
+				41C6F48621999AFE0018396F /* ZIMSqlTokenizer.h in Headers */,
+				41C6F42A21999AFE0018396F /* ZIMSqlDataControlCommand.h in Headers */,
+				41C6F3C621999AFE0018396F /* ZIMSqlShowViewsStatement.h in Headers */,
+				41C6F47621999AFE0018396F /* ZIMSqlDropIndexStatement.h in Headers */,
+				41C6F41621999AFE0018396F /* ZIMSqlSdk.h in Headers */,
+				41C6F44621999AFE0018396F /* ZIMSqlUpdateStatement.h in Headers */,
+				41C6F41A21999AFE0018396F /* ZIMSqlDataManipulationCommand.h in Headers */,
+				41C6F3DA21999AFE0018396F /* ZIMSqlShowTablesStatement.h in Headers */,
+				41C6F3D221999AFE0018396F /* ZIMSqlDropTriggerStatement.h in Headers */,
+				41C6F42E21999AFE0018396F /* ZIMSqlReindexStatement.h in Headers */,
+				41C6F46A21999AFE0018396F /* ZIMSqlExplainStatement.h in Headers */,
+				41C6F3FA21999AFE0018396F /* ZIMSqlCreateViewStatement.h in Headers */,
+				41C6F46221999AFE0018396F /* ZIMSqlUpsertStatement.h in Headers */,
+				41C6F38621999AFE0018396F /* ZIMDbConnection.h in Headers */,
+				41C6F40621999AFE0018396F /* ZIMSqlDropViewStatement.h in Headers */,
+				41C6F42221999AFE0018396F /* ZIMSqlDeleteStatement.h in Headers */,
+				41C6F49621999AFE0018396F /* ZIMSqlShowTriggersStatement.h in Headers */,
+				41C6F38A21999AFE0018396F /* ZIMOrmModel.h in Headers */,
+				41C6F37E21999AFE0018396F /* ZIMDbSdk.h in Headers */,
+				41C6F46621999AFE0018396F /* ZIMSqlCreateTableStatement.h in Headers */,
+				41C6F43621999AFE0018396F /* ZIMSqlCreateTriggerStatement.h in Headers */,
+				41C6F3CE21999AFE0018396F /* ZIMSqlAnalyzeStatement.h in Headers */,
+				41C6F37221999AFE0018396F /* NSString+ZIMString.h in Headers */,
+				41C6F39221999AFE0018396F /* ZIMOrmModelDelegate.h in Headers */,
+				41C6F3AE21999AFE0018396F /* ZIMSqlAlterTableStatement.h in Headers */,
+				41C6F45221999AFE0018396F /* ZIMSqlDataDefinitionCommand.h in Headers */,
+				41C6F39E21999AFE0018396F /* ZIMOrmSelectStatement.h in Headers */,
+				41C6F40A21999AFE0018396F /* ZIMSqlInsertStatement.h in Headers */,
+				41C6F36621999AFE0018396F /* ZIMMessageDigest.h in Headers */,
+				41C6F3A621999AFE0018396F /* ZIMSqlTruncateTableStatement.h in Headers */,
+				41C6F39621999AFE0018396F /* ZIMOrmSdk.h in Headers */,
+				41C6F37621999AFE0018396F /* ZIMDbConnectionPool.h in Headers */,
+				41C6F41E21999AFE0018396F /* ZIMSqlExpression.h in Headers */,
+				41C6F48A21999AFE0018396F /* ZIMSqlPreparedStatement.h in Headers */,
+				41C6F48221999AFE0018396F /* ZIMSqlStatement.h in Headers */,
+				41C6F41221999AFE0018396F /* ZIMSqlTransactionControlCommand.h in Headers */,
+				41C6F43A21999AFE0018396F /* ZIMSqlSelectStatement.h in Headers */,
+				41C6F3E221999AFE0018396F /* ZIMSqlCreateIndexStatement.h in Headers */,
+				41C6F3EE21999AFE0018396F /* ZIMSqlShowColumnsStatement.h in Headers */,
+				41C6F47A21999AFE0018396F /* ZIMSqlAttachStatement.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C09689D1ED8CE5500CC19F2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C6F45F21999AFE0018396F /* ZIMSqlDetachStatement.h in Headers */,
+				41C6F3F721999AFE0018396F /* ZIMSqlDropTableStatement.h in Headers */,
+				8C5A76791ED95B67004F87A2 /* ZIMSqlQueryBuilder.h in Headers */,
+				41C6F45B21999AFE0018396F /* ZIMSqlShowGrantsStatement.h in Headers */,
+				41C6F48721999AFE0018396F /* ZIMSqlTokenizer.h in Headers */,
+				41C6F42B21999AFE0018396F /* ZIMSqlDataControlCommand.h in Headers */,
+				41C6F3C721999AFE0018396F /* ZIMSqlShowViewsStatement.h in Headers */,
+				41C6F47721999AFE0018396F /* ZIMSqlDropIndexStatement.h in Headers */,
+				41C6F41721999AFE0018396F /* ZIMSqlSdk.h in Headers */,
+				41C6F44721999AFE0018396F /* ZIMSqlUpdateStatement.h in Headers */,
+				41C6F41B21999AFE0018396F /* ZIMSqlDataManipulationCommand.h in Headers */,
+				41C6F3DB21999AFE0018396F /* ZIMSqlShowTablesStatement.h in Headers */,
+				41C6F3D321999AFE0018396F /* ZIMSqlDropTriggerStatement.h in Headers */,
+				41C6F42F21999AFE0018396F /* ZIMSqlReindexStatement.h in Headers */,
+				41C6F46B21999AFE0018396F /* ZIMSqlExplainStatement.h in Headers */,
+				41C6F3FB21999AFE0018396F /* ZIMSqlCreateViewStatement.h in Headers */,
+				41C6F46321999AFE0018396F /* ZIMSqlUpsertStatement.h in Headers */,
+				41C6F38721999AFE0018396F /* ZIMDbConnection.h in Headers */,
+				41C6F40721999AFE0018396F /* ZIMSqlDropViewStatement.h in Headers */,
+				41C6F42321999AFE0018396F /* ZIMSqlDeleteStatement.h in Headers */,
+				41C6F49721999AFE0018396F /* ZIMSqlShowTriggersStatement.h in Headers */,
+				41C6F38B21999AFE0018396F /* ZIMOrmModel.h in Headers */,
+				41C6F37F21999AFE0018396F /* ZIMDbSdk.h in Headers */,
+				41C6F46721999AFE0018396F /* ZIMSqlCreateTableStatement.h in Headers */,
+				41C6F43721999AFE0018396F /* ZIMSqlCreateTriggerStatement.h in Headers */,
+				41C6F3CF21999AFE0018396F /* ZIMSqlAnalyzeStatement.h in Headers */,
+				41C6F37321999AFE0018396F /* NSString+ZIMString.h in Headers */,
+				41C6F39321999AFE0018396F /* ZIMOrmModelDelegate.h in Headers */,
+				41C6F3AF21999AFE0018396F /* ZIMSqlAlterTableStatement.h in Headers */,
+				41C6F45321999AFE0018396F /* ZIMSqlDataDefinitionCommand.h in Headers */,
+				41C6F39F21999AFE0018396F /* ZIMOrmSelectStatement.h in Headers */,
+				41C6F40B21999AFE0018396F /* ZIMSqlInsertStatement.h in Headers */,
+				41C6F36721999AFE0018396F /* ZIMMessageDigest.h in Headers */,
+				41C6F3A721999AFE0018396F /* ZIMSqlTruncateTableStatement.h in Headers */,
+				41C6F39721999AFE0018396F /* ZIMOrmSdk.h in Headers */,
+				41C6F37721999AFE0018396F /* ZIMDbConnectionPool.h in Headers */,
+				41C6F41F21999AFE0018396F /* ZIMSqlExpression.h in Headers */,
+				41C6F48B21999AFE0018396F /* ZIMSqlPreparedStatement.h in Headers */,
+				41C6F48321999AFE0018396F /* ZIMSqlStatement.h in Headers */,
+				41C6F41321999AFE0018396F /* ZIMSqlTransactionControlCommand.h in Headers */,
+				41C6F43B21999AFE0018396F /* ZIMSqlSelectStatement.h in Headers */,
+				41C6F3E321999AFE0018396F /* ZIMSqlCreateIndexStatement.h in Headers */,
+				41C6F3EF21999AFE0018396F /* ZIMSqlShowColumnsStatement.h in Headers */,
+				41C6F47B21999AFE0018396F /* ZIMSqlAttachStatement.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8C0968771ED8C64500CC19F2 /* ZIMSqlQueryBuilder iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C09687E1ED8C64600CC19F2 /* Build configuration list for PBXNativeTarget "ZIMSqlQueryBuilder iOS" */;
+			buildPhases = (
+				8C0968731ED8C64500CC19F2 /* Sources */,
+				8C0968741ED8C64500CC19F2 /* Frameworks */,
+				8C0968751ED8C64500CC19F2 /* Headers */,
+				8C0968761ED8C64500CC19F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ZIMSqlQueryBuilder iOS";
+			productName = "ZIMSqlQueryBuilder iOS";
+			productReference = 8C0968781ED8C64500CC19F2 /* ZIMSqlQueryBuilder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8C0968851ED8C99400CC19F2 /* ZIMSqlQueryBuilder watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C09688B1ED8C99400CC19F2 /* Build configuration list for PBXNativeTarget "ZIMSqlQueryBuilder watchOS" */;
+			buildPhases = (
+				8C0968811ED8C99400CC19F2 /* Sources */,
+				8C0968821ED8C99400CC19F2 /* Frameworks */,
+				8C0968831ED8C99400CC19F2 /* Headers */,
+				8C0968841ED8C99400CC19F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ZIMSqlQueryBuilder watchOS";
+			productName = "ZIMSqlQueryBuilder watchOS";
+			productReference = 8C0968861ED8C99400CC19F2 /* ZIMSqlQueryBuilder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8C0968921ED8CBF300CC19F2 /* ZIMSqlQueryBuilder tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C0968981ED8CBF300CC19F2 /* Build configuration list for PBXNativeTarget "ZIMSqlQueryBuilder tvOS" */;
+			buildPhases = (
+				8C09688E1ED8CBF300CC19F2 /* Sources */,
+				8C09688F1ED8CBF300CC19F2 /* Frameworks */,
+				8C0968901ED8CBF300CC19F2 /* Headers */,
+				8C0968911ED8CBF300CC19F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ZIMSqlQueryBuilder tvOS";
+			productName = "ZIMSqlQueryBuilder tvOS";
+			productReference = 8C0968931ED8CBF300CC19F2 /* ZIMSqlQueryBuilder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8C09689F1ED8CE5500CC19F2 /* ZIMSqlQueryBuilder macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C0968A51ED8CE5500CC19F2 /* Build configuration list for PBXNativeTarget "ZIMSqlQueryBuilder macOS" */;
+			buildPhases = (
+				8C09689B1ED8CE5500CC19F2 /* Sources */,
+				8C09689C1ED8CE5500CC19F2 /* Frameworks */,
+				8C09689D1ED8CE5500CC19F2 /* Headers */,
+				8C09689E1ED8CE5500CC19F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ZIMSqlQueryBuilder macOS";
+			productName = "ZIMSqlQueryBuilder macOS";
+			productReference = 8C0968A01ED8CE5500CC19F2 /* ZIMSqlQueryBuilder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C09686D1ED8C3A200CC19F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 1000;
+				TargetAttributes = {
+					8C0968771ED8C64500CC19F2 = {
+						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					8C0968851ED8C99400CC19F2 = {
+						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					8C0968921ED8CBF300CC19F2 = {
+						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					8C09689F1ED8CE5500CC19F2 = {
+						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8C0968701ED8C3A200CC19F2 /* Build configuration list for PBXProject "ZIMSqlQueryBuilder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8C09686C1ED8C3A200CC19F2;
+			productRefGroup = 8C0968791ED8C64500CC19F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C0968771ED8C64500CC19F2 /* ZIMSqlQueryBuilder iOS */,
+				8C0968851ED8C99400CC19F2 /* ZIMSqlQueryBuilder watchOS */,
+				8C0968921ED8CBF300CC19F2 /* ZIMSqlQueryBuilder tvOS */,
+				8C09689F1ED8CE5500CC19F2 /* ZIMSqlQueryBuilder macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8C0968761ED8C64500CC19F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0968841ED8C99400CC19F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0968911ED8CBF300CC19F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C09689E1ED8CE5500CC19F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C0968731ED8C64500CC19F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C6F3B021999AFE0018396F /* ZIMSqlDeleteStatement.m in Sources */,
+				41C6F44821999AFE0018396F /* ZIMSqlDropTriggerStatement.m in Sources */,
+				41C6F3FC21999AFE0018396F /* ZIMSqlExplainStatement.m in Sources */,
+				41C6F3E421999AFE0018396F /* ZIMSqlTokenizer.m in Sources */,
+				41C6F42421999AFE0018396F /* ZIMSqlAlterTableStatement.m in Sources */,
+				41C6F36821999AFE0018396F /* ZIMMessageDigest.m in Sources */,
+				41C6F3E821999AFE0018396F /* ZIMSqlAttachStatement.m in Sources */,
+				41C6F47021999AFE0018396F /* ZIMSqlDropTableStatement.m in Sources */,
+				41C6F38021999AFE0018396F /* ZIMDbConnectionPool.m in Sources */,
+				41C6F44C21999AFE0018396F /* ZIMSqlAnalyzeStatement.m in Sources */,
+				41C6F3C021999AFE0018396F /* ZIMSqlDetachStatement.m in Sources */,
+				41C6F48C21999AFE0018396F /* ZIMSqlInsertStatement.m in Sources */,
+				41C6F40C21999AFE0018396F /* ZIMSqlPreparedStatement.m in Sources */,
+				41C6F39821999AFE0018396F /* ZIMOrmModel.m in Sources */,
+				41C6F3BC21999AFE0018396F /* ZIMSqlUpsertStatement.m in Sources */,
+				41C6F3DC21999AFE0018396F /* ZIMSqlSelectStatement.m in Sources */,
+				41C6F40021999AFE0018396F /* ZIMSqlShowTriggersStatement.m in Sources */,
+				41C6F3A821999AFE0018396F /* ZIMSqlCreateTriggerStatement.m in Sources */,
+				41C6F44021999AFE0018396F /* ZIMSqlShowTablesStatement.m in Sources */,
+				41C6F3B421999AFE0018396F /* ZIMSqlExpression.m in Sources */,
+				41C6F38C21999AFE0018396F /* ZIMOrmSelectStatement.m in Sources */,
+				41C6F49021999AFE0018396F /* ZIMSqlDropViewStatement.m in Sources */,
+				41C6F3D421999AFE0018396F /* ZIMSqlUpdateStatement.m in Sources */,
+				41C6F3C821999AFE0018396F /* ZIMSqlShowGrantsStatement.m in Sources */,
+				41C6F3B821999AFE0018396F /* ZIMSqlCreateTableStatement.m in Sources */,
+				41C6F45421999AFE0018396F /* ZIMSqlShowViewsStatement.m in Sources */,
+				41C6F43C21999AFE0018396F /* ZIMSqlCreateIndexStatement.m in Sources */,
+				41C6F43021999AFE0018396F /* ZIMSqlTruncateTableStatement.m in Sources */,
+				41C6F47C21999AFE0018396F /* ZIMSqlShowColumnsStatement.m in Sources */,
+				41C6F37821999AFE0018396F /* ZIMDbConnection.m in Sources */,
+				41C6F36C21999AFE0018396F /* NSString+ZIMString.m in Sources */,
+				41C6F46C21999AFE0018396F /* ZIMSqlCreateViewStatement.m in Sources */,
+				41C6F3A021999AFE0018396F /* ZIMSqlReindexStatement.m in Sources */,
+				41C6F3F021999AFE0018396F /* ZIMSqlDropIndexStatement.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C0968811ED8C99400CC19F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C6F3B121999AFE0018396F /* ZIMSqlDeleteStatement.m in Sources */,
+				41C6F44921999AFE0018396F /* ZIMSqlDropTriggerStatement.m in Sources */,
+				41C6F3FD21999AFE0018396F /* ZIMSqlExplainStatement.m in Sources */,
+				41C6F3E521999AFE0018396F /* ZIMSqlTokenizer.m in Sources */,
+				41C6F42521999AFE0018396F /* ZIMSqlAlterTableStatement.m in Sources */,
+				41C6F36921999AFE0018396F /* ZIMMessageDigest.m in Sources */,
+				41C6F3E921999AFE0018396F /* ZIMSqlAttachStatement.m in Sources */,
+				41C6F47121999AFE0018396F /* ZIMSqlDropTableStatement.m in Sources */,
+				41C6F38121999AFE0018396F /* ZIMDbConnectionPool.m in Sources */,
+				41C6F44D21999AFE0018396F /* ZIMSqlAnalyzeStatement.m in Sources */,
+				41C6F3C121999AFE0018396F /* ZIMSqlDetachStatement.m in Sources */,
+				41C6F48D21999AFE0018396F /* ZIMSqlInsertStatement.m in Sources */,
+				41C6F40D21999AFE0018396F /* ZIMSqlPreparedStatement.m in Sources */,
+				41C6F39921999AFE0018396F /* ZIMOrmModel.m in Sources */,
+				41C6F3BD21999AFE0018396F /* ZIMSqlUpsertStatement.m in Sources */,
+				41C6F3DD21999AFE0018396F /* ZIMSqlSelectStatement.m in Sources */,
+				41C6F40121999AFE0018396F /* ZIMSqlShowTriggersStatement.m in Sources */,
+				41C6F3A921999AFE0018396F /* ZIMSqlCreateTriggerStatement.m in Sources */,
+				41C6F44121999AFE0018396F /* ZIMSqlShowTablesStatement.m in Sources */,
+				41C6F3B521999AFE0018396F /* ZIMSqlExpression.m in Sources */,
+				41C6F38D21999AFE0018396F /* ZIMOrmSelectStatement.m in Sources */,
+				41C6F49121999AFE0018396F /* ZIMSqlDropViewStatement.m in Sources */,
+				41C6F3D521999AFE0018396F /* ZIMSqlUpdateStatement.m in Sources */,
+				41C6F3C921999AFE0018396F /* ZIMSqlShowGrantsStatement.m in Sources */,
+				41C6F3B921999AFE0018396F /* ZIMSqlCreateTableStatement.m in Sources */,
+				41C6F45521999AFE0018396F /* ZIMSqlShowViewsStatement.m in Sources */,
+				41C6F43D21999AFE0018396F /* ZIMSqlCreateIndexStatement.m in Sources */,
+				41C6F43121999AFE0018396F /* ZIMSqlTruncateTableStatement.m in Sources */,
+				41C6F47D21999AFE0018396F /* ZIMSqlShowColumnsStatement.m in Sources */,
+				41C6F37921999AFE0018396F /* ZIMDbConnection.m in Sources */,
+				41C6F36D21999AFE0018396F /* NSString+ZIMString.m in Sources */,
+				41C6F46D21999AFE0018396F /* ZIMSqlCreateViewStatement.m in Sources */,
+				41C6F3A121999AFE0018396F /* ZIMSqlReindexStatement.m in Sources */,
+				41C6F3F121999AFE0018396F /* ZIMSqlDropIndexStatement.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C09688E1ED8CBF300CC19F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C6F3B221999AFE0018396F /* ZIMSqlDeleteStatement.m in Sources */,
+				41C6F44A21999AFE0018396F /* ZIMSqlDropTriggerStatement.m in Sources */,
+				41C6F3FE21999AFE0018396F /* ZIMSqlExplainStatement.m in Sources */,
+				41C6F3E621999AFE0018396F /* ZIMSqlTokenizer.m in Sources */,
+				41C6F42621999AFE0018396F /* ZIMSqlAlterTableStatement.m in Sources */,
+				41C6F36A21999AFE0018396F /* ZIMMessageDigest.m in Sources */,
+				41C6F3EA21999AFE0018396F /* ZIMSqlAttachStatement.m in Sources */,
+				41C6F47221999AFE0018396F /* ZIMSqlDropTableStatement.m in Sources */,
+				41C6F38221999AFE0018396F /* ZIMDbConnectionPool.m in Sources */,
+				41C6F44E21999AFE0018396F /* ZIMSqlAnalyzeStatement.m in Sources */,
+				41C6F3C221999AFE0018396F /* ZIMSqlDetachStatement.m in Sources */,
+				41C6F48E21999AFE0018396F /* ZIMSqlInsertStatement.m in Sources */,
+				41C6F40E21999AFE0018396F /* ZIMSqlPreparedStatement.m in Sources */,
+				41C6F39A21999AFE0018396F /* ZIMOrmModel.m in Sources */,
+				41C6F3BE21999AFE0018396F /* ZIMSqlUpsertStatement.m in Sources */,
+				41C6F3DE21999AFE0018396F /* ZIMSqlSelectStatement.m in Sources */,
+				41C6F40221999AFE0018396F /* ZIMSqlShowTriggersStatement.m in Sources */,
+				41C6F3AA21999AFE0018396F /* ZIMSqlCreateTriggerStatement.m in Sources */,
+				41C6F44221999AFE0018396F /* ZIMSqlShowTablesStatement.m in Sources */,
+				41C6F3B621999AFE0018396F /* ZIMSqlExpression.m in Sources */,
+				41C6F38E21999AFE0018396F /* ZIMOrmSelectStatement.m in Sources */,
+				41C6F49221999AFE0018396F /* ZIMSqlDropViewStatement.m in Sources */,
+				41C6F3D621999AFE0018396F /* ZIMSqlUpdateStatement.m in Sources */,
+				41C6F3CA21999AFE0018396F /* ZIMSqlShowGrantsStatement.m in Sources */,
+				41C6F3BA21999AFE0018396F /* ZIMSqlCreateTableStatement.m in Sources */,
+				41C6F45621999AFE0018396F /* ZIMSqlShowViewsStatement.m in Sources */,
+				41C6F43E21999AFE0018396F /* ZIMSqlCreateIndexStatement.m in Sources */,
+				41C6F43221999AFE0018396F /* ZIMSqlTruncateTableStatement.m in Sources */,
+				41C6F47E21999AFE0018396F /* ZIMSqlShowColumnsStatement.m in Sources */,
+				41C6F37A21999AFE0018396F /* ZIMDbConnection.m in Sources */,
+				41C6F36E21999AFE0018396F /* NSString+ZIMString.m in Sources */,
+				41C6F46E21999AFE0018396F /* ZIMSqlCreateViewStatement.m in Sources */,
+				41C6F3A221999AFE0018396F /* ZIMSqlReindexStatement.m in Sources */,
+				41C6F3F221999AFE0018396F /* ZIMSqlDropIndexStatement.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C09689B1ED8CE5500CC19F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C6F3B321999AFE0018396F /* ZIMSqlDeleteStatement.m in Sources */,
+				41C6F44B21999AFE0018396F /* ZIMSqlDropTriggerStatement.m in Sources */,
+				41C6F3FF21999AFE0018396F /* ZIMSqlExplainStatement.m in Sources */,
+				41C6F3E721999AFE0018396F /* ZIMSqlTokenizer.m in Sources */,
+				41C6F42721999AFE0018396F /* ZIMSqlAlterTableStatement.m in Sources */,
+				41C6F36B21999AFE0018396F /* ZIMMessageDigest.m in Sources */,
+				41C6F3EB21999AFE0018396F /* ZIMSqlAttachStatement.m in Sources */,
+				41C6F47321999AFE0018396F /* ZIMSqlDropTableStatement.m in Sources */,
+				41C6F38321999AFE0018396F /* ZIMDbConnectionPool.m in Sources */,
+				41C6F44F21999AFE0018396F /* ZIMSqlAnalyzeStatement.m in Sources */,
+				41C6F3C321999AFE0018396F /* ZIMSqlDetachStatement.m in Sources */,
+				41C6F48F21999AFE0018396F /* ZIMSqlInsertStatement.m in Sources */,
+				41C6F40F21999AFE0018396F /* ZIMSqlPreparedStatement.m in Sources */,
+				41C6F39B21999AFE0018396F /* ZIMOrmModel.m in Sources */,
+				41C6F3BF21999AFE0018396F /* ZIMSqlUpsertStatement.m in Sources */,
+				41C6F3DF21999AFE0018396F /* ZIMSqlSelectStatement.m in Sources */,
+				41C6F40321999AFE0018396F /* ZIMSqlShowTriggersStatement.m in Sources */,
+				41C6F3AB21999AFE0018396F /* ZIMSqlCreateTriggerStatement.m in Sources */,
+				41C6F44321999AFE0018396F /* ZIMSqlShowTablesStatement.m in Sources */,
+				41C6F3B721999AFE0018396F /* ZIMSqlExpression.m in Sources */,
+				41C6F38F21999AFE0018396F /* ZIMOrmSelectStatement.m in Sources */,
+				41C6F49321999AFE0018396F /* ZIMSqlDropViewStatement.m in Sources */,
+				41C6F3D721999AFE0018396F /* ZIMSqlUpdateStatement.m in Sources */,
+				41C6F3CB21999AFE0018396F /* ZIMSqlShowGrantsStatement.m in Sources */,
+				41C6F3BB21999AFE0018396F /* ZIMSqlCreateTableStatement.m in Sources */,
+				41C6F45721999AFE0018396F /* ZIMSqlShowViewsStatement.m in Sources */,
+				41C6F43F21999AFE0018396F /* ZIMSqlCreateIndexStatement.m in Sources */,
+				41C6F43321999AFE0018396F /* ZIMSqlTruncateTableStatement.m in Sources */,
+				41C6F47F21999AFE0018396F /* ZIMSqlShowColumnsStatement.m in Sources */,
+				41C6F37B21999AFE0018396F /* ZIMDbConnection.m in Sources */,
+				41C6F36F21999AFE0018396F /* NSString+ZIMString.m in Sources */,
+				41C6F46F21999AFE0018396F /* ZIMSqlCreateViewStatement.m in Sources */,
+				41C6F3A321999AFE0018396F /* ZIMSqlReindexStatement.m in Sources */,
+				41C6F3F321999AFE0018396F /* ZIMSqlDropIndexStatement.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8C0968711ED8C3A200CC19F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+			};
+			name = Debug;
+		};
+		8C0968721ED8C3A200CC19F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
+			};
+			name = Release;
+		};
+		8C09687F1ED8C64600CC19F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/ZIMSqlQueryBuilder/Info-iOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ziminji.ZIMSqlQueryBuilder;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8C0968801ED8C64600CC19F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/ZIMSqlQueryBuilder/Info-iOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = ziminji.ZIMSqlQueryBuilder;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8C09688C1ED8C99400CC19F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/ZIMSqlQueryBuilder/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ziminji.ZIMSqlQueryBuilder;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		8C09688D1ED8C99400CC19F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/ZIMSqlQueryBuilder/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = ziminji.ZIMSqlQueryBuilder;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		8C0968991ED8CBF300CC19F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/ZIMSqlQueryBuilder/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ziminji.ZIMSqlQueryBuilder;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8C09689A1ED8CBF300CC19F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/ZIMSqlQueryBuilder/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = ziminji.ZIMSqlQueryBuilder;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8C0968A61ED8CE5500CC19F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/ZIMSqlQueryBuilder/Info-macOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ziminji.ZIMSqlQueryBuilder;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8C0968A71ED8CE5500CC19F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Sources/ZIMSqlQueryBuilder/Info-macOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = ziminji.ZIMSqlQueryBuilder;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C0968701ED8C3A200CC19F2 /* Build configuration list for PBXProject "ZIMSqlQueryBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C0968711ED8C3A200CC19F2 /* Debug */,
+				8C0968721ED8C3A200CC19F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C09687E1ED8C64600CC19F2 /* Build configuration list for PBXNativeTarget "ZIMSqlQueryBuilder iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C09687F1ED8C64600CC19F2 /* Debug */,
+				8C0968801ED8C64600CC19F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C09688B1ED8C99400CC19F2 /* Build configuration list for PBXNativeTarget "ZIMSqlQueryBuilder watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C09688C1ED8C99400CC19F2 /* Debug */,
+				8C09688D1ED8C99400CC19F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C0968981ED8CBF300CC19F2 /* Build configuration list for PBXNativeTarget "ZIMSqlQueryBuilder tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C0968991ED8CBF300CC19F2 /* Debug */,
+				8C09689A1ED8CBF300CC19F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C0968A51ED8CE5500CC19F2 /* Build configuration list for PBXNativeTarget "ZIMSqlQueryBuilder macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C0968A61ED8CE5500CC19F2 /* Debug */,
+				8C0968A71ED8CE5500CC19F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8C09686D1ED8C3A200CC19F2 /* Project object */;
+}
